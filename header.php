@@ -62,7 +62,7 @@
 				wp_nav_menu(
 					array(
 						'container_id'    => 'primary-menu',
-						'container_class' => 'bg-gray-100 mt-4 p-4',
+						'container_class' => 'hidden bg-gray-100 mt-4 p-4',
 						'menu_class'      => 'flex flex-col gap-3',
 						'theme_location'  => 'primary',
 						'li_class'        => '',
