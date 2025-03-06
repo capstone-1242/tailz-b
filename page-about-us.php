@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+    get_header();
+?>
 
 <div class="container mx-auto my-8">
 
@@ -56,4 +58,5 @@
 </div>
 
 <?php
-get_footer();
+    get_footer();
+?>
