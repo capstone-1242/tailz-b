@@ -79,4 +79,4 @@
 
 		<?php do_action( 'my_tailpress_theme_content_start' ); ?>
 
-		<main>
+		<main></main>

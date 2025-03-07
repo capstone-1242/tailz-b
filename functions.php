@@ -3,7 +3,11 @@
 /**
  * Theme setup.
  */
+<<<<<<< HEAD
 function tailpress_setup() {
+=======
+function my_tailpress_theme_setup() {
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 	add_theme_support( 'title-tag' );
 
 	register_nav_menus(
@@ -35,11 +39,16 @@ function tailpress_setup() {
 	add_editor_style( 'css/editor-style.css' );
 }
 
+<<<<<<< HEAD
 add_action( 'after_setup_theme', 'tailpress_setup' );
+=======
+add_action( 'after_setup_theme', 'my_tailpress_theme_setup' );
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 
 /**
  * Enqueue theme assets.
  */
+<<<<<<< HEAD
 function tailpress_enqueue_scripts() {
 	$theme = wp_get_theme();
 
@@ -48,6 +57,16 @@ function tailpress_enqueue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'tailpress_enqueue_scripts' );
+=======
+function my_tailpress_theme_enqueue_scripts() {
+	$theme = wp_get_theme();
+
+	wp_enqueue_style( 'tailpress', my_tailpress_theme_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_script( 'tailpress', my_tailpress_theme_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
+}
+
+add_action( 'wp_enqueue_scripts', 'my_tailpress_theme_enqueue_scripts' );
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 
 /**
  * Get asset path.
@@ -56,7 +75,11 @@ add_action( 'wp_enqueue_scripts', 'tailpress_enqueue_scripts' );
  *
  * @return string
  */
+<<<<<<< HEAD
 function tailpress_asset( $path ) {
+=======
+function my_tailpress_theme_asset( $path ) {
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 	if ( wp_get_environment_type() === 'production' ) {
 		return get_stylesheet_directory_uri() . '/' . $path;
 	}
@@ -73,7 +96,11 @@ function tailpress_asset( $path ) {
  *
  * @return array
  */
+<<<<<<< HEAD
 function tailpress_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
+=======
+function my_tailpress_theme_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 	if ( isset( $args->li_class ) ) {
 		$classes[] = $args->li_class;
 	}
@@ -85,7 +112,11 @@ function tailpress_nav_menu_add_li_class( $classes, $item, $args, $depth ) {
 	return $classes;
 }
 
+<<<<<<< HEAD
 add_filter( 'nav_menu_css_class', 'tailpress_nav_menu_add_li_class', 10, 4 );
+=======
+add_filter( 'nav_menu_css_class', 'my_tailpress_theme_nav_menu_add_li_class', 10, 4 );
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 
 /**
  * Adds option 'submenu_class' to 'wp_nav_menu'.
@@ -96,7 +127,11 @@ add_filter( 'nav_menu_css_class', 'tailpress_nav_menu_add_li_class', 10, 4 );
  *
  * @return array
  */
+<<<<<<< HEAD
 function tailpress_nav_menu_add_submenu_class( $classes, $args, $depth ) {
+=======
+function my_tailpress_theme_nav_menu_add_submenu_class( $classes, $args, $depth ) {
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
 	if ( isset( $args->submenu_class ) ) {
 		$classes[] = $args->submenu_class;
 	}
@@ -108,6 +143,7 @@ function tailpress_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 	return $classes;
 }
 
+<<<<<<< HEAD
 add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class', 10, 3 );
 
 function enqueue_swiper_assets() {
@@ -116,3 +152,6 @@ function enqueue_swiper_assets() {
     wp_enqueue_script('swiper-init', get_template_directory_uri() . '/js/swiper-init.js', array('swiper-js'), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
+=======
+add_filter( 'nav_menu_submenu_css_class', 'my_tailpress_theme_nav_menu_add_submenu_class', 10, 3 );
+>>>>>>> 94d5586fa9702ded126e5259525b7bd11ac61bed
