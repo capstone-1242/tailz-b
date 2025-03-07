@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Photos
- * Description: A custom template for the "Photos" page, displaying photoshoot packages
+ * Description: A custom template for the "Photos" page, displaying photoshoot packages.
  *
  * @package tailz
  */
@@ -67,7 +67,6 @@ get_header();
         <h3 class="text-lg font-bold mb-4">EXAMPLE PHOTOS</h3>
 
         <?php if ( have_rows('example_photos') ) : ?>
-            <!-- Container for Repeater Items with extra spacing -->
             <div class="flex justify-center gap-8 mb-8 p-4 flex-wrap">
                 <?php while ( have_rows('example_photos') ) : the_row(); 
                     $photo_image = get_sub_field('photo_image');
@@ -94,7 +93,6 @@ get_header();
             <p class="text-sm mb-8">No example photos found.</p>
         <?php endif; ?>
 
-        <!-- Gray CTA button (same style as landing) -->
         <div class="mb-10">
             <a href="#"
                class="inline-block border border-black text-black text-sm font-bold px-6 py-2 
