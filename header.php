@@ -55,6 +55,7 @@
 						<p>TempIcon</p>
 					</div>
 
+
 				</div>
 
 				<?php
@@ -67,14 +68,14 @@
 						'li_class'        => '',
 						'fallback_cb'     => false,
 						'submenu_class'	  => 'flex flex-col gap-3 mt-3 ml-6'
+						// 'link_before'	  => '<span class="no-underline">',
+						// 'link_after'	  => '</span>'
 					)
 				);
 				?>
 			</div>
 		</div>
 	</header>
-
-	<div id="content" class="site-content grow">
 
 		<?php do_action( 'my_tailpress_theme_content_start' ); ?>
 
