@@ -2,7 +2,7 @@
     get_header();
 ?>
 
-<main class="container mx-auto my-8">
+<div class="container mx-auto my-8">
 
     <article class="flex flex-col">
     <!-- Page heading -->
@@ -99,7 +99,7 @@
 
     </article>
 
-</main>
+</div>
 
 <?php
     get_footer();
