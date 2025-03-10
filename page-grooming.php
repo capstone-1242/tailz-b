@@ -2,7 +2,7 @@
     get_header();
 ?>
 
-<div class="container mx-auto my-8">
+<main class="container mx-auto my-8">
     <!-- Page Content -->
     <div class="flex flex-col gap-3 mt-8">
         <h2 class="uppercase font-bold">Fixed Heading</h2>
@@ -16,7 +16,9 @@
             ?>
         </div>
     </div>
-</div>
+
+
+</main>
 
 <?php
     get_footer();
