@@ -111,11 +111,11 @@ function tailpress_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class', 10, 3 );
 
 function tailpress_tabs_scripts() {
-    if (is_page_template('page-portraits.php') || 
+    if (is_page_template('page-photos.php') || 
         is_page_template('page-hotel.php') || 
 		is_page_template('page-grooming.php') || 
         is_page_template('page-exercise.php') || 
-		is_page('portraits') || 
+		is_page('photos') || 
         is_page('hotel') || 
         is_page('grooming') || 
         is_page('exercise')) {
