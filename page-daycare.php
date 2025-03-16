@@ -139,6 +139,7 @@ get_header();
 
             </div>
         </div>
+        <h3>Book your daycare today!</h3>
         <button>
             Book Now
         </button>
