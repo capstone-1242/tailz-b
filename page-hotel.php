@@ -43,7 +43,7 @@ get_header();
                 <div>
                     <?php
                         $dog_hotel_rates = new WP_Query(array(
-                            'post_type' => 'daycare',
+                            'post_type' => 'hotel',
                             'posts_per_page' => -1,
                             'title' => 'Dogs - Hotel Rates',
                         ));
