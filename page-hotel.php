@@ -174,6 +174,7 @@ get_header();
         </div>
     </section>
 
+    <!-- Used same FAQ as daycare page except the irrelevant ones -->
     <section>
         <h2>Frequently Asked Questions</h2>
         <div>
@@ -184,10 +185,6 @@ get_header();
         <div>
             <h3>Will the vaccinations I did myself work?</h3>
             <p>They may work, however, we require proof of purchase (the till receipt) and the sticker from the vaccination vile. Without both parts, we cannot accept the self-administered vaccine. We will also count vaccines as valid for only 1 year from the day of purchase.</p>
-        </div>
-        <div>
-            <h3>Can I get my dog's grooming done while they attend doggy daycare?</h3>
-            <p>Of course. Speak to our client care team member to see about availability. Walk-in requests such as nail trims and brushings can be squeezed in. Full grooms take more time and will need to be scheduled in advance.</p>
         </div>
         <div>
             <h3>Do you have a littles area?</h3>

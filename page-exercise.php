@@ -71,6 +71,7 @@
 
             </div>
         </div>
+        <h3>Book some workouts for your pup today!</h3>
         <button>
             Book Now
         </button>
