@@ -136,7 +136,108 @@ get_header();
             </div>
             <!-- Cat Tab -->
             <div class="tab-content hidden" id="tab2-content">
-
+                <!-- Card 1 -->
+                <div>
+                    <?php
+                        $cat_daycare_prices = new WP_Query(array(
+                            'post_type' => 'daycare',
+                            'posts_per_page' => -1,
+                            'title' => 'Cats - Daily Rates',
+                        ));
+                        if ($cat_daycare_prices->have_posts()) :
+                            while ($cat_daycare_prices->have_posts()) : $cat_daycare_prices->the_post(); ?>
+                                <div>
+                                    <?php
+                                    $option1 = get_field('option_1');
+                                    $option2 = get_field('option_2');
+                                    $option3 = get_field('option_3');
+                                    ?>
+                                    <?php if ($option1) : ?>
+                                        <p><?php echo esc_html($option1); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option2) : ?>
+                                        <p><?php echo esc_html($option2); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option3) : ?>
+                                        <p><?php echo esc_html($option3); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo '<p>No daily rates available.</p>';
+                        endif;
+                    ?>
+                </div>
+                <!-- Card 2 -->
+                <div>
+                    <?php
+                        $cat_daycare_prices = new WP_Query(array(
+                            'post_type' => 'daycare',
+                            'posts_per_page' => -1,
+                            'title' => 'Cats - Monthly Play Packages',
+                        ));
+                        if ($cat_daycare_prices->have_posts()) :
+                            while ($cat_daycare_prices->have_posts()) : $cat_daycare_prices->the_post(); ?>
+                                <div>
+                                    <?php
+                                    $option1 = get_field('option_1');
+                                    $option2 = get_field('option_2');
+                                    $option3 = get_field('option_3');
+                                    ?>
+                                    <?php if ($option1) : ?>
+                                        <p><?php echo esc_html($option1); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option2) : ?>
+                                        <p><?php echo esc_html($option2); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option3) : ?>
+                                        <p><?php echo esc_html($option3); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo '<p>No monthly play passes available.</p>';
+                        endif;
+                    ?>
+                </div>
+                <!-- Card 3 -->
+                <div>
+                    <?php
+                        $cat_daycare_prices = new WP_Query(array(
+                            'post_type' => 'daycare',
+                            'posts_per_page' => -1,
+                            'title' => 'Cats - Flex Passes',
+                        ));
+                        if ($cat_daycare_prices->have_posts()) :
+                            while ($cat_daycare_prices->have_posts()) : $cat_daycare_prices->the_post(); ?>
+                                <div>
+                                    <?php
+                                    $option1 = get_field('option_1');
+                                    $option2 = get_field('option_2');
+                                    $option3 = get_field('option_3');
+                                    ?>
+                                    <?php if ($option1) : ?>
+                                        <p><?php echo esc_html($option1); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option2) : ?>
+                                        <p><?php echo esc_html($option2); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option3) : ?>
+                                        <p><?php echo esc_html($option3); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo '<p>No flex passes available.</p>';
+                        endif;
+                    ?>
+                </div>
             </div>
         </div>
         <h3>Book your daycare today!</h3>

@@ -115,7 +115,79 @@ get_header();
             </div>
             <!-- Cat Tab -->
             <div class="tab-content hidden" id="tab2-content">
-
+                <!-- Card 1 -->
+                <div>
+                    <?php
+                        $cat_hotel_rates = new WP_Query(array(
+                            'post_type' => 'hotel',
+                            'posts_per_page' => -1,
+                            'title' => 'Cats - Hotel Rates',
+                        ));
+                        if ($cat_hotel_rates->have_posts()) :
+                            while ($cat_hotel_rates->have_posts()) : $cat_hotel_rates->the_post(); ?>
+                                <div>
+                                    <?php
+                                    $option1 = get_field('option_1');
+                                    $option2 = get_field('option_2');
+                                    $option3 = get_field('option_3');
+                                    ?>
+                                    <?php if ($option1) : ?>
+                                        <div>
+                                            <h3>Bronze Package</h3>
+                                            <p><?php echo esc_html($option1); ?> / night</p>
+                                        </div>
+                                        <div>
+                                            <h4>Lowest Cost</h4>
+                                            <div>
+                                                <p>Morning Play Session</p>
+                                                <p>Bedtime Story</p>
+                                                <p>Extra Cuddles</p>
+                                                <p>Gourmet Bedtime Treat</p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($option2) : ?>
+                                        <div>
+                                            <h3>Silver Package</h3>
+                                            <p><?php echo esc_html($option2); ?> / night</p>
+                                        </div>
+                                        <div>
+                                            <h4>Most Pupular</h4>
+                                            <div>
+                                                <p>Morning Play Session</p>
+                                                <p>Afternoon Play Session</p>
+                                                <p>Bedtime Story</p>
+                                                <p>Extra Cuddles</p>
+                                                <p>Gourmet Bedtime Treat</p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($option3) : ?>
+                                        <div>
+                                            <h3>Gold Package</h3>
+                                            <p><?php echo esc_html($option3); ?> / night</p>
+                                        </div>
+                                        <div>
+                                            <h4>Ultimutt Value</h4>
+                                            <div>
+                                                <p>Morning Play Session</p>
+                                                <p>Afternoon Play Session</p>
+                                                <p>Evening Stroll</p>
+                                                <p>Bedtime Story</p>
+                                                <p>Extra Cuddles</p>
+                                                <p>Gourmet Bedtime Treat</p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo '<p>No daily rates available.</p>';
+                        endif;
+                    ?>
+                </div>
             </div>
         </div>
         <h3>Book a sleepover with us!</h3>
