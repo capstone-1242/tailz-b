@@ -9,3 +9,11 @@ License: MIT
 License URI: https://github.com/jeffreyvr/tailpress/blob/master/LICENSE
 Text Domain: tailpress
 */
+
+.tabs-container .tab-button {
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.tabs-container .tab-button:hover {
+    cursor: pointer; /* Ensure cursor changes on hover */
+}

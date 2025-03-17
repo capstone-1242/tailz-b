@@ -111,15 +111,17 @@ function tailpress_nav_menu_add_submenu_class( $classes, $args, $depth ) {
 add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class', 10, 3 );
 
 function tailpress_tabs_scripts() {
-    if (is_page_template('page-photos.php') || 
+    if (
+        is_page_template('page-photos.php') || 
         is_page_template('page-hotel.php') || 
-		is_page_template('page-grooming.php') || 
+        is_page_template('page-grooming.php') || 
         is_page_template('page-exercise.php') || 
-		is_page('photos') || 
+        is_page('photos') || 
         is_page('hotel') || 
         is_page('grooming') || 
-        is_page('exercise')) {
-        
+        is_page('exercise')
+    ) {
+        // Enqueue universal tabs script
         wp_register_script(
             'tailpress-tabs',
             get_template_directory_uri() . '/js/tabs.js',
@@ -127,16 +129,27 @@ function tailpress_tabs_scripts() {
             '1.0.0',
             true
         );
-        
         wp_enqueue_script('tailpress-tabs');
         
-        // Optional: Add shared CSS for tabs
+        // Enqueue universal tabs CSS
         wp_enqueue_style(
             'tailpress-tabs-style',
             get_template_directory_uri() . '/css/tabs.css',
             array(),
             '1.0.0'
         );
+        
+        // If it's the grooming page, enqueue grooming-specific JS
+        if ( is_page_template('page-grooming.php') || is_page('grooming') ) {
+            wp_register_script(
+                'grooming-tabs',
+                get_template_directory_uri() . '/js/grooming-tabs.js',
+                array('jquery'),
+                '1.0.0',
+                true
+            );
+            wp_enqueue_script('grooming-tabs');
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'tailpress_tabs_scripts');
