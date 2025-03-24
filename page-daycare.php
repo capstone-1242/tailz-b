@@ -98,6 +98,10 @@ get_header();
                             echo '<p>No monthly play passes available.</p>';
                         endif;
                     ?>
+                    <div>
+                        <p>Flex Packages expire 90 DAYS after the date of purchase</p>
+                        <p>Advanced booking is required</p>
+                    </div>
                 </div>
                 <!-- Card 3 -->
                 <div>
@@ -132,6 +136,19 @@ get_header();
                             echo '<p>No flex passes available.</p>';
                         endif;
                     ?>
+                    <div>
+                        <div>
+                            <p>30-Day Advance Emailed Cancellation Notice is Required.</p>
+                            <p>Monthly Play-Packages expire 30 DAYS after the date of purchase.</p>
+                        </div>
+                        <div>
+                            <h3>monthly membership perks</h3>
+                            <ol>
+                                <li>Priority Overnight Booking</li>
+                                <li>Wag More Rewards - VIP Bonus</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Cat Tab -->
@@ -240,14 +257,14 @@ get_header();
                 </div>
             </div>
         </div>
-        <h3>Book your daycare today!</h3>
+        <p>Monthly Automatic Passes and Flex Package purchases are non-refundable, not transferable and not eligible for in-store credit.</p>
         <button>
-            Book Now
+            book now
         </button>
     </section>
 
     <section>
-        <div>
+        <!-- <div>
             <h2>Requirements For Attending</h2>
             <p>All pups must meet a standard to attend Doggy Daycare</p>
         </div>
@@ -269,7 +286,14 @@ get_header();
             <h3>Pest Management</h3>
             <p>We strongly recommend that your dog be on a monthly anti-parasite medication such as Revolution or Advantage. This will greatly help in reducing the risk of introducing fleas, ticks or lice to our facility and will protect your pup against them.</p>
             <p>You can obtain these directly from your veternarian and are often available over-the-counter.</p>
-        </div>
+        </div> -->
+        <h2>requirements for attending</h2>
+        <ol>
+            <li>All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioural assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and ejoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
+            <li>Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>
+            <li>Our daycare program is not only about coming to play, but to enrich their life through physucal exercise, mental stimulation, and socialization</li>
+            <li>Safety and comfort of your pup is important, so our playgroups are based on size and termperament and are always supervised by a qualified team member</li>
+        </ol>
     </section>
 
     <section>
