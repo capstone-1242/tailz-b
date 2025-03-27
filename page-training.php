@@ -9,41 +9,51 @@
 get_header();
 ?>
 
-<div class="container mx-auto my-8">
+<div class="container mx-auto">
 
     <!-- Page Content -->
-    <section class="flex flex-col gap-3 mt-8">
-        <h2 class="uppercase font-bold">Daycare</h2>
-        <div class="page-content">
+    <section class="flex flex-col gap-3">
+        <div class="relative h-[15.375rem] w-full overflow-hidden">
+            <?php
+                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                if($featured_image_url) : ?>
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
+                <?php endif; ?>
 
-        <!-- Hardcode for now -->
-        <div>
-            <p>When a dog's behaviour is out of the "normal range", extra guidance is required from skilled trainers who specialize in dog behaviour and additional attending from their companions.</p>
-            <p>In these circumstances, it is crucial to know it is okay to ask for help. Training your pup needs to be a lifestyle and a life-long commitment. Open yourself up to learn why your pup may have these behaviours in order to understand how to help your pup get results.</p>
-            <div>
-                <p>During the Canine Skill Building process, we need to figure out your goals for your pup. Two different households can be looking for different results. Ultimately, we want you to able to answer a few fundamental questions:</p>
-                <ol>
-                    <li>How do I help them achieve my goal for them?</li>
-                    <li>How much time and effort am I willing to commit to their success?</li>
-                </ol>
-            </div>
-            <p>All these factors affect the outcome. Canine Skill building is not just training - it's a learning process for both you and your pup. Throughout the process, you will be systematically given tools to help your pup build the skills they need to improve their behaviour.</p>
-            <p>Training happens through repetition and with the Skill Building, learning occurs as a sensory experience. It is more holistic - one in which all your dog's senses are activated in a rich and robust way. Skill Building will deepen your relationship with your dog.</p>
-            <p>After your initial consultation, our trainer will thoughtfully develop a plan for ongoing skill enhances, structure and one-on-one support.</p>
-            <div>
-                <p>Some common Canine Skill Building Includes:</p>
-                <ol>
-                    <li>Leash reactivity</li>
-                    <li>Reactivity (other dogs or humans)</li>
-                    <li>Barrier frustration (ie. fence fighting)</li>
-                    <li>Excessive barking</li>
-                    <li>Door dashing</li>
-                    <li>Resource guarding</li>
-                    <li>Fearfulness (dogs or humans)</li>
-                    <li>Poor leash manners</li>
-                    <li>Confidence issues</li>
-                </ol>
-            </div>
+                <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
+                    <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
+                    <p class="uppercase text-white text-[18px]">Lessons for every type of pup</p>
+                </div>            
+        </div>
+
+        <div class="flex flex-col mx-6 gap-3">
+            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Dog Behavior</h3>
+            <p class="text-[18px] text-[#47423B]">When a dog's behavior is out of the "normal range", extra guidance is required from skilled trainers who specialize in dog behaviour and additional attending from their companions.</p>
+            <p class="text-[18px] text-[#47423B]">In these circumstances, it is crucial to know it is okay to ask for help. Training your pup needs to be a lifestyle and a life-long commitment. Open yourself up to learn why your pup may have these behaviors in order to understand how to help your pup get results.</p>
+        </div>
+
+        <div class="flex flex-col mx-6 gap-3">
+            <h3 class="lowercase font-bold text-[22px] text-[#FCD41D]">Canine Skill Building</h3>
+            <p class="text-[18px] text-[#47423B]">During the Canine Skill Building process, we need to figure out your goals for your pup. Two different households can be looking for different results. Ultimately, we want you to able to answer a few fundamental questions:</p>
+            <ol class="flex flex-col text-[18px] text-[#47423B] italic gap-3">
+                <li>How do I help them achieve my goal for them?</li>
+                <li>How much time and effort am I willing to commit to their success?</li>
+            </ol>
+            <p class="text-[18px] text-[#47423B]">All these factors affect the outcome. Canine Skill building is not just training - it's a learning process for both you and your pup. Throughout the process, you will be systematically given tools to help your pup build the skills they need to improve their behaviour.</p>
+            <p class="text-[18px] text-[#47423B]">Training happens through repetition and with the Skill Building, learning occurs as a sensory experience. It is more holistic - one in which all your dog's senses are activated in a rich and robust way. Skill Building will deepen your relationship with your dog.</p>
+            <p class="text-[18px] text-[#47423B]">After your initial consultation, our trainer will thoughtfully develop a plan for ongoing skill enhances, structure and one-on-one support.</p>
+            <p class="text-[18px] text-[#47423B]">Some common Canine Skill Building Includes:</p>
+            <ol class="flex flex-col text-[18px] text-[#47423B] italic gap-3">
+                <li>Leash reactivity</li>
+                <li>Reactivity (other dogs or humans)</li>
+                <li>Barrier frustration (ie. fence fighting)</li>
+                <li>Excessive barking</li>
+                <li>Door dashing</li>
+                <li>Resource guarding</li>
+                <li>Fearfulness (dogs or humans)</li>
+                <li>Poor leash manners</li>
+                <li>Confidence issues</li>
+            </ol>
         </div>
     </section>
 
