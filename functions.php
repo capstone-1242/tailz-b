@@ -42,9 +42,10 @@ add_action( 'after_setup_theme', 'tailpress_setup' );
  */
 function tailpress_enqueue_scripts() {
 	$theme = wp_get_theme();
+	$timestamp = time();
 
-	wp_enqueue_style( 'tailpress', tailpress_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
-	wp_enqueue_script( 'tailpress', tailpress_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_style( 'tailpress', tailpress_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) . '.' . $timestamp );
+	wp_enqueue_script( 'tailpress', tailpress_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) . '.' . $timestamp, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'tailpress_enqueue_scripts' );
@@ -116,15 +117,17 @@ function tailpress_tabs_scripts() {
         is_page_template('page-hotel.php') || 
         is_page_template('page-grooming.php') || 
         is_page_template('page-exercise.php') || 
+        is_page_template('page-training.php') || 
         is_page('photos') || 
         is_page('hotel') || 
         is_page('grooming') || 
-        is_page('exercise')
+        is_page('exercise') ||
+        is_page('training')
     ) {
         // Enqueue universal tabs script
         wp_register_script(
             'tailpress-tabs',
-            get_template_directory_uri() . '/js/tabs.js',
+            get_template_directory_uri() . '/resources/js/tabs.js',
             array('jquery'),
             '1.0.0',
             true
@@ -134,7 +137,7 @@ function tailpress_tabs_scripts() {
         // Enqueue universal tabs CSS
         wp_enqueue_style(
             'tailpress-tabs-style',
-            get_template_directory_uri() . '/css/tabs.css',
+            get_template_directory_uri() . '/resources/css/tabs.css',
             array(),
             '1.0.0'
         );
@@ -143,7 +146,7 @@ function tailpress_tabs_scripts() {
         if ( is_page_template('page-grooming.php') || is_page('grooming') ) {
             wp_register_script(
                 'grooming-tabs',
-                get_template_directory_uri() . '/js/grooming-tabs.js',
+                get_template_directory_uri() . '/resources/js/grooming-tabs.js',
                 array('jquery'),
                 '1.0.0',
                 true
@@ -153,3 +156,98 @@ function tailpress_tabs_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'tailpress_tabs_scripts');
+
+/**
+ * Force cache busting for CSS to ensure the latest styles are loaded.
+ */
+function tailpress_force_cache_bust_styles() {
+    $theme = wp_get_theme();
+    $timestamp = time();
+    
+    // Remove previously enqueued styles
+    wp_dequeue_style('tailpress');
+    
+    // Re-enqueue with forced timestamp for cache busting
+    wp_enqueue_style(
+        'tailpress', 
+        get_stylesheet_directory_uri() . '/css/app.css', 
+        array(), 
+        $theme->get('Version') . '.' . $timestamp
+    );
+}
+add_action('wp_enqueue_scripts', 'tailpress_force_cache_bust_styles', 20);  // Priority 20 to run after tailpress_enqueue_scripts
+
+/**
+ * Check if Advanced Custom Fields plugin is active
+ */
+function is_acf_active() {
+    return class_exists('ACF');
+}
+
+function tailpress_enqueue_google_fonts() {
+    wp_enqueue_style(
+        'google-fonts',
+        'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
+        array(),
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'tailpress_enqueue_google_fonts');
+
+// Include the mobile menu walker
+require_once get_template_directory() . '/inc/class-tailz-mobile-menu-walker.php';
+
+/**
+ * Add custom menu classes for Tailwind styling
+ */
+function tailz_add_menu_classes($classes, $item, $args) {
+    // Add common class to all menu items
+    $classes[] = 'border-b border-white border-opacity-20';
+    
+    // Check if item has children
+    if (in_array('menu-item-has-children', $classes)) {
+        $classes[] = 'has-mobile-submenu'; // Add a custom class for easier targeting
+    }
+    
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'tailz_add_menu_classes', 10, 3);
+
+/**
+ * Add custom link classes for Tailwind styling
+ */
+function tailz_add_link_classes($atts, $item, $args, $depth) {
+    // Only apply to mobile menu
+    if ($args->theme_location == 'primary') {
+        // Get existing classes if any
+        $classes = isset($atts['class']) ? $atts['class'] : '';
+        
+        if ($depth === 0) {
+            // Top level items
+            $atts['class'] = $classes . ' block px-6 py-3 text-white font-bold uppercase';
+        } else {
+            // Sub menu items
+            $atts['class'] = $classes . ' block px-6 py-2 text-white uppercase';
+        }
+    }
+    
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'tailz_add_link_classes', 10, 4);
+
+/**
+ * Enqueue mobile menu script
+ */
+function tailz_enqueue_mobile_menu_script() {
+    $theme = wp_get_theme();
+    $timestamp = time();
+    
+    wp_enqueue_script(
+        'tailz-mobile-menu',
+        get_template_directory_uri() . '/resources/js/mobile-menu.js',
+        array(),
+        $theme->get('Version') . '.' . $timestamp,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'tailz_enqueue_mobile_menu_script');

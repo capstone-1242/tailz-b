@@ -1,4 +1,10 @@
 <?php
+/**
+ * Template Name: About US
+ * Description: The about us page for Tailz.
+ *
+ * @package tailz
+ */
     get_header();
 ?>
 

@@ -141,16 +141,28 @@ get_header();
         <div class="swiper gallery-slider">
             <div class="swiper-wrapper">
                 <?php
-                $gallery_images = get_field('gallery_images'); // ACF Gallery Field
-                if ($gallery_images) :
-                    foreach ($gallery_images as $image) :
-                ?>
-                        <div class="swiper-slide">
-                            <img src="<?php echo esc_url($image['url']); ?>" alt="Gallery Image" class="w-full rounded-lg shadow-lg">
+                // Fallback gallery content if ACF is not available
+                if (function_exists('get_field')) {
+                    $gallery_images = get_field('gallery_images');
+                    if ($gallery_images) :
+                        foreach ($gallery_images as $image) :
+                            ?>
+                            <div class="swiper-slide">
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="Gallery Image" class="w-full rounded-lg shadow-lg">
+                            </div>
+                            <?php
+                        endforeach;
+                    endif;
+                } else {
+                    // Fallback content
+                    ?>
+                    <div class="swiper-slide">
+                        <div class="w-full h-64 bg-gray-300 rounded-lg shadow-lg flex items-center justify-center">
+                            <p class="text-gray-600">Gallery images will appear here</p>
                         </div>
-                <?php
-                    endforeach;
-                endif;
+                    </div>
+                    <?php
+                }
                 ?>
             </div>
 
@@ -168,42 +180,18 @@ get_header();
     </section>
 
     <!-- Testimonials Section -->
-    <section class="container mx-auto px-4 py-10" aria-labelledby="testimonials-heading">
-        <h2 id="testimonials-heading" class="text-xl font-bold text-gray-900 text-center mb-4">TESTIMONIALS</h2>
-
-        <div class="swiper testimonials-slider">
-            <div class="swiper-wrapper">
-                <?php
-                $testimonials = get_field('testimonials'); // ACF Repeater Field
-                if ($testimonials) :
-                    foreach ($testimonials as $testimonial) :
-                ?>
-                        <div class="swiper-slide text-center">
-                            <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
-                                <p class="text-gray-700 text-sm italic">"<?php echo esc_html($testimonial['quote']); ?>"</p>
-                                <h4 class="text-black font-semibold mt-2"><?php echo esc_html($testimonial['author']); ?></h4>
-                            </div>
-                        </div>
-                <?php
-                    endforeach;
-                endif;
-                ?>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
+    <section class="container mx-auto px-4 py-10">
+        <?php echo do_shortcode('[trustindex no-registration=google]'); ?>
     </section>
 
     <!-- Newsletter Signup Section -->
     <section class="w-full bg-gray-200 py-12" aria-labelledby="newsletter-heading">
         <div class="max-w-md mx-auto text-center">
             <h2 id="newsletter-heading" class="text-xl font-extrabold text-gray-900">
-                <?php echo esc_html(get_field('newsletter_heading') ?: 'SIGN UP FOR OUR NEWSLETTER!'); ?>
+                <?php echo function_exists('get_field') ? esc_html(get_field('newsletter_heading')) : 'SIGN UP FOR OUR NEWSLETTER!'; ?>
             </h2>
             <p class="text-gray-700 mt-4 text-sm leading-relaxed">
-                <?php echo esc_html(get_field('newsletter_description') ?: 'Stay updated with our latest news and offers.'); ?>
+                <?php echo function_exists('get_field') ? esc_html(get_field('newsletter_description')) : 'Stay updated with our latest news and offers.'; ?>
             </p>
 
             <!-- Newsletter Form -->
