@@ -14,7 +14,7 @@
 
                 <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
                     <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                    <p class="uppercase text-white text-[18px]">our goals - our story - our team</p>
+                    <p class="uppercase text-white text-[18px]">our goals - our story - our</p>
                 </div>            
         </div>
 
