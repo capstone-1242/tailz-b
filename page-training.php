@@ -34,11 +34,25 @@ get_header();
 
         <div class="flex-col mx-6 gap-3">
             <h3 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h3>
-            <p class="lowercase text-[22px] text-[#837660]">Your role in the process</p>
+            <h4 class="lowercase text-[22px] text-[#837660]">Your role in the process</h4>
             <p class="text-[18px] text-[#47423B]">During Canine Skill Building, we start by defining your goals. Every household is different, and success looks unique for each dog. Ask yourself:</p>
+            <ol class="flex-col gap-3 text-[18px] text-[#615849] font-bold">
+                <li>How can I help my dog reach these goals?</li>
+                <li>What time and effort am I willing to invest?</li>
+            </ol>
+            <p class="text-[18px] text-[#47423B]">These choices shape the outcome. This isn't just "training" - it's a transformative learning journey for both you and your pup. You'll gain systematic tools to help your pup develop the skills they need to thrive.</p>
+            <h3 class="lowercase text-[22px] text-[#837660]">Our commitment to you</h3>
+            <p>After your initial consultation, our trainer will craft a personalized plan for ongoing skill development, including:</p>
+            <ol class="flex-col gap-3 text-[18px] text-[#615849] font-bold">
+                <li>One-on-one coaching</li>
+                <li>Structured exercise</li>
+                <li>Real world practice</li>
+            </ol>
         </div>
 
-        <div class="flex flex-col mx-6 gap-3">
+
+
+        <!-- <div class="flex flex-col mx-6 gap-3">
             <h3 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h3>
             <p class="text-[18px] text-[#47423B]">During the Canine Skill Building process, we need to figure out your goals for your pup. Two different households can be looking for different results. Ultimately, we want you to able to answer a few fundamental questions:</p>
             <ol class="flex flex-col text-[18px] text-[#47423B] italic gap-3">
@@ -60,7 +74,7 @@ get_header();
                 <li>Poor leash manners</li>
                 <li>Confidence issues</li>
             </ol>
-        </div>
+        </div> -->
     </section>
 
     <?php
