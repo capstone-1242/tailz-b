@@ -27,13 +27,19 @@ get_header();
         </div>
 
         <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Dog Behavior</h3>
-            <p class="text-[18px] text-[#47423B]">When a dog's behavior is out of the "normal range", extra guidance is required from skilled trainers who specialize in dog behaviour and additional attending from their companions.</p>
-            <p class="text-[18px] text-[#47423B]">In these circumstances, it is crucial to know it is okay to ask for help. Training your pup needs to be a lifestyle and a life-long commitment. Open yourself up to learn why your pup may have these behaviors in order to understand how to help your pup get results.</p>
+            <h3 class="lowercase font-bold text-[22px] text-[#615849]">The leash is in your hands, we'll show you how to lead</h3>
+            <p class="text-[18px] text-[#47423B]">When a dog's behavior falls outside the "normal" range, it often requires extra guidance—not just from skilled trainers, but from owners committed to their companion's growth.</p>
+            <p class="text-[18px] text-[#47423B]"><span class="font-bold">First, let's drop the stigma.</span> Asking for help is not just okay—it's a sign of dedication. Training isn't a quick fix; it's a lifestyle and a lifelong partnership. To create lasting change, we focus on <span class="font-bold">THE WHY</span> behind your pup's behavior, so you can master <span class="font-bold">THE HOW</span> to support them effectively.</p>
+        </div>
+
+        <div class="flex-col mx-6 gap-3">
+            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h3>
+            <p class="lowercase text-[22px] text-[#837660]">Your role in the process</p>
+            <p class="text-[18px] text-[#47423B]">During Canine Skill Building, we start by defining your goals. Every household is different, and success looks unique for each dog. Ask yourself:</p>
         </div>
 
         <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#FCD41D]">Canine Skill Building</h3>
+            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h3>
             <p class="text-[18px] text-[#47423B]">During the Canine Skill Building process, we need to figure out your goals for your pup. Two different households can be looking for different results. Ultimately, we want you to able to answer a few fundamental questions:</p>
             <ol class="flex flex-col text-[18px] text-[#47423B] italic gap-3">
                 <li>How do I help them achieve my goal for them?</li>
