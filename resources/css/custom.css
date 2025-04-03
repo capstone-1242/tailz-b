@@ -430,3 +430,18 @@ article > *:not(.entry-content),
     list-style-position: inside;
   }
 }
+
+/* Gallery Page */
+.masonry-grid-item {
+  width: 300px;
+  margin-bottom: 10px
+}
+
+.masonry-grid{ 
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+img{
+  max-width: 100%;
+}
