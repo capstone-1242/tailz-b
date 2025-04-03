@@ -1,45 +1,36 @@
 <?php
 /**
  * Template Name: Training
- * Description: Displays training packages for dogs, managed by Meta Box fields.
+ * Description: A custom template for the "Training" page.
  *
  * @package tailz
  */
 
-get_header();
+    get_header();
 ?>
 
-<div class="container mx-auto">
-
+<div class="container mx-auto my-8">
     <!-- Page Content -->
-    <section class="flex flex-col gap-3">
-        <div class="relative h-[15.375rem] w-full overflow-hidden">
+    <section class="flex flex-col gap-3 mt-8">
+        <h2 class="uppercase font-bold">Daycare</h2>
+        <div class="page-content">
             <?php
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                if($featured_image_url) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-                <?php endif; ?>
-
-                <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                    <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                    <p class="uppercase text-white text-[18px]">Lessons for every type of pup</p>
-                </div>            
+            if (have_posts()) :
+                while (have_posts()) : the_post();
+                    the_content();
+                endwhile;
+            endif;
+            ?>
         </div>
 
         <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">The leash is in your hands, we'll show you how to lead</h3>
-            <p class="text-[18px] text-[#47423B]">When a dog's behavior falls outside the "normal" range, it often requires extra guidance—not just from skilled trainers, but from owners committed to their companion's growth.</p>
-            <p class="text-[18px] text-[#47423B]"><span class="font-bold">First, let's drop the stigma.</span> Asking for help is not just okay—it's a sign of dedication. Training isn't a quick fix; it's a lifestyle and a lifelong partnership. To create lasting change, we focus on <span class="font-bold">THE WHY</span> behind your pup's behavior, so you can master <span class="font-bold">THE HOW</span> to support them effectively.</p>
-        </div>
-
-        <div class="flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h3>
-            <p class="lowercase text-[22px] text-[#837660]">Your role in the process</p>
-            <p class="text-[18px] text-[#47423B]">During Canine Skill Building, we start by defining your goals. Every household is different, and success looks unique for each dog. Ask yourself:</p>
+            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Dog Behavior</h3>
+            <p class="text-[18px] text-[#47423B]">When a dog's behavior is out of the "normal range", extra guidance is required from skilled trainers who specialize in dog behaviour and additional attending from their companions.</p>
+            <p class="text-[18px] text-[#47423B]">In these circumstances, it is crucial to know it is okay to ask for help. Training your pup needs to be a lifestyle and a life-long commitment. Open yourself up to learn why your pup may have these behaviors in order to understand how to help your pup get results.</p>
         </div>
 
         <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h3>
+            <h3 class="lowercase font-bold text-[22px] text-[#FCD41D]">Canine Skill Building</h3>
             <p class="text-[18px] text-[#47423B]">During the Canine Skill Building process, we need to figure out your goals for your pup. Two different households can be looking for different results. Ultimately, we want you to able to answer a few fundamental questions:</p>
             <ol class="flex flex-col text-[18px] text-[#47423B] italic gap-3">
                 <li>How do I help them achieve my goal for them?</li>
@@ -63,144 +54,159 @@ get_header();
         </div>
     </section>
 
-    <?php
-    // -----------------------------
-    // Retrieve cloned meta values
-    // -----------------------------
-    $titles       = (array) rwmb_meta( 'training_package_title' );
-    $descriptions = (array) rwmb_meta( 'training_description' );
-    $prices       = (array) rwmb_meta( 'training_price' );
+    <section class="tabs-container" id="page-tabs">
+        <h2>Daycare Rates</h2>
+        <div class="tabs flex mb-4">
+            <button class="tab-button active bg-[#E2E2E2] pt-[25px] pb-[20px] px-[25px] rounded-tl-[15px] rounded-tr-[15px]" data-tab="tab1">
+                Dog
+            </button>
+            <button class="tab-button" data-tab="tab2">
+                Cat
+            </button>
+        </div>
 
-    // Build packages array
-    $packages = [];
-    $total = count( $titles );
-    for ( $i = 0; $i < $total; $i++ ) {
-        if ( empty( $titles[ $i ] ) ) {
-            continue;
-        }
-        $packages[] = [
-            'title'       => $titles[ $i ],
-            'description' => isset($descriptions[ $i ]) ? $descriptions[ $i ] : '',
-            'price'       => isset($prices[ $i ]) ? $prices[ $i ] : '',
-        ];
-    }
-
-    /**
-     * Helper function to render training packages in a single "DOG" tab.
-     */
-    function render_training_packages( $packages ) {
-        ?>
-        <div class="tabs-container" id="training-tabs">
-            <div class="tabs flex mb-4">
-                <button class="tab-button active border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md flex items-center gap-2 cursor-pointer">
-                    <!-- Dog Icon -->
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5.5 16l1.75-3.5a2 2 0 0 1 1.79-1.06h3.92a2 2 0 0 1 1.79 1.06L17.5 16M7 16v4m10-4v4m-10 0h10"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M9 8.5C8 8 6 8.5 6 6c0-2 1.5-2 2.5-2S11 4 11 6c0 2.5-2 2-2 2.5zm6 0c-1-0.5-3 0-3-2.5 0-2 1.5-2 2.5-2S17 4 17 6c0 2.5-2 2-2 2.5z"/>
-                    </svg>
-                    DOG
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="tab-content" id="dog-content">
-                <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                    <!-- Display each package in a grey box -->
-                    <?php if ( ! empty( $packages ) ) : ?>
-                        <?php foreach ( $packages as $index => $pkg ) : ?>
-                            <div class="mb-4 bg-gray-200 p-4 rounded-md">
-                                <h3 class="font-bold text-md mb-2">
-                                    <?php echo esc_html( $pkg['title'] ); ?>
-                                </h3>
-                                <p class="text-sm mb-2">
-                                    <?php echo esc_html( $pkg['description'] ); ?>
-                                </p>
-                                <p class="text-sm font-bold mb-2">
-                                    <?php echo esc_html( $pkg['price'] ); ?>
-                                </p>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <p class="text-sm text-gray-500">No training packages found.</p>
-                    <?php endif; ?>
+        <div>
+            <!-- Dog Tab -->
+            <div class="tab-content" id="tab1-content">
+                <!-- Card 1 -->
+                <div>
+                    <?php
+                        $dog_skill_building_rates = new WP_Query(array(
+                            'post_type' => 'canine skill building',
+                            'posts_per_page' => -1,
+                            'title' => 'Dogs - Canine Skill Building',
+                        ));
+                        if ($dog_skill_building_rates->have_posts()) :
+                            while ($dog_skill_building_rates->have_posts()) : $dog_skill_building_rates->the_post(); ?>
+                                <div>
+                                    <?php
+                                    if (function_exists('get_field')) {
+                                        $option1 = get_field('option_1');
+                                        $option2 = get_field('option_2');
+                                        $option3 = get_field('option_3');
+                                        $option4 = get_field('option_4');
+                                    } else {
+                                        $option1 = $option2 = $option3 = $option4 = '';
+                                    }
+                                    ?>
+                                    <?php if ($option1) : ?>
+                                        <p><?php echo esc_html($option1); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option2) : ?>
+                                        <p><?php echo esc_html($option2); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option3) : ?>
+                                        <p><?php echo esc_html($option3); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option4) : ?>
+                                        <p><?php echo esc_html($option4); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo '<p>No daily rates available.</p>';
+                        endif;
+                    ?>
                 </div>
-
-                <!-- Book Lessons Button -->
-                <div class="text-center">
-                    <a href="#" class="inline-block border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition">
-                        BOOK LESSONS
-                    </a>
+            </div>
+            <!-- Cat Tab -->
+            <div class="tab-content hidden" id="tab2-content">
+                 <!-- Card 1 -->
+                 <div>
+                    <?php
+                        $cat_skill_building_rates = new WP_Query(array(
+                            'post_type' => 'feline skill building',
+                            'posts_per_page' => -1,
+                            'title' => 'Cats - Feline Skill Building',
+                        ));
+                        if ($cat_skill_building_rates->have_posts()) :
+                            while ($cat_skill_building_rates->have_posts()) : $cat_skill_building_rates->the_post(); ?>
+                                <div>
+                                    <?php
+                                    if (function_exists('get_field')) {
+                                        $option1 = get_field('option_1');
+                                        $option2 = get_field('option_2');
+                                        $option3 = get_field('option_3');
+                                        $option4 = get_field('option_4');
+                                    } else {
+                                        $option1 = $option2 = $option3 = $option4 = '';
+                                    }
+                                    ?>
+                                    <?php if ($option1) : ?>
+                                        <p><?php echo esc_html($option1); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option2) : ?>
+                                        <p><?php echo esc_html($option2); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option3) : ?>
+                                        <p><?php echo esc_html($option3); ?></p>
+                                    <?php endif; ?>
+                                    <?php if ($option4) : ?>
+                                        <p><?php echo esc_html($option4); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo '<p>No daily rates available.</p>';
+                        endif;
+                    ?>
                 </div>
             </div>
         </div>
-        <?php
-    }
-    ?>
-
-    <div class="container mx-auto px-4 py-6">
-        <!-- Page Heading -->
-        <section class="mb-6">
-            <h1 class="text-2xl font-extrabold mb-2">TRAINING PACKAGES</h1>
-            <p class="text-sm text-gray-700 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada consectetur justo.
-            </p>
-        </section>
-
-        <!-- Render the single DOG tab with the packages from Meta Box -->
-        <?php render_training_packages( $packages ); ?>
-
-        <h3 class="mt-6 font-bold">Book some skillz for your pup today!</h3>
-        <button class="border border-black text-black text-sm font-bold px-4 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition">
+        <h3>Book some skillz for your pup today!</h3>
+        <button>
             Book Now
         </button>
-        <p class="mt-2 text-sm">Services must be pre-paid prior to commencing. Canine Skill Building sessions are to be scheduled in advance.</p>
-        <p class="text-sm">We require a minimum of 24-hour notice for rescheduling any Canine Skill Building sessions - not doing so will result in a $50 late cancellation fee or use of one session from the bundle.</p>
-    </div>
+        <p>Services must be pre-paid prior to commencing. Canine Skill Building sessions are to be scheduled in advance.</p>
+        <p>We require a minimum of 24-hour notice for rescheduling any Canine Skill Building sessions - not doing so will result in a $50 late cancellation fee or use of one session from the bundle.</p>
+    </section>
 
-    <section class="px-4 py-6">
+    <section>
         <div>
-            <h2 class="text-xl font-bold mb-2">Training requirements</h2>
-            <p class="text-sm">Our basic requirements for attending training...</p>
+            <h2>Training requirements</h2>
+            <p>Our basic requirements for attending training</p>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="px-4 py-6">
-        <h2 class="text-xl font-bold mb-4">Frequently Asked Questions</h2>
-        <div class="mb-6">
-            <h3 class="font-bold">Why does Tailz need copies of vaccination records? Will my dog's rabies tag work?</h3>
-            <p class="text-sm">We respect the trust our clients have in us. We also understand that saying the vaccinations were done is not the same as knowing when the vaccinations were in fact administered...</p>
+    <!-- Used same FAQ as daycare page except the irrelevant ones -->
+    <section>
+        <h2>Frequently Asked Questions</h2>
+        <div>
+            <h3>Why does Tailz need copies of vaccination records? Will my dog's rabies tag work?</h3>
+            <p>We respect the trust our clients have in us. We also understand that saying the vaccinations were done is not the same as knowing when the vaccinations were in fact administered and when they are due next. The details on a rabies tag do not provide us with enough information to count as proof.</p>
+            <p>We use a computerized system to help us keep track of when they are due next. This gives our clients the peace of mind they deserve knowing all dogs in our care are vaccinated according to their veterinarian's schedule.</p>
         </div>
-        <!-- Additional FAQs -->
-        <div class="mb-6">
-            <h3 class="font-bold">Will the vaccinations I did myself work?</h3>
-            <p class="text-sm">They may work, however, we require proof of purchase (the till receipt) and the sticker from the vaccination vile...</p>
+        <div>
+            <h3>Will the vaccinations I did myself work?</h3>
+            <p>They may work, however, we require proof of purchase (the till receipt) and the sticker from the vaccination vile. Without both parts, we cannot accept the self-administered vaccine. We will also count vaccines as valid for only 1 year from the day of purchase.</p>
         </div>
-        <div class="mb-6">
-            <h3 class="font-bold">Do you have a littles area?</h3>
-            <p class="text-sm">Yes, we do! Little ones have an area fenced off and exclusively dedicated to them and boy do they love it!</p>
+        <div>
+            <h3>Do you have a littles area?</h3>
+            <p>Yes, we do! Little ones have an area fenced off and exclusively dedicateed to them adn boy do they love it! Play structures that are more suited to their smaller structures are available for them to play on.</p>
         </div>
-        <div class="mb-6">
-            <h3 class="font-bold">How are dogs grouped together?</h3>
-            <p class="text-sm">We separate dogs according to size and play style.</p>
+        <div>
+            <h3>How are dogs grouped together?</h3>
+            <p>We separate dogs according to size and play style</p>
         </div>
-        <div class="mb-6">
-            <h3 class="font-bold">Are dogs free to roam?</h3>
-            <p class="text-sm">Think of us like a supervised off leash park. We do have crates, however they are mostly used for personal space or time-outs.</p>
+        <div>
+            <h3>Are dogs free to roam?</h3>
+            <p>Think of us like a supervised off leash park. We do have crates, however they are mostly used to allow a dog to have their own personal space to nap, or occasionally for a time out.</p>
         </div>
-        <div class="mb-6">
-            <h3 class="font-bold">What techniques do your Canine Play Specialists use when handling dogs?</h3>
-            <p class="text-sm">It is our mission to use scientifically-based techniques when handling the dogs. This means absolutely no dominating, no alpha-rolling...</p>
+        <div>
+            <h3>What techniques do your Canine Play Specialists use when handling dogs?</h3>
+            <p>It is our mission to use scientifically-based techniques when handling the dogs. This means absolutely no dominating, no alpha-rolling, and no Cesar Milan anything. These are all techniques that can and often do cause fear and negative association for dogs.</p>
         </div>
-        <div class="mb-6">
-            <h3 class="font-bold">What is your philosophy on dog training and handling?</h3>
-            <p class="text-sm">At Tailz, we believe in treating animals with the kindness and respect they deserve...</p>
+        <div>
+            <h3>What is your philosophy on dog training and handling?</h3>
+            <p>At Tailz, we believe in treating animals with the kindness and respect they deserve. It is our mandate to cause no undue harm or stress to an animal in our care. You may see us ask for your dog to have manners. Kindly offer our team your patience while we work with your dog during its stay including at home time. Fortunately, repetition works... it just needs time :)</p>
         </div>
     </section>
+</div>
 
-</div><!-- /.container -->
-
-<?php get_footer(); ?>
+<?php
+get_footer();
+?>

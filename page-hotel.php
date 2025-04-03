@@ -1,33 +1,35 @@
 <?php
-get_header();
+/**
+ * Template Name: Photos
+ * Description: A custom template for the "Photos" (Portraits) page, displaying photoshoot packages with Dog/Cat tabs using Meta Box.
+ *
+ * @package tailz
+ */
+
+ get_header();
 ?>
 
-<div class="container mx-auto">
+
+<div class="container mx-auto my-8">
     <!-- Page Content -->
-    <section class="flex flex-col gap-3">
-        <div class="relative h-[15.375rem] w-full overflow-hidden">
+    <section class="flex flex-col gap-3 mt-8">
+        <h2 class="uppercase font-bold">Daycare</h2>
+        <div class="page-content">
             <?php
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                if($featured_image_url) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-                <?php endif; ?>
-
-                <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                    <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                    <p class="uppercase text-white text-[18px]">Stay at our five star motel</p>
-                </div>            
+            if (have_posts()) :
+                while (have_posts()) : the_post();
+                    the_content();
+                endwhile;
+            endif;
+            ?>
         </div>
-
-        <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Rest & relaxation, for both you and your pets</h3>
-            <p class="text-[18px] text-[#47423B]">You've earned your time off, but travel isn't always pet-friendly. Luckily, Tailz offers safe and comfortable overnight lodging for your dog!</p>
-        </div>
-
-        <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#FCD41D]">Two in one</h3>
-            <p class="text-[18px] text-[#47423B]">At Tailz, overnight stays include all the perks of doggy daycare plus extra bedtime care! Your pup enjoys a full day of play, restful sleep in a comfy suite, and wakes up ready for more fun. Every overnight stay includes a full day of daycare!</p>
-            <p class="text-[18px] text-[#47423B]">We provide blankets, beds, bowls, and toys - just bring their food! Note: Personal items may get damaged.</p>
-            <p class="text-[18px] text-[#47423B]">Enjoy peace of mind knowing your pet is well cared for.</p>
+        <!-- Hardcode for now -->
+        <div>
+            <p>You’ve worked hard throughout the year to take time off. Whether it’s a vacation, or a business trip - there are plenty of times when our lives take us out of town for a few days and pets are not always welcome. Luckily, you can feel comfortable leaving your dog at Tailz for a few nights of overnight lodging!</p>
+            <p>When dogs stay the night at Tailz, they receive all the benefits of doggy daycare, plus extra special time at night before being tucked into bed! The mental and physical stimulation throughout the day provides a restful sleep at night in one of our suites, and your pup will wake up in the morning ready for another fun-filled day with us! A full day of doggy day care is included with every night of overnight lodging at Tailz.</p>
+            <p>You deserve peace of mind in knowing that your beloved pet is being well cared for. Rest assured, we provide all the blankets, dog beds, feeding bowls, and toys that your dog needs; all you need to bring is a container with their food! <span>Blankets and personal items from home may be damaged.</span></p>
+            <p>Though twice a day is normal, we will feed your pup up to three times per day with their allotted food. Bring all items in a marked reusable shopping bag. Food that is pre-portioned is appreciated.</p>
+            <p>Sign your pup up for a departure bath on their last day of lodging so they come home fresh and squeaky clean!</p>
         </div>
     </section>
 

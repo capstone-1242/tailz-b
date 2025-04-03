@@ -107,10 +107,78 @@ function render_grooming_tab( $animal, $services ) {
             </a>
         </div>
     </div>
+    <?php
+}
+?>
 
+<div class="container mx-auto px-4 py-6">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
+        <a href="<?php echo esc_url( home_url('/') ); ?>" class="hover:text-gray-700 uppercase">HOME</a>
+        <span class="mx-1">/</span>
+        <a href="#" class="hover:text-gray-700 uppercase">SERVICES</a>
+        <span class="mx-1">/</span>
+        <span class="uppercase font-bold">GROOMING</span>
+    </nav>
 
+    <!-- Page Heading -->
+    <section class="mb-4">
+        <h1 class="text-2xl font-extrabold mb-1">GROOMING</h1>
+        <p class="text-sm text-gray-700 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada consectetur justo.
+        </p>
+    </section>
+
+    <!-- Options and Prices Heading -->
+    <section class="mb-4">
+        <h2 class="text-xl font-bold text-gray-900">OPTIONS AND PRICES</h2>
+    </section>
+
+    <!-- Tabs Container -->
+    <div class="tabs-container" id="grooming-tabs" aria-labelledby="tabs-heading">
+        <h2 id="tabs-heading" class="sr-only">Grooming Tabs</h2>
+        <!-- Tab Buttons -->
+        <div class="tabs flex items-center gap-4 mb-4">
+            <button class="tab-button active cursor-pointer border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition flex items-center gap-2" data-tab="dog">
+                <!-- Dog SVG -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Insert your SVG paths here -->
+                </svg>
+                DOG
+            </button>
+            <button class="tab-button cursor-pointer border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition flex items-center gap-2" data-tab="cat">
+                <!-- Cat SVG -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Insert your SVG paths here -->
+                </svg>
+                CAT
+            </button>
+        </div>
+
+        <!-- Render the DOG Tab -->
+        <?php render_grooming_tab('dog', $services); ?>
+
+        <!-- Render the CAT Tab -->
+        <?php render_grooming_tab('cat', $services); ?>
+    </div>
+
+    <!-- Booking and Grooming Policies -->
+    <section class="mb-6">
+        <h2 class="text-xl font-bold mb-2">BOOKING AND GROOMING POLICIES</h2>
+        <p class="text-sm leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada consectetur justo.
+        </p>
+    </section>
+
+    <!-- FAQs -->
+    <section class="mb-10">
+        <h2 class="text-xl font-bold mb-4 text-left">FAQs</h2>
+        <p class="text-sm leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+            Check out our FAQ page or contact us for more details.
+        </p>
+    </section>
 </div>
 
 <?php
-    get_footer();
-?>
+get_footer();

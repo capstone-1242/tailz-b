@@ -1,4 +1,11 @@
 <?php
+/**
+ * Template Name: Puppy Programs
+ * Description: A custom template for the "Puppy Programs" page.
+ *
+ * @package tailz
+ */
+
     get_header();
 ?>
 
