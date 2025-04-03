@@ -1,16 +1,285 @@
-/* Ensure article content is centered (if desired) */
+/* ========================================
+   CUSTOM CSS - ORGANIZED STRUCTURE
+   ======================================== */
+
+/* 
+ * TABLE OF CONTENTS:
+ * 1. Design System Variables
+ * 2. Base Styles
+ *    2.1 Typography
+ *    2.2 Spacing
+ *    2.3 Buttons
+ * 3. Component Styles
+ *    3.1 Login/Signup Popup
+ *    3.2 Mobile Menu
+ * 4. Utility Classes
+ * 5. WordPress Editor Styles
+ */
+
+/* ----------------------------------------
+   1. DESIGN SYSTEM VARIABLES
+   ---------------------------------------- */
+
+:root {
+  /* Grid System - Mobile */
+  --grid-columns-mobile: 4;
+  --grid-margin-mobile: 24px;
+  --grid-gutter-mobile: 20px;
+
+  /* Grid System - Desktop */
+  --grid-columns-desktop: 12;
+  --grid-margin-desktop: 90px;
+  --grid-gutter-desktop: 32px;
+
+  /* Section Spacing */
+  --section-spacing-mobile: 60px;
+  --section-spacing-desktop: 130px;
+
+  /* Title/Content Spacing */
+  --title-content-spacing-mobile: 20px;
+  --title-content-spacing-desktop: 30px;
+
+  /* Calculate scrollbar width for layout shifts */
+  --scrollbar-width: 0px;
+}
+
+/* ----------------------------------------
+   2. BASE STYLES
+   ---------------------------------------- */
+
+/* Center article content if desired */
 article > *:not(.entry-content),
 .entry-content > * {
   margin-left: auto;
   margin-right: auto;
 }
 
-@layer base {
+/* Handle overflow on mobile menu open */
+body.overflow-hidden {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0px); /* Prevent layout shift */
+}
 
-  /* Login/Signup Popup */
+@layer base {
+  /* ----------------------------------------
+     2.1 Typography
+     ---------------------------------------- */
+
+  /* Headings (Mobile First) */
+  h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: var(--color-brand-darkblue);
+    font-size: 52.8px; /* Adjusted to match spec */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--color-brand-darkblue);
+    font-size: 37px; /* Adjusted to match spec */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--color-brand-darkblue);
+    font-size: 31px; /* Adjusted to match spec */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--color-brand-darkblue);
+    font-size: 26px; /* Adjusted to match spec */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h5 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--color-brand-darkblue);
+    font-size: 22px; /* Adjusted to match spec */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: var(--color-brand-darkblue);
+    font-size: 18px; /* Default for mobile */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  /* Paragraphs */
+  p {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-gray-700);
+    font-size: 18px; /* Mobile */
+    line-height: 1.5;
+  }
+
+  /* Additional text styles */
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .small {
+    font-size: 16px; /* Mobile small text */
+  }
+
+  .tiny {
+    font-size: 12px; /* Mobile tiny text */
+  }
+
+  /* Desktop Typography Overrides */
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 134.6px; /* Desktop spec */
+    }
+
+    h2 {
+      font-size: 75.8px; /* Desktop spec */
+    }
+
+    h3 {
+      font-size: 56.8px; /* Desktop spec */
+    }
+
+    h4 {
+      font-size: 56.8px; /* Adjusted to match spec */
+    }
+
+    h5 {
+      font-size: 32px; /* Desktop spec */
+    }
+
+    h6 {
+      font-family: "Work Sans", sans-serif;
+      font-weight: 400; /* Regular */
+      font-size: 32px;
+      line-height: 48px; /* Line height 48px */
+    }
+
+    p {
+      font-size: 24px; /* Desktop paragraph */
+    }
+
+    .small {
+      font-size: 18px; /* Desktop small text */
+    }
+
+    .tiny {
+      font-size: 14px; /* Desktop tiny text (not specified, added reasonable size) */
+    }
+  }
+
+  /* ----------------------------------------
+     2.2 Spacing
+     ---------------------------------------- */
+
+  /* Section Spacing */
+  section {
+    margin-bottom: var(--section-spacing-mobile);
+  }
+
+  @media (min-width: 768px) {
+    section {
+      margin-bottom: var(--section-spacing-desktop);
+    }
+  }
+
+  /* Title/Content Spacing */
+  .title-content-spacing {
+    margin-bottom: var(--title-content-spacing-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .title-content-spacing {
+      margin-bottom: var(--title-content-spacing-desktop);
+    }
+  }
+
+  /* Breadcrumbs */
+  .breadcrumb {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .breadcrumb {
+      font-size: 24px;
+    }
+  }
+
+  /* ----------------------------------------
+     2.3 Buttons
+     ---------------------------------------- */
+
+  .btn-cta {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease-in-out;
+    text-transform: lowercase;
+    width: auto;
+    padding: 10px 30px;
+    font-size: 18px; /* Mobile button size */
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  @media (min-width: 768px) {
+    .btn-cta {
+      font-size: 24px; /* Desktop button size */
+    }
+  }
+
+  /* Button Variants */
+  .btn-orange {
+    background-color: var(--color-brand-orange);
+  }
+
+  .btn-orange:hover {
+    background-color: rgba(254, 169, 29, 0.9);
+  }
+
+  .btn-purple {
+    background-color: var(--color-brand-purple);
+  }
+
+  .btn-purple:hover {
+    background-color: rgba(193, 129, 253, 0.9);
+  }
+
+  .btn-sky {
+    background-color: var(--color-brand-sky);
+  }
+
+  .btn-sky:hover {
+    background-color: rgba(111, 219, 252, 0.9);
+  }
+
+  /* ----------------------------------------
+     3.1 Login/Signup Popup
+     ---------------------------------------- */
+
   .login-signup-popup {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     will-change: opacity, transform;
     transform: translateY(0);
   }
@@ -28,7 +297,10 @@ article > *:not(.entry-content),
     transition: color 0.2s ease-in-out;
   }
 
-  /* Mobile Menu Styles */
+  /* ----------------------------------------
+     3.2 Mobile Menu
+     ---------------------------------------- */
+
   #mobile-menu {
     transition: transform 0.3s ease-in-out;
     will-change: transform;
@@ -93,7 +365,7 @@ article > *:not(.entry-content),
 
   .mobile-menu-nav a {
     color: white;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-size: 1.125rem;
     font-weight: 700;
     display: block;
@@ -134,238 +406,78 @@ article > *:not(.entry-content),
     transform: scale(1.1);
   }
 
-  body.overflow-hidden {
-    overflow: hidden;
-    padding-right: var(--scrollbar-width, 0px); /* Prevent layout shift */
-  }
+  /* ----------------------------------------
+     4. UTILITY CLASSES
+     ---------------------------------------- */
 
-  /* =========================
-     BASE TYPOGRAPHY (Mobile First)
-     ========================= */
-
-  /* --------------------------------
-     Headings: h1–h6
-     -------------------------------- */
-  h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: lowercase;
-    color: var(--color-brand-darkblue);
-    font-size: 53.75px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 44.79px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 37.32px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 31.1px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h5 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 25.92px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 21.6px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-
-  /* Paragraphs */
-  p {
-    font-family: 'Poppins', sans-serif;
-    color: var(--color-gray-700);
-    font-size: 18px; /* Mobile */
-    line-height: 1.5;
-  }
-
-  /* --------------------------------
-     DESKTOP OVERRIDES (≥768px)
-     -------------------------------- */
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 134.65px; /* Desktop */
-    }
-    h2 {
-      font-size: 75.78px;
-    }
-    h3 {
-      font-size: 56.85px;
-    }
-    h4 {
-      font-size: 42.65px;
-    }
-    h5 {
-      font-size: 31.99px;
-    }
-    h6 {
-      font-size: 21.6px;
-    }
-
-    p {
-      font-size: 24px; /* Desktop paragraph */
-    }
-  }
-
-  /* =========================
-     SPACING
-     ========================= */
-
-  /* Section Spacing
-     Mobile: 60px
-     Desktop: 130px
-  */
-  section {
-    margin-bottom: 60px;
-  }
-  @media (min-width: 768px) {
-    section {
-      margin-bottom: 130px;
-    }
-  }
-
-  /* Title/Content Spacing
-     Mobile: 20px
-     Desktop: 30px
-  */
-  .title-content-spacing {
-    margin-bottom: 20px;
-  }
-  @media (min-width: 768px) {
-    .title-content-spacing {
-      margin-bottom: 30px;
-    }
-  }
-
-  /* Breadcrumbs
-     Mobile: 16px
-     Desktop: 24px
-  */
-  .breadcrumb {
-    font-size: 16px;
-  }
-  @media (min-width: 768px) {
-    .breadcrumb {
-      font-size: 24px;
-    }
-  }
-
-  /* =========================
-     BUTTONS
-     ========================= */
-  .btn-cta {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.15s ease-in-out;
-    text-transform: lowercase;
-    width: 364px;
-    height: 59px;
-    padding: 10px 30px;
-    font-size: 26px;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-
-  /* Button Variants (Using brand colors) */
-  .btn-orange {
-    background-color: var(--color-brand-orange);
-  }
-  .btn-orange:hover {
-    background-color: rgba(254, 169, 29, 0.9);
-  }
-  .btn-purple {
-    background-color: var(--color-brand-purple);
-  }
-  .btn-purple:hover {
-    background-color: rgba(193, 129, 253, 0.9);
-  }
-  .btn-sky {
-    background-color: var(--color-brand-sky);
-  }
-  .btn-sky:hover {
-    background-color: rgba(111, 219, 252, 0.9);
-  }
-
-  /* =========================
-     WORK SANS UTILITY
-     ========================= */
+  /* Work Sans Font Utilities */
   .font-worksans {
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
   }
+
   .font-worksans-bold {
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
   }
+
+  @media (min-width: 768px) {
+    .font-worksans,
+    .font-worksans-bold {
+      font-size: 24px;
+    }
+  }
 }
 
-@layer components {
+/* ----------------------------------------
+   COMPONENTS LAYER
+   ---------------------------------------- */
 
-  /* Optional "utility" text classes
-     if you want to apply big headings
-     directly as classes (text-h1, etc.).
-     This is not mandatory if you already
-     style <h1> <h2> etc. directly.
-  */
+@layer components {
+  /* Optional "utility" text classes */
   .text-h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     text-transform: lowercase;
     color: var(--color-brand-darkblue);
-    font-size: 134.65px;
+    font-size: 52.8px; /* Mobile */
     line-height: 100%;
     letter-spacing: 0%;
   }
+
   .text-h2 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     color: var(--color-brand-darkblue);
-    font-size: 75.78px;
+    font-size: 37px; /* Mobile */
     line-height: 100%;
     letter-spacing: 0%;
   }
-  /* ... etc. for text-h3, text-h4, etc. */
 
-  /* Subheading example:
-     ~54.93px, uppercase, separate color
-  */
+  /* Add other heading text utility classes as needed */
+
+  /* Responsive heading utilities */
+  @media (min-width: 768px) {
+    .text-h1 {
+      font-size: 134.6px; /* Desktop */
+    }
+
+    .text-h2 {
+      font-size: 75.8px;
+    }
+
+    /* Add other desktop heading utilities */
+  }
+
+  /* Special Heading Variants */
   .section-heading {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 44.79px;
@@ -373,6 +485,7 @@ article > *:not(.entry-content),
     letter-spacing: 0%;
     color: #615849;
   }
+
   @media (min-width: 768px) {
     .section-heading {
       font-size: 54.93px;
@@ -381,50 +494,99 @@ article > *:not(.entry-content),
 
   /* FAQ question example */
   .faq-question {
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
     color: #837660;
   }
+
+  @media (min-width: 768px) {
+    .faq-question {
+      font-size: 24px;
+    }
+  }
+
+  /* Contact Page Curved Image Component */
+  .curved-image-container {
+    position: relative;
+    height: 577px;
+    overflow: hidden;
+    background-color: #f5f4ef;
+  }
+
+  .curved-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* Curved shape with elliptical border radius */
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  }
+
+  .content-container {
+    position: relative;
+    z-index: 10;
+    padding-top: 81px;
+  }
+
+  /* Mobile version */
+  @media (max-width: 768px) {
+    .curved-image-container {
+      display: none;
+    }
+  }
 }
 
-/* WordPress Editor Styles */
+/* ----------------------------------------
+   5. WORDPRESS EDITOR STYLES
+   ---------------------------------------- */
+
 .entry-content,
 .block-editor-block-list__layout {
   h1 {
     font-size: 1.5rem;
     line-height: 1.33333;
   }
+
   h2 {
     font-size: 1.25rem;
     line-height: 1.4;
   }
+
   h3 {
     font-size: 1.125rem;
     line-height: 1.55556;
   }
+
   p,
   ul,
   ol {
     margin-bottom: 2rem;
   }
+
   p a,
   ul a,
   ol a {
     color: var(--color-blue-500);
     text-decoration: underline;
   }
+
   p a:hover,
   ul a:hover,
   ol a:hover {
     text-decoration: none;
   }
+
   ul:not(.block-editor-block-variation-picker__variations) li {
     list-style-type: disc;
     list-style-position: inside;
   }
+
   ol li {
     list-style-type: decimal;
     list-style-position: inside;
