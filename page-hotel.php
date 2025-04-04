@@ -11,198 +11,68 @@
 
 
 <div class="container mx-auto my-8">
-    <!-- Page Content -->
-    <section class="flex flex-col gap-3 mt-8">
-        <h2 class="uppercase font-bold">Daycare</h2>
-        <div class="page-content">
-            <?php
-            if (have_posts()) :
-                while (have_posts()) : the_post();
-                    the_content();
-                endwhile;
-            endif;
-            ?>
-        </div>
-        <!-- Hardcode for now -->
-        <div>
-            <p>You’ve worked hard throughout the year to take time off. Whether it’s a vacation, or a business trip - there are plenty of times when our lives take us out of town for a few days and pets are not always welcome. Luckily, you can feel comfortable leaving your dog at Tailz for a few nights of overnight lodging!</p>
-            <p>When dogs stay the night at Tailz, they receive all the benefits of doggy daycare, plus extra special time at night before being tucked into bed! The mental and physical stimulation throughout the day provides a restful sleep at night in one of our suites, and your pup will wake up in the morning ready for another fun-filled day with us! A full day of doggy day care is included with every night of overnight lodging at Tailz.</p>
-            <p>You deserve peace of mind in knowing that your beloved pet is being well cared for. Rest assured, we provide all the blankets, dog beds, feeding bowls, and toys that your dog needs; all you need to bring is a container with their food! <span>Blankets and personal items from home may be damaged.</span></p>
-            <p>Though twice a day is normal, we will feed your pup up to three times per day with their allotted food. Bring all items in a marked reusable shopping bag. Food that is pre-portioned is appreciated.</p>
-            <p>Sign your pup up for a departure bath on their last day of lodging so they come home fresh and squeaky clean!</p>
-        </div>
+
+    <!-- Rest & relaxation for both you and your pets -->
+    <section class="mb-10">
+        <h3>Rest & relaxation for both you and your pets</h3>
+        <p>You've earned your time off, but travel isn't always pet-friendly. Luckily, TAILZ offers safe and comfrtable overnight lodging for your pet!</p>
     </section>
 
-    <section class="tabs-container" id="page-tabs">
-        <h2>Daycare Rates</h2>
-        <div class="tabs flex mb-4">
-            <button class="tab-button active bg-[#E2E2E2] pt-[25px] pb-[20px] px-[25px] rounded-tl-[15px] rounded-tr-[15px]" data-tab="tab1">
-                Dog
-            </button>
-            <button class="tab-button" data-tab="tab2">
-                Cat
-            </button>
-        </div>
-
-        <div>
-            <!-- Dog Tab -->
-            <div class="tab-content" id="tab1-content">
-                <!-- Card 1 -->
-                <div>
-                    <?php
-                        $dog_hotel_rates = new WP_Query(array(
-                            'post_type' => 'hotel',
-                            'posts_per_page' => -1,
-                            'title' => 'Dogs - Hotel Rates',
-                        ));
-                        if ($dog_hotel_rates->have_posts()) :
-                            while ($dog_hotel_rates->have_posts()) : $dog_hotel_rates->the_post(); ?>
-                                <div>
-                                    <?php
-                                    $option1 = get_field('option_1');
-                                    $option2 = get_field('option_2');
-                                    $option3 = get_field('option_3');
-                                    ?>
-                                    <?php if ($option1) : ?>
-                                        <div>
-                                            <h3>Bronze Package</h3>
-                                            <p><?php echo esc_html($option1); ?> / night</p>
-                                        </div>
-                                        <div>
-                                            <h4>Lowest Cost</h4>
-                                            <div>
-                                                <p>Morning Play Session</p>
-                                                <p>Bedtime Story</p>
-                                                <p>Extra Cuddles</p>
-                                                <p>Gourmet Bedtime Treat</p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if ($option2) : ?>
-                                        <div>
-                                            <h3>Silver Package</h3>
-                                            <p><?php echo esc_html($option2); ?> / night</p>
-                                        </div>
-                                        <div>
-                                            <h4>Most Pupular</h4>
-                                            <div>
-                                                <p>Morning Play Session</p>
-                                                <p>Afternoon Play Session</p>
-                                                <p>Bedtime Story</p>
-                                                <p>Extra Cuddles</p>
-                                                <p>Gourmet Bedtime Treat</p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if ($option3) : ?>
-                                        <div>
-                                            <h3>Gold Package</h3>
-                                            <p><?php echo esc_html($option3); ?> / night</p>
-                                        </div>
-                                        <div>
-                                            <h4>Ultimutt Value</h4>
-                                            <div>
-                                                <p>Morning Play Session</p>
-                                                <p>Afternoon Play Session</p>
-                                                <p>Evening Stroll</p>
-                                                <p>Bedtime Story</p>
-                                                <p>Extra Cuddles</p>
-                                                <p>Gourmet Bedtime Treat</p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                        <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        else :
-                            echo '<p>No daily rates available.</p>';
-                        endif;
-                    ?>
+    <!-- You pet's stay at TAILZ -->
+    <section class="mb-10">
+        <h2>Your pet's stay at TAILZ</h2>
+        <!-- Container -->
+        <div class="flex-col gap-15">
+            <!-- Sub Container 1 -->
+            <div class="flex-col gap-15">
+                <!-- Private suites, fun-filled days, and special amenities -->
+                <div class="flex-col gap-3 w-3/4">
+                    <h3>Private suites, fun-filled days, and special amenities</h3>
+                    <p>play -> rest -> wake up refreshed</p>
+                    <p>Overnight stays at TAILZ come with all the perks of doggy or kitty daycare - plus extra bedtime care! Your pet will enjoy a full day of play, a cozy night's rest in a comfortable suite, and wake up ready for more fun.</p>
+                    <p>We maintain a calm, supportive environtment to ensure all pets feel secure and safe to unwind in their own way - whether they're snoozing solo, playing with toys, or making new friends during supervised playtime. Our team is always nearby to ensure safety (and sneak in extra cuddles when needed!).</p>
+                    <p>During their stay, your pet will enjoy a cleam, cozy suite tailored to their needs, complete with regular feeding times, fresh water, and plenty of love from our trained staff. To help them wind down for the night, we provided evening snacks, snuggles, and a stroll (available with the gold package) to encourage sweet dreams</p>
+                </div>
+                <div class="flex-col gap-8 w-1/4">
+                    <img src="https://placehold.co/600x400" alt="">
+                    <img src="https://placehold.co/600x400" alt="">
                 </div>
             </div>
-            <!-- Cat Tab -->
-            <div class="tab-content hidden" id="tab2-content">
-                <!-- Card 1 -->
-                <div>
-                    <?php
-                        $cat_hotel_rates = new WP_Query(array(
-                            'post_type' => 'hotel',
-                            'posts_per_page' => -1,
-                            'title' => 'Cats - Hotel Rates',
-                        ));
-                        if ($cat_hotel_rates->have_posts()) :
-                            while ($cat_hotel_rates->have_posts()) : $cat_hotel_rates->the_post(); ?>
-                                <div>
-                                    <?php
-                                    $option1 = get_field('option_1');
-                                    $option2 = get_field('option_2');
-                                    $option3 = get_field('option_3');
-                                    ?>
-                                    <?php if ($option1) : ?>
-                                        <div>
-                                            <h3>Bronze Package</h3>
-                                            <p><?php echo esc_html($option1); ?> / night</p>
-                                        </div>
-                                        <div>
-                                            <h4>Lowest Cost</h4>
-                                            <div>
-                                                <p>Morning Play Session</p>
-                                                <p>Bedtime Story</p>
-                                                <p>Extra Cuddles</p>
-                                                <p>Gourmet Bedtime Treat</p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if ($option2) : ?>
-                                        <div>
-                                            <h3>Silver Package</h3>
-                                            <p><?php echo esc_html($option2); ?> / night</p>
-                                        </div>
-                                        <div>
-                                            <h4>Most Pupular</h4>
-                                            <div>
-                                                <p>Morning Play Session</p>
-                                                <p>Afternoon Play Session</p>
-                                                <p>Bedtime Story</p>
-                                                <p>Extra Cuddles</p>
-                                                <p>Gourmet Bedtime Treat</p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if ($option3) : ?>
-                                        <div>
-                                            <h3>Gold Package</h3>
-                                            <p><?php echo esc_html($option3); ?> / night</p>
-                                        </div>
-                                        <div>
-                                            <h4>Ultimutt Value</h4>
-                                            <div>
-                                                <p>Morning Play Session</p>
-                                                <p>Afternoon Play Session</p>
-                                                <p>Evening Stroll</p>
-                                                <p>Bedtime Story</p>
-                                                <p>Extra Cuddles</p>
-                                                <p>Gourmet Bedtime Treat</p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                        <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        else :
-                            echo '<p>No daily rates available.</p>';
-                        endif;
-                    ?>
+            <!-- Sub Container 2 -->
+            <div class="flex-col gap-15">
+                <!-- Caring for your pet like our own -->
+                <div class="flex-col gap-3">
+                    <h3>Caring for your pet like our own</h3>
+                    <p>At TAILZ, your pet's comfort and safety are our top prioties.</p>
+                    <p>Our team is experienced in caring for anxious pets and are trained to recognize and accomodate their unique needs -  so your furry friend will feel right at home. With sueprvised play, cozy accomodations, and regular updates sent straight to you, you can relax knowing they're in the best hands until you're reuinited!</p>
+                    <p>We follow strict health and cleanliness protocols, so your pet enjoys a spotless, stress-free stay.</p>
+                    <p>We know how much your pet means to you - that's why we treat them like family!</p>
+                </div>
+                <!-- Sleepover essentials: What to bring -->
+                <div class="flex-col gap-3">
+                    <h3>Sleeover essentials: What to bring</h3>
+                    <p>We provide blankets, beds, bowls, and toys - just bring your pet's food!</p>
+                    <p>To help enxious pets feel more comfortable, you're welcome to bring their favorite bed, blanket, or toy for their stay</p>
+                    <p>While two meals a day is standard, we're happy to accomodate up to three feedings with their provided food.</p>
+                    <p>Please bring all items in a labeled reusable shopping bag, and pre-portioned meals are greatly appreciated.</p>
+                    <p>Note: Personal items may be subject ot wear and tear.</p>
                 </div>
             </div>
         </div>
-        <h3>Book a sleepover with us!</h3>
-        <button>
-            Book Now
-        </button>
     </section>
+
+    <!-- Policy -->
+    <section class="mb-10">
+        <div class="flex-col gap-3">
+            <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
+            <p class="italic text-[24px]">All stays must be prepaid in full at the time of arrival.</p>
+            <p class="italic text-[24px]">A $10 nightly surcharge applies for Sundays, long weekends, and holidays.</p>
+            <p class="italic text-[24px]">To ensure your pet's spot during busy holiday dates, we require a one-night deposit (non-refundable).</p>
+        </div>
+    </section>
+
+
+
 
     <section>
         <div>

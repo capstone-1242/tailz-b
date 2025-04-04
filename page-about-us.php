@@ -9,8 +9,6 @@
 ?>
 
 <div class="container mx-auto my-8">
-
-    <article class="flex flex-col">
         <section>
             <h1>about Us</h1>
             <p>our goals - our story - our team</p>
