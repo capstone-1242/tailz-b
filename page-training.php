@@ -27,7 +27,7 @@ get_header();
     </section>
     
     <!-- The leash is in your hands, we'll show you how to lead -->
-    <section>
+    <section class="mb-10">
         <div class="flex flex-col mx-6 gap-3">
             <h3 class="lowercase font-bold text-[22px] text-[#615849]">The leash is in your hands, we'll show you how to lead</h3>
             <p class="text-[18px] text-[#47423B]">When a dog's behavior falls outside the "normal" range, it often requires extra guidance—not just from skilled trainers, but from owners committed to their companion's growth.</p>
@@ -36,12 +36,12 @@ get_header();
     </section>
 
     <!-- Understanding canine behavior and skill building -->
-    <section>
+    <section class="mb-10">
         <div class="flex-col mx-6 gap-3">
             <h2 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h2>
             <!-- Content Container -->  
             <div class="flex-col gap-15">
-                <!-- Container 1 -->
+                <!-- Sub Container 1 -->
                 <div class="flex-col gap-15">
                     <!-- Your role in the process -->
                     <div class="flex-col gap-3">
@@ -64,7 +64,7 @@ get_header();
                         </ol>
                     </div>
                 </div>
-                <!-- Container 2 -->
+                <!-- Sub Container 2 -->
                 <div class="flex-col gap-15">
                     <!-- Why skillbuilding works -->
                     <div class="flex-col gap-3">
@@ -94,6 +94,15 @@ get_header();
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Policy -->
+    <section class="mb-10">
+        <div class="flex-col gap-3">
+            <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
+            <p class="italic text-[24px]">All training sessions require advanced scheduling and prepayment prior to the session.</p>
+            <p class="italic text-[24px]">A minimum 24-hour notice is required to reschedule any session. Late cancellations (under 24 hours) will result in a $50 fee, <span class="underline">or</span> a deduction of none session from your bundle.</p>
         </div>
     </section>
 
