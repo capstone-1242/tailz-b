@@ -14,24 +14,26 @@
 
     <!-- Rest & relaxation for both you and your pets -->
     <section class="mb-10">
-        <h3>Rest & relaxation for both you and your pets</h3>
+        <h3 class="lowercase text-[22px] text-[#837660]">Rest & relaxation for both you and your pets</h3>
         <p>You've earned your time off, but travel isn't always pet-friendly. Luckily, TAILZ offers safe and comfrtable overnight lodging for your pet!</p>
     </section>
 
     <!-- You pet's stay at TAILZ -->
     <section class="mb-10">
-        <h2>Your pet's stay at TAILZ</h2>
+        <h2 class="lowercase font-bold text-[22px] text-[#615849]">Your pet's stay at TAILZ</h2>
         <!-- Container -->
         <div class="flex-col gap-15">
             <!-- Sub Container 1 -->
             <div class="flex-col gap-15">
                 <!-- Private suites, fun-filled days, and special amenities -->
                 <div class="flex-col gap-3 w-3/4">
-                    <h3>Private suites, fun-filled days, and special amenities</h3>
+                    <h3 class="lowercase text-[22px] text-[#837660]">Private suites, fun-filled days, and special amenities</h3>
                     <p>play -> rest -> wake up refreshed</p>
-                    <p>Overnight stays at TAILZ come with all the perks of doggy or kitty daycare - plus extra bedtime care! Your pet will enjoy a full day of play, a cozy night's rest in a comfortable suite, and wake up ready for more fun.</p>
-                    <p>We maintain a calm, supportive environtment to ensure all pets feel secure and safe to unwind in their own way - whether they're snoozing solo, playing with toys, or making new friends during supervised playtime. Our team is always nearby to ensure safety (and sneak in extra cuddles when needed!).</p>
-                    <p>During their stay, your pet will enjoy a cleam, cozy suite tailored to their needs, complete with regular feeding times, fresh water, and plenty of love from our trained staff. To help them wind down for the night, we provided evening snacks, snuggles, and a stroll (available with the gold package) to encourage sweet dreams</p>
+                    <p class="text-[18px] text-[#47423B]">Overnight stays at TAILZ come with all the perks of doggy or kitty daycare - plus extra bedtime care! Your pet will enjoy a full day of play, a cozy night's rest in a comfortable suite, and wake up ready for more fun.</p>
+                    <p class="text-[18px] text-[#47423B]">We maintain a calm, supportive environtment to ensure all pets feel secure and safe to unwind in their own way - whether they're snoozing solo, playing with toys, or making new friends during supervised playtime. Our team is always nearby to ensure safety (and sneak in extra cuddles when needed!).</p>
+                    <p class="text-[18px] text-[#47423B]">During their stay, your pet will enjoy a cleam, cozy suite tailored to their needs, complete with regular feeding times, fresh water, and plenty of love from our trained staff. To help them wind down for the night, we provided evening snacks, snuggles, and a stroll (available with the gold package) to encourage sweet dreams</p>
+                    <h4 class="text-[#615849] font-bold text-[18px]">Spa amenities</h4>
+                    <p class="text-[18px] text-[#47423B]">For the perfect finishing touch, add a departure spa appointment on their last day - they'll come home fresh, squeaky clean, and ready to snuggle!</p>
                 </div>
                 <div class="flex-col gap-8 w-1/4">
                     <img src="https://placehold.co/600x400" alt="">
@@ -40,22 +42,22 @@
             </div>
             <!-- Sub Container 2 -->
             <div class="flex-col gap-15 md:flex-row">
-                <!-- Caring for your pet like our own -->
-                <div class="flex-col gap-3">
-                    <h3>Caring for your pet like our own</h3>
-                    <p>At TAILZ, your pet's comfort and safety are our top prioties.</p>
-                    <p>Our team is experienced in caring for anxious pets and are trained to recognize and accomodate their unique needs -  so your furry friend will feel right at home. With sueprvised play, cozy accomodations, and regular updates sent straight to you, you can relax knowing they're in the best hands until you're reuinited!</p>
-                    <p>We follow strict health and cleanliness protocols, so your pet enjoys a spotless, stress-free stay.</p>
-                    <p>We know how much your pet means to you - that's why we treat them like family!</p>
-                </div>
                 <!-- Sleepover essentials: What to bring -->
                 <div class="flex-col gap-3">
-                    <h3>Sleeover essentials: What to bring</h3>
-                    <p>We provide blankets, beds, bowls, and toys - just bring your pet's food!</p>
-                    <p>To help enxious pets feel more comfortable, you're welcome to bring their favorite bed, blanket, or toy for their stay</p>
-                    <p>While two meals a day is standard, we're happy to accomodate up to three feedings with their provided food.</p>
-                    <p>Please bring all items in a labeled reusable shopping bag, and pre-portioned meals are greatly appreciated.</p>
-                    <p>Note: Personal items may be subject ot wear and tear.</p>
+                    <h3 class="lowercase text-[22px] text-[#837660]">Sleeover essentials: What to bring</h3>
+                    <p class="text-[18px] text-[#47423B]">We provide blankets, beds, bowls, and toys - just bring your pet's food!</p>
+                    <p class="text-[18px] text-[#47423B]">To help enxious pets feel more comfortable, you're welcome to bring their favorite bed, blanket, or toy for their stay</p>
+                    <p class="text-[18px] text-[#47423B]">While two meals a day is standard, we're happy to accomodate up to three feedings with their provided food.</p>
+                    <p class="text-[18px] text-[#47423B]">Please bring all items in a labeled reusable shopping bag, and pre-portioned meals are greatly appreciated.</p>
+                    <p class="text-[18px] text-[#47423B]">Note: Personal items may be subject ot wear and tear.</p>
+                </div>
+                <!-- Caring for your pet like our own -->
+                <div class="flex-col gap-3">
+                    <h3 class="lowercase text-[22px] text-[#837660]">Caring for your pet like our own</h3>
+                    <p class="text-[18px] text-[#47423B]">At TAILZ, your pet's comfort and safety are our top prioties.</p>
+                    <p class="text-[18px] text-[#47423B]">Our team is experienced in caring for anxious pets and are trained to recognize and accomodate their unique needs -  so your furry friend will feel right at home. With sueprvised play, cozy accomodations, and regular updates sent straight to you, you can relax knowing they're in the best hands until you're reuinited!</p>
+                    <p class="text-[18px] text-[#47423B]">We follow strict health and cleanliness protocols, so your pet enjoys a spotless, stress-free stay.</p>
+                    <p class="text-[18px] text-[#47423B]">We know how much your pet means to you - that's why we treat them like family!</p>
                 </div>
             </div>
         </div>
