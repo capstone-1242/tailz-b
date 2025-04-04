@@ -10,101 +10,100 @@ get_header();
 ?>
 
 <div class="container mx-auto">
-    <!-- Banner -->
-    <section class="flex flex-col gap-3">
-        <div class="relative h-[15.375rem] w-full overflow-hidden">
-            <?php
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                if($featured_image_url) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-                <?php endif; ?>
-
-                <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                    <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                    <p class="uppercase text-white text-[18px]">Lessons for every type of pup</p>
-                </div>            
-        </div>
-    </section>
-    
-    <!-- The leash is in your hands, we'll show you how to lead -->
-    <section class="mb-10">
-        <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">The leash is in your hands, we'll show you how to lead</h3>
-            <p class="text-[18px] text-[#47423B]">When a dog's behavior falls outside the "normal" range, it often requires extra guidance—not just from skilled trainers, but from owners committed to their companion's growth.</p>
-            <p class="text-[18px] text-[#47423B]"><span class="font-bold">First, let's drop the stigma.</span> Asking for help is not just okay—it's a sign of dedication. Training isn't a quick fix; it's a lifestyle and a lifelong partnership. To create lasting change, we focus on <span class="font-bold">THE WHY</span> behind your pup's behavior, so you can master <span class="font-bold">THE HOW</span> to support them effectively.</p>
-        </div>
-    </section>
-
-    <!-- Understanding canine behavior and skill building -->
-    <section class="mb-10">
-        <div class="flex-col mx-6 gap-3">
-            <h2 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h2>
-            <!-- Content Container -->  
-            <div class="flex-col gap-15">
-                <!-- Sub Container 1 -->
-                <div class="flex-col gap-15">
-                    <!-- Your role in the process -->
-                    <div class="flex-col gap-3">
-                        <h3 class="lowercase text-[22px] text-[#837660]">Your role in the process</h3>
-                        <p class="text-[18px] text-[#47423B]">During Canine Skill Building, we start by defining your goals. Every household is different, and success looks unique for each dog. Ask yourself:</p>
-                        <ol class="flex-col gap-3 text-[18px] text-[#615849] font-bold">
-                            <li>How can I help my dog reach these goals?</li>
-                            <li>What time and effort am I willing to invest?</li>
-                        </ol>
-                        <p class="text-[18px] text-[#47423B]">These choices shape the outcome. This isn't just "training" - it's a transformative learning journey for both you and your pup. You'll gain systematic tools to help your pup develop the skills they need to thrive.</p>
+    <div class="flex flex-col">
+        <!-- Banner -->
+        <section class="flex flex-col gap-3">
+            <div class="relative h-[15.375rem] w-full overflow-hidden">
+                <?php
+                    $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                    if($featured_image_url) : ?>
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
+                    <?php endif; ?>
+                    <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
+                        <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
+                        <p class="uppercase text-white text-[18px]">Lessons for every type of pup</p>
                     </div>
-                    <!-- Our commitment to you -->
-                    <div class="flex-col gap-3">
-                        <h3 class="lowercase text-[22px] text-[#837660]">Our commitment to you</h3>
-                        <p class="text-[18px] text-[#47423B]">After your initial consultation, our trainer will craft a personalized plan for ongoing skill development, including:</p>
-                        <ol class="flex-col gap-3 text-[18px] text-[#615849] font-bold">
-                            <li>One-on-one coaching</li>
-                            <li>Structured exercise</li>
-                            <li>Real world practice</li>
-                        </ol>
+            </div>
+        </section>
+        
+        <!-- The leash is in your hands, we'll show you how to lead -->
+        <section class="mb-10">
+            <div class="flex flex-col mx-6 gap-3">
+                <h3 class="lowercase font-bold text-[22px] text-[#615849]">The leash is in your hands, we'll show you how to lead</h3>
+                <p class="text-[18px] text-[#47423B]">When a dog's behavior falls outside the "normal" range, it often requires extra guidance—not just from skilled trainers, but from owners committed to their companion's growth.</p>
+                <p class="text-[18px] text-[#47423B]"><span class="font-bold">First, let's drop the stigma.</span> Asking for help is not just okay—it's a sign of dedication. Training isn't a quick fix; it's a lifestyle and a lifelong partnership. To create lasting change, we focus on <span class="font-bold">THE WHY</span> behind your pup's behavior, so you can master <span class="font-bold">THE HOW</span> to support them effectively.</p>
+            </div>
+        </section>
+        <!-- Understanding canine behavior and skill building -->
+        <section class="mb-10">
+            <div class="flex flex-col mx-6 gap-3">
+                <h2 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h2>
+                <!-- Content Container -->
+                <div class="flex flex-col gap-15">
+                    <!-- Sub Container 1 -->
+                    <div class="flex flex-col gap-15">
+                        <!-- Your role in the process -->
+                        <div class="flex flex-col gap-3">
+                            <h3 class="lowercase text-[22px] text-[#837660]">Your role in the process</h3>
+                            <p class="text-[18px] text-[#47423B]">During Canine Skill Building, we start by defining your goals. Every household is different, and success looks unique for each dog. Ask yourself:</p>
+                            <ol class="flex flex-col gap-3 text-[18px] text-[#615849] font-bold">
+                                <li>How can I help my dog reach these goals?</li>
+                                <li>What time and effort am I willing to invest?</li>
+                            </ol>
+                            <p class="text-[18px] text-[#47423B]">These choices shape the outcome. This isn't just "training" - it's a transformative learning journey for both you and your pup. You'll gain systematic tools to help your pup develop the skills they need to thrive.</p>
+                        </div>
+                        <!-- Our commitment to you -->
+                        <div class="flex flex-col gap-3">
+                            <h3 class="lowercase text-[22px] text-[#837660]">Our commitment to you</h3>
+                            <p class="text-[18px] text-[#47423B]">After your initial consultation, our trainer will craft a personalized plan for ongoing skill development, including:</p>
+                            <ol class="flex flex-col gap-3 text-[18px] text-[#615849] font-bold">
+                                <li>One-on-one coaching</li>
+                                <li>Structured exercise</li>
+                                <li>Real world practice</li>
+                            </ol>
+                        </div>
                     </div>
-                </div>
-                <!-- Sub Container 2 -->
-                <div class="flex-col gap-15">
-                    <!-- Why skillbuilding works -->
-                    <div class="flex-col gap-3">
-                        <img src="" alt="">
-                        <h3 class="lowercase text-[22px] text-[#837660]">Why skill building works</h3>
-                        <p class="text-[18px] text-[#47423B]">True learning happens through repetition and sensory experience. Our approach is holistic, engaging your dog's mind, body, and instincts in a rich, structured way. Beyond correcting behaviors, skill building strengthens your bond and builds confidence.</p>
-                    </div>
-                    <!-- Common skill building focus areas -->
-                    <div class="flex-col gap-3">
-                        <h3>Common skill building focus areas</h3>
-                        <ol class="flex-col md:flex-row gap-3 text-[18px] text-[#47423B]">
-                            <div class="flex-col gap-3 mb-3 md:mb-0">
-                                <li>Leash Reactivity</li>
-                                <li>Dog Reactivity</li>
-                                <li>Human Reactivity</li>
-                                <li>Featfulness</li>
-                                <li>Resource Guarding</li>
-                            </div>
-                            <div class="flex col gap-3">
-                                <li>Barrier Frustration</li>
-                                <li>Door Dash</li>
-                                <li>Excessive Barking</li>
-                                <li>Poor Leash Manners</li>
-                                <li>Confidence Building</li>
-                            </div>
-                        </ol>
+                    <!-- Sub Container 2 -->
+                    <div class="flex flex-col gap-15">
+                        <!-- Why skillbuilding works -->
+                        <div class="flex flex-col gap-3">
+                            <img src="" alt="">
+                            <h3 class="lowercase text-[22px] text-[#837660]">Why skill building works</h3>
+                            <p class="text-[18px] text-[#47423B]">True learning happens through repetition and sensory experience. Our approach is holistic, engaging your dog's mind, body, and instincts in a rich, structured way. Beyond correcting behaviors, skill building strengthens your bond and builds confidence.</p>
+                        </div>
+                        <!-- Common skill building focus areas -->
+                        <div class="flex flex-col gap-3">
+                            <h3>Common skill building focus areas</h3>
+                            <ol class="flex flex-col md:flex-row gap-3 text-[18px] text-[#47423B]">
+                                <div class="flex flex-col gap-3 mb-3 md:mb-0">
+                                    <li>Leash Reactivity</li>
+                                    <li>Dog Reactivity</li>
+                                    <li>Human Reactivity</li>
+                                    <li>Fearfulness</li>
+                                    <li>Resource Guarding</li>
+                                </div>
+                                <div class="flex flex-col gap-3">
+                                    <li>Barrier Frustration</li>
+                                    <li>Door Dash</li>
+                                    <li>Excessive Barking</li>
+                                    <li>Poor Leash Manners</li>
+                                    <li>Confidence Building</li>
+                                </div>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Policy -->
-    <section class="mb-10">
-        <div class="flex-col gap-3">
-            <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
-            <p class="italic text-[24px]">All training sessions require advanced scheduling and prepayment prior to the session.</p>
-            <p class="italic text-[24px]">A minimum 24-hour notice is required to reschedule any session. Late cancellations (under 24 hours) will result in a $50 fee, <span class="underline">or</span> a deduction of none session from your bundle.</p>
-        </div>
-    </section>
+        </section>
+        <!-- Policy -->
+        <section class="mb-10">
+            <div class="flex flex-col gap-3 mx-6 bg-[#F3F2EC] rounded-[12px] p-[30px]">
+                <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
+                <p class="italic text-[24px]">All training sessions require advanced scheduling and prepayment prior to the session.</p>
+                <p class="italic text-[24px]">A minimum 24-hour notice is required to reschedule any session. Late cancellations (under 24 hours) will result in a $50 fee, <span class="underline">or</span> a deduction of none session from your bundle.</p>
+            </div>
+        </section>
+    </div>
 
     <!-- MetaBox Queries -->
     <?php

@@ -68,70 +68,68 @@ function render_portrait_tab($animal, $packages) {
 ?>
 
 <div class="container mx-auto">
-    <!-- Banner -->
-    <section class="flex flex-col gap-3">
-    <div class="relative h-[15.375rem] w-full overflow-hidden">
-            <?php
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                if($featured_image_url) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-                <?php endif; ?>
-
-                <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                    <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                    <p class="uppercase text-white text-[18px]">Professional pet pictures</p>
-                </div>            
-        </div>
-    </section>
-
-    <!-- Fur-ever captured in art -->
-    <section class="mb-10">
-        <div class="flex-col gap-3">
-            <h3 class="lowercase text-[22px] text-[#837660]">Fur-ever captured in art</h3>
-            <p class="text-[18px] text-[#47423B]">From mischievous grins to regal poses - you pet's personality shines in a one-of-a-kind portrait that's as unforgettable as they are!</p>
-        </div>
-    </section>
-
-    <!-- Picture purr-fect pet portraits from snouts to tailz -->
-    <section class="mb-10">
-        <h2 class="lowercase font-bold text-[22px] text-[#615849]">Picture purr-fect pet portraits from snouts to TAILZ</h2>
-        <!-- Container -->
-        <div class="flex-col gap-15">
-            <!-- Sub Container 1 -->
-            <div class="flex-col gap-15">
-                <!-- Jump into the studio with your furry friend-->
-                <div class="flex-col gap-3">
-                    <h3 class="lowercase text-[22px] text-[#837660]">Jump into the studio with your furry friend</h3>
-                    <p class="text-[18px] text-[#47423B]">Preserve your pet's personality with a professional portrait session designed to showcase their charm, energy, and quirks. Unlike smartphone snapshots, our photography service uses expert lighting, composition, and patience to create stunning, frame-worthy images you'll treasure forever.</p>
+    <div class="flex flex-col">
+        <!-- Banner -->
+        <section class="flex flex-col gap-3">
+        <div class="relative h-[15.375rem] w-full overflow-hidden">
+                <?php
+                    $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                    if($featured_image_url) : ?>
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
+                    <?php endif; ?>
+                    <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
+                        <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
+                        <p class="uppercase text-white text-[18px]">Professional pet pictures</p>
+                    </div>
+            </div>
+        </section>
+        <!-- Fur-ever captured in art -->
+        <section class="mb-10">
+            <div class="flex flex-col gap-3">
+                <h3 class="lowercase text-[22px] text-[#837660]">Fur-ever captured in art</h3>
+                <p class="text-[18px] text-[#47423B]">From mischievous grins to regal poses - you pet's personality shines in a one-of-a-kind portrait that's as unforgettable as they are!</p>
+            </div>
+        </section>
+        <!-- Picture purr-fect pet portraits from snouts to tailz -->
+        <section class="mb-10">
+            <h2 class="lowercase font-bold text-[22px] text-[#615849]">Picture purr-fect pet portraits from snouts to TAILZ</h2>
+            <!-- Container -->
+            <div class="flex flex-col gap-15">
+                <!-- Sub Container 1 -->
+                <div class="flex flex-col gap-15">
+                    <!-- Jump into the studio with your furry friend-->
+                    <div class="flex flex-col gap-3">
+                        <h3 class="lowercase text-[22px] text-[#837660]">Jump into the studio with your furry friend</h3>
+                        <p class="text-[18px] text-[#47423B]">Preserve your pet's personality with a professional portrait session designed to showcase their charm, energy, and quirks. Unlike smartphone snapshots, our photography service uses expert lighting, composition, and patience to create stunning, frame-worthy images you'll treasure forever.</p>
+                    </div>
+                    <!-- Mobile Only Image -->
+                    <img class="md:hidden" src="https://placehold.co/600x400" alt="">
+                    <!-- The perks of going professional -->
+                    <div class="flex flex-col gap-3">
+                        <h3 class="lowercase text-[22px] text-[#837660]">The perks of going professional</h3>
+                        <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Authentic Moments:</span> Candid shots and posed portraits that captures your pet's true self. Perfect for keepsake.</p>
+                        <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Artistic Quality:</span> High-resolution images shot with professional equipment, along with perfect lighting and editing - no awkward angle or blurry tails.</p>
+                        <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Stress-Free Experience:</span> Sessions tailored to your pet's comfort (treats readily available and play breaks included!).</p>
+                        <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Sentimental Art Piece:</span> Digital files and print options to display your favourites at home.</p>
+                        <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Furry Fun:</span> Props and costumes are always on stand-by! Choose from a variety of backdrops that will make your pet pop!</p>
+                    </div>
                 </div>
-                <!-- Mobile Only Image -->
-                <img class="md:hidden" src="https://placehold.co/600x400" alt="">
-                <!-- The perks of going professional -->
-                <div class="flex-col gap-3">
-                    <h3 class="lowercase text-[22px] text-[#837660]">The perks of going professional</h3>
-                    <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Authentic Moments:</span> Candid shots and posed portraits that captures your pet's true self. Perfect for keepsake.</p>
-                    <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Artistic Quality:</span> High-resolution images shot with professional equipment, along with perfect lighting and editing - no awkward angle or blurry tails.</p>
-                    <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Stress-Free Experience:</span> Sessions tailored to your pet's comfort (treats readily available and play breaks included!).</p>
-                    <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Sentimental Art Piece:</span> Digital files and print options to display your favourites at home.</p>
-                    <p class="text-[18px] text-[#47423B]"><span class="font-bold text-[#615849]">Furry Fun:</span> Props and costumes are always on stand-by! Choose from a variety of backdrops that will make your pet pop!</p>
+                <!-- Sub Container 2 -->
+                <div>
+                    <!-- Desktop Only Image -->
+                    <img class="hidden md:block" src="https://placehold.co/600x400" alt="">
                 </div>
             </div>
-            <!-- Sub Container 2 -->
-            <div>
-                <!-- Desktop Only Image -->
-                <img class="hidden md:block" src="https://placehold.co/600x400" alt="">
+        </section>
+        <!-- Policy -->
+        <section class="mb-10">
+            <div class="flex flex-col gap-3 mx-6 bg-[#F3F2EC] rounded-[12px] p-[30px]">
+                <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
+                <p class="italic text-[24px]">Photo sessions require advanced scheduling and prepayment prior to the session.</p>
+                <p class="italic text-[24px]">A minimum 24-hour notice is required to reschedule any session. Late cancellations (under 24 hours) will result in a $50 fee.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Policy -->
-    <seciton class="mb-10">
-        <div class="flex-col gap-3">
-            <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
-            <p class="italic text-[24px]">Photo sessions require advanced scheduling and prepayment prior to the session.</p>
-            <p class="italic text-[24px]">A minimum 24-hour notice is required to reschedule any session. Late cancellations (under 24 hours) will result in a $50 fee.</p>
-        </div>
-    </seciton>
+        </section>
+    </div>
 
 
 
