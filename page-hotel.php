@@ -39,7 +39,7 @@
                 </div>
             </div>
             <!-- Sub Container 2 -->
-            <div class="flex-col gap-15">
+            <div class="flex-col gap-15 md:flex-row">
                 <!-- Caring for your pet like our own -->
                 <div class="flex-col gap-3">
                     <h3>Caring for your pet like our own</h3>
