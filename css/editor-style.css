@@ -474,14 +474,8 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1\/4 {
-    width: calc(1/4 * 100%);
-  }
   .w-3 {
     width: calc(var(--spacing) * 3);
-  }
-  .w-3\/4 {
-    width: calc(3/4 * 100%);
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
@@ -617,6 +611,12 @@
   .gap-15 {
     gap: calc(var(--spacing) * 15);
   }
+  .gap-\[30px\] {
+    gap: 30px;
+  }
+  .gap-\[60px\] {
+    gap: 60px;
+  }
   .space-y-2 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -693,6 +693,9 @@
   .self-end {
     align-self: flex-end;
   }
+  .self-start {
+    align-self: flex-start;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -710,6 +713,9 @@
   }
   .rounded-\[20px\] {
     border-radius: 20px;
+  }
+  .rounded-\[40px\] {
+    border-radius: 40px;
   }
   .rounded-\[60px\] {
     border-radius: 60px;
@@ -792,6 +798,9 @@
   .bg-\[\#2B3FB8\] {
     background-color: #2B3FB8;
   }
+  .bg-\[\#47423B\] {
+    background-color: #47423B;
+  }
   .bg-\[\#E2E2E2\] {
     background-color: #E2E2E2;
   }
@@ -800,6 +809,9 @@
   }
   .bg-\[\#FEA91D\] {
     background-color: #FEA91D;
+  }
+  .bg-\[\#FF8ECC\] {
+    background-color: #FF8ECC;
   }
   .bg-black {
     background-color: var(--color-black);
@@ -880,6 +892,9 @@
   .px-12 {
     padding-inline: calc(var(--spacing) * 12);
   }
+  .px-\[20px\] {
+    padding-inline: 20px;
+  }
   .px-\[25px\] {
     padding-inline: 25px;
   }
@@ -913,11 +928,20 @@
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
   }
+  .py-\[11px\] {
+    padding-block: 11px;
+  }
+  .py-\[30px\] {
+    padding-block: 30px;
+  }
   .pt-2 {
     padding-top: calc(var(--spacing) * 2);
   }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .pt-\[25px\] {
     padding-top: 25px;
@@ -930,6 +954,9 @@
   }
   .pb-\[20px\] {
     padding-bottom: 20px;
+  }
+  .pb-\[41px\] {
+    padding-bottom: 41px;
   }
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
@@ -988,6 +1015,12 @@
   }
   .text-\[37px\] {
     font-size: 37px;
+  }
+  .text-\[42\.7px\] {
+    font-size: 42.7px;
+  }
+  .text-\[44\.8px\] {
+    font-size: 44.8px;
   }
   .text-\[52\.8px\] {
     font-size: 52.8px;
@@ -1060,6 +1093,9 @@
   .text-\[\#2C2C2C\] {
     color: #2C2C2C;
   }
+  .text-\[\#6FDBFC\] {
+    color: #6FDBFC;
+  }
   .text-\[\#47423B\] {
     color: #47423B;
   }
@@ -1077,6 +1113,9 @@
   }
   .text-\[\#CB93FF\] {
     color: #CB93FF;
+  }
+  .text-\[\#FEA91D\] {
+    color: #FEA91D;
   }
   .text-black {
     color: var(--color-black);
@@ -1299,6 +1338,11 @@
       text-align: left;
     }
   }
+  .md\:mx-\[89px\] {
+    @media (width >= 782px) {
+      margin-inline: 89px;
+    }
+  }
   .md\:my-6 {
     @media (width >= 782px) {
       margin-block: calc(var(--spacing) * 6);
@@ -1344,6 +1388,11 @@
       width: calc(1/4 * 100%);
     }
   }
+  .md\:w-2\/3 {
+    @media (width >= 782px) {
+      width: calc(2/3 * 100%);
+    }
+  }
   .md\:w-3\/4 {
     @media (width >= 782px) {
       width: calc(3/4 * 100%);
@@ -1369,19 +1418,29 @@
       flex-direction: row;
     }
   }
-  .md\:justify-between {
-    @media (width >= 782px) {
-      justify-content: space-between;
-    }
-  }
   .md\:gap-8 {
     @media (width >= 782px) {
       gap: calc(var(--spacing) * 8);
     }
   }
+  .md\:gap-\[40px\] {
+    @media (width >= 782px) {
+      gap: 40px;
+    }
+  }
+  .md\:gap-\[130px\] {
+    @media (width >= 782px) {
+      gap: 130px;
+    }
+  }
   .md\:px-6 {
     @media (width >= 782px) {
       padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+  .md\:px-\[89px\] {
+    @media (width >= 782px) {
+      padding-inline: 89px;
     }
   }
   .md\:px-\[90px\] {
@@ -1394,9 +1453,19 @@
       padding-top: calc(var(--spacing) * 6);
     }
   }
+  .md\:pt-\[89px\] {
+    @media (width >= 782px) {
+      padding-top: 89px;
+    }
+  }
   .md\:pb-12 {
     @media (width >= 782px) {
       padding-bottom: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:pb-\[100px\] {
+    @media (width >= 782px) {
+      padding-bottom: 100px;
     }
   }
   .md\:text-left {
@@ -1419,6 +1488,11 @@
   .md\:text-\[24px\] {
     @media (width >= 782px) {
       font-size: 24px;
+    }
+  }
+  .md\:text-\[42\.7px\] {
+    @media (width >= 782px) {
+      font-size: 42.7px;
     }
   }
   .md\:text-\[43\.95px\] {
