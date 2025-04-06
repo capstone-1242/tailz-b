@@ -15,7 +15,7 @@ get_header();
                     <?php endif; ?>
                     <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
                         <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                        <p class="uppercase text-white text-[18px]">Lessons for every type of pup</p>
+                        <p class="uppercase text-white text-[18px]">It's tail waggin' enjoyment</p>
                     </div>
             </div>
         </section>
@@ -68,7 +68,7 @@ get_header();
         
         <!-- FAQs -->
         <section>
-            <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
                 <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
 
                 <div class="flex flex-col gap-3">

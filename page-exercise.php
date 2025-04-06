@@ -121,7 +121,7 @@ function render_exercise_tab( $animal, $services ) {
 
         <!-- FAQs -->
         <section>
-            <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
                 <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
 
                 <div class="flex flex-col gap-3">
