@@ -9,8 +9,8 @@
 get_header();
 ?>
 
-<div class="container mx-auto">
-    <div class="flex flex-col">
+<div>
+    <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Banner -->
         <section class="flex flex-col gap-3">
             <div class="relative h-[15.375rem] w-full overflow-hidden">
@@ -21,215 +21,157 @@ get_header();
                     <?php endif; ?>
                     <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
                         <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                        <p class="uppercase text-white text-[18px]">Lessons for every type of pup</p>
+                        <p class="uppercase text-white text-[18px]">Building bonds of trust for better behavior</p>
                     </div>
             </div>
         </section>
-        
-        <!-- The leash is in your hands, we'll show you how to lead -->
-        <section class="mb-10">
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">The leash is in your hands, we'll show you how to lead</h3>
-                <p class="text-[18px] text-[#47423B]">When a dog's behavior falls outside the "normal" range, it often requires extra guidance—not just from skilled trainers, but from owners committed to their companion's growth.</p>
-                <p class="text-[18px] text-[#47423B]"><span class="font-bold">First, let's drop the stigma.</span> Asking for help is not just okay—it's a sign of dedication. Training isn't a quick fix; it's a lifestyle and a lifelong partnership. To create lasting change, we focus on <span class="font-bold">THE WHY</span> behind your pup's behavior, so you can master <span class="font-bold">THE HOW</span> to support them effectively.</p>
+
+        <!-- Positive training methods for positive results -->
+        <section>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
+                <h2 class="text-[44.8px] text-[#47423B] lowercase">Positive training methods for positive results</h2>
+                <p class="text-[18px] text-[#2C2C2C]">Humane handling and a positive approach are the foundation of our training philosophy. At Tailz, we believe in building relationships based on scientifically-backed training techniques.</p>
+                <p class="text-[18px] text-[#2C2C2C]">Having a well-trained dog is very important for your dog's safety and your own peace of mind. We provide a wide range of training options for both puppies and older dogs who need to brush up on their obedience.</p>
+                <p class="text-[18px] text-[#2C2C2C]">We teach you how to train your dog to make good choices that result in positive outcomes for your pup. The inherent nature of private lessons will help you build a stronger bond with your dog while we provide direct guidance and direction specific to your pup's needs. </p>           
             </div>
         </section>
-        <!-- Understanding canine behavior and skill building -->
-        <section class="mb-10">
-            <div class="flex flex-col mx-6 gap-3">
-                <h2 class="lowercase font-bold text-[22px] text-[#615849]">Understanding canine behavior and skill building</h2>
-                <!-- Content Container -->
-                <div class="flex flex-col gap-15">
-                    <!-- Sub Container 1 -->
-                    <div class="flex flex-col gap-15">
-                        <!-- Your role in the process -->
-                        <div class="flex flex-col gap-3">
-                            <h3 class="lowercase text-[22px] text-[#837660]">Your role in the process</h3>
-                            <p class="text-[18px] text-[#47423B]">During Canine Skill Building, we start by defining your goals. Every household is different, and success looks unique for each dog. Ask yourself:</p>
-                            <ol class="flex flex-col gap-3 text-[18px] text-[#615849] font-bold">
-                                <li>How can I help my dog reach these goals?</li>
-                                <li>What time and effort am I willing to invest?</li>
-                            </ol>
-                            <p class="text-[18px] text-[#47423B]">These choices shape the outcome. This isn't just "training" - it's a transformative learning journey for both you and your pup. You'll gain systematic tools to help your pup develop the skills they need to thrive.</p>
-                        </div>
-                        <!-- Our commitment to you -->
-                        <div class="flex flex-col gap-3">
-                            <h3 class="lowercase text-[22px] text-[#837660]">Our commitment to you</h3>
-                            <p class="text-[18px] text-[#47423B]">After your initial consultation, our trainer will craft a personalized plan for ongoing skill development, including:</p>
-                            <ol class="flex flex-col gap-3 text-[18px] text-[#615849] font-bold">
-                                <li>One-on-one coaching</li>
-                                <li>Structured exercise</li>
-                                <li>Real world practice</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <!-- Sub Container 2 -->
-                    <div class="flex flex-col gap-15">
-                        <!-- Why skillbuilding works -->
-                        <div class="flex flex-col gap-3">
-                            <img src="" alt="">
-                            <h3 class="lowercase text-[22px] text-[#837660]">Why skill building works</h3>
-                            <p class="text-[18px] text-[#47423B]">True learning happens through repetition and sensory experience. Our approach is holistic, engaging your dog's mind, body, and instincts in a rich, structured way. Beyond correcting behaviors, skill building strengthens your bond and builds confidence.</p>
-                        </div>
-                        <!-- Common skill building focus areas -->
-                        <div class="flex flex-col gap-3">
-                            <h3>Common skill building focus areas</h3>
-                            <ol class="flex flex-col md:flex-row gap-3 text-[18px] text-[#47423B]">
-                                <div class="flex flex-col gap-3 mb-3 md:mb-0">
-                                    <li>Leash Reactivity</li>
-                                    <li>Dog Reactivity</li>
-                                    <li>Human Reactivity</li>
-                                    <li>Fearfulness</li>
-                                    <li>Resource Guarding</li>
-                                </div>
-                                <div class="flex flex-col gap-3">
-                                    <li>Barrier Frustration</li>
-                                    <li>Door Dash</li>
-                                    <li>Excessive Barking</li>
-                                    <li>Poor Leash Manners</li>
-                                    <li>Confidence Building</li>
-                                </div>
-                            </ol>
-                        </div>
-                    </div>
+
+        <!-- Puppy classes -->
+        <section>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Puppy classes</h2>
+                </div>
+                <!-- Packages -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
                 </div>
             </div>
         </section>
-        <!-- Policy -->
-        <section class="mb-10">
-            <div class="flex flex-col gap-3 mx-6 bg-[#F3F2EC] rounded-[12px] p-[30px]">
-                <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
-                <p class="italic text-[24px]">All training sessions require advanced scheduling and prepayment prior to the session.</p>
-                <p class="italic text-[24px]">A minimum 24-hour notice is required to reschedule any session. Late cancellations (under 24 hours) will result in a $50 fee, <span class="underline">or</span> a deduction of none session from your bundle.</p>
+
+        <!-- Puppy Program Sell -->
+        <section class="bg-[#F3F2EC]">
+            <div class="flex flex-col px-6 pt-6 pb-[41px] md:pt-[89px] md:pb-[100px] md:px-[89px] gap-5 md:w-2/3">
+                <h2 class="text-[44.8px] text-[#47423B] lowercase">Got a puppy?</h2>
+                <p class="text-[18px] text-[#2C2C2C]">Our Puppy Program is designed to give your little one the perfect start with early training, socialization, and plenty of fun to help them throw into a happy, well-adjusted dog!</p>
+                <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white" href="#">Puppy programs</a></button>
             </div>
         </section>
+
+        <!-- Adult classes -->
+        <section>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Adult classes</h2>
+                </div>
+                <!-- Packages -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Growly dog classes -->
+        <section>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Growly dog classes</h2>
+                    <p class="text-[18px] text-[#2C2C2C]">Is your dog barking, growling, snapping, or snarling at other dogs or people out on walks? Do they frequently overwhelm other dogs when they try to say hello? Our Growly Dog classes are specially designed for dogs who need some extra help with their social skills, and use methods that will help keep you and your dog (and passers-by!) safe and happy.</p>
+                    <p class="text-[18px] text-[#2C2C2C]">In Growly Dog classes or in private training, you will learn tactics to keep you and your dog safe right away, as well as how to teach your dog appropriate alternative behaviors. Our end goal is to help dogs learn to manage their social needs without aggression so that you don't have to constantly keep them distracted from their triggers.</p>
+                    <p class="text-[18px] text-[#2C2C2C]">At Tailz we understand that Growly Dogs are not bad dogs, and their owners are not bad owners! Our trainers are highly educated and have experience with dog to dog aggression and dog to human aggression.  We look forward to helping rehabilitate both your dog's behavior and your relationship with them.</p>
+                    <p class="text-[18px] text-[#2C2C2C]">The first step for most Growly Dogs is to attend our Fear and Aggression 101 class, which will help you understand why your dog might be growly, what to do about it, and what you’ll learn in the Growly Dog classes. If your dog has been aggressive with people, it may be most appropriate to start with private training to keep your dog and other students safe. Please contact us if you aren’t sure about where to start!</p>
+                </div>
+                <!-- Packages -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Private training -->
+        <section>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Private training (one-on-one training)</h2>
+                    <p class="text-[18px] text-[#2C2C2C]">One of our Certified Trainers will work with you and your family to improve your dog's manners. Lessons can be done in-person (on-site or in home) or virtual.</p>
+                </div>
+                <!-- List container 1 -->
+                <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
+                    <h3 class="text-[22px] md:text-[30px] text-[#47423B]">Your lessons will include working on basic manners and cues:</h3>
+                    <ol class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
+                        <li>Sit, Stay, Down</li>
+                        <li>Release Commands</li>
+                        <li>"Come!" (Recall)</li>
+                    </ol>
+                </div>
+                <!-- List container 2 -->
+                <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
+                    <h3 class="text-[22px] md:text-[30px] text-[#47423B]">We will also work on some general issues that are relevant to you and your dog's needs:</h3>
+                    <ol class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
+                        <li>Sit, Stay, Down</li>
+                        <li>Release Commands</li>
+                        <li>"Come!" (Recall)</li>
+                    </ol>
+                </div>
+                <!-- Packages -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs -->
+        <section>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
+                <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What kind of training philosophy does tailz follow?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We use only positive, science-backed training methods. Our approach is rooted in humane handling and building a trusting relationship between you and your dog.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What's the difference between puppy kindergarten and puppy elementary?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Puppy Kindergarten is for younger pups (8-22 weeks) and focuses on basic commands and socialization. Puppy Elementary (5-10 months) builds on those foundations with more advanced skills and the option to earn an AKC S.T.A.R. Puppy Certificate.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">My dog is older and hasn't had formal training - can we still join a class?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Absolutely! Our Basic Dog Manners class (for dogs 9 months and up) is perfect for new learners or for dogs needing a refresher on obedience and manners.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What if my dog has behavioral issues like barking or lunging at other dogs?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We recommend starting with our Fear & Aggression 101 class online. From there, you may move into the Reactivity Evaluation or Growly Dog classes, which are designed to help reactive dogs in a safe, supportive environment.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Are private lessons available if my dog needs one-on-one support?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! We offer private training both in-person and virtually. It's a great option for dogs with specific needs or if you want personalized guidance for your pup's training journey.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do I need to complete a certain class before enrolling in intermediate manners?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes, dogs should have completed Puppy Elementary, Kindergarten, or Basic Manners. This ensures your pup has a foundation of skills before tackling more challenging distractions and tasks.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I do something more playful with my dog than obedience training?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Definitely! Try our Sports & Games or Nosework Games classes. They're fun, enriching, and designed to strengthen your bond through teamwork, tricks, and confidence-building exercises.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How do I know which class is right for my dog?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">If you're unsure, reach out! We're happy to help assess your dog's age, experience, and temperament to find the best class. You can also book a private evaluation to get started on the right paw.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
-
-    <!-- MetaBox Queries -->
-    <?php
-    // -----------------------------
-    // Retrieve cloned meta values
-    // -----------------------------
-    $titles       = (array) rwmb_meta( 'training_package_title' );
-    $descriptions = (array) rwmb_meta( 'training_description' );
-    $prices       = (array) rwmb_meta( 'training_price' );
-
-    // Build packages array
-    $packages = [];
-    $total = count( $titles );
-    for ( $i = 0; $i < $total; $i++ ) {
-        if ( empty( $titles[ $i ] ) ) {
-            continue;
-        }
-        $packages[] = [
-            'title'       => $titles[ $i ],
-            'description' => isset($descriptions[ $i ]) ? $descriptions[ $i ] : '',
-            'price'       => isset($prices[ $i ]) ? $prices[ $i ] : '',
-        ];
-    }
-
-    /**
-     * Helper function to render training packages in a single "DOG" tab.
-     */
-    function render_training_packages( $packages ) {
-        ?>
-        <div class="tabs-container" id="training-tabs">
-            <div class="tabs flex mb-4">
-                <button class="tab-button active border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md flex items-center gap-2 cursor-pointer">
-                    <!-- Dog Icon -->
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M5.5 16l1.75-3.5a2 2 0 0 1 1.79-1.06h3.92a2 2 0 0 1 1.79 1.06L17.5 16M7 16v4m10-4v4m-10 0h10"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M9 8.5C8 8 6 8.5 6 6c0-2 1.5-2 2.5-2S11 4 11 6c0 2.5-2 2-2 2.5zm6 0c-1-0.5-3 0-3-2.5 0-2 1.5-2 2.5-2S17 4 17 6c0 2.5-2 2-2 2.5z"/>
-                    </svg>
-                    DOG
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="tab-content" id="dog-content">
-                <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                    <!-- Display each package in a grey box -->
-                    <?php if ( ! empty( $packages ) ) : ?>
-                        <?php foreach ( $packages as $index => $pkg ) : ?>
-                            <div class="mb-4 bg-gray-200 p-4 rounded-md">
-                                <h3 class="font-bold text-md mb-2">
-                                    <?php echo esc_html( $pkg['title'] ); ?>
-                                </h3>
-                                <p class="text-sm mb-2">
-                                    <?php echo esc_html( $pkg['description'] ); ?>
-                                </p>
-                                <p class="text-sm font-bold mb-2">
-                                    <?php echo esc_html( $pkg['price'] ); ?>
-                                </p>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <p class="text-sm text-gray-500">No training packages found.</p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Book Lessons Button -->
-                <div class="text-center">
-                    <a href="#" class="inline-block border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition">
-                        BOOK LESSONS
-                    </a>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
-    ?>
-
-
-    <!-- Render the single DOG tab with the packages from Meta Box -->
-    <?php render_training_packages( $packages ); ?>
-
-
-
-    <section class="px-4 py-6">
-        <div>
-            <h2 class="text-xl font-bold mb-2">Training requirements</h2>
-            <p class="text-sm">Our basic requirements for attending training...</p>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="px-4 py-6">
-        <h2 class="text-xl font-bold mb-4">Frequently Asked Questions</h2>
-        <div class="mb-6">
-            <h3 class="font-bold">Why does Tailz need copies of vaccination records? Will my dog's rabies tag work?</h3>
-            <p class="text-sm">We respect the trust our clients have in us. We also understand that saying the vaccinations were done is not the same as knowing when the vaccinations were in fact administered...</p>
-        </div>
-        <!-- Additional FAQs -->
-        <div class="mb-6">
-            <h3 class="font-bold">Will the vaccinations I did myself work?</h3>
-            <p class="text-sm">They may work, however, we require proof of purchase (the till receipt) and the sticker from the vaccination vile...</p>
-        </div>
-        <div class="mb-6">
-            <h3 class="font-bold">Do you have a littles area?</h3>
-            <p class="text-sm">Yes, we do! Little ones have an area fenced off and exclusively dedicated to them and boy do they love it!</p>
-        </div>
-        <div class="mb-6">
-            <h3 class="font-bold">How are dogs grouped together?</h3>
-            <p class="text-sm">We separate dogs according to size and play style.</p>
-        </div>
-        <div class="mb-6">
-            <h3 class="font-bold">Are dogs free to roam?</h3>
-            <p class="text-sm">Think of us like a supervised off leash park. We do have crates, however they are mostly used for personal space or time-outs.</p>
-        </div>
-        <div class="mb-6">
-            <h3 class="font-bold">What techniques do your Canine Play Specialists use when handling dogs?</h3>
-            <p class="text-sm">It is our mission to use scientifically-based techniques when handling the dogs. This means absolutely no dominating, no alpha-rolling...</p>
-        </div>
-        <div class="mb-6">
-            <h3 class="font-bold">What is your philosophy on dog training and handling?</h3>
-            <p class="text-sm">At Tailz, we believe in treating animals with the kindness and respect they deserve...</p>
-        </div>
-    </section>
-
 </div>
 <!-- /.container -->
 

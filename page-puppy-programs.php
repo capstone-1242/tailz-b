@@ -35,23 +35,23 @@
                     <p class="text-[18px] text-[#2C2C2C] md:w-3/4">Early socialization and desensitization leads to reduced fears and anxieties down the road, making for a friendly and sociable fur-friend. Whether your puppy visits us once a week, or every day, they will get the experience in our cirriculum to develop into a sociable and well-behaved puppy.</p>
                 </div>
                 <!-- Quick Links -->
-                <div class="flex flex-col md:flex-row flex-wrap gap-5 mx-6 md:mx-[89px] text-center md:text-left items-center md:items-start md:justify-between">
+                <div class="flex flex-col md:flex-row flex-wrap gap-5 mx-6 md:mx-[5.56rem] text-center md:text-left items-center md:items-start md:justify-between">
                     <!-- Puppy preschool -->
-                    <a class="md:w-[calc(33.333333%_-_90px)]" href="#">
+                    <a class="md:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy preschool</h3>
                         </div>
                     </a>
                     <!-- Puppy plus -->
-                    <a class="md:w-[calc(33.333333%_-_90px)]" href="#">
+                    <a class="md:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy plus</h3>
                         </div>
                     </a>
                     <!-- Puppy daycare -->
-                    <a class="md:w-[calc(33.333333%_-_90px)]" href="#">
+                    <a class="md:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy daycare</h3>

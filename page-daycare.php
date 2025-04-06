@@ -35,7 +35,7 @@ get_header();
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
                     <h2 class="text-[44.8px] text-[#FEA91D] lowercase">Daycare rates</h2>
-                    <p class="text-[18px] text-[#2C2C2C]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environtment to ensure they are comfortable, happy, and enjoying themselves.</p>
+                    <p class="text-[18px] text-[#2C2C2C]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environment to ensure they are comfortable, happy, and enjoying themselves.</p>
                 </div>
                 <!-- Packages -->
                 <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
