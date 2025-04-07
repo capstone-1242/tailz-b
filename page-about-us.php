@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<!-- Hero Section -->
+<!-- Hero Section banner add-->
 <div class="bg-[#2B3FB8] py-20">
   <div class="container mx-auto px-6 md:px-[90px]">
     <h1 class="font-poppins font-bold text-[53.75px] text-white">

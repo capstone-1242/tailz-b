@@ -9,6 +9,7 @@
 get_header();
 
 // 1) Retrieve the cloned fields and cast to arrays.
+// fix metaboxes
 $dog_titles       = (array) rwmb_meta( 'photos_dog_title' );
 $dog_prices       = (array) rwmb_meta( 'photos_dog_price' );
 $dog_descriptions = (array) rwmb_meta( 'photos_dog_desc' );

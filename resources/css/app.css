@@ -13,7 +13,7 @@
 @import "custom-colors.css";
 @import "custom.css";
 
-/* Custom utilities */
+/* Custom utilities for tailwind*/
 @layer utilities {
   .section-spacing {
     padding-top: var(--section-spacing-mobile);

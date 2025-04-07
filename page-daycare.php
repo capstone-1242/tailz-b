@@ -2,6 +2,8 @@
 get_header();
 ?>
 
+<!-- Add metaboxes  -->
+
 <div>
 
     <div class="flex flex-col gap-[60px] md:gap-[130px]">

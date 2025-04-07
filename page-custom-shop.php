@@ -60,7 +60,7 @@ $products_query = new WP_Query( $args );
 
     <!-- FEATURED Section (Using the filtered query) -->
     <section class="mb-10">
-        <h2 class="text-lg font-bold mb-4">FEATURED ITEMS</h2>
+        <h2 class="text-lg font-bold mb-4">FEATURED</h2>
         <div class="grid grid-cols-2 gap-4">
             <?php
             if ( $products_query->have_posts() ) :

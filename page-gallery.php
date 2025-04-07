@@ -12,6 +12,7 @@ get_header();
 <div class="container mx-auto my-8">
     <article class="flex flex-col">
         <!-- Shortcuts -->
+         <!-- fix later -->
         <nav class="flex flex-col gap-3">
             <h3 class="uppercase mb-2">Jump To</h3>
             <ul class="flex flex-wrap gap-x-3 gap-y-6 font-bold">

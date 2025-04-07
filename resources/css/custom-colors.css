@@ -1,6 +1,6 @@
 @layer theme {
   :root {
-    /* Brand Colors */
+    /* Brand Colors for tailwind */
     --color-brand-darkblue: #1E2B79;
     --color-brand-blue: #2B3FB8;
     --color-brand-sky: #6FDBFC;

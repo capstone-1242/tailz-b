@@ -18,3 +18,7 @@
       $('select[id$="-size"]').trigger('change');
     });
   })(jQuery); 
+
+  /* 
+    Grooming tabs JS
+  */

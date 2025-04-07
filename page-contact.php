@@ -13,7 +13,7 @@ get_header();
   (shown on screens < md)
 -->
 <div class="block md:hidden">
-  <!-- Mobile Hero -->
+  <!-- Mobile Hero banner -->
   <section 
     class="relative w-full bg-center bg-cover bg-no-repeat min-h-[500px] flex items-center overflow-hidden" 
     style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/03/contact-heading.webp'); ?>'); background-position: center 20%;"

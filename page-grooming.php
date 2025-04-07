@@ -23,6 +23,7 @@ $cat_l        = (array) rwmb_meta( 'grooming_cat_l' );
 $cat_xl       = (array) rwmb_meta( 'grooming_cat_xl' );
 
 // Build the services array using the cloned fields by index.
+// add content to the metaboxes
 $services = [];
 $total = count( $titles );
 for ( $i = 0; $i < $total; $i++ ) {

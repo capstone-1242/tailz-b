@@ -9,6 +9,8 @@
 get_header();
 ?>
 
+
+<!-- Fix later -->
 <div>
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Banner -->

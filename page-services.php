@@ -12,6 +12,7 @@ get_header();
 <div class="container mx-auto px-4 py-6">
 
     <!-- Page Title & Intro -->
+     <!-- Fix later -->
     <section class="mb-6">
         <h1 class="text-2xl font-extrabold mb-2">SERVICES</h1>
         <p class="text-sm text-gray-700 leading-relaxed">

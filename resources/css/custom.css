@@ -1,4 +1,4 @@
-/* Ensure article content is centered (if desired) */
+/* Ensure article content is centered (if desired) here */
 article > *:not(.entry-content),
 .entry-content > * {
   margin-left: auto;

@@ -9,6 +9,7 @@
 get_header();
 
 // Retrieve cloned meta values and cast them to arrays.
+// Fix metaboxes
 $titles       = (array) rwmb_meta( 'exercise_service_title' );
 $descriptions = (array) rwmb_meta( 'exercise_service_description' );
 $dog_prices   = (array) rwmb_meta( 'exercise_dog_price' );

@@ -10,7 +10,7 @@
             $buttons.first().addClass('active');
             $contents.first().removeClass('hidden');
             
-            // Handle tab button clicks
+            // Handle all tab button clicks
             $buttons.on('click', function() {
                 const $button = $(this);
                 const tabId = $button.data('tab');

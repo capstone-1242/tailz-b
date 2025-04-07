@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const body = document.body;
     
-    // Toggle mobile menu
+    // Toggle of the mobile menu
     function toggleMenu() {
         if (!mobileMenu || !mobileMenuOverlay) return;
         
