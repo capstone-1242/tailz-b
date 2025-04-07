@@ -110,12 +110,12 @@ function render_exercise_tab( $animal, $services ) {
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
                 <h2 class="text-[44.8px] text-[#47423B] lowercase">Requirements for attending</h2>
-                <ol class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
-                    <li>All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioral assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and enjoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
-                    <li>Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>
-                    <li>Our daycare program is not only about coming to play, but to enrich their life through physical exercise, mental stimulation, and socialization</li>
-                    <li>Safety and comfort of your pup is important, so our playgroups are based on size and temperament and are always supervised by a qualified team member</li>
-                </ol>
+                <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioral assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and enjoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our daycare program is not only about coming to play, but to enrich their life through physical exercise, mental stimulation, and socialization</li>
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Safety and comfort of your pup is important, so our playgroups are based on size and temperament and are always supervised by a qualified team member</li>
+                </ul>
             </div>
         </section>
 
@@ -165,7 +165,6 @@ function render_exercise_tab( $animal, $services ) {
                 </div>
             </div>
         </section>
-
     </div>
 
 
