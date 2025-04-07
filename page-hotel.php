@@ -10,12 +10,11 @@
 ?>
 
 
-<div class="container mx-auto">
-
-    <div class="flex flex-col">
+<div>
+    <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Banner -->
         <section class="flex flex-col gap-3">
-        <div class="relative h-[15.375rem] w-full overflow-hidden">
+            <div class="relative h-[15.375rem] w-full overflow-hidden">
                 <?php
                     $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                     if($featured_image_url) : ?>
@@ -23,158 +22,135 @@
                     <?php endif; ?>
                     <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
                         <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                        <p class="uppercase text-white text-[18px]">Five-star lodging for your four-legged guests</p>
+                        <p class="uppercase text-white text-[18px]">Five-star lodging for four-legged guests</p>
                     </div>
             </div>
         </section>
-        <!-- Rest & relaxation for both you and your pets -->
-        <section class="mb-10">
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase text-[22px] text-[#837660]">Rest & relaxation for both you and your pets</h3>
-                <p>You've earned your time off, but travel isn't always pet-friendly. Luckily, TAILZ offers safe and comfrtable overnight lodging for your pet!</p>
-            </div>
-        </section>
-        <!-- You pet's stay at TAILZ -->
-        <section class="mb-10">
-            <h2 class="mx-6 lowercase font-bold text-[22px] text-[#615849]">Your pet's stay at TAILZ</h2>
-            <!-- Container -->
-            <div class="flex flex-col mx-6 gap-15">
-                <!-- Sub Container 1 -->
-                <div class="flex flex-col gap-15">
-                    <!-- Private suites, fun-filled days, and special amenities -->
-                    <div class="flex flex-col gap-3 md:w-3/4">
-                        <h3 class="lowercase text-[22px] text-[#837660]">Private suites, fun-filled days, and special amenities</h3>
-                        <p>play -> rest -> wake up refreshed</p>
-                        <p class="text-[18px] text-[#47423B]">Overnight stays at TAILZ come with all the perks of doggy or kitty daycare - plus extra bedtime care! Your pet will enjoy a full day of play, a cozy night's rest in a comfortable suite, and wake up ready for more fun.</p>
-                        <p class="text-[18px] text-[#47423B]">We maintain a calm, supportive environtment to ensure all pets feel secure and safe to unwind in their own way - whether they're snoozing solo, playing with toys, or making new friends during supervised playtime. Our team is always nearby to ensure safety (and sneak in extra cuddles when needed!).</p>
-                        <p class="text-[18px] text-[#47423B]">During their stay, your pet will enjoy a cleam, cozy suite tailored to their needs, complete with regular feeding times, fresh water, and plenty of love from our trained staff. To help them wind down for the night, we provided evening snacks, snuggles, and a stroll (available with the gold package) to encourage sweet dreams</p>
-                        <h4 class="text-[#615849] font-bold text-[18px]">Spa amenities</h4>
-                        <p class="text-[18px] text-[#47423B]">For the perfect finishing touch, add a departure spa appointment on their last day - they'll come home fresh, squeaky clean, and ready to snuggle!</p>
-                    </div>
-                    <div class="flex flex-col gap-8 md:w-1/4">
-                        <img src="https://placehold.co/600x400" alt="">
-                        <img src="https://placehold.co/600x400" alt="">
-                    </div>
+
+        <!-- A home away from home retreat for pets -->
+        <section>
+            <div class="flex flex-col gap-[60px]">
+                <!-- Intro -->
+                <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] text-[#47423B] lowercase">A home away from home retreat for pets</h2>
+                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px] md:w-3/4">You've worked hard throughout the year to take time off. Whether it's a vacation, or a business trip - there are plenty of times when our lives take us out of town for a few days and pets are not always welcome. Luckily, you can feel comfortable leaving your dog at Tailz for a few nights of overnight lodging!</p>
                 </div>
-                <!-- Sub Container 2 -->
-                <div class="flex flex-col mx-6 gap-15 md:flex-row">
-                    <!-- Sleepover essentials: What to bring -->
-                    <div class="flex flex-col gap-3">
-                        <h3 class="lowercase text-[22px] text-[#837660]">Sleeover essentials: What to bring</h3>
-                        <p class="text-[18px] text-[#47423B]">We provide blankets, beds, bowls, and toys - just bring your pet's food!</p>
-                        <p class="text-[18px] text-[#47423B]">To help enxious pets feel more comfortable, you're welcome to bring their favorite bed, blanket, or toy for their stay</p>
-                        <p class="text-[18px] text-[#47423B]">While two meals a day is standard, we're happy to accomodate up to three feedings with their provided food.</p>
-                        <p class="text-[18px] text-[#47423B]">Please bring all items in a labeled reusable shopping bag, and pre-portioned meals are greatly appreciated.</p>
-                        <p class="text-[18px] text-[#47423B]">Note: Personal items may be subject ot wear and tear.</p>
+                <!-- Your pet's stay at tailz -->
+                <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
+                    <h3 class="lowercase text-[#47423B] text-[31px] md:text-[56.85px]">Your pet's stay at tailz</h3>
+                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px] md:w-3/4">When dogs stay the night at Tailz, they receive all the benefits of doggy daycare, plus extra special time at night before being tucked into bed! The mental and physical stimulation throughout the day provides a restful sleep at night in one of our suites, and your pup will wake up in the morning ready for another fun-filled day with us! A full day of doggy day care is included with every night of overnight lodging at Tailz</p>
+                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px] md:w-3/4">You deserve peace of mind in knowing that your beloved pet is being well cared for. Rest assured, we provide all the blankets, dog beds, feeding bowls, and toys that your dog needs; all you need to bring is a container with their food!</p>
+                    <div class="flex flex-col rounded-[20px] bg-[#F3F2EC] px-[25px] md:px-[30px] py-[20px] gap-[10px]">
+                        <h4 class="uppercase text-[#47423B] text-[18px] md:text-[20px] italic">Please note</h4>
+                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Blankets and personal items from home may be damaged.</p>
                     </div>
-                    <!-- Caring for your pet like our own -->
-                    <div class="flex flex-col gap-3">
-                        <h3 class="lowercase text-[22px] text-[#837660]">Caring for your pet like our own</h3>
-                        <p class="text-[18px] text-[#47423B]">At TAILZ, your pet's comfort and safety are our top prioties.</p>
-                        <p class="text-[18px] text-[#47423B]">Our team is experienced in caring for anxious pets and are trained to recognize and accomodate their unique needs -  so your furry friend will feel right at home. With sueprvised play, cozy accomodations, and regular updates sent straight to you, you can relax knowing they're in the best hands until you're reuinited!</p>
-                        <p class="text-[18px] text-[#47423B]">We follow strict health and cleanliness protocols, so your pet enjoys a spotless, stress-free stay.</p>
-                        <p class="text-[18px] text-[#47423B]">We know how much your pet means to you - that's why we treat them like family!</p>
+                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px]">Though twice a day is normal, we will feed your pup up to three times per day with their allotted food.</p>
+                    <div class="flex flex-col rounded-[20px] bg-[#F3F2EC] px-[25px] md:px-[30px] py-[20px] gap-[10px]">
+                        <h4 class="uppercase text-[#47423B] text-[18px] md:text-[20px] italic">Please note</h4>
+                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Bring all items in a marked resuable shopping bag.</p>
+                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Food that is pre-portioned is appreciated.</p>
+                    </div>
+                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px]">For the perfect finishing touch, add a departure spa appointment on their last day - they'll come home fresh, squeaky clean, and ready to snuggle!</p>
+                    <div class="flex flex-col rounded-[20px] bg-[#F3F2EC] px-[25px] md:px-[30px] py-[20px] gap-[10px]">
+                        <h4 class="uppercase text-[#47423B] text-[18px] md:text-[20px] italic">Please note</h4>
+                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Sign your pup up for a departure bath on their last day of lodging.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Policy -->
-        <section class="mb-10">
-            <div class="flex flex-col gap-3 mx-6 bg-[#F3F2EC] rounded-[12px] p-[30px]">
-                <h3 class="uppercase text-[24px] text-[#837660]">Please note</h3>
-                <p class="italic text-[24px]">All stays must be prepaid in full at the time of arrival.</p>
-                <p class="italic text-[24px]">A $10 nightly surcharge applies for Sundays, long weekends, and holidays.</p>
-                <p class="italic text-[24px]">To ensure your pet's spot during busy holiday dates, we require a one-night deposit (non-refundable).</p>
+
+        <!-- Hotel packages -->
+        <section>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase">Hotel packages</h2>
+                </div>
+                <!-- Packages -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lodging requirements -->
+        <section>
+            <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
+                <h2 class="text-[44.8px] text-[#47423B] lowercase">Lodging requirements</h2>
+                <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal md:w-3/4">
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All stays are required to be prepaids at the time of arrival.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">During the holiday season a single night deposit is required to hold your pup's Luxury Overnight Lodging reservation. This is a non-refundable holiday season deposit.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Only social, dog friendly dogs are accepted into our lodging. We do not take aggressive dogs.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs must pass a Meet & Greet prior to lodging.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">They must have attended Doggy Daycare at least once in the last 3 months.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Alternatively, new pups must have passed their Meet & Greet within the last 2 months.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs require up-to-date vaccinations for Bordetella, Distemper/Parvovirus/Parainfluenza, and Rabies (after 6 months of age.)</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All current vaccination records must be received 24-hours in advance of your pet's overnight stay.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All pups are to be spayed or neutered by 7 months of age. If a medical exception has been granted, intact pups older than 10 months will not be accepted.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our Canine Care Team may change the activity level of your dog should their needs require it during their stay.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Check-in time is 12:00PM or afterwards during regular business hours. Early check-in fee of $17.99 applies before 12:00PM.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Checkout time is 12:00PM during regular business hours. Late checkout fee of $17.99 applies after 12:00PM.</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Dogs not checked out by closing time must stay overnight and will be surcharged for additional night's stay and can be picked up the following business day.</li>
+                    </ul>
+            </div>
+        </section>
+
+        <!-- Our rooms -->
+        <section>
+            <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px]">
+                <h2 class="text-[44.8px] text-[#47423B] lowercase">Our rooms</h2>
+                <!-- Gallery Function -->
+                <div>Gallery function here</div>
+            </div>
+        </section>
+
+        <!-- FAQs -->
+        <section>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
+                <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What is included in my dog's overnight stay?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Every overnight lodging stay includes a full day of doggy daycare, plenty of supervised playtime, and a cozy suite for restful sleep. Your pup will also enjoy special evening attention before being tucked in for the night.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do I need to bring anything for my dog's stay?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">The only thing you need to bring is your dog's food in a marked reusable shopping bag. We provide blankets, dog beds, feeding bowls, and toys to ensure your pup is comfortable during their stay.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I bring my dog's favorite blanket or toy?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We understand the comfort of familiar items, but personal belongings from home may get damaged. We provide everything your pup needs to feel safe and secure.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase"> How often will my dog be fed?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We typically feed dogs twice a day, but if your pup requires three meals, we are happy to accommodate. Pre-portioned meals are appreciated.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase"> Will my dog interact with other dogs during their stay?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! Your pup will participate in our structured doggy daycare program, enjoying socialization, exercise, and mental enrichment during the day.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I add a bath for my dog before they come home?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Absolutely! We offer a departure bath service, so your pup comes home fresh, clean, and ready to cuddle.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What if my dog has special dietary needs or medications?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We can accommodate most dietary restrictions and administer medications as needed. Please provide clear instructions when dropping off your dog.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do you have staff on-site overnight?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">While our team is not in the facility overnight, our suites provide a safe and secure environment for your pup to rest peacefully after a fun-filled day.</p>
+                </div>
             </div>
         </section>
     </div>
-
-
-
-
-    <!-- <section>
-        <div>
-            <h2>Lodging Requirements</h2>
-            <p>Our base sleepover standards</p>
-        </div>
-
-        <div>
-            <h3>Lodging Offers</h3>
-            <p>Lodging stays over 10-days or lonnger receive a 5% discount.</p>
-        </div>
-
-        <div>
-            <h3>Friendly Dogs</h3>
-            <p>Only social, dog friendly dogs are accepted into our lodging. We do not take aggressive dogs.</p>
-        </div>
-
-        <div>
-            <h3>First Impressions</h3>
-            <p>All dogs must pass a Meet & Greet prior to lodging.</p>
-        </div>
-
-        <div>
-            <h3>Lasting Impressions</h3>
-            <p>They must have attended Doggy Daycare at least once in the last 3 months. Alternatively, new pups must have passed their Meet & Greet within the last 2 months.</p>
-        </div>
-
-        <div>
-            <h3>Vaccinations & Shots</h3>
-            <p>All dogs require up-to-date vaccinations for Bordetella, Distemper/Parvovirus/Parainfluenza, and Rabies (after 6 months of age.)</p>
-            <p>All current vaccination records must be received 24-hours in advance of your pet’s overnight stay.</p>
-        </div>
-        
-        <div>
-            <h3>Spay & Neuter</h3>
-            <p>All pups are to be spayed or neutered by 7 months of age. If a medical exception has been granted, intact pups older than 10 months will not be accepted.</p>
-        </div>
-
-        <div>
-            <h3>Changes On The Fly</h3>
-            <p>Our Canine Care Team may change the activity level of your dog should their needs require it during their stay.</p>
-        </div>
-
-        <div>
-            <h3>Check-in & Check-out Times</h3>
-            <p>Check-in time is 12:00PM or afterwards during regular business hours. Early check-in fee of $17.99 applies before 12:00PM.</p>
-            <p>Checkout time is by 12:00PM during regular business hours. Late checkout fee of $17.99 applies after 12:00PM.</p>
-            <p>Dogs not checked out by closing time must stay overnight, and will be surcharged for additional night's stay and can be picked up the following business day. </p>
-        </div>
-    </section> -->
-
-    <!-- Used same FAQ as daycare page except the irrelevant ones -->
-    <!-- <section>
-        <h2>Frequently Asked Questions</h2>
-        <div>
-            <h3>Why does Tailz need copies of vaccination records? Will my dog's rabies tag work?</h3>
-            <p>We respect the trust our clients have in us. We also understand that saying the vaccinations were done is not the same as knowing when the vaccinations were in fact administered and when they are due next. The details on a rabies tag do not provide us with enough information to count as proof.</p>
-            <p>We use a computerized system to help us keep track of when they are due next. This gives our clients the peace of mind they deserve knowing all dogs in our care are vaccinated according to their veterinarian's schedule.</p>
-        </div>
-        <div>
-            <h3>Will the vaccinations I did myself work?</h3>
-            <p>They may work, however, we require proof of purchase (the till receipt) and the sticker from the vaccination vile. Without both parts, we cannot accept the self-administered vaccine. We will also count vaccines as valid for only 1 year from the day of purchase.</p>
-        </div>
-        <div>
-            <h3>Do you have a littles area?</h3>
-            <p>Yes, we do! Little ones have an area fenced off and exclusively dedicateed to them adn boy do they love it! Play structures that are more suited to their smaller structures are available for them to play on.</p>
-        </div>
-        <div>
-            <h3>How are dogs grouped together?</h3>
-            <p>We separate dogs according to size and play style</p>
-        </div>
-        <div>
-            <h3>Are dogs free to roam?</h3>
-            <p>Think of us like a supervised off leash park. We do have crates, however they are mostly used to allow a dog to have their own personal space to nap, or occasionally for a time out.</p>
-        </div>
-        <div>
-            <h3>What techniques do your Canine Play Specialists use when handling dogs?</h3>
-            <p>It is our mission to use scientifically-based techniques when handling the dogs. This means absolutely no dominating, no alpha-rolling, and no Cesar Milan anything. These are all techniques that can and often do cause fear and negative association for dogs.</p>
-        </div>
-        <div>
-            <h3>What is your philosophy on dog training and handling?</h3>
-            <p>At Tailz, we believe in treating animals with the kindness and respect they deserve. It is our mandate to cause no undue harm or stress to an animal in our care. You may see us ask for your dog to have manners. Kindly offer our team your patience while we work with your dog during its stay including at home time. Fortunately, repetition works... it just needs time :)</p>
-        </div>
-    </section> -->
 </div>
 
 <?php
