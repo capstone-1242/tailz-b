@@ -25,3 +25,7 @@
     --text-8xl: var(--wp--preset--font-size--8xl, 6rem);
     --text-9xl: var(--wp--preset--font-size--9xl, 8rem);
 }
+
+/* 
+    Theme variables for tailwind
+*/
