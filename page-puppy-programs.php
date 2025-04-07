@@ -121,10 +121,10 @@
                 <div class="flex flex-col gap-[20px] md:gap-[30px]">
                     <h3 class="text-[26px] md:text-[42.7px] text-[#47423B]">Our puppy preschool program includes</h3>
                     <ul class="flex flex-col text-[18px] md:text-[24px] text-[#2C2C2C] gap-3 leading-normal">
-                        <li>Daylong potty training</li>
-                        <li>Learning to settle in a crate</li>
-                        <li>Safe play and socialization skills</li>
-                        <li>Puppy playtime</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Daylong potty training</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Learning to settle in a crate</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Safe play and socialization skills</li>
+                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Puppy playtime</li>
                     </ul>
                 </div>
             </div>
