@@ -15,7 +15,7 @@ $pet_filter = $pet_filter ? $pet_filter : 'dog';
 // Build the base query args
 $args = [
     'post_type'      => 'product',
-    'posts_per_page' => 8, // Adjust if need be
+    'posts_per_page' => 8, // Adjust that part of the screen //
 ];
 
 // If a pet filter is set, add a tax_query filter
