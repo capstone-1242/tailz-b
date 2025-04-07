@@ -1,0 +1,1 @@
+(()=>{var t;(t=jQuery)(document).ready((function(){t('select[id$="-size"]').on("change",(function(){var e=t(this).closest(".tab-content"),i="dog-content"===e.attr("id")?"dog":"cat",c=t(this).val();e.find(".service-card").each((function(){var e=t(this).data(i+"-"+c);t(this).find(".price").text(e)}))})),t('select[id$="-size"]').trigger("change")}))})();

@@ -1,0 +1,64 @@
+/* Ensure article content is centered (if desired) */
+article > *:not(.entry-content),
+.entry-content > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Custom spacing utilities */
+.section-spacing {
+  margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    margin-bottom: 130px;
+  }
+}
+
+/* Custom typography utilities */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-work-sans {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.text-brand-darkblue {
+  color: var(--color-brand-darkblue);
+}
+
+.text-gray-700 {
+  color: var(--color-gray-700);
+}
+
+/* Custom mobile menu utilities */
+.mobile-menu-bg {
+  background-color: var(--color-brand-blue);
+}
+
+.mobile-menu-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.mobile-menu-link {
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.mobile-menu-link:hover {
+  opacity: 0.8;
+}
+
+.mobile-submenu-link {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.mobile-submenu-link:hover {
+  opacity: 1;
+}

@@ -1,0 +1,128 @@
+/* ----------------------------------------
+   LAYOUT COMPONENTS
+   ---------------------------------------- */
+
+/* Container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;   
+  padding-left: var(--grid-margin-mobile, 1rem);
+  padding-right: var(--grid-margin-mobile, 1rem);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: var(--grid-margin-desktop, 1.5rem);
+    padding-right: var(--grid-margin-desktop, 1.5rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+    
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+/* Header Layout */
+.site-header {
+  position: relative;
+  z-index: 50;
+  background-color: var(--color-brand-darkblue);
+  padding: 1rem 0;
+}
+
+/* Navigation Layout */
+.main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Desktop Navigation */
+@media (min-width: 768px) {
+  .main-navigation {
+    gap: 2rem;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .nav-menu > * {
+    flex-shrink: 0;
+  }
+}
+
+/* Mobile Navigation */
+@media (max-width: 767px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    order: -1;
+  }
+
+  .site-logo {
+    text-align: center;
+  }
+
+  .mobile-icons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+/* Main Content Layout */
+.site-main {
+  min-height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 200px));
+  padding: var(--section-spacing-mobile) 0;
+}
+
+@media (min-width: 768px) {
+  .site-main {
+    padding: var(--section-spacing-desktop) 0;
+  }
+}
+
+/* Footer Layout */
+.site-footer {
+  background-color: var(--color-brand-darkblue);
+  padding: 3rem 0;
+}
+
+/* Banner Layout */
+.banner {
+  padding: 1rem 0;
+}
+
+@media (max-width: 767px) {
+  .banner-text {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  .banner-location {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+} 

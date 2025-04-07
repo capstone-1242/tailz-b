@@ -1,0 +1,51 @@
+/* ----------------------------------------
+   BUTTONS
+   ---------------------------------------- */
+
+/* Button styles */
+.btn-cta {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease-in-out;
+  text-transform: lowercase;
+  width: auto;
+  padding: 10px 30px;
+  font-size: 18px; /* Mobile button size */
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+@media (min-width: 768px) {
+  .btn-cta {
+    font-size: 24px; /* Desktop button size */
+  }
+}
+
+/* Button Variants */
+.btn-orange {
+  background-color: var(--color-brand-orange);
+}
+
+.btn-orange:hover {
+  background-color: rgba(254, 169, 29, 0.9);
+}
+
+.btn-purple {
+  background-color: var(--color-brand-purple);
+}
+
+.btn-purple:hover {
+  background-color: rgba(193, 129, 253, 0.9);
+}
+
+.btn-sky {
+  background-color: var(--color-brand-sky);
+}
+
+.btn-sky:hover {
+  background-color: rgba(111, 219, 252, 0.9);
+} 
