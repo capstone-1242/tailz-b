@@ -1,0 +1,62 @@
+@layer theme {
+  :root {
+    /* Brand Colors */
+    --color-brand-darkblue: #1E2B79;
+    --color-brand-blue: #2B3FB8;
+    --color-brand-sky: #6FDBFC;
+    --color-brand-cream: #F3F2EC;
+    --color-brand-orange: #FEA91D;
+    --color-brand-yellow: #FCD41D;
+    --color-brand-lime: #C0E333;
+    --color-brand-purple: #C181FD;
+    --color-brand-pink: #FF8ECC;
+    --color-white: #FFFFFF;
+
+    /* If you need #CB93FF specifically:
+    --color-brand-lavender: #CB93FF;
+    */
+  }
+}
+
+/* Utility classes to ensure colors are available */
+.text-brand-darkblue { color: var(--color-brand-darkblue) !important; }
+.bg-brand-darkblue { background-color: var(--color-brand-darkblue) !important; }
+.border-brand-darkblue { border-color: var(--color-brand-darkblue) !important; }
+
+.text-brand-blue { color: var(--color-brand-blue) !important; }
+.bg-brand-blue { background-color: var(--color-brand-blue) !important; }
+.border-brand-blue { border-color: var(--color-brand-blue) !important; }
+
+.text-brand-sky { color: var(--color-brand-sky) !important; }
+.bg-brand-sky { background-color: var(--color-brand-sky) !important; }
+.border-brand-sky { border-color: var(--color-brand-sky) !important; }
+
+.text-brand-cream { color: var(--color-brand-cream) !important; }
+.bg-brand-cream { background-color: var(--color-brand-cream) !important; }
+.border-brand-cream { border-color: var(--color-brand-cream) !important; }
+
+.text-brand-orange { color: var(--color-brand-orange) !important; }
+.bg-brand-orange { background-color: var(--color-brand-orange) !important; }
+.border-brand-orange { border-color: var(--color-brand-orange) !important; }
+
+.text-brand-yellow { color: var(--color-brand-yellow) !important; }
+.bg-brand-yellow { background-color: var(--color-brand-yellow) !important; }
+.border-brand-yellow { border-color: var(--color-brand-yellow) !important; }
+
+.text-brand-lime { color: var(--color-brand-lime) !important; }
+.bg-brand-lime { background-color: var(--color-brand-lime) !important; }
+.border-brand-lime { border-color: var(--color-brand-lime) !important; }
+
+.text-brand-purple { color: var(--color-brand-purple) !important; }
+.bg-brand-purple { background-color: var(--color-brand-purple) !important; }
+.border-brand-purple { border-color: var(--color-brand-purple) !important; }
+
+.text-brand-pink { color: var(--color-brand-pink) !important; }
+.bg-brand-pink { background-color: var(--color-brand-pink) !important; }
+.border-brand-pink { border-color: var(--color-brand-pink) !important; }
+
+/* If you add brand-lavender:
+.text-brand-lavender { color: var(--color-brand-lavender) !important; }
+.bg-brand-lavender { background-color: var(--color-brand-lavender) !important; }
+.border-brand-lavender { border-color: var(--color-brand-lavender) !important; }
+*/
