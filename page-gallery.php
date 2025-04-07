@@ -2,37 +2,35 @@
     get_header();
 ?>
 
+<style>
+    .wp-block-image img {
+        border-radius: 9px;
+    }
+
+</style>
+
+<div class="relative">
+    <img class="h-32 w-full object-cover object-[100%_20%]" src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=2836&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <div class="absolute top-1/2 left-[24px] transform -translate-y-1/2">
+        <h1 class="font-bold">Gallery</h1>
+        <p class="uppercase">A sneak peak into Tailz</p>
+    </div>
+</div>
+
+
 <div class="container mx-auto my-8">
     <article class="flex flex-col">
-        <!-- Shortcuts -->
-        <nav class="flex flex-col gap-3">
-            <h3 class="uppercase mb-2">Jump To</h3>
-            <ul class="flex flex-wrap gap-x-3 gap-y-6 font-bold">
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Grooming</a></li>
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Daycare</a></li>
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Hotel</a></li>
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Training</a></li>
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Exercise</a></li>
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Portraits</a></li>
-                <li><a href="#" class="uppercase p-2 bg-gray-400">Puppy Programs</a></li>
-            </ul>
-        </nav>
+        
 
         <!-- Page heading -->
         <section>
-            <h1 class="uppercase font-bold">Gallery</h1>
-            <p class="uppercase font-bold">A picture speaks a thousand words</p>
+            <h2 class="lowercase">A picture speaks a thousand woofs</h2>
         </section>
-
-        <!-- Gallery Content -->
-        <section class="my-8">
-            <h2>Capturing Moments of Joy: A Glimpse into Our Pet Paradise</h2>
-            <p>At Tailz, every wag of a tail, every playful bark, and every cozy nap tells a story. Our gallery is a celebration of our dedication to your furry friend's happiness and wellbeing. From being pampered during our luxurious grooming session to our rewarding training programs, we capture it all. Explore our galleries and see why pets and their parents love being a part of the Tailz family!</p>
-        </section>
-
         <!-- Page Content -->
-        <section class="flex flex-col gap-3 mt-8">
-            <div class="page-content">
+        <section class="gallery">
+            <h3>photos</h3>
+            <button class="button bg-sky-500 hover:bg-sky-700">filter</button>
+            <div class="page-content columns-2 md:columns-4 gap-4 space-y-4">
                 <?php
                     if (have_posts()) :
                         while (have_posts()) : the_post();
@@ -42,22 +40,10 @@
                 ?>
             </div>
         </section>
-        <!-- Album Start -->
-        <section class="flex flex-col gap-6">
-            <!-- Grooming -->
-            <article class="flex flex-col">
-                <div class="flex justify-between">
-                    <h3 class="uppercase font-bold">Grooming</h3>
-                    <a class="py-1 px-5 bg-gray-400" href="#">View Grooming Album</a>
-                </div>
-                <!-- select * from grooming_pics limit 4 random | flexbox configuration 2x2 contained width and not screen width -->
-            </article>
-
-            <!-- Daycare -->
-        </section>
     </article>
 </div>
 
+
 <?php
     get_footer();
-?>
+?> 
