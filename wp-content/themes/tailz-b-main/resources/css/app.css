@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom CSS files */
+@import "custom/variables.css";
+@import "custom/base.css";
+@import "custom/buttons.css";
+@import "custom/contact-form.css";
+@import "custom/layout-components.css";
+@import "custom/login-signup.css";
+@import "custom/mobile-menu.css";
+@import "custom-colors.css";
+@import "custom.css";
+
+/* Custom utilities */
+@layer utilities {
+  .section-spacing {
+    padding-top: var(--section-spacing-mobile);
+    padding-bottom: var(--section-spacing-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: var(--section-spacing-desktop);
+      padding-bottom: var(--section-spacing-desktop);
+    }
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-work-sans {
+    font-family: 'Work Sans', sans-serif;
+  }
+}
+
+/* Base styles */
+@layer base {
+  /* Article content centering */
+  .article-content > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Mobile menu overflow handling */
+  body.mobile-menu-open {
+    overflow: hidden;
+    padding-right: var(--scrollbar-width, 0px);
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--color-brand-darkblue);
+  }
+
+  p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    h1 { font-size: 48px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 30px; }
+    h4 { font-size: 24px; }
+    h5 { font-size: 20px; }
+    h6 { font-size: 18px; }
+    p { font-size: 18px; }
+  }
+}
