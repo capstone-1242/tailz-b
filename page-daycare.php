@@ -2,78 +2,118 @@
 get_header();
 ?>
 
-<div class="container mx-auto my-8">
-    <!-- Page Content -->
-    <section class="flex flex-col mx-6 gap-3">
-        <div class="relative h-[15.375rem] w-full overflow-hidden">
-        <?php
-            $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-            if($featured_image_url) : ?>
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-            <?php endif; ?>
-            <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                <p class="uppercase text-white text-[18px]">our goals - our story - our team</p>
-            </div>
-        </div>
-        <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Out of mind</h3>
-            <p class="text-[18px] text-[#47423B]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environment to ensure they are comfortable, happy, and enjoying themselves!</p>
-        </div>
-        <div class="flex flex-col mx-6 gap-3">
-            <h3 class="lowercase font-bold text-[22px] text-[#615849]">Daycare rates</h3>
-            <p class="text-[18px] text-[#47423B]">Our daycare program is thoughtfully designed to create a unique experience for your pup. We are different from your typical doggy daycare, and that starts first with understanding dog behavior. This allows us to create an environment in which your pup gets appropriate exercise, enrichment, socialization, and rest.</p>
-            <p class="text-[18px] text-[#47423B]">Our daycare schedule includes a variety of training, games, and activities specifically chosen to enrich your pet's life and ensure they have the best time possible!</p>
-        </div>
-    </section>
+<div>
 
-    <section class="flex flex-col mx-6 gap-3">
-        <h2 class="lowercase font-bold text-[37px] text-[#615849] mx-6">requirements for attending</h2>
-        <ol class="flex flex-col mx-6 gap-3">
-            <li class="text-[18px] text-[#47423B]">All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioural assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and ejoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
-            <li class="text-[18px] text-[#47423B]">Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>
-            <li class="text-[18px] text-[#47423B]">Our daycare program is not only about coming to play, but to enrich their life through physucal exercise, mental stimulation, and socialization</li>
-            <li class="text-[18px] text-[#47423B]">Safety and comfort of your pup is important, so our playgroups are based on size and termperament and are always supervised by a qualified team member</li>
-        </ol>
-    </section>
+    <div class="flex flex-col gap-[60px] md:gap-[130px]">
+        <!-- Banner -->
+        <section class="flex flex-col gap-3">
+            <div class="relative h-[15.375rem] w-full overflow-hidden">
+                <?php
+                    $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                    if($featured_image_url) : ?>
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
+                    <?php endif; ?>
+                    <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
+                        <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
+                        <p class="uppercase text-white text-[18px]">It's tail waggin' enjoyment</p>
+                    </div>
+            </div>
+        </section>
 
-    <section class="flex flex-col mx-6 gap-3">
-            <h2 class="lowercase font-bold text-[37px] text-[#615849] mx-6">Frequently Asked Questions</h2>
+        <!-- Enriching doggy daycare -->
+        <section>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Enriching doggy daycare</h2>
+                <p class="text-[18px] text-[#2C2C2C]">Our daycare program is thoughtfully designed to create a unique experience for your pup. We are different from your typical dpoggy daycare, and that starts first with understanding dog behavior. This allows us to create an environtment in which your pup gets appropriate exercise, enrichment, socialization, and rest.</p>
+                <p class="text-[18px] text-[#2C2C2C]">Our daycare schedule includes a variety of training, games, and activities specifically chosen to enrich your pet's life and ensure they have the best time.</p>
+            </div>
+        </section>
 
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">Why does Tailz need copies of vaccination records? Will my dog's rabies tag work?</h3>
-                <p class="text-[18px] text-[#47423B]">We respect the trust our clients have in us. We also understand that saying the vaccinations were done is not the same as knowing when the vaccinations were in fact administered and when they are due next. The details on a rabies tag do not provide us with enough information to count as proof.</p>
-                <p class="text-[18px] text-[#47423B]">We use a computerized system to help us keep track of when they are due next. This gives our clients the peace of mind they deserve knowing all dogs in our care are vaccinated according to their veterinarian's schedule.</p>
+        <!-- Daycare rates -->
+        <section>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase">Daycare rates</h2>
+                    <p class="text-[18px] text-[#2C2C2C]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environment to ensure they are comfortable, happy, and enjoying themselves.</p>
+                </div>
+                <!-- Packages -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
+                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                </div>
             </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">Will the vaccinations I did myself work?</h3>
-                <p>They may work, however, we require proof of purchase (the till receipt) and the sticker from the vaccination vile. Without both parts, we cannot accept the self-administered vaccine. We will also count vaccines as valid for only 1 year from the day of purchase.</p>
+        </section>
+
+        <!-- Requirements for attending -->
+        <section>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Requirements for attending</h2>
+                <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioral assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and enjoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our daycare program is not only about coming to play, but to enrich their life through physical exercise, mental stimulation, and socialization</li>
+                    <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Safety and comfort of your pup is important, so our playgroups are based on size and temperament and are always supervised by a qualified team member</li>
+                </ul>
             </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">Can I get my dog's grooming done while they attend doggy daycare?</h3>
-                <p class="text-[18px] text-[#47423B]">Of course. Speak to our client care team member to see about availability. Walk-in requests such as nail trims and brushings can be squeezed in. Full grooms take more time and will need to be scheduled in advance.</p>
+        </section>
+
+        <!-- Puppy Program Sell -->
+        <section class="bg-[#F3F2EC]">
+            <div class="flex flex-col px-6 pt-6 pb-[41px] md:pt-[89px] md:pb-[100px] md:px-[89px] gap-5 md:w-2/3">
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Got a puppy?</h2>
+                <p class="text-[18px] text-[#2C2C2C]">Our Puppy Program is designed to give your little one the perfect start with early training, socialization, and plenty of fun to help them throw into a happy, well-adjusted dog!</p>
+                <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white" href="#">Puppy programs</a></button>
             </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">Do you have a littles area?</h3>
-                <p class="text-[18px] text-[#47423B]">Yes, we do! Little ones have an area fenced off and exclusively dedicateed to them adn boy do they love it! Play structures that are more suited to their smaller structures are available for them to play on.</p>
+        </section>  
+        
+        <!-- FAQs -->
+        <section>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
+                <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What makes your daycare different from others?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Our daycare focuses on understanding dog behavior to provide a balanced experience with exercise, enrichment, socialization, and rest. We tailor activities to keep your pup happy and engaged.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What does a typical day look like for my dog?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Each day includes structured playtime, training exercises, interactive games, and rest periods to ensure a well-rounded experience.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do you separate dogs by size or temperament?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! We group dogs based on their play style, energy level, and temperament to ensure safe and positive interactions.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Will my dogs receive any training while at daycare?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! Our daycare includes basic training exercises and enrichment activities to reinforce good manners and mental stimulation.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How do you ensure the safety of all dogs?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Our team closely supervises all play sessions, and we maintain small group sizes to prevent overstimulation. All dogs must meet our health and behavior requirements before joining daycare.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can my dog come for just a half-day?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! We offer both full-day and half-day daycare options to fit your schedule and your pup's needs.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What vaccinations are required?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">All dogs must be up to date on rabies, distemper, and Bordetella vaccinations. Proof of vaccination is required before attending daycare.</p>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How do I sign up for daycare?</h3>
+                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">You can register online or contact us directly to schedule an evaluation and book your pup's first daycare visit!</p>
+                </div>
             </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">How are dogs grouped together?</h3>
-                <p class="text-[18px] text-[#47423B]">We separate dogs according to size and play style</p>
-            </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">Are dogs free to roam?</h3>
-                <p class="text-[18px] text-[#47423B]">Think of us like a supervised off leash park. We do have crates, however they are mostly used to allow a dog to have their own personal space to nap, or occasionally for a time out.</p>
-            </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">What techniques do your Canine Play Specialists use when handling dogs?</h3>
-                <p class="text-[18px] text-[#47423B]">It is our mission to use scientifically-based techniques when handling the dogs. This means absolutely no dominating, no alpha-rolling, and no Cesar Milan anything. These are all techniques that can and often do cause fear and negative association for dogs.</p>
-            </div>
-            <div class="flex flex-col mx-6 gap-3">
-                <h3 class="lowercase font-bold text-[22px] text-[#615849]">What is your philosophy on dog training and handling?</h3>
-                <p class="text-[18px] text-[#47423B]">At Tailz, we believe in treating animals with the kindness and respect they deserve. It is our mandate to cause no undue harm or stress to an animal in our care. You may see us ask for your dog to have manners. Kindly offer our team your patience while we work with your dog during its stay including at home time. Fortunately, repetition works... it just needs time :)</p>
-            </div>
-    </section>
+        </section>
+    </div>
+
 </div>
 
 <?php

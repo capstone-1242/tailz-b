@@ -7,6 +7,7 @@ get_header();
         border-radius: 9px;
     }
 
+
     .filter-option-btn {
         background-color: #F3F2EC;
         border-radius: 30px;
@@ -77,5 +78,5 @@ get_header();
 
 
 <?php
-get_footer();
-?>
+    get_footer();
+?> 
