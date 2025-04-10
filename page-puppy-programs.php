@@ -40,21 +40,21 @@
                     <a class="lg:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[37px] lg:text-[75.8px] text-[#47423B] lg:max-w-1/3">Puppy preschool</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy preschool</h3>
                         </div>
                     </a>
                     <!-- Puppy plus -->
                     <a class="lg:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[37px] lg:text-[75.8px] text-[#47423B] lg:max-w-1/3">Puppy plus</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy plus</h3>
                         </div>
                     </a>
                     <!-- Puppy daycare -->
                     <a class="lg:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[37px] lg:text-[75.8px] text-[#47423B] lg:max-w-1/3">Puppy daycare</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy daycare</h3>
                         </div>
                     </a>
                 </div>
