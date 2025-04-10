@@ -9,8 +9,6 @@
 get_header();
 ?>
 
-<!-- Banner -->
-<?php get_template_part('template-parts/banner'); ?>
 
 <div class="container mx-auto px-4 py-6">
 
