@@ -9,84 +9,81 @@
 get_header();
 ?>
 
-<!-- Banner -->
-<?php get_template_part('template-parts/banner'); ?>
+<div>
+    <div class="flex flex-col gap-[60px] md:gap-[130px]">
+        <!-- Banner -->
+        <section class="flex flex-col gap-3">
+            <div class="relative h-[15.375rem] w-full overflow-hidden">
+                <?php
+                    $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                    if($featured_image_url) : ?>
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
+                    <?php endif; ?>
+                    <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
+                        <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
+                        <p class="uppercase text-white text-[18px]">Giving young pups a paw up</p>
+                    </div>
+            </div>
+        </section>
 
-<div class="container mx-auto px-4 py-6">
-
-    <!-- Page Title & Intro -->
-    <section class="mb-6">
-        <h1 class="text-2xl font-extrabold mb-2">SERVICES</h1>
-        <p class="text-sm text-gray-700 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada consectetur justo.
-        </p>
-    </section>
-
-    <!-- Services List -->
-    <?php
-    // Services in array (ACF Later)
-    $services = [
-        [
-            'title' => 'GROOMING',
-            'slug'  => 'grooming',
-            'desc'  => 'Lorem ipsum.',
-        ],
-        [
-            'title' => 'DAYCARE',
-            'slug'  => 'daycare',
-            'desc'  => 'Lorem ipsum.',
-        ],
-        [
-            'title' => 'TRAINING',
-            'slug'  => 'training',
-            'desc'  => 'Lorem ipsum.',
-        ],
-        [
-            'title' => 'HOTEL',
-            'slug'  => 'hotel',
-            'desc'  => 'Lorem ipsum.',
-        ],
-        [
-            'title' => 'EXERCISE',
-            'slug'  => 'exercise',
-            'desc'  => 'Lorem ipsum.',
-        ],
-        [
-            'title' => 'PORTRAITS',
-            'slug'  => 'portraits',
-            'desc'  => 'Lorem ipsum.',
-        ],
-        [
-            'title' => 'PUPPY PROGRAMS',
-            'slug'  => 'puppy-programs',
-            'desc'  => 'Lorem ipsum.',
-        ],
-    ];
-    ?>
-
-    <!-- Cards Loop -->
-    <div class="space-y-6">
-        <?php foreach ($services as $service) : ?>
-            <div class="bg-white border border-gray-200 p-4 rounded-lg shadow-sm">
-                <!-- Placeholder Image -->
-                <div class="bg-gray-300 w-full h-32 rounded-md mb-4"></div>
-
-                <!-- Title & Description -->
-                <h2 class="text-lg font-bold mb-1"><?php echo esc_html($service['title']); ?></h2>
-                <p class="text-sm text-gray-600 mb-4">
-                    <?php echo esc_html($service['desc']); ?>
-                </p>
-
-                <!-- CTA Button (Right-Aligned) -->
-                <div class="flex justify-end">
-                    <a href="<?php echo esc_url(home_url('/' . $service['slug'])); ?>"
-                       class="inline-block border border-black text-black text-sm font-bold px-4 py-2 
-                              rounded-full shadow-md hover:bg-black hover:text-white transition cursor-pointer">
-                        GO TO <?php echo esc_html($service['title']); ?>
-                    </a>
+        <!-- Our services -->
+        <section>
+            <div class="flex flex-col gap-[20px] md:gap-[30px]">
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Our services</h2>
+                <!-- Deck -->
+                <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+                    <div class="p-6 rounded-lg">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Grooming</h3>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="p-6 rounded-lg">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Daycare</h3>
+                        </div>
+                    </div>                    </div>
+                    
+                    <div class="p-6 rounded-lg">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Hotel</h3>
+                        </div>
+                    </div>                    </div>
+                    
+                    <div class="p-6 rounded-lg">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Training</h3>
+                        </div>
+                    </div>                    </div>
+                    
+                    <div class="p-6 rounded-lg">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Exercise</h3>
+                        </div>
+                    </div>                    </div>
+                    
+                    <div class="p-6 rounded-lg">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Portraits</h3>
+                        </div>
+                    </div>                    </div>
+                    
+                    <div class="p-6 rounded-lg md:col-span-2">
+                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                        <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
+                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy programs</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+        </section>
     </div>
 
 </div>

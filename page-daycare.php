@@ -23,7 +23,7 @@ get_header();
         <!-- Enriching doggy daycare -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Enriching doggy daycare</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Enriching doggy daycare</h2>
                 <p class="text-[18px] text-[#2C2C2C]">Our daycare program is thoughtfully designed to create a unique experience for your pup. We are different from your typical dpoggy daycare, and that starts first with understanding dog behavior. This allows us to create an environtment in which your pup gets appropriate exercise, enrichment, socialization, and rest.</p>
                 <p class="text-[18px] text-[#2C2C2C]">Our daycare schedule includes a variety of training, games, and activities specifically chosen to enrich your pet's life and ensure they have the best time.</p>
             </div>
@@ -34,7 +34,7 @@ get_header();
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase">Daycare rates</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase">Daycare rates</h2>
                     <p class="text-[18px] text-[#2C2C2C]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environment to ensure they are comfortable, happy, and enjoying themselves.</p>
                 </div>
                 <!-- Packages -->
@@ -47,7 +47,7 @@ get_header();
         <!-- Requirements for attending -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Requirements for attending</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Requirements for attending</h2>
                 <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
                     <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioral assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and enjoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
                     <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>
@@ -60,7 +60,7 @@ get_header();
         <!-- Puppy Program Sell -->
         <section class="bg-[#F3F2EC]">
             <div class="flex flex-col px-6 pt-6 pb-[41px] md:pt-[89px] md:pb-[100px] md:px-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Got a puppy?</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Got a puppy?</h2>
                 <p class="text-[18px] text-[#2C2C2C]">Our Puppy Program is designed to give your little one the perfect start with early training, socialization, and plenty of fun to help them throw into a happy, well-adjusted dog!</p>
                 <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white" href="#">Puppy programs</a></button>
             </div>

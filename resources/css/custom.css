@@ -1,434 +1,62 @@
-/* Ensure article content is centered (if desired) */
+/* Ensure article content is centered (if desired) here */
 article > *:not(.entry-content),
 .entry-content > * {
   margin-left: auto;
   margin-right: auto;
 }
 
-@layer base {
+/* Custom spacing utilities */
+.section-spacing {
+  margin-bottom: 60px;
+}
 
-  /* Login/Signup Popup */
-  .login-signup-popup {
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    will-change: opacity, transform;
-    transform: translateY(0);
-  }
-
-  .login-signup-popup.opacity-0 {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  .login-signup-popup.pointer-events-none {
-    pointer-events: none;
-  }
-
-  .login-signup-close {
-    transition: color 0.2s ease-in-out;
-  }
-
-  /* Mobile Menu Styles */
-  #mobile-menu {
-    transition: transform 0.3s ease-in-out;
-    will-change: transform;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 300px;
-    background-color: var(--color-brand-blue);
-    z-index: 60;
-    transform: translateX(-100%);
-  }
-
-  #mobile-menu-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.25);
-    z-index: 40;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  }
-
-  #mobile-menu-overlay.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  #mobile-menu-overlay:not(.hidden) {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .mobile-menu-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    position: relative;
-  }
-
-  .mobile-menu-close-container {
-    position: sticky;
-    top: 0;
-    padding: 1rem;
-    background-color: var(--color-brand-blue);
-    z-index: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .mobile-menu-nav {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1rem 1.5rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .mobile-menu-nav li {
-    margin-bottom: 1rem;
-  }
-
-  .mobile-menu-nav a {
-    color: white;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    display: block;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    transition: opacity 0.2s ease-in-out;
-  }
-
-  .mobile-menu-nav a:hover {
-    opacity: 0.8;
-  }
-
-  .mobile-menu-nav .sub-menu {
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-  }
-
-  .mobile-menu-nav .sub-menu a {
-    font-size: 1rem;
-    font-weight: 400;
-    opacity: 0.8;
-  }
-
-  .mobile-menu-nav .sub-menu a:hover {
-    opacity: 1;
-  }
-
-  .mobile-submenu-toggle {
-    padding: 0.5rem;
-    margin: -0.5rem;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .mobile-submenu-toggle:hover {
-    transform: scale(1.1);
-  }
-
-  body.overflow-hidden {
-    overflow: hidden;
-    padding-right: var(--scrollbar-width, 0px); /* Prevent layout shift */
-  }
-
-  /* =========================
-     BASE TYPOGRAPHY (Mobile First)
-     ========================= */
-
-  /* --------------------------------
-     Headings: h1–h6
-     -------------------------------- */
-  h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: lowercase;
-    color: var(--color-brand-darkblue);
-    font-size: 53.75px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 44.79px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 37.32px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 31.1px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h5 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 25.92px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 21.6px; /* Mobile */
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-
-  /* Paragraphs */
-  p {
-    font-family: 'Poppins', sans-serif;
-    color: var(--color-gray-700);
-    font-size: 18px; /* Mobile */
-    line-height: 1.5;
-  }
-
-  /* --------------------------------
-     DESKTOP OVERRIDES (≥768px)
-     -------------------------------- */
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 134.65px; /* Desktop */
-    }
-    h2 {
-      font-size: 75.78px;
-    }
-    h3 {
-      font-size: 56.85px;
-    }
-    h4 {
-      font-size: 42.65px;
-    }
-    h5 {
-      font-size: 31.99px;
-    }
-    h6 {
-      font-size: 21.6px;
-    }
-
-    p {
-      font-size: 24px; /* Desktop paragraph */
-    }
-  }
-
-  /* =========================
-     SPACING
-     ========================= */
-
-  /* Section Spacing
-     Mobile: 60px
-     Desktop: 130px
-  */
-  section {
-    margin-bottom: 60px;
-  }
-  @media (min-width: 768px) {
-    section {
-      margin-bottom: 130px;
-    }
-  }
-
-  /* Title/Content Spacing
-     Mobile: 20px
-     Desktop: 30px
-  */
-  .title-content-spacing {
-    margin-bottom: 20px;
-  }
-  @media (min-width: 768px) {
-    .title-content-spacing {
-      margin-bottom: 30px;
-    }
-  }
-
-  /* Breadcrumbs
-     Mobile: 16px
-     Desktop: 24px
-  */
-  .breadcrumb {
-    font-size: 16px;
-  }
-  @media (min-width: 768px) {
-    .breadcrumb {
-      font-size: 24px;
-    }
-  }
-
-  /* =========================
-     BUTTONS
-     ========================= */
-  .btn-cta {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.15s ease-in-out;
-    text-transform: lowercase;
-    width: 364px;
-    height: 59px;
-    padding: 10px 30px;
-    font-size: 26px;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-
-  /* Button Variants (Using brand colors) */
-  .btn-orange {
-    background-color: var(--color-brand-orange);
-  }
-  .btn-orange:hover {
-    background-color: rgba(254, 169, 29, 0.9);
-  }
-  .btn-purple {
-    background-color: var(--color-brand-purple);
-  }
-  .btn-purple:hover {
-    background-color: rgba(193, 129, 253, 0.9);
-  }
-  .btn-sky {
-    background-color: var(--color-brand-sky);
-  }
-  .btn-sky:hover {
-    background-color: rgba(111, 219, 252, 0.9);
-  }
-
-  /* =========================
-     WORK SANS UTILITY
-     ========================= */
-  .font-worksans {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  .font-worksans-bold {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
+@media (min-width: 768px) {
+  .section-spacing {
+    margin-bottom: 130px;
   }
 }
 
-@layer components {
-
-  /* Optional "utility" text classes
-     if you want to apply big headings
-     directly as classes (text-h1, etc.).
-     This is not mandatory if you already
-     style <h1> <h2> etc. directly.
-  */
-  .text-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: lowercase;
-    color: var(--color-brand-darkblue);
-    font-size: 134.65px;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  .text-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: var(--color-brand-darkblue);
-    font-size: 75.78px;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  /* ... etc. for text-h3, text-h4, etc. */
-
-  /* Subheading example:
-     ~54.93px, uppercase, separate color
-  */
-  .section-heading {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 44.79px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #615849;
-  }
-  @media (min-width: 768px) {
-    .section-heading {
-      font-size: 54.93px;
-    }
-  }
-
-  /* FAQ question example */
-  .faq-question {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #837660;
-  }
+/* Custom typography utilities */
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
 }
 
-/* WordPress Editor Styles */
-.entry-content,
-.block-editor-block-list__layout {
-  h1 {
-    font-size: 1.5rem;
-    line-height: 1.33333;
-  }
-  h2 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-  h3 {
-    font-size: 1.125rem;
-    line-height: 1.55556;
-  }
-  p,
-  ul,
-  ol {
-    margin-bottom: 2rem;
-  }
-  p a,
-  ul a,
-  ol a {
-    color: var(--color-blue-500);
-    text-decoration: underline;
-  }
-  p a:hover,
-  ul a:hover,
-  ol a:hover {
-    text-decoration: none;
-  }
-  ul:not(.block-editor-block-variation-picker__variations) li {
-    list-style-type: disc;
-    list-style-position: inside;
-  }
-  ol li {
-    list-style-type: decimal;
-    list-style-position: inside;
-  }
+.font-work-sans {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.text-brand-darkblue {
+  color: var(--color-brand-darkblue);
+}
+
+.text-gray-700 {
+  color: var(--color-gray-700);
+}
+
+/* Custom mobile menu utilities */
+.mobile-menu-bg {
+  background-color: var(--color-brand-blue);
+}
+
+.mobile-menu-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.mobile-menu-link {
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.mobile-menu-link:hover {
+  opacity: 0.8;
+}
+
+.mobile-submenu-link {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 /* Banner */
@@ -483,4 +111,8 @@ article > *:not(.entry-content),
 
 .btn-cover:hover {
   background-color: #e67e22; /* Button hover color */
+}
+
+.mobile-submenu-link:hover {
+  opacity: 1;
 }

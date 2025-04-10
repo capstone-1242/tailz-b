@@ -64,11 +64,11 @@
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase">Hotel packages</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase">Hotel packages</h2>
                 </div>
                 <!-- Packages -->
                 <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
                 </div>
             </div>
         </section>
@@ -76,7 +76,7 @@
         <!-- Lodging requirements -->
         <section>
             <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Lodging requirements</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Lodging requirements</h2>
                 <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal md:w-3/4">
                         <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All stays are required to be prepaids at the time of arrival.</li>
                         <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">During the holiday season a single night deposit is required to hold your pup's Luxury Overnight Lodging reservation. This is a non-refundable holiday season deposit.</li>
@@ -98,7 +98,7 @@
         <!-- Our rooms -->
         <section>
             <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px]">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Our rooms</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Our rooms</h2>
                 <!-- Gallery Function -->
                 <div>Gallery function here</div>
             </div>
