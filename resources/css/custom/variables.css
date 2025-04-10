@@ -1,0 +1,38 @@
+/* ----------------------------------------
+   DESIGN SYSTEM VARIABLES / VARIABLES
+   ---------------------------------------- */
+
+   :root {
+    /* Brand Colors */
+    --color-brand-darkblue: #1E2B79;
+    --color-brand-blue: #2B3FB8;
+    --color-brand-sky: #6FDBFC;
+    --color-brand-cream: #F3F2EC;
+    --color-brand-orange: #FEA91D;
+    --color-brand-yellow: #FCD41D;
+    --color-brand-lime: #C0E333;
+    --color-brand-purple: #C181FD;
+    --color-brand-pink: #FF8ECC;
+    --color-white: #FFFFFF;
+    
+    /* Grid System - Mobile */
+    --grid-columns-mobile: 4;
+    --grid-margin-mobile: 24px;
+    --grid-gutter-mobile: 20px;
+    
+    /* Grid System - Desktop */
+    --grid-columns-desktop: 12;
+    --grid-margin-desktop: 90px;
+    --grid-gutter-desktop: 32px;
+    
+    /* Section Spacing */
+    --section-spacing-mobile: 60px;
+    --section-spacing-desktop: 130px;
+    
+    /* Title/Content Spacing */
+    --title-content-spacing-mobile: 20px;
+    --title-content-spacing-desktop: 30px;
+    
+    /* Calculate scrollbar width for layout shifts */
+    --scrollbar-width: 0px;
+  } 

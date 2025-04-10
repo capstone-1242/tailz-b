@@ -30,7 +30,7 @@
         <section>
             <div class="flex flex-col gap-[52px] md:gap-[60px]">
                 <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Nurturing your pup's growth and socialization</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Nurturing your pup's growth and socialization</h2>
                     <p class="text-[18px] text-[#2C2C2C] md:w-3/4">The first few months of a young pup's life are cricual to their development. We here at Tailz have custom tailored programs for all types of pups to help them grow into a balanced, socializaed and good-natured puppy.</p>
                     <p class="text-[18px] text-[#2C2C2C] md:w-3/4">Early socialization and desensitization leads to reduced fears and anxieties down the road, making for a friendly and sociable fur-friend. Whether your puppy visits us once a week, or every day, they will get the experience in our cirriculum to develop into a sociable and well-behaved puppy.</p>
                 </div>
@@ -66,7 +66,7 @@
             <div class="flex flex-col gap-[16px] md:gap-[50px]">
                 <!-- Intro -->
                 <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Puppy preschool</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Puppy preschool</h2>
                     <p class="text-[18px] text-[#2C2C2C] md:w-3/4">Our daycare program is thoughtfully designed to create a unique experience for your pup. We are different from your typical dpoggy daycare, and that starts first with understanding dog behavior. This allows us to create an environtment in which your pup gets appropriate exercise, enrichment, socialization, and rest.</p>
                 </div>
                 <!-- List Container -->
@@ -104,7 +104,7 @@
         <!-- Puppy plus -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Puppy plus</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Puppy plus</h2>
                 <p class="text-[18px] text-[#2C2C2C] md:w-3/4">Our Puppy plus program offers everything our Puppy Preschool program does without the commitment of attending Monday through Friday!</p>
             </div>
         </section>
@@ -114,7 +114,7 @@
             <div class="flex flex-col gap-[16px] md:gap-[50px] mx-6 md:mx-[89px]">
                 <!-- Intro -->
                 <div class="flex flex-col gap-5 md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Puppy daycare</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Puppy daycare</h2>
                     <p class="text-[18px] text-[#2C2C2C] md:w-3/4">Our daycare program is thoughtfully designed to create a unique experience for your pup. We are different from your typical dpoggy daycare, and that starts first with understanding dog behavior. This allows us to create an environtment in which your pup gets appropriate exercise, enrichment, socialization, and rest.</p>
                 </div>
                 <!-- List Container -->
