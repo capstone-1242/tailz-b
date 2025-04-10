@@ -182,7 +182,6 @@ get_header();
     </div>
 </div>
 
-
 <div class="container mx-auto px-4 py-6">
     <!-- Breadcrumb Navigation -->
     <nav class="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
