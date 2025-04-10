@@ -85,7 +85,7 @@ function render_exercise_tab( $animal, $services ) {
         <!-- Fun and engaging classes for active dogs -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Fun and engaging classes for active dogs</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Fun and engaging classes for active dogs</h2>
                 <p class="text-[18px] text-[#2C2C2C]">Our Sports & Games class is designed to build teamwork between you and your dog in a non-competitive setting. Over six weeks, you'll work together to navigate agility equipment, learn fun tricks, and improve focus and relaxation exercises. It's a great way for your dog to burn off energy while developing essential skills at their own pace. Whether learning to jump, crawl, or lcimb, both you and your dog will enjoy the process of bonding through physical activity.</p>
                 <p class="text-[18px] text-[#2C2C2C]">For those looking for an exciting indoor activity, our Nosework Games class offers a fun and enriching way to engage your dog's senses. Over four weeks, your dog will learn to navigate obstacles and search for treats or scents, building confidence in new environments. This class is perfect for dogs with lots of energy or those needing a confidence boost. With a focus on searching skills, settling, and leash walking, Nosework Games provides an excellent outlet for mental stimulation and exercise.</p>
             </div>
@@ -96,7 +96,7 @@ function render_exercise_tab( $animal, $services ) {
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#6FDBFC] lowercase">Exercise options</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#6FDBFC] lowercase">Exercise options</h2>
                     <p class="text-[18px] text-[#2C2C2C]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environtment to ensure they are comfortable, happy, and enjoying themselves.</p>
                 </div>
                 <!-- Packages -->
@@ -109,7 +109,7 @@ function render_exercise_tab( $animal, $services ) {
         <!-- Requirements for attending -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Requirements for attending</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Requirements for attending</h2>
                 <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
                     <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs looking to join us at Doggy Daycare are assessed during their Meet & Greet, and an ongoing basis for suitability in our daycare program. This behavioral assessment is to ensure initial suitability for our facility and pups. As we want all pups to be safe and enjoy their time in a structured daycare, not all pups are accepted into our daycare program</li>
                     <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our day is very busy and active, therefore we have mandatory nap times for all of our daycare guests to ensure the dogs get adequate rest for their mental well being</li>

@@ -29,7 +29,7 @@ get_header();
         <!-- Positive training methods for positive results -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Positive training methods for positive results</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Positive training methods for positive results</h2>
                 <p class="text-[18px] text-[#2C2C2C]">Humane handling and a positive approach are the foundation of our training philosophy. At Tailz, we believe in building relationships based on scientifically-backed training techniques.</p>
                 <p class="text-[18px] text-[#2C2C2C]">Having a well-trained dog is very important for your dog's safety and your own peace of mind. We provide a wide range of training options for both puppies and older dogs who need to brush up on their obedience.</p>
                 <p class="text-[18px] text-[#2C2C2C]">We teach you how to train your dog to make good choices that result in positive outcomes for your pup. The inherent nature of private lessons will help you build a stronger bond with your dog while we provide direct guidance and direction specific to your pup's needs. </p>           
@@ -41,11 +41,11 @@ get_header();
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Puppy classes</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Puppy classes</h2>
                 </div>
                 <!-- Packages -->
                 <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
                 </div>
             </div>
         </section>
@@ -53,7 +53,7 @@ get_header();
         <!-- Puppy Program Sell -->
         <section class="bg-[#F3F2EC]">
             <div class="flex flex-col px-6 pt-6 pb-[41px] md:pt-[89px] md:pb-[100px] md:px-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] text-[#47423B] lowercase">Need training and socializing done for you?</h2>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Need training and socializing done for you?</h2>
                 <p class="text-[18px] text-[#2C2C2C]">Check out our Puppy Preschool, your all in one solution!</p>
                 <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white" href="#">Puppy programs</a></button>
             </div>
@@ -64,11 +64,11 @@ get_header();
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Adult classes</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Adult classes</h2>
                 </div>
                 <!-- Packages -->
                 <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
                 </div>
             </div>
         </section>
@@ -78,7 +78,7 @@ get_header();
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Growly dog classes</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Growly dog classes</h2>
                     <p class="text-[18px] text-[#2C2C2C]">Is your dog barking, growling, snapping, or snarling at other dogs or people out on walks? Do they frequently overwhelm other dogs when they try to say hello? Our Growly Dog classes are specially designed for dogs who need some extra help with their social skills, and use methods that will help keep you and your dog (and passers-by!) safe and happy.</p>
                     <p class="text-[18px] text-[#2C2C2C]">In Growly Dog classes or in private training, you will learn tactics to keep you and your dog safe right away, as well as how to teach your dog appropriate alternative behaviors. Our end goal is to help dogs learn to manage their social needs without aggression so that you don't have to constantly keep them distracted from their triggers.</p>
                     <p class="text-[18px] text-[#2C2C2C]">At Tailz we understand that Growly Dogs are not bad dogs, and their owners are not bad owners! Our trainers are highly educated and have experience with dog to dog aggression and dog to human aggression.  We look forward to helping rehabilitate both your dog's behavior and your relationship with them.</p>
@@ -96,7 +96,7 @@ get_header();
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">Private training (one-on-one training)</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Private training (one-on-one training)</h2>
                     <p class="text-[18px] text-[#2C2C2C]">One of our Certified Trainers will work with you and your family to improve your dog's manners. Lessons can be done in-person (on-site or in home) or virtual.</p>
                 </div>
                 <!-- List container 1 -->
