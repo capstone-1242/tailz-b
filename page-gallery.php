@@ -1,5 +1,6 @@
 <?php
 get_header();
+get_template_part('template-parts/banner');
 ?>
 
 <style>
@@ -68,15 +69,6 @@ get_header();
     }
 </style>
 
-<div class="relative">
-    <img class="h-32 w-full object-cover object-[100%_20%]" src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=2836&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-    <div class="absolute top-1/2 left-[24px] transform -translate-y-1/2">
-        <h1 class="font-bold">Gallery</h1>
-        <p class="uppercase">A sneak peak into Tailz</p>
-    </div>
-</div>
-
-
 
 <div class="container">
     <!-- Tagline -->
@@ -110,7 +102,7 @@ get_header();
                     <rect x="3.20117" width="28" height="4" transform="rotate(45 3.20117 0)" fill="#47423B" />
                 </svg>
             </div>
-            <div class="w-full border-b-1 mb-4">
+            <div class="w-full border-b-1 pb-4">
                 <h4>by pet</h4>
                 <div class="py-4">
                     <button class="filter-option-btn default">Dog</button>
