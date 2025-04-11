@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 /* Import custom CSS files */
-@import "custom/variables.css";
-@import "custom/base.css";
-@import "custom/buttons.css";
-@import "custom/contact-form.css";
-@import "custom/layout-components.css";
-@import "custom/login-signup.css";
-@import "custom/mobile-menu.css";
-@import "custom-colors.css";
-@import "custom.css";
-@import "custom/banner.css";
+@import "./custom/variables.css";
+@import "./custom/base.css";
+@import "./custom/buttons.css";
+@import "./custom/contact-form.css";
+@import "./custom/layout-components.css";
+@import "./custom/login-signup.css";
+@import "./custom/mobile-menu.css";
+@import "./custom-colors.css";
+@import "./custom.css";
+@import "./custom/banner.css";
 
 /* Custom utilities for tailwind*/
 @layer utilities {
