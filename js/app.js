@@ -1,33 +1,23 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-
 
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: Can't resolve 'custom/variables.css' in 'C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\resources\\css'\n    at finishWithoutResolve (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:564:18)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:656:15\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:718:5\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:718:5\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:89:43\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:718:5\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:718:5\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:718:5\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:42:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\ConditionalPlugin.js:53:42\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:718:5\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:39:13\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\ModulesInHierarchicalDirectoriesPlugin.js:79:16\n    at SyncAsyncFileSystemDecorator.stat (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\SyncAsyncFileSystemDecorator.js:57:34)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\ModulesInHierarchicalDirectoriesPlugin.js:55:11\n    at next (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:35:3)\n    at forEachBail (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:49:9)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\ModulesInHierarchicalDirectoriesPlugin.js:47:6\n    at _next0 (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:8:1)\n    at eval (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:30:1)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\SelfReferencePlugin.js:48:31\n    at Hook.eval [as callAsync] (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:22:1)\n    at Resolver.doResolve (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:715:16)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\ConditionalPlugin.js:42:14\n    at Hook.eval [as callAsync] (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:37:1)\n    at Resolver.doResolve (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:715:16)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\NextPlugin.js:30:14\n    at Hook.eval [as callAsync] (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:7:1)\n    at Resolver.doResolve (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:715:16)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\NextPlugin.js:30:14\n    at Hook.eval [as callAsync] (eval at create (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:7:1)\n    at Resolver.doResolve (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\Resolver.js:715:16)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:76:17\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:148:13\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:39:13\n    at onJson (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:133:6)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:86:7\n    at SyncAsyncFileSystemDecorator.readJson (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\SyncAsyncFileSystemDecorator.js:172:6)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:67:26\n    at next (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:35:3)\n    at forEachBail (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:49:9)\n    at findDescriptionFile (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:57:3)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:155:14\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\forEachBail.js:39:13\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\enhanced-resolve\\lib\\DescriptionFileUtils.js:76:16\n    at processResult (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\webpack\\lib\\NormalModule.js:917:19)\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\webpack\\lib\\NormalModule.js:1065:5\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\maria\\Local Sites\\tailz-b\\app\\public\\wp-content\\themes\\tailz-b\\node_modules\\postcss-loader\\dist\\index.js:142:7)");
 
 /***/ }),
-
-/***/ "./resources/css/editor-style.css":
-/*!****************************************!*\
-  !*** ./resources/css/editor-style.css ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
@@ -35,234 +25,19 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************/
 /***/ (() => {
 
-// Login/Signup Popup
-document.addEventListener('DOMContentLoaded', function () {
-  // Login/Signup Popup
-  var loginPopup = document.querySelector('.login-signup-popup');
-  var loginPopupClose = document.querySelector('.login-signup-close');
-
-  // Handle login/signup popup
-  function showLoginPopup() {
-    if (loginPopup && !sessionStorage.getItem('loginPopupClosed')) {
-      loginPopup.classList.remove('pointer-events-none');
-      loginPopup.classList.remove('opacity-0');
-
-      // Automatically hide after 5 seconds
-      setTimeout(hideLoginPopup, 5000);
-    }
-  }
-  function hideLoginPopup() {
-    if (loginPopup) {
-      loginPopup.classList.add('opacity-0');
-      setTimeout(function () {
-        loginPopup.classList.add('pointer-events-none');
-      }, 300);
-      sessionStorage.setItem('loginPopupClosed', 'true');
-    }
-  }
-
-  // Show popup on page load with delay if not previously closed
-  if (!sessionStorage.getItem('loginPopupClosed')) {
-    setTimeout(showLoginPopup, 500);
-  }
-
-  // Hide popup on scroll
-  var scrollTimeout;
-  window.addEventListener('scroll', function () {
-    if (loginPopup && !loginPopup.classList.contains('opacity-0') && !sessionStorage.getItem('loginPopupClosed')) {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(hideLoginPopup, 150); // Debounce scroll events
-    }
-  }, {
-    passive: true
-  });
-
-  // Handle close button click
-  if (loginPopupClose) {
-    loginPopupClose.addEventListener('click', function (e) {
-      e.preventDefault();
-      hideLoginPopup();
-    });
-  }
-
-  // Close popup on ESC key press
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && loginPopup && !loginPopup.classList.contains('opacity-0')) {
-      hideLoginPopup();
-    }
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/editor-style.css":
-/*!****************************************!*\
-  !*** ./resources/css/editor-style.css ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+eval("// Login/Signup Popup\ndocument.addEventListener('DOMContentLoaded', function () {\n  // Login/Signup Popup\n  var loginPopup = document.querySelector('.login-signup-popup');\n  var loginPopupClose = document.querySelector('.login-signup-close');\n\n  // Handle login/signup popup\n  function showLoginPopup() {\n    if (loginPopup && !sessionStorage.getItem('loginPopupClosed')) {\n      loginPopup.classList.remove('pointer-events-none');\n      loginPopup.classList.remove('opacity-0');\n\n      // Automatically hide after 5 seconds\n      setTimeout(hideLoginPopup, 5000);\n    }\n  }\n  function hideLoginPopup() {\n    if (loginPopup) {\n      loginPopup.classList.add('opacity-0');\n      setTimeout(function () {\n        loginPopup.classList.add('pointer-events-none');\n      }, 300);\n      sessionStorage.setItem('loginPopupClosed', 'true');\n    }\n  }\n\n  // Show popup on page load with delay if not previously closed\n  if (!sessionStorage.getItem('loginPopupClosed')) {\n    setTimeout(showLoginPopup, 500);\n  }\n\n  // Hide popup on scroll\n  var scrollTimeout;\n  window.addEventListener('scroll', function () {\n    if (loginPopup && !loginPopup.classList.contains('opacity-0') && !sessionStorage.getItem('loginPopupClosed')) {\n      clearTimeout(scrollTimeout);\n      scrollTimeout = setTimeout(hideLoginPopup, 150); // Debounce scroll events\n    }\n  }, {\n    passive: true\n  });\n\n  // Handle close button click\n  if (loginPopupClose) {\n    loginPopupClose.addEventListener('click', function (e) {\n      e.preventDefault();\n      hideLoginPopup();\n    });\n  }\n\n  // Close popup on ESC key press\n  document.addEventListener('keydown', function (e) {\n    if (e.key === 'Escape' && loginPopup && !loginPopup.classList.contains('opacity-0')) {\n      hideLoginPopup();\n    }\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzIiwibmFtZXMiOlsiZG9jdW1lbnQiLCJhZGRFdmVudExpc3RlbmVyIiwibG9naW5Qb3B1cCIsInF1ZXJ5U2VsZWN0b3IiLCJsb2dpblBvcHVwQ2xvc2UiLCJzaG93TG9naW5Qb3B1cCIsInNlc3Npb25TdG9yYWdlIiwiZ2V0SXRlbSIsImNsYXNzTGlzdCIsInJlbW92ZSIsInNldFRpbWVvdXQiLCJoaWRlTG9naW5Qb3B1cCIsImFkZCIsInNldEl0ZW0iLCJzY3JvbGxUaW1lb3V0Iiwid2luZG93IiwiY29udGFpbnMiLCJjbGVhclRpbWVvdXQiLCJwYXNzaXZlIiwiZSIsInByZXZlbnREZWZhdWx0Iiwia2V5Il0sInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly90YWlscHJlc3MvLi9yZXNvdXJjZXMvanMvYXBwLmpzP2NlZDYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gTG9naW4vU2lnbnVwIFBvcHVwXHJcbmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCBmdW5jdGlvbigpIHtcclxuICAgIC8vIExvZ2luL1NpZ251cCBQb3B1cFxyXG4gICAgY29uc3QgbG9naW5Qb3B1cCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5sb2dpbi1zaWdudXAtcG9wdXAnKTtcclxuICAgIGNvbnN0IGxvZ2luUG9wdXBDbG9zZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5sb2dpbi1zaWdudXAtY2xvc2UnKTtcclxuICAgIFxyXG4gICAgLy8gSGFuZGxlIGxvZ2luL3NpZ251cCBwb3B1cFxyXG4gICAgZnVuY3Rpb24gc2hvd0xvZ2luUG9wdXAoKSB7XHJcbiAgICAgICAgaWYgKGxvZ2luUG9wdXAgJiYgIXNlc3Npb25TdG9yYWdlLmdldEl0ZW0oJ2xvZ2luUG9wdXBDbG9zZWQnKSkge1xyXG4gICAgICAgICAgICBsb2dpblBvcHVwLmNsYXNzTGlzdC5yZW1vdmUoJ3BvaW50ZXItZXZlbnRzLW5vbmUnKTtcclxuICAgICAgICAgICAgbG9naW5Qb3B1cC5jbGFzc0xpc3QucmVtb3ZlKCdvcGFjaXR5LTAnKTtcclxuICAgICAgICAgICAgXHJcbiAgICAgICAgICAgIC8vIEF1dG9tYXRpY2FsbHkgaGlkZSBhZnRlciA1IHNlY29uZHNcclxuICAgICAgICAgICAgc2V0VGltZW91dChoaWRlTG9naW5Qb3B1cCwgNTAwMCk7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG4gICAgXHJcbiAgICBmdW5jdGlvbiBoaWRlTG9naW5Qb3B1cCgpIHtcclxuICAgICAgICBpZiAobG9naW5Qb3B1cCkge1xyXG4gICAgICAgICAgICBsb2dpblBvcHVwLmNsYXNzTGlzdC5hZGQoJ29wYWNpdHktMCcpO1xyXG4gICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0+IHtcclxuICAgICAgICAgICAgICAgIGxvZ2luUG9wdXAuY2xhc3NMaXN0LmFkZCgncG9pbnRlci1ldmVudHMtbm9uZScpO1xyXG4gICAgICAgICAgICB9LCAzMDApO1xyXG4gICAgICAgICAgICBzZXNzaW9uU3RvcmFnZS5zZXRJdGVtKCdsb2dpblBvcHVwQ2xvc2VkJywgJ3RydWUnKTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC8vIFNob3cgcG9wdXAgb24gcGFnZSBsb2FkIHdpdGggZGVsYXkgaWYgbm90IHByZXZpb3VzbHkgY2xvc2VkXHJcbiAgICBpZiAoIXNlc3Npb25TdG9yYWdlLmdldEl0ZW0oJ2xvZ2luUG9wdXBDbG9zZWQnKSkge1xyXG4gICAgICAgIHNldFRpbWVvdXQoc2hvd0xvZ2luUG9wdXAsIDUwMCk7XHJcbiAgICB9XHJcbiAgICBcclxuICAgIC8vIEhpZGUgcG9wdXAgb24gc2Nyb2xsXHJcbiAgICBsZXQgc2Nyb2xsVGltZW91dDtcclxuICAgIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdzY3JvbGwnLCBmdW5jdGlvbigpIHtcclxuICAgICAgICBpZiAobG9naW5Qb3B1cCAmJiAhbG9naW5Qb3B1cC5jbGFzc0xpc3QuY29udGFpbnMoJ29wYWNpdHktMCcpICYmICFzZXNzaW9uU3RvcmFnZS5nZXRJdGVtKCdsb2dpblBvcHVwQ2xvc2VkJykpIHtcclxuICAgICAgICAgICAgY2xlYXJUaW1lb3V0KHNjcm9sbFRpbWVvdXQpO1xyXG4gICAgICAgICAgICBzY3JvbGxUaW1lb3V0ID0gc2V0VGltZW91dChoaWRlTG9naW5Qb3B1cCwgMTUwKTsgLy8gRGVib3VuY2Ugc2Nyb2xsIGV2ZW50c1xyXG4gICAgICAgIH1cclxuICAgIH0sIHsgcGFzc2l2ZTogdHJ1ZSB9KTtcclxuICAgIFxyXG4gICAgLy8gSGFuZGxlIGNsb3NlIGJ1dHRvbiBjbGlja1xyXG4gICAgaWYgKGxvZ2luUG9wdXBDbG9zZSkge1xyXG4gICAgICAgIGxvZ2luUG9wdXBDbG9zZS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKGUpIHtcclxuICAgICAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xyXG4gICAgICAgICAgICBoaWRlTG9naW5Qb3B1cCgpO1xyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAvLyBDbG9zZSBwb3B1cCBvbiBFU0Mga2V5IHByZXNzXHJcbiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdrZXlkb3duJywgZnVuY3Rpb24oZSkge1xyXG4gICAgICAgIGlmIChlLmtleSA9PT0gJ0VzY2FwZScgJiYgbG9naW5Qb3B1cCAmJiAhbG9naW5Qb3B1cC5jbGFzc0xpc3QuY29udGFpbnMoJ29wYWNpdHktMCcpKSB7XHJcbiAgICAgICAgICAgIGhpZGVMb2dpblBvcHVwKCk7XHJcbiAgICAgICAgfVxyXG4gICAgfSk7XHJcbn0pOyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQUEsUUFBUSxDQUFDQyxnQkFBZ0IsQ0FBQyxrQkFBa0IsRUFBRSxZQUFXO0VBQ3JEO0VBQ0EsSUFBTUMsVUFBVSxHQUFHRixRQUFRLENBQUNHLGFBQWEsQ0FBQyxxQkFBcUIsQ0FBQztFQUNoRSxJQUFNQyxlQUFlLEdBQUdKLFFBQVEsQ0FBQ0csYUFBYSxDQUFDLHFCQUFxQixDQUFDOztFQUVyRTtFQUNBLFNBQVNFLGNBQWNBLENBQUEsRUFBRztJQUN0QixJQUFJSCxVQUFVLElBQUksQ0FBQ0ksY0FBYyxDQUFDQyxPQUFPLENBQUMsa0JBQWtCLENBQUMsRUFBRTtNQUMzREwsVUFBVSxDQUFDTSxTQUFTLENBQUNDLE1BQU0sQ0FBQyxxQkFBcUIsQ0FBQztNQUNsRFAsVUFBVSxDQUFDTSxTQUFTLENBQUNDLE1BQU0sQ0FBQyxXQUFXLENBQUM7O01BRXhDO01BQ0FDLFVBQVUsQ0FBQ0MsY0FBYyxFQUFFLElBQUksQ0FBQztJQUNwQztFQUNKO0VBRUEsU0FBU0EsY0FBY0EsQ0FBQSxFQUFHO0lBQ3RCLElBQUlULFVBQVUsRUFBRTtNQUNaQSxVQUFVLENBQUNNLFNBQVMsQ0FBQ0ksR0FBRyxDQUFDLFdBQVcsQ0FBQztNQUNyQ0YsVUFBVSxDQUFDLFlBQU07UUFDYlIsVUFBVSxDQUFDTSxTQUFTLENBQUNJLEdBQUcsQ0FBQyxxQkFBcUIsQ0FBQztNQUNuRCxDQUFDLEVBQUUsR0FBRyxDQUFDO01BQ1BOLGNBQWMsQ0FBQ08sT0FBTyxDQUFDLGtCQUFrQixFQUFFLE1BQU0sQ0FBQztJQUN0RDtFQUNKOztFQUVBO0VBQ0EsSUFBSSxDQUFDUCxjQUFjLENBQUNDLE9BQU8sQ0FBQyxrQkFBa0IsQ0FBQyxFQUFFO0lBQzdDRyxVQUFVLENBQUNMLGNBQWMsRUFBRSxHQUFHLENBQUM7RUFDbkM7O0VBRUE7RUFDQSxJQUFJUyxhQUFhO0VBQ2pCQyxNQUFNLENBQUNkLGdCQUFnQixDQUFDLFFBQVEsRUFBRSxZQUFXO0lBQ3pDLElBQUlDLFVBQVUsSUFBSSxDQUFDQSxVQUFVLENBQUNNLFNBQVMsQ0FBQ1EsUUFBUSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUNWLGNBQWMsQ0FBQ0MsT0FBTyxDQUFDLGtCQUFrQixDQUFDLEVBQUU7TUFDMUdVLFlBQVksQ0FBQ0gsYUFBYSxDQUFDO01BQzNCQSxhQUFhLEdBQUdKLFVBQVUsQ0FBQ0MsY0FBYyxFQUFFLEdBQUcsQ0FBQyxDQUFDLENBQUM7SUFDckQ7RUFDSixDQUFDLEVBQUU7SUFBRU8sT0FBTyxFQUFFO0VBQUssQ0FBQyxDQUFDOztFQUVyQjtFQUNBLElBQUlkLGVBQWUsRUFBRTtJQUNqQkEsZUFBZSxDQUFDSCxnQkFBZ0IsQ0FBQyxPQUFPLEVBQUUsVUFBU2tCLENBQUMsRUFBRTtNQUNsREEsQ0FBQyxDQUFDQyxjQUFjLENBQUMsQ0FBQztNQUNsQlQsY0FBYyxDQUFDLENBQUM7SUFDcEIsQ0FBQyxDQUFDO0VBQ047O0VBRUE7RUFDQVgsUUFBUSxDQUFDQyxnQkFBZ0IsQ0FBQyxTQUFTLEVBQUUsVUFBU2tCLENBQUMsRUFBRTtJQUM3QyxJQUFJQSxDQUFDLENBQUNFLEdBQUcsS0FBSyxRQUFRLElBQUluQixVQUFVLElBQUksQ0FBQ0EsVUFBVSxDQUFDTSxTQUFTLENBQUNRLFFBQVEsQ0FBQyxXQUFXLENBQUMsRUFBRTtNQUNqRkwsY0FBYyxDQUFDLENBQUM7SUFDcEI7RUFDSixDQUFDLENBQUM7QUFDTixDQUFDLENBQUMiLCJpZ25vcmVMaXN0IjpbXX0=\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/editor-style": 0,
-/******/ 			"css/app": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunktailpress"] = self["webpackChunktailpress"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
-/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/editor-style","css/app"], () => (__webpack_require__("./resources/css/editor-style.css")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
+/******/ 	__webpack_modules__["./resources/js/app.js"]();
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./resources/css/app.css"]();
 /******/ 	
 /******/ })()
 ;

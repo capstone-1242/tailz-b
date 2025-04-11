@@ -12,6 +12,7 @@
 @import "custom/mobile-menu.css";
 @import "custom-colors.css";
 @import "custom.css";
+@import "custom/banner.css";
 
 /* Custom utilities for tailwind*/
 @layer utilities {
