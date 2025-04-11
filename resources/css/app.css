@@ -10,8 +10,14 @@
 @import "./custom/contact-form.css";
 @import "./custom/layout-components.css";
 @import "./custom/login-signup.css";
+<<<<<<< HEAD
 @import "./custom-colors.css";
 @import "./custom.css";
+=======
+@import "./custom/mobile-menu.css";
+@import "./custom/custom-colors.css";
+@import "./custom/custom.css";
+>>>>>>> e09e70e89fd212a1d489da26d352de40ddf5f230
 @import "./custom/banner.css";
 
 /* Import Google Fonts */
