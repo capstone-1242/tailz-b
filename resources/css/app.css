@@ -10,8 +10,8 @@
 @import "./custom/layout-components.css";
 @import "./custom/login-signup.css";
 @import "./custom/mobile-menu.css";
-@import "./custom-colors.css";
-@import "./custom.css";
+@import "./custom/custom-colors.css";
+@import "./custom/custom.css";
 @import "./custom/banner.css";
 
 /* Custom utilities for tailwind*/
