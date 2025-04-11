@@ -1,0 +1,117 @@
+@layer theme {
+  :root {
+    /* Brand Colors for tailwind */
+    --color-brand-darkblue: #1e2b79;
+    --color-brand-blue: #2b3fb8;
+    --color-brand-sky: #6fdbfc;
+    --color-brand-cream: #f3f2ec;
+    --color-brand-red: #ff6a6a;
+    --color-brand-orange: #fea91d;
+    --color-brand-yellow: #fcd41d;
+    --color-brand-lime: #c0e333;
+    --color-brand-purple: #c181fd;
+    --color-brand-pink: #ff8ecc;
+    --color-white: #ffffff;
+  }
+}
+
+/* Utility classes to ensure colors are available */
+.text-brand-darkblue {
+  color: var(--color-brand-darkblue) !important;
+}
+.bg-brand-darkblue {
+  background-color: var(--color-brand-darkblue) !important;
+}
+.border-brand-darkblue {
+  border-color: var(--color-brand-darkblue) !important;
+}
+
+.text-brand-blue {
+  color: var(--color-brand-blue) !important;
+}
+.bg-brand-blue {
+  background-color: var(--color-brand-blue) !important;
+}
+.border-brand-blue {
+  border-color: var(--color-brand-blue) !important;
+}
+
+.text-brand-sky {
+  color: var(--color-brand-sky) !important;
+}
+.bg-brand-sky {
+  background-color: var(--color-brand-sky) !important;
+}
+.border-brand-sky {
+  border-color: var(--color-brand-sky) !important;
+}
+
+.text-brand-cream {
+  color: var(--color-brand-cream) !important;
+}
+.bg-brand-cream {
+  background-color: var(--color-brand-cream) !important;
+}
+.border-brand-cream {
+  border-color: var(--color-brand-cream) !important;
+}
+
+.text-brand-red {
+  color: var(--color-brand-red) !important;
+}
+.bg-brand-red {
+  background-color: var(--color-brand-red) !important;
+}
+.border-brand-red {
+  border-color: var(--color-brand-red) !important;
+}
+
+.text-brand-orange {
+  color: var(--color-brand-orange) !important;
+}
+.bg-brand-orange {
+  background-color: var(--color-brand-orange) !important;
+}
+.border-brand-orange {
+  border-color: var(--color-brand-orange) !important;
+}
+
+.text-brand-yellow {
+  color: var(--color-brand-yellow) !important;
+}
+.bg-brand-yellow {
+  background-color: var(--color-brand-yellow) !important;
+}
+.border-brand-yellow {
+  border-color: var(--color-brand-yellow) !important;
+}
+
+.text-brand-lime {
+  color: var(--color-brand-lime) !important;
+}
+.bg-brand-lime {
+  background-color: var(--color-brand-lime) !important;
+}
+.border-brand-lime {
+  border-color: var(--color-brand-lime) !important;
+}
+
+.text-brand-purple {
+  color: var(--color-brand-purple) !important;
+}
+.bg-brand-purple {
+  background-color: var(--color-brand-purple) !important;
+}
+.border-brand-purple {
+  border-color: var(--color-brand-purple) !important;
+}
+
+.text-brand-pink {
+  color: var(--color-brand-pink) !important;
+}
+.bg-brand-pink {
+  background-color: var(--color-brand-pink) !important;
+}
+.border-brand-pink {
+  border-color: var(--color-brand-pink) !important;
+}
