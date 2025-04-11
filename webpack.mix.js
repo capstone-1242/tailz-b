@@ -1,2 +1,33 @@
-const mix = require("laravel-mix");
-const path = require("path"); // Define __dirname for Node.js 20+const __dirname = process.cwd();// Set resource pathsmix.setResourceRoot('../');mix.setPublicPath(path.resolve('./'));// Webpack configurationmix.webpackConfig({    watchOptions: {         ignored: [            path.resolve(__dirname, 'node_modules'),            path.resolve(__dirname, 'css'),            path.resolve(__dirname, 'js')        ]     }});// Compile JavaScriptmix.js('resources/js/app.js', 'js');// Compile CSS with PostCSSmix.css('resources/css/app.css', 'css')   .options({        processCssUrls: false,        postCss: [            require('autoprefixer')({                cascade: false            })        ]    });// Environment-specific settingsif (mix.inProduction()) {    mix.version();} else {    mix.sourceMaps();    mix.options({ manifest: false });}
+const mix = require('laravel-mix');
+const path = require('path');
+
+// Set resource paths
+mix.setResourceRoot('../');
+mix.setPublicPath(path.resolve('./'));
+
+// Webpack configuration
+mix.webpackConfig({
+    watchOptions: {
+        ignored: [
+            path.resolve(__dirname, 'node_modules'),
+            path.resolve(__dirname, 'css'),
+            path.resolve(__dirname, 'js')
+        ]
+    }
+});
+
+// Compile JavaScript
+mix.js('resources/js/app.js', 'js');
+
+// Compile CSS with Tailwind
+mix.postCss('resources/css/app.css', 'css', [
+    require('tailwindcss')
+]);
+
+// Environment-specific settings
+if (mix.inProduction()) {
+    mix.version();
+} else {
+    mix.sourceMaps();
+    mix.webpackConfig({ devtool: 'source-map' });
+}
