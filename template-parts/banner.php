@@ -22,17 +22,18 @@ $is_desktop = $form_id === 'desktop';
 
   $cover_text = get_post_meta(get_the_ID(), 'cover_text', true);
   if (!$cover_text) {
-    $cover_text = get_the_title();
+    $cover_text = get_the_title(); 
   }
 ?>
 
 <section class="custom-cover" style="background-image: url('<?php echo esc_url($cover_image); ?>');">
   <div class="cover-overlay shapedividers_com-6543">
     <?php 
-      echo wp_kses_post($cover_text);
+      echo wp_kses_post($cover_text); 
     ?>
   </div>
 </section>
+
 
 
 
