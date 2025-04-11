@@ -14,9 +14,12 @@
 @import "./custom/custom.css";
 @import "./custom/banner.css";
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 /* Custom utilities for tailwind*/
 @layer utilities {
-  .section-spacing {
+  .section-spacing {  
     padding-top: var(--section-spacing-mobile);
     padding-bottom: var(--section-spacing-mobile);
   }
@@ -29,11 +32,11 @@
   }
 
   .font-poppins {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   .font-work-sans {
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
 }
 
@@ -45,52 +48,27 @@
     margin-right: auto;
   }
 
-  /* Mobile menu overflow handling */
-  body.mobile-menu-open {
-    overflow: hidden;
-    padding-right: var(--scrollbar-width, 0px);
-  }
-
   /* Typography */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Poppins", sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     color: var(--color-brand-darkblue);
   }
 
   p {
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-text);
   }
 
   @media (min-width: 768px) {
-    h1 {
-      font-size: 48px;
-    }
-    h2 {
-      font-size: 36px;
-    }
-    h3 {
-      font-size: 30px;
-    }
-    h4 {
-      font-size: 24px;
-    }
-    h5 {
-      font-size: 20px;
-    }
-    h6 {
-      font-size: 18px;
-    }
-    p {
-      font-size: 18px;
-    }
+    h1 { font-size: 48px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 30px; }
+    h4 { font-size: 24px; }
+    h5 { font-size: 20px; }
+    h6 { font-size: 18px; }
+    p { font-size: 18px; }
   }
 }
