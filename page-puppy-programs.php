@@ -28,33 +28,33 @@
 
         <!-- Nurturing your pup's growth and socialization -->
         <section>
-            <div class="flex flex-col gap-[52px] md:gap-[60px]">
-                <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Nurturing your pup's growth and socialization</h2>
-                    <p class="text-[18px] text-[#2C2C2C] md:w-3/4">The first few months of a young pup's life are cricual to their development. We here at Tailz have custom tailored programs for all types of pups to help them grow into a balanced, socializaed and good-natured puppy.</p>
-                    <p class="text-[18px] text-[#2C2C2C] md:w-3/4">Early socialization and desensitization leads to reduced fears and anxieties down the road, making for a friendly and sociable fur-friend. Whether your puppy visits us once a week, or every day, they will get the experience in our cirriculum to develop into a sociable and well-behaved puppy.</p>
+            <div class="flex flex-col gap-[52px] lg:gap-[60px]">
+                <div class="flex flex-col mx-6 lg:mx-[89px] gap-5 lg:w-2/3">
+                    <h2 class="text-[44.8px] lg:text-[75.8px] text-[#47423B] lowercase">Nurturing your pup's growth and socialization</h2>
+                    <p class="text-[18px] text-[#2C2C2C] lg:w-3/4">The first few months of a young pup's life are cricual to their development. We here at Tailz have custom tailored programs for all types of pups to help them grow into a balanced, socializaed and good-natured puppy.</p>
+                    <p class="text-[18px] text-[#2C2C2C] lg:w-3/4">Early socialization and desensitization leads to reduced fears and anxieties down the road, making for a friendly and sociable fur-friend. Whether your puppy visits us once a week, or every day, they will get the experience in our cirriculum to develop into a sociable and well-behaved puppy.</p>
                 </div>
                 <!-- Quick Links -->
-                <div class="flex flex-col md:flex-row flex-wrap gap-5 mx-6 md:mx-[5.56rem] text-center md:text-left items-center md:items-start md:justify-between">
+                <div class="flex flex-col lg:flex-row flex-wrap gap-5 mx-6 lg:mx-[5.56rem] text-center lg:text-left items-center lg:items-start lg:justify-between">
                     <!-- Puppy preschool -->
-                    <a class="md:w-[calc(33.333333%_-_30px)]" href="#">
+                    <a class="lg:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy preschool</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy preschool</h3>
                         </div>
                     </a>
                     <!-- Puppy plus -->
-                    <a class="md:w-[calc(33.333333%_-_30px)]" href="#">
+                    <a class="lg:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy plus</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy plus</h3>
                         </div>
                     </a>
                     <!-- Puppy daycare -->
-                    <a class="md:w-[calc(33.333333%_-_30px)]" href="#">
+                    <a class="lg:w-[calc(33.333333%_-_30px)]" href="#">
                         <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
                         <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[37px] md:text-[75.8px] text-[#47423B] md:max-w-1/3">Puppy daycare</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy daycare</h3>
                         </div>
                     </a>
                 </div>
