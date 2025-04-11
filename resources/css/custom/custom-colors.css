@@ -11,10 +11,6 @@
     --color-brand-purple: #C181FD;
     --color-brand-pink: #FF8ECC;
     --color-white: #FFFFFF;
-
-    /* If you need #CB93FF specifically:
-    --color-brand-lavender: #CB93FF;
-    */
   }
 }
 
@@ -59,4 +55,4 @@
 .text-brand-lavender { color: var(--color-brand-lavender) !important; }
 .bg-brand-lavender { background-color: var(--color-brand-lavender) !important; }
 .border-brand-lavender { border-color: var(--color-brand-lavender) !important; }
-*/
+*/ 

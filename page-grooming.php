@@ -110,41 +110,69 @@ function render_grooming_tab( $animal, $services ) {
     </div>
     <?php
 }
+
+// Get the featured image URL
+$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
+// Define breadcrumbs
+$breadcrumbs = [
+    [
+        'title' => 'HOME',
+        'url' => home_url('/')
+    ],
+    [
+        'title' => 'SERVICES',
+        'url' => home_url('/services')
+    ],
+    [
+        'title' => 'GROOMING',
+        'url' => get_permalink()
+    ]
+];
+
+// Include the hero section template
+get_template_part('template-parts/hero-section', null, [
+    'title' => get_the_title(),
+    'tagline' => 'Pamper your pet from head to Tailz',
+    'image_url' => $featured_image_url,
+    'image_position' => 'center 20%',
+    'breadcrumbs' => $breadcrumbs
+]);
 ?>
 
-<div class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)]">
+<main class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)]">
     <!-- Banner -->
-    <section class="flex flex-col gap-3">
+    <section class="flex flex-col gap-3" aria-label="Page banner">
         <div class="relative h-[15.375rem] md:h-[31.25rem] w-full overflow-hidden">
             <?php
                 $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                 if($featured_image_url) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')" role="img" aria-label="<?php echo esc_attr(get_the_title()); ?> banner image"></div>
                 <?php endif; ?>
                 <div class="container flex flex-col absolute inset-0 justify-end my-[43px] md:my-[90px]">
-                    <h1 class="font-poppins font-bold text-[53.75px] md:text-[120px] text-white">grooming</h1>
+                    <h1 class="font-poppins font-bold text-[53.75px] md:text-[120px] text-white"><?php echo esc_html(get_the_title()); ?></h1>
                     <p class="uppercase text-[18px] md:text-[22px] text-white">Pamper your pet from head to Tailz</p>
                 </div>
         </div>
     </section>
 
     <!-- Breadcrumb -->
-    <div class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]">
-        <nav class="flex items-center space-x-2 text-[14px] md:text-[16px]">
-            <a href="<?php echo home_url(); ?>" class="text-[#47423B]">HOME</a>
-            <span class="text-[#47423B]">/</span>
-            <a href="<?php echo home_url('/services'); ?>" class="text-[#47423B]">SERVICES</a>
-            <span class="text-[#47423B]">/</span>
-            <span class="font-bold text-[#615849]">GROOMING</span>
-        </nav>
-    </div>
+    <nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-[14px] md:text-[16px]">
+            <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
+            <li><span class="text-[#47423B]">/</span></li>
+            <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+            <li><span class="text-[#47423B]">/</span></li>
+            <li><span class="font-bold text-[#615849]" aria-current="page">Grooming</span></li>
+        </ol>
+    </nav>
 
     <!-- Main Content -->
     <div class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]">
         <div class="flex flex-col gap-[40px] md:gap-[60px]">
             <!-- Intro -->
-            <section class="flex flex-col gap-5 md:gap-8 md:w-1/2">
-                <h2 class="text-[22px] md:text-[32px] text-[#47423B]">grooming to furfection</h2>
+            <section class="flex flex-col gap-5 md:gap-8 md:w-1/2" aria-labelledby="grooming-intro">
+                <h2 id="grooming-intro" class="text-[22px] md:text-[32px] text-[#47423B]">Grooming to Furfection</h2>
                 <div class="flex flex-col gap-4 md:gap-6">
                     <p class="text-[18px] md:text-[22px] text-[#2C2C2C]">At Tailz, we believe that grooming is more than just a bath and haircut. Our experienced pet stylists are committed to providing your furry friend with a stress-free, enjoyable experience that leaves them looking and feeling their best.</p>
                     <p class="text-[18px] md:text-[22px] text-[#2C2C2C]">We understand that every pet is unique, which is why we take the time to listen to your preferences and provide personalized grooming services. Whether you're looking for a simple bath and brush or a complete makeover, we'll work with you to achieve the perfect look for your pet.</p>
@@ -152,24 +180,87 @@ function render_grooming_tab( $animal, $services ) {
             </section>
 
             <!-- Options and Prices -->
-            <section class="flex flex-col gap-8 md:gap-12">
-                <h2 class="text-[22px] md:text-[32px] text-[#FF6A6A] md:w-1/2">options and prices</h2>
+            <section class="flex flex-col gap-8 md:gap-12" aria-labelledby="grooming-options">
+                <h2 id="grooming-options" class="text-[22px] md:text-[32px] text-[#FF6A6A] md:w-1/2">Options and Prices</h2>
                 
                 <!-- Cards section spans full width on desktop -->
                 <div class="bg-[#F3F2EC] p-6 md:p-12 rounded-[20px] w-full">
-                    <!-- ... existing card content ... -->
+                    <!-- Service Tabs -->
+                    <div class="flex flex-col gap-8">
+                        <!-- Tab Navigation -->
+                        <nav class="flex gap-4" role="tablist" aria-label="Pet type selection">
+                            <button class="tab-button active px-6 py-3 rounded-full bg-[#FF6A6A] text-white" 
+                                    role="tab" 
+                                    aria-selected="true" 
+                                    aria-controls="dog-content"
+                                    id="dog-tab">Dog</button>
+                            <button class="tab-button px-6 py-3 rounded-full bg-gray-200" 
+                                    role="tab" 
+                                    aria-selected="false" 
+                                    aria-controls="cat-content"
+                                    id="cat-tab">Cat</button>
+                        </nav>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content active" id="dog-content" role="tabpanel" aria-labelledby="dog-tab">
+                            <!-- Size Dropdown -->
+                            <div class="mb-4 flex items-center gap-2">
+                                <label for="dog-size" class="font-semibold">Size:</label>
+                                <select id="dog-size" class="border border-gray-300 px-3 py-2 rounded-full text-sm focus:outline-none" aria-label="Select dog size">
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m" selected>M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                </select>
+                            </div>
+
+                            <!-- Service Cards -->
+                            <div class="grid grid-cols-2 gap-4" role="list">
+                                <?php 
+                                $index = 0;
+                                foreach ($services as $service) :
+                                    if (empty($service['service_title'])) {
+                                        continue;
+                                    }
+                                    $colspan = ($index === 4) ? ' col-span-2' : '';
+                                    $data_attrs = '';
+                                    $sizes = ['xs', 's', 'm', 'l', 'xl'];
+                                    foreach ($sizes as $size) {
+                                        $data_value = isset($service['dog'][$size]) ? $service['dog'][$size] : '';
+                                        $data_attrs .= ' data-dog-' . $size . '="' . esc_attr($data_value) . '"';
+                                    }
+                                ?>
+                                    <div class="service-card border border-gray-300 p-4 rounded-md<?php echo $colspan; ?>" <?php echo $data_attrs; ?> role="listitem">
+                                        <h3 class="font-bold text-md"><?php echo esc_html($service['service_title']); ?></h3>
+                                        <p class="price text-sm text-gray-700 mt-2"><?php echo isset($service['dog']['m']) ? esc_html($service['dog']['m']) : ''; ?></p>
+                                        <p class="description text-sm mt-2"><?php echo esc_html($service['service_description']); ?></p>
+                                        <p class="includes text-sm mt-2">Includes: <?php echo esc_html($service['service_description']); ?></p>
+                                    </div>
+                                <?php 
+                                    $index++;
+                                endforeach;
+                                ?>
+                            </div>
+                        </div>
+
+                        <!-- Cat Content -->
+                        <div class="tab-content hidden" id="cat-content" role="tabpanel" aria-labelledby="cat-tab">
+                            <!-- Similar structure as dog content -->
+                        </div>
+                    </div>
 
                     <!-- Note and CTA -->
                     <div class="flex flex-col items-center gap-6 md:gap-8 mt-8 md:mt-12">
                         <p class="font-worksans font-medium italic text-[18px] md:text-[22px] text-[#2C2C2C] text-center max-w-[600px]">Please review our booking policies prior to scheduling your next appointment</p>
-                        <a href="#" class="inline-block bg-[#CB93FF] text-white font-poppins font-bold text-[22px] md:text-[26px] px-8 py-3 rounded-[30px] hover:bg-[#B670FF] transition-colors">book an appointment</a>
+                        <a href="#" class="inline-block bg-[#CB93FF] text-white font-poppins font-bold text-[22px] md:text-[26px] px-8 py-3 rounded-[30px] hover:bg-[#B670FF] transition-colors" aria-label="Book a grooming appointment">Book an Appointment</a>
                     </div>
                 </div>
             </section>
 
             <!-- Booking Policies -->
-            <section class="flex flex-col gap-5 md:gap-8 md:w-1/2">
-                <h2 class="text-[22px] md:text-[32px] text-[#47423B]">our booking policies</h2>
+            <section class="flex flex-col gap-5 md:gap-8 md:w-1/2" aria-labelledby="booking-policies">
+                <h2 id="booking-policies" class="text-[22px] md:text-[32px] text-[#47423B]">Our Booking Policies</h2>
                 <ul class="list-disc list-inside space-y-4 md:space-y-6 text-[18px] md:text-[22px] text-black">
                     <li>One pet per appointment slot. If you have multiple pets, please book separate appointments.</li>
                     <li>If your pup is larger or smaller than described at booking, we may need to reschedule to ensure proper time allocation.</li>
@@ -181,8 +272,8 @@ function render_grooming_tab( $animal, $services ) {
             </section>
 
             <!-- FAQs -->
-            <section class="flex flex-col gap-8 md:gap-12 md:w-1/2">
-                <h2 class="text-[22px] md:text-[32px] text-[#47423B]">faqs</h2>
+            <section class="flex flex-col gap-8 md:gap-12 md:w-1/2" aria-labelledby="grooming-faqs">
+                <h2 id="grooming-faqs" class="text-[22px] md:text-[32px] text-[#47423B]">Frequently Asked Questions</h2>
                 <div class="flex flex-col gap-6 md:gap-8">
                     <?php
                     $faqs = [
@@ -200,9 +291,9 @@ function render_grooming_tab( $animal, $services ) {
                         ]
                     ];
 
-                    foreach($faqs as $faq) : ?>
+                    foreach($faqs as $index => $faq) : ?>
                         <div class="flex gap-4 md:gap-6">
-                            <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-[30px] h-[26px] md:w-[34px] md:h-[30px]">
+                            <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-[30px] h-[26px] md:w-[34px] md:h-[30px]" aria-hidden="true" focusable="false">
                                 <path d="M11.2135 7.42917C12.9174 6.82501 13.8259 4.90571 13.242 3.14241C12.6589 1.37966 10.8046 0.438625 9.10038 1.0429C7.39639 1.64657 6.48785 3.56576 7.0712 5.32911C7.65484 7.09295 9.50923 8.03235 11.2135 7.42917Z" fill="#2C2C2C"/>
                                 <path d="M5.9995 12.6826V12.6832C6.97834 11.118 6.54535 9.02784 5.03366 8.01526C3.52139 7.00322 1.50211 7.45039 0.523327 9.01505V9.01565C-0.454874 10.5803 -0.0219343 12.6699 1.48981 13.6819C3.00202 14.695 5.021 14.2473 5.9995 12.6826Z" fill="#2C2C2C"/>
                                 <path d="M18.7856 7.42922C20.4898 8.03241 22.3442 7.09301 22.9278 5.32911C23.5111 3.56581 22.6026 1.64657 20.8987 1.0429C19.1945 0.438619 17.3401 1.37972 16.757 3.14241C16.1731 4.90576 17.0817 6.82507 18.7856 7.42922Z" fill="#2C2C2C"/>
@@ -210,8 +301,8 @@ function render_grooming_tab( $animal, $services ) {
                                 <path d="M29.4765 9.01565V9.01505C28.4977 7.45039 26.4785 7.00321 24.9662 8.01526C23.4545 9.02784 23.0216 11.118 24.0003 12.6832V12.6826C24.9788 14.2473 26.9978 14.6951 28.51 13.6819C30.0217 12.6699 30.4547 10.5804 29.4765 9.01565Z" fill="#2C2C2C"/>
                             </svg>
                             <div class="flex flex-col gap-2 md:gap-3">
-                                <h3 class="font-poppins font-bold text-[22px] md:text-[26px] text-[#47423B]"><?php echo $faq['question']; ?></h3>
-                                <p class="text-[18px] md:text-[22px] text-[#2C2C2C]"><?php echo $faq['answer']; ?></p>
+                                <h3 class="font-poppins font-bold text-[22px] md:text-[26px] text-[#47423B]"><?php echo esc_html($faq['question']); ?></h3>
+                                <p class="text-[18px] md:text-[22px] text-[#2C2C2C]"><?php echo esc_html($faq['answer']); ?></p>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -219,7 +310,6 @@ function render_grooming_tab( $animal, $services ) {
             </section>
         </div>
     </div>
-</div>
+</main>
 
-<?php
-get_footer();
+<?php get_footer(); ?>

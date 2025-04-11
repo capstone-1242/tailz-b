@@ -1,0 +1,126 @@
+
+/* Banner */
+.custom-cover {
+    position: relative;
+    height: 400px; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .cover-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .covers {
+    margin-bottom: 40px;
+  }
+  
+  .cover-overlay h1, .cover-overlay p {
+    margin: 0;
+  }
+  
+  .cover-overlay h1 {
+    font-size: 53.75px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .cover-overlay p {
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 10px;
+  }
+  
+  .main-page-cover p:first-of-type {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: lowercase;
+  }
+  
+  .main-page-cover span {
+    text-transform: uppercase;
+  }
+  
+  .btn-cover {
+    display: inline-block;
+    background-color: #FEA91D;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: lowercase;
+    padding: 10px 26px;
+    text-decoration: none !important;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-cover:hover {
+    background-color: #e67e22;
+    box-shadow: 10px 5px 5px #2c2c2c84;
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 991px) {
+    /* .cover-overlay h1 {
+      font-size: 30px;  
+    }
+  
+    .cover-overlay p {
+      font-size: 14px; 
+    }
+  
+    .btn-cover {
+      padding: 8px 20px; 
+    } */
+  }
+  
+  /* Desktop-specific styles */
+  /* @media (min-width: 992px) {
+    .shapedividers_com-6543 {
+      overflow: hidden;
+      position: relative;
+    }
+  
+    .shapedividers_com-6543::before {
+      content: '';
+      font-family: 'shape divider from ShapeDividers.com';
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      bottom: -0.1vw;
+      left: -0.1vw;
+      right: -0.1vw;
+      top: -0.1vw;
+      background-size: 400px 249%;
+      background-position: 0% 18%;
+      transform: rotateX(180deg);
+      background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0.1 0 2.17 35.28" preserveAspectRatio="none"><path d="M1.85 35.28c-.83-2.57-.3-7.68-.42-11.8-.12-4.1-.61-6.85-.28-9.57.33-2.73 1.17-5.61 1-8.61-.19-3-.82-4.73-.84-5.3H.1v35.28z" fill="%23f3f2ec"/></svg>');
+    }
+  
+    .cover-overlay h1 {
+      font-size: 53.75px; 
+    }
+  
+    .cover-overlay p {
+      font-size: 18px;  
+    }
+  
+    .btn-cover {
+      padding: 10px 26px; 
+    }
+  } */

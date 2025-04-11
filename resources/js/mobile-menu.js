@@ -1,108 +1,153 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM elements
-    const menuToggle = document.getElementById('primary-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const body = document.body;
-    
+    // Cache DOM elements
+    const menuElements = {
+        toggle: document.querySelector('.mobile-menu-toggle'),
+        menu: document.getElementById('mobile-menu'),
+        close: document.querySelector('.mobile-menu-close'),
+        overlay: document.getElementById('mobile-menu-overlay'),
+        body: document.body
+    };
+
+    // Error handling for missing elements
+    if (!menuElements.toggle || !menuElements.menu) {
+        console.error('Required mobile menu elements not found');
+        return;
+    }
+
+    // Check if we're on mobile
+    function isMobile() {
+        return window.innerWidth < 1024;
+    }
+
     // Toggle of the mobile menu
     function toggleMenu() {
-        if (!mobileMenu || !mobileMenuOverlay) return;
-        
-        const isOpen = mobileMenu.style.transform === 'translateX(0px)';
+        // Only allow toggling on mobile
+        if (!isMobile()) {
+            return;
+        }
+
+        const isOpen = menuElements.menu.classList.contains('active');
         
         if (!isOpen) {
             // Opening menu
-            mobileMenu.style.transform = 'translateX(0)';
-            mobileMenuOverlay.classList.remove('hidden');
-            body.classList.add('overflow-hidden');
+            menuElements.menu.style.display = 'block';
+            menuElements.overlay.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                menuElements.menu.classList.add('active');
+                menuElements.menu.style.transform = 'translateX(0)';
+                menuElements.body.classList.add('overflow-hidden');
+                menuElements.toggle.classList.add('active');
+                menuElements.toggle.setAttribute('aria-expanded', 'true');
+            });
         } else {
             // Closing menu
-            mobileMenu.style.transform = 'translateX(-100%)';
-            mobileMenuOverlay.classList.add('hidden');
-            body.classList.remove('overflow-hidden');
+            menuElements.menu.classList.remove('active');
+            menuElements.menu.style.transform = 'translateX(-100%)';
+            menuElements.body.classList.remove('overflow-hidden');
+            menuElements.toggle.classList.remove('active');
+            menuElements.toggle.setAttribute('aria-expanded', 'false');
+            menuElements.overlay.classList.add('hidden');
             
-            // Reset all submenus when closing the menu
-            const submenus = document.querySelectorAll('.sub-menu');
+            // Reset all submenus
+            const submenus = document.querySelectorAll('.submenu-items');
             submenus.forEach(submenu => {
-                if (submenu) {
-                    submenu.style.maxHeight = null;
-                }
+                submenu.classList.remove('active');
+                submenu.classList.add('hidden');
             });
             
             // Reset all toggle buttons
-            const toggleButtons = document.querySelectorAll('.mobile-submenu-toggle');
+            const toggleButtons = document.querySelectorAll('.menu-toggle');
             toggleButtons.forEach(button => {
-                if (button) {
-                    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line></svg>';
-                }
+                button.classList.remove('active');
+                button.setAttribute('aria-expanded', 'false');
             });
         }
     }
-    
-    // Only add event listeners if elements exist
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMenu);
+
+    // Event listeners
+    menuElements.toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    if (menuElements.close) {
+        menuElements.close.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
     }
-    
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', toggleMenu);
+
+    // Handle overlay click
+    if (menuElements.overlay) {
+        menuElements.overlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (menuElements.menu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
     }
-    
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', toggleMenu);
-    }
-    
+
     // Handle submenu toggles
-    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
-    if (submenuToggles) {
-        submenuToggles.forEach(toggle => {
+    const menuToggles = document.querySelectorAll('.menu-toggle');
+    if (menuToggles) {
+        menuToggles.forEach(toggle => {
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                const targetId = this.getAttribute('data-target');
-                if (!targetId) return;
+                const submenu = this.nextElementSibling;
+                if (!submenu || !submenu.classList.contains('submenu-items')) return;
                 
-                const submenu = document.getElementById(targetId);
-                if (!submenu) return;
-                
-                const isOpen = submenu.style.maxHeight;
+                const isOpen = submenu.classList.contains('active');
                 
                 // Close all other submenus first
-                submenuToggles.forEach(otherToggle => {
+                menuToggles.forEach(otherToggle => {
                     if (otherToggle !== toggle) {
-                        const otherTargetId = otherToggle.getAttribute('data-target');
-                        if (otherTargetId) {
-                            const otherSubmenu = document.getElementById(otherTargetId);
-                            if (otherSubmenu) {
-                                otherSubmenu.style.maxHeight = null;
-                            }
-                        }
-                        if (otherToggle) {
-                            otherToggle.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line></svg>';
+                        otherToggle.classList.remove('active');
+                        otherToggle.setAttribute('aria-expanded', 'false');
+                        const otherSubmenu = otherToggle.nextElementSibling;
+                        if (otherSubmenu && otherSubmenu.classList.contains('submenu-items')) {
+                            otherSubmenu.classList.remove('active');
+                            otherSubmenu.classList.add('hidden');
                         }
                     }
                 });
                 
-                if (!isOpen) {
-                    // Opening submenu
-                    submenu.style.maxHeight = submenu.scrollHeight + 'px';
-                    this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
-                } else {
-                    // Closing submenu
-                    submenu.style.maxHeight = null;
-                    this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line></svg>';
-                }
+                // Toggle current submenu
+                toggle.classList.toggle('active');
+                submenu.classList.toggle('active');
+                submenu.classList.toggle('hidden');
+                toggle.setAttribute('aria-expanded', !isOpen);
             });
         });
     }
+
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (!isMobile() && menuElements.menu.classList.contains('active')) {
+                toggleMenu();
+            }
+        }, 250);
+    }, { passive: true });
+
+    // Initial setup
+    menuElements.menu.style.transform = 'translateX(-100%)';
     
-    // Close menu on ESC key press
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu && mobileMenu.style.transform === 'translateX(0px)') {
-            toggleMenu();
+    // Handle transition end
+    menuElements.menu.addEventListener('transitionend', function() {
+        if (!menuElements.menu.classList.contains('active')) {
+            menuElements.menu.style.display = 'none';
         }
     });
+
+    // Initial check for mobile/desktop
+    if (!isMobile() && menuElements.menu.classList.contains('active')) {
+        toggleMenu();
+    }
 }); 

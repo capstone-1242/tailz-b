@@ -81,7 +81,9 @@ $is_desktop = $form_id === 'desktop';
     </div>
 
     <!-- Separator -->
-    <div class="h-[5px] bg-[#AAAAAA] <?php echo $is_desktop ? 'w-[1006px]' : 'w-full'; ?>"></div>
+    <div class="<?php echo $is_desktop ? 'max-w-[1063.2px]' : 'w-full'; ?>">
+      <div class="h-[5px] bg-[#AAAAAA] w-full"></div>
+    </div>
 
     <!-- Subject Field -->
     <div class="<?php echo $is_desktop ? 'w-[503px]' : 'w-full'; ?>">
@@ -102,12 +104,14 @@ $is_desktop = $form_id === 'desktop';
       <label for="message-<?php echo esc_attr($form_id); ?>" class="block font-worksans text-[16px] text-[#47423B] mb-2">
         message *
       </label>
-      <textarea 
-        id="message-<?php echo esc_attr($form_id); ?>" 
-        name="message" 
-        class="<?php echo $is_desktop ? 'w-[1063.2px] h-[326px]' : 'w-full h-[282px]'; ?> px-4 py-3 rounded-[10px] border border-[#D9D9D9] bg-white resize-none" 
-        required
-      ></textarea>
+      <div class="<?php echo $is_desktop ? 'max-w-[1063.2px]' : 'w-full'; ?>">
+        <textarea 
+          id="message-<?php echo esc_attr($form_id); ?>" 
+          name="message" 
+          class="w-full h-[282px] md:h-[326px] px-4 py-3 rounded-[10px] border border-[#D9D9D9] bg-white resize-none" 
+          required
+        ></textarea>
+      </div>
     </div>
 
     <!-- Submit Button -->
