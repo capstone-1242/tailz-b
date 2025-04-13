@@ -31,7 +31,7 @@ function crb_attach_theme_options() {
 add_action( 'carbon_fields_register_fields', 'crb_attach_grooming_fields' );
 function crb_attach_grooming_fields() {
     Container::make( 'post_meta', 'Grooming Services' )
-        ->where( 'post_id', '=', 17 ) // Grooming page ID
+        ->where( 'post_id', '=', 71 ) // Grooming page ID
         ->add_fields( array(
             Field::make( 'complex', 'grooming_services', 'Services' )
                 ->set_layout( 'tabbed-vertical' )
