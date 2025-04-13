@@ -16,11 +16,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action('after_setup_theme', 'crb_load');
 function crb_load() {
     try {
-        require_once('vendor/autoload.php');
+        // Try theme directory first
+        $theme_autoload = get_template_directory() . '/vendor/autoload.php';
+        $parent_autoload = dirname(get_template_directory()) . '/vendor/autoload.php';
+        
+        if (file_exists($theme_autoload)) {
+            require_once($theme_autoload);
+            error_log('Loading Carbon Fields from theme directory: ' . $theme_autoload);
+        } elseif (file_exists($parent_autoload)) {
+            require_once($parent_autoload);
+            error_log('Loading Carbon Fields from parent directory: ' . $parent_autoload);
+        } else {
+            throw new Exception('Carbon Fields autoloader not found in either ' . $theme_autoload . ' or ' . $parent_autoload);
+        }
+
+        if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
+            throw new Exception('Carbon Fields class not found after loading autoloader');
+        }
+
         \Carbon_Fields\Carbon_Fields::boot();
         error_log('Carbon Fields initialized successfully');
     } catch (Exception $e) {
         error_log('Carbon Fields initialization failed: ' . $e->getMessage());
+        // Add admin notice
+        add_action('admin_notices', function() use ($e) {
+            echo '<div class="error"><p>Carbon Fields initialization failed: ' . esc_html($e->getMessage()) . '</p></div>';
+        });
     }
 }
 
