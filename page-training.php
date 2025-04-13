@@ -8,15 +8,29 @@
 
 get_header();
 
-// Get training data from Carbon Fields
-$training_preview = array(
-    'video_url' => carbon_get_post_meta(get_the_ID(), 'training_preview_video_url'),
-    'title' => carbon_get_post_meta(get_the_ID(), 'training_preview_title')
-);
-$puppy_classes = carbon_get_post_meta(get_the_ID(), 'puppy_classes');
-$adult_classes = carbon_get_post_meta(get_the_ID(), 'adult_classes');
-$growly_classes = carbon_get_post_meta(get_the_ID(), 'growly_classes');
-$private_training = carbon_get_post_meta(get_the_ID(), 'private_training');
+// Initialize variables with error handling
+$training_preview = null;
+$puppy_classes = null;
+$adult_classes = null;
+$growly_classes = null;
+$private_training = null;
+
+try {
+    if (function_exists('carbon_get_post_meta')) {
+        $training_preview = array(
+            'video_url' => carbon_get_post_meta(get_the_ID(), 'training_preview_video_url'),
+            'title' => carbon_get_post_meta(get_the_ID(), 'training_preview_title')
+        );
+        $puppy_classes = carbon_get_post_meta(get_the_ID(), 'puppy_classes');
+        $adult_classes = carbon_get_post_meta(get_the_ID(), 'adult_classes');
+        $growly_classes = carbon_get_post_meta(get_the_ID(), 'growly_classes');
+        $private_training = carbon_get_post_meta(get_the_ID(), 'private_training');
+    } else {
+        error_log('Carbon Fields not loaded in page-training.php');
+    }
+} catch (Exception $e) {
+    error_log('Error getting training data: ' . $e->getMessage());
+}
 ?>
 
 <div>

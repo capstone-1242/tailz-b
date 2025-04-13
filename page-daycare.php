@@ -8,9 +8,20 @@
 
 get_header();
 
-// Get daycare services
-$dog_daycare = carbon_get_post_meta(get_the_ID(), 'dog_daycare');
-$cat_daycare = carbon_get_post_meta(get_the_ID(), 'cat_daycare');
+// Get daycare services with error handling
+$dog_daycare = null;
+$cat_daycare = null;
+
+try {
+    if (function_exists('carbon_get_post_meta')) {
+        $dog_daycare = carbon_get_post_meta(get_the_ID(), 'dog_daycare');
+        $cat_daycare = carbon_get_post_meta(get_the_ID(), 'cat_daycare');
+    } else {
+        error_log('Carbon Fields not loaded in page-daycare.php');
+    }
+} catch (Exception $e) {
+    error_log('Error getting daycare services: ' . $e->getMessage());
+}
 ?>
 
 <div>
