@@ -72,4 +72,43 @@
     p { font-size: 18px; }
   }
 }
- 
+
+/* Video Carousel Styles */
+.video-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-prev,
+.carousel-next {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+    .carousel-prev:hover,
+    .carousel-next:hover {
+        background-color: #C0E333;
+        transform: scale(1.1);
+    }
+    
+    .carousel-prev:hover svg,
+    .carousel-next:hover svg {
+        stroke: white;
+    }
+}

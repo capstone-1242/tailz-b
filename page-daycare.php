@@ -1,5 +1,16 @@
 <?php
+/**
+ * Template Name: Daycare
+ * Description: A custom template for the Daycare page with services and FAQs
+ *
+ * @package tailz
+ */
+
 get_header();
+
+// Get daycare services
+$dog_daycare = carbon_get_post_meta(get_the_ID(), 'dog_daycare');
+$cat_daycare = carbon_get_post_meta(get_the_ID(), 'cat_daycare');
 ?>
 
 <div>
@@ -38,8 +49,86 @@ get_header();
                     <p class="text-[18px] text-[#2C2C2C]">We run carefully chosen play groups that will keep your dog happy and safe. Allowing your pup's activity level to be paced throughout the day means that we are constantly engaging with, supervising, and adjusting their environment to ensure they are comfortable, happy, and enjoying themselves.</p>
                 </div>
                 <!-- Packages -->
-                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Daily Rates -->
+                        <div class="bg-white p-6 rounded-[20px]">
+                            <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">daily</h3>
+                            <?php 
+                            $daily_rates = carbon_get_post_meta(get_the_ID(), 'daily_rates');
+                            if (!empty($daily_rates)) {
+                                foreach ($daily_rates as $rate) : ?>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($rate['title']); ?></span>
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">$<?php echo esc_html($rate['price']); ?></span>
+                                    </div>
+                                <?php endforeach;
+                                foreach ($daily_rates as $rate) {
+                                    if (!empty($rate['notes'])) {
+                                        foreach ($rate['notes'] as $note) : ?>
+                                            <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-2"><?php echo esc_html($note['note']); ?></p>
+                                        <?php endforeach;
+                                    }
+                                }
+                            } ?>
+                        </div>
+
+                        <!-- Flex Passes -->
+                        <div class="bg-white p-6 rounded-[20px]">
+                            <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">flex passes</h3>
+                            <?php 
+                            $flex_passes = carbon_get_post_meta(get_the_ID(), 'flex_passes');
+                            if (!empty($flex_passes)) {
+                                foreach ($flex_passes as $pass) : ?>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($pass['title']); ?></span>
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">$<?php echo esc_html($pass['price']); ?></span>
+                                    </div>
+                                <?php endforeach;
+                                foreach ($flex_passes as $pass) {
+                                    if (!empty($pass['notes'])) {
+                                        foreach ($pass['notes'] as $note) : ?>
+                                            <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-2"><?php echo esc_html($note['note']); ?></p>
+                                        <?php endforeach;
+                                    }
+                                }
+                            } ?>
+                        </div>
+
+                        <!-- Monthly Play -->
+                        <div class="bg-white p-6 rounded-[20px]">
+                            <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">monthly play packages</h3>
+                            <?php 
+                            $monthly_play = carbon_get_post_meta(get_the_ID(), 'monthly_play');
+                            if (!empty($monthly_play)) {
+                                foreach ($monthly_play as $package) : ?>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($package['title']); ?></span>
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">$<?php echo esc_html($package['price']); ?></span>
+                                    </div>
+                                <?php endforeach;
+                                foreach ($monthly_play as $package) {
+                                    if (!empty($package['notes'])) {
+                                        foreach ($package['notes'] as $note) : ?>
+                                            <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-2"><?php echo esc_html($note['note']); ?></p>
+                                        <?php endforeach;
+                                    }
+                                }
+                            } ?>
+
+                            <?php if (!empty(carbon_get_post_meta(get_the_ID(), 'membership_perks'))) : ?>
+                                <div class="mt-6">
+                                    <h4 class="font-poppins font-bold text-[24px] md:text-[32px] text-[#47423B] mb-4">monthly membership perks</h4>
+                                    <ul class="space-y-2">
+                                        <?php foreach (carbon_get_post_meta(get_the_ID(), 'membership_perks') as $perk) : ?>
+                                            <li class="font-work-sans text-[16px] md:text-[20px] text-[#2C2C2C]"><?php echo esc_html($perk['perk']); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-6 text-center">* Passes and Flex Packages purchases are non-refundable, not transferable, and cannot be used for in-store credit.</p>
                 </div>
             </div>
         </section>

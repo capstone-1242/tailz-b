@@ -1,12 +1,16 @@
 <?php
 /**
- * Template Name: Photos
- * Description: A custom template for the "Photos" (Portraits) page, displaying photoshoot packages with Dog/Cat tabs using Meta Box.
+ * Template Name: Hotel
+ * Description: A custom template for the "Hotel" (Portraits) page.
  *
  * @package tailz
  */
 
- get_header();
+get_header();
+
+// Get hotel data from Carbon Fields
+$hotel_packages = carbon_get_post_meta(get_the_ID(), 'hotel_packages');
+$surcharge_notice = carbon_get_post_meta(get_the_ID(), 'surcharge_notice');
 ?>
 
 
@@ -67,8 +71,72 @@
                     <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase">Hotel packages</h2>
                 </div>
                 <!-- Packages -->
-                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <?php 
+                        if (!empty($hotel_packages)) :
+                            foreach ($hotel_packages as $package) : 
+                                $package_type_class = '';
+                                $package_type_text = '';
+                                switch ($package['package_type']) {
+                                    case 'basic':
+                                        $package_type_text = 'Basic';
+                                        break;
+                                    case 'most_popular':
+                                        $package_type_text = 'Most Popular';
+                                        break;
+                                    case 'best_value':
+                                        $package_type_text = 'Best Value';
+                                        break;
+                                }
+                            ?>
+                            <div class="bg-white p-6 rounded-[20px]">
+                                <!-- Package Type -->
+                                <p class="font-poppins font-bold italic text-[18px] md:text-[24px] text-[#2C2C2C] mb-4"><?php echo esc_html($package_type_text); ?></p>
+                                
+                                <!-- Title -->
+                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-2"><?php echo esc_html($package['title']); ?></h3>
+                                
+                                <!-- Subtitle -->
+                                <h5 class="font-work-sans font-bold text-[18px] md:text-[32px] text-[#837660] mb-6"><?php echo esc_html($package['subtitle']); ?></h5>
+                                
+                                <!-- Features List -->
+                                <?php if (!empty($package['features'])) : ?>
+                                    <ul class="space-y-4 mb-6">
+                                        <?php foreach ($package['features'] as $feature) : ?>
+                                            <li class="flex items-center gap-3">
+                                                <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                                    <path d="M8.97125 5.55493C10.3344 5.07281 11.0612 3.54116 10.5941 2.13402C10.1276 0.727311 8.64417 -0.0236561 7.28079 0.458569C5.9176 0.94031 5.19077 2.47186 5.65745 3.87905C6.12436 5.28663 7.60788 6.03629 8.97125 5.55493Z" fill="#2C2C2C"/>
+                                                    <path d="M4.7996 9.74671V9.74719C5.58268 8.49808 5.23628 6.83013 4.02693 6.02207C2.81711 5.21444 1.20169 5.5713 0.418662 6.81992V6.82041C-0.363899 8.06903 -0.0175474 9.7366 1.19185 10.5442C2.40162 11.3527 4.0168 10.9954 4.7996 9.74671Z" fill="#2C2C2C"/>
+                                                    <path d="M15.0281 5.55498C16.3915 6.03633 17.8749 5.28667 18.3418 3.87904C18.8085 2.4719 18.0817 0.940306 16.7186 0.458564C15.3552 -0.0236609 13.8717 0.727354 13.4052 2.13401C12.9381 3.54121 13.6649 5.07285 15.0281 5.55498Z" fill="#2C2C2C"/>
+                                                    <path d="M11.9994 6.87891C7.87565 6.87891 3.32549 12.7732 4.64275 16.9673C5.91453 21.0165 9.88799 19.3477 11.9994 19.3477C14.1109 19.3477 18.0843 21.0165 19.3561 16.9673C20.6734 12.7732 16.1232 6.87891 11.9994 6.87891Z" fill="#2C2C2C"/>
+                                                    <path d="M23.5812 6.82041V6.81992C22.7981 5.5713 21.1828 5.21444 19.973 6.02207C18.7636 6.83013 18.4172 8.49808 19.2002 9.74719V9.74671C19.983 10.9954 21.5982 11.3527 22.808 10.5442C24.0174 9.7366 24.3638 8.06908 23.5812 6.82041Z" fill="#2C2C2C"/>
+                                                </svg>
+                                                <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($feature['feature']); ?></span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                                
+                                <!-- Price -->
+                                <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">$<?php echo esc_html($package['price']); ?> / night</p>
+                            </div>
+                        <?php 
+                            endforeach;
+                        endif; ?>
+                    </div>
+
+                    <!-- Surcharge Notice -->
+                    <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-6 text-center"><?php echo esc_html($surcharge_notice); ?></p>
+
+                    <!-- Book Button -->
+                    <div class="flex justify-center mt-8">
+                        <a href="/book-a-sleepover">
+                            <button class="bg-[#FCD41D] hover:bg-[#FCD41D]/90 transition-colors duration-200 rounded-[10px] px-8 py-4">
+                                <span class="font-poppins font-bold text-[18px] md:text-[26px] text-[#FFFFFF]">Book a sleepover</span>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

@@ -84,13 +84,13 @@
 								</a>
 							</div>
 							<div class="absolute top-[calc(100%-1px)] left-0 hidden group-hover:block bg-[#1F3190] rounded-b-[20px] p-4 space-y-4 min-w-[200px] z-50 shadow-lg">
-								<a href="/grooming" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">GROOMING</a>
-								<a href="/daycare" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">DAYCARE</a>
-								<a href="/hotel" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">HOTEL</a>
-								<a href="/training" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">TRAINING</a>
-								<a href="/exercise" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">EXERCISE</a>
-								<a href="/portraits" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">PORTRAITS</a>
-								<a href="/puppy-programs" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">PUPPY PROGRAMS</a>
+								<a href="<?php echo esc_url(home_url('/grooming')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">GROOMING</a>
+								<a href="<?php echo esc_url(home_url('/daycare')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">DAYCARE</a>
+								<a href="<?php echo esc_url(home_url('/hotel')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">HOTEL</a>
+								<a href="<?php echo esc_url(home_url('/training')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">TRAINING</a>
+								<a href="<?php echo esc_url(home_url('/exercise')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">EXERCISE</a>
+								<a href="<?php echo esc_url(home_url('/portraits')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">PORTRAITS</a>
+								<a href="<?php echo esc_url(home_url('/puppy-programs')); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">PUPPY PROGRAMS</a>
 							</div>
 						</li>
 						<li><a href="/about-us" class="text-white text-[20px] font-bold font-poppins hover:bg-[#1F3190] px-4 py-2 rounded-[20px] transition-colors duration-200">ABOUT US</a></li>
@@ -134,7 +134,7 @@
 		<!-- Mobile Menu -->
 		<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" role="presentation"></div>
 		<div id="mobile-menu" class="fixed inset-y-0 left-0 w-[412px] max-w-[85%] lg:hidden bg-[#2B3FB8] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
-			<button type="button" class="mobile-menu-close absolute top-6 right-6 z-50 p-2 hover:text-yellow-400 transition-colors duration-200" aria-label="Close menu">
+			<button id="mobile-menu-close" type="button" class="mobile-menu-close absolute top-6 right-6 z-50 p-2 hover:text-yellow-400 transition-colors duration-200" aria-label="Close menu">
 				<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 					<rect x="0.396851" y="24.7485" width="35" height="4.0367" transform="rotate(-45 0.396851 24.7485)" fill="white"/>
 					<rect x="3.25122" width="35" height="4.0367" transform="rotate(45 3.25122 0)" fill="white"/>
@@ -143,20 +143,20 @@
 			<nav class="mobile-menu-nav pt-20 px-8 pb-20" role="navigation">
 				<!-- Services Section -->
 				<div class="menu-section pt-4 pb-6 border-b-2 border-white/10">
-					<button class="menu-toggle w-full flex justify-between items-center text-white text-xl font-bold hover:text-yellow-400 transition-all duration-200" aria-expanded="false" aria-controls="services-submenu">
+					<button class="mobile-submenu-toggle w-full flex justify-between items-center text-white text-xl font-bold hover:text-yellow-400 transition-all duration-200" aria-expanded="false" aria-controls="services-submenu" data-target="services-submenu">
 						<span>SERVICES</span>
 						<svg class="toggle-icon transition-transform duration-200" width="20" height="5" viewBox="0 0 20 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 							<rect y="0.603027" width="20" height="4" fill="currentColor"/>
 						</svg>
 					</button>
-					<div id="services-submenu" class="submenu-items hidden pt-6 space-y-5 pl-4" role="menu">
-						<a href="/grooming" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">GROOMING</a>
-						<a href="/daycare" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">DAYCARE</a>
-						<a href="/hotel" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">HOTEL</a>
-						<a href="/training" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">TRAINING</a>
-						<a href="/exercise" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">EXERCISE</a>
-						<a href="/portraits" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">PORTRAITS</a>
-						<a href="/puppy-programs" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">PUPPY PROGRAMS</a>
+					<div id="services-submenu" class="sub-menu hidden pt-6 space-y-5 pl-4" role="menu">
+						<a href="<?php echo esc_url(home_url('/grooming')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">GROOMING</a>
+						<a href="<?php echo esc_url(home_url('/daycare')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">DAYCARE</a>
+						<a href="<?php echo esc_url(home_url('/hotel')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">HOTEL</a>
+						<a href="<?php echo esc_url(home_url('/training')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">TRAINING</a>
+						<a href="<?php echo esc_url(home_url('/exercise')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">EXERCISE</a>
+						<a href="<?php echo esc_url(home_url('/portraits')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">PORTRAITS</a>
+						<a href="<?php echo esc_url(home_url('/puppy-programs')); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">PUPPY PROGRAMS</a>
 					</div>
 				</div>
 
@@ -166,13 +166,13 @@
 
 				<!-- Shop Section -->
 				<div class="menu-section py-6">
-					<button class="menu-toggle w-full flex justify-between items-center text-white text-xl font-bold hover:text-yellow-400 transition-all duration-200" aria-expanded="false" aria-controls="shop-submenu">
+					<button class="mobile-submenu-toggle w-full flex justify-between items-center text-white text-xl font-bold hover:text-yellow-400 transition-all duration-200" aria-expanded="false" aria-controls="shop-submenu" data-target="shop-submenu">
 						<span>SHOP</span>
 						<svg class="toggle-icon transition-transform duration-200" width="20" height="5" viewBox="0 0 20 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 							<rect y="0.603027" width="20" height="4" fill="currentColor"/>
 						</svg>
 					</button>
-					<div id="shop-submenu" class="submenu-items hidden pt-6 space-y-5 pl-4" role="menu">
+					<div id="shop-submenu" class="sub-menu hidden pt-6 space-y-5 pl-4" role="menu">
 						<a href="/shop/dog" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">DOG</a>
 						<a href="/shop/cat" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">CAT</a>
 					</div>

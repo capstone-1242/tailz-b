@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Custom Shop
+ * Template Name: Shop
  * Description: A custom WooCommerce shop page.
  *
  * @package tailz
