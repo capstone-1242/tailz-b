@@ -7,6 +7,16 @@
  */
 
 get_header();
+
+// Get training data from Carbon Fields
+$training_preview = array(
+    'video_url' => carbon_get_post_meta(get_the_ID(), 'training_preview_video_url'),
+    'title' => carbon_get_post_meta(get_the_ID(), 'training_preview_title')
+);
+$puppy_classes = carbon_get_post_meta(get_the_ID(), 'puppy_classes');
+$adult_classes = carbon_get_post_meta(get_the_ID(), 'adult_classes');
+$growly_classes = carbon_get_post_meta(get_the_ID(), 'growly_classes');
+$private_training = carbon_get_post_meta(get_the_ID(), 'private_training');
 ?>
 
 <div>
@@ -44,8 +54,39 @@ get_header();
                     <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Puppy classes</h2>
                 </div>
                 <!-- Packages -->
-                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php if (!empty($puppy_classes)) : 
+                            foreach ($puppy_classes as $class) : ?>
+                            <div class="bg-white p-6 rounded-[20px]">
+                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-4"><?php echo esc_html($class['title']); ?></h3>
+                                <p class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-4"><?php echo esc_html($class['duration']); ?> - $<?php echo esc_html($class['price']); ?></p>
+                                <?php if (!empty($class['description'])) : ?>
+                                    <?php foreach ($class['description'] as $paragraph) : ?>
+                                        <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C] mb-6"><?php echo esc_html($paragraph['paragraph']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($class['topics'])) : ?>
+                                <div class="mb-6">
+                                    <h4 class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-3">Topics Reviewed:</h4>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <?php foreach ($class['topics'] as $topic) : ?>
+                                            <li class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($topic['item']); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($class['notes'])) : ?>
+                                    <?php foreach ($class['notes'] as $note) : ?>
+                                        <p class="font-work-sans font-bold italic text-[16px] md:text-[18px] text-[#47423B]"><?php echo esc_html($note['note']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php endforeach;
+                        endif; ?>
+                    </div>
                 </div>
             </div>
         </section>
@@ -55,7 +96,7 @@ get_header();
             <div class="flex flex-col px-6 pt-6 pb-[41px] md:pt-[89px] md:pb-[100px] md:px-[89px] gap-5 md:w-2/3">
                 <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Need training and socializing done for you?</h2>
                 <p class="text-[18px] text-[#2C2C2C]">Check out our Puppy Preschool, your all in one solution!</p>
-                <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white" href="#">Puppy programs</a></button>
+                <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold" href="#">Book now</a></button>
             </div>
         </section>
 
@@ -67,8 +108,39 @@ get_header();
                     <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Adult classes</h2>
                 </div>
                 <!-- Packages -->
-                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php if (!empty($adult_classes)) : 
+                            foreach ($adult_classes as $class) : ?>
+                            <div class="bg-white p-6 rounded-[20px]">
+                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-4"><?php echo esc_html($class['title']); ?></h3>
+                                <p class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-4"><?php echo esc_html($class['duration']); ?> - $<?php echo esc_html($class['price']); ?></p>
+                                <?php if (!empty($class['description'])) : ?>
+                                    <?php foreach ($class['description'] as $paragraph) : ?>
+                                        <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C] mb-6"><?php echo esc_html($paragraph['paragraph']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($class['topics'])) : ?>
+                                <div class="mb-6">
+                                    <h4 class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-3">Topics Include:</h4>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <?php foreach ($class['topics'] as $topic) : ?>
+                                            <li class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($topic['item']); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($class['notes'])) : ?>
+                                    <?php foreach ($class['notes'] as $note) : ?>
+                                        <p class="font-work-sans font-bold italic text-[16px] md:text-[18px] text-[#47423B]"><?php echo esc_html($note['note']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php endforeach;
+                        endif; ?>
+                    </div>
                 </div>
             </div>
         </section>
@@ -82,11 +154,47 @@ get_header();
                     <p class="text-[18px] text-[#2C2C2C]">Is your dog barking, growling, snapping, or snarling at other dogs or people out on walks? Do they frequently overwhelm other dogs when they try to say hello? Our Growly Dog classes are specially designed for dogs who need some extra help with their social skills, and use methods that will help keep you and your dog (and passers-by!) safe and happy.</p>
                     <p class="text-[18px] text-[#2C2C2C]">In Growly Dog classes or in private training, you will learn tactics to keep you and your dog safe right away, as well as how to teach your dog appropriate alternative behaviors. Our end goal is to help dogs learn to manage their social needs without aggression so that you don't have to constantly keep them distracted from their triggers.</p>
                     <p class="text-[18px] text-[#2C2C2C]">At Tailz we understand that Growly Dogs are not bad dogs, and their owners are not bad owners! Our trainers are highly educated and have experience with dog to dog aggression and dog to human aggression.  We look forward to helping rehabilitate both your dog's behavior and your relationship with them.</p>
-                    <p class="text-[18px] text-[#2C2C2C]">The first step for most Growly Dogs is to attend our Fear and Aggression 101 class, which will help you understand why your dog might be growly, what to do about it, and what you’ll learn in the Growly Dog classes. If your dog has been aggressive with people, it may be most appropriate to start with private training to keep your dog and other students safe. Please contact us if you aren’t sure about where to start!</p>
+                    <p class="text-[18px] text-[#2C2C2C]">The first step for most Growly Dogs is to attend our Fear and Aggression 101 class, which will help you understand why your dog might be growly, what to do about it, and what you'll learn in the Growly Dog classes. If your dog has been aggressive with people, it may be most appropriate to start with private training to keep your dog and other students safe. Please contact us if you aren't sure about where to start!</p>
                 </div>
                 <!-- Packages -->
-                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php if (!empty($growly_classes)) : 
+                            foreach ($growly_classes as $class) : ?>
+                            <div class="bg-white p-6 rounded-[20px]">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B]"><?php echo esc_html($class['title']); ?></h3>
+                                    <?php if ($class['is_online']) : ?>
+                                    <span class="font-poppins font-semibold text-[32.65px] md:text-[42.65px] text-[#47423B]">Online</span>
+                                    <?php endif; ?>
+                                </div>
+                                <p class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-4"><?php echo esc_html($class['duration']); ?> - $<?php echo esc_html($class['price']); ?></p>
+                                <?php if (!empty($class['description'])) : ?>
+                                    <?php foreach ($class['description'] as $paragraph) : ?>
+                                        <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C] mb-6"><?php echo esc_html($paragraph['paragraph']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($class['topics'])) : ?>
+                                <div class="mb-6">
+                                    <h4 class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-3">Topics Include:</h4>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <?php foreach ($class['topics'] as $topic) : ?>
+                                            <li class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($topic['item']); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($class['notes'])) : ?>
+                                    <?php foreach ($class['notes'] as $note) : ?>
+                                        <p class="font-work-sans font-bold italic text-[16px] md:text-[18px] text-[#47423B]"><?php echo esc_html($note['note']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php endforeach;
+                        endif; ?>
+                    </div>
                 </div>
             </div>
         </section>
@@ -99,7 +207,7 @@ get_header();
                     <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Private training (one-on-one training)</h2>
                     <p class="text-[18px] text-[#2C2C2C]">One of our Certified Trainers will work with you and your family to improve your dog's manners. Lessons can be done in-person (on-site or in home) or virtual.</p>
                 </div>
-                <!-- List container 1 -->
+                <!-- List containers -->
                 <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
                     <h3 class="text-[22px] md:text-[30px] text-[#47423B]">Your lessons will include working on basic manners and cues:</h3>
                     <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
@@ -108,7 +216,6 @@ get_header();
                         <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">"Come!" (Recall)</li>
                     </ul>
                 </div>
-                <!-- List container 2 -->
                 <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
                     <h3 class="text-[22px] md:text-[30px] text-[#47423B]">We will also work on some general issues that are relevant to you and your dog's needs:</h3>
                     <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal">
@@ -119,11 +226,115 @@ get_header();
                     </ul>
                 </div>
                 <!-- Packages -->
-                <div class="px-6 md:px-[89px] bg-[#F3F2EC]">
-                    <h2 class="text-[44.8px] text-[#FEA91D] lowercase py-[30px]">PACKAGES AND PRICES HERE</h2>
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php if (!empty($private_training)) : 
+                            foreach ($private_training as $training) : ?>
+                            <div class="bg-white p-6 rounded-[20px]">
+                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-4"><?php echo esc_html($training['title']); ?></h3>
+                                <?php if (!empty($training['additional_price'])) : ?>
+                                    <p class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-6">+ $<?php echo esc_html(str_replace('$', '', $training['additional_price'])); ?> per session</p>
+                                <?php endif; ?>
+                                
+                                <div class="space-y-4 mb-6">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-work-sans font-semibold text-[22px] md:text-[28px] text-[#47423B]"><?php echo esc_html($training['single_session_duration']); ?> Session</span>
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#47423B]">$<?php echo esc_html(str_replace('$', '', $training['single_session_price'])); ?></span>
+                                    </div>
+                                    <?php foreach ($training['bundles'] as $bundle) : ?>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-work-sans font-semibold text-[22px] md:text-[28px] text-[#47423B]"><?php echo esc_html($bundle['sessions']); ?> Session Bundle</span>
+                                        <span class="font-work-sans text-[18px] md:text-[24px] text-[#47423B]">$<?php echo esc_html(str_replace('$', '', $bundle['price'])); ?></span>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+
+                                <?php if (!empty($training['notes'])) : ?>
+                                    <?php foreach ($training['notes'] as $note) : ?>
+                                        <p class="font-work-sans font-semibold italic text-[16px] md:text-[18px] text-[#47423B]"><?php echo esc_html($note['note']); ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php endforeach;
+                        endif; ?>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Training Preview -->
+        <?php 
+        $training_preview = carbon_get_post_meta(get_the_ID(), 'training_preview');
+        if (!empty($training_preview)) : 
+        ?>
+        <section class="flex flex-col gap-[30px] md:gap-[40px]">
+            <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                <h2 class="font-poppins text-[37px] md:text-[75.78px] text-[#615849] uppercase">Training Preview</h2>
+            </div>
+            <div class="mx-6 md:mx-[89px]">
+                <?php if (count($training_preview) > 1) : ?>
+                <!-- Carousel for multiple videos -->
+                <div class="relative">
+                    <div class="video-carousel">
+                        <?php foreach ($training_preview as $index => $video) : ?>
+                        <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                            <div class="aspect-video w-full rounded-[20px] overflow-hidden mb-6">
+                                <?php 
+                                $video_url = $video['video_url'];
+                                if (strpos($video_url, 'youtube.com') !== false || strpos($video_url, 'youtu.be') !== false) {
+                                    $video_id = preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $video_url, $match) ? $match[1] : '';
+                                    echo '<iframe class="w-full h-full" src="https://www.youtube.com/embed/' . esc_attr($video_id) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                                } elseif (strpos($video_url, 'vimeo.com') !== false) {
+                                    $video_id = preg_match('/vimeo\.com\/([0-9]+)/', $video_url, $match) ? $match[1] : '';
+                                    echo '<iframe class="w-full h-full" src="https://player.vimeo.com/video/' . esc_attr($video_id) . '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+                                } else {
+                                    echo '<video class="w-full h-full" controls><source src="' . esc_url($video_url) . '" type="video/mp4">Your browser does not support the video tag.</video>';
+                                }
+                                ?>
+                            </div>
+                            <h3 class="font-work-sans text-[24px] md:text-[31.99px] text-black mb-4 uppercase"><?php echo esc_html($video['title']); ?></h3>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <!-- Carousel Navigation -->
+                    <div class="flex justify-between w-full px-0">
+                        <button class="carousel-prev bg-white/80 p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                        <button class="carousel-next bg-white/80 p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <?php else : ?>
+                <!-- Single video display -->
+                <div class="aspect-video w-full rounded-[20px] overflow-hidden mb-6">
+                    <?php 
+                    $video = $training_preview[0];
+                    $video_url = $video['video_url'];
+                    if (strpos($video_url, 'youtube.com') !== false || strpos($video_url, 'youtu.be') !== false) {
+                        $video_id = preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $video_url, $match) ? $match[1] : '';
+                        echo '<iframe class="w-full h-full" src="https://www.youtube.com/embed/' . esc_attr($video_id) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    } elseif (strpos($video_url, 'vimeo.com') !== false) {
+                        $video_id = preg_match('/vimeo\.com\/([0-9]+)/', $video_url, $match) ? $match[1] : '';
+                        echo '<iframe class="w-full h-full" src="https://player.vimeo.com/video/' . esc_attr($video_id) . '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+                    } else {
+                        echo '<video class="w-full h-full" controls><source src="' . esc_url($video_url) . '" type="video/mp4">Your browser does not support the video tag.</video>';
+                    }
+                    ?>
+                </div>
+                <h3 class="font-work-sans text-[24px] md:text-[31.99px] text-black mb-4 uppercase"><?php echo esc_html($video['title']); ?></h3>
+                <?php endif; ?>
+                <div class="flex justify-center">
+                    <button class="self-start"><a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold" href="#">View more in gallery</a></button>
+                </div>
+            </div>
+        </section>
+        <?php endif; ?>
 
         <!-- FAQs -->
         <section>
