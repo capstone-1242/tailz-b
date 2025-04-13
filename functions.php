@@ -16,31 +16,119 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action('after_setup_theme', 'crb_load');
 function crb_load() {
     try {
-        // Try theme directory first
-        $theme_autoload = get_template_directory() . '/vendor/autoload.php';
-        $parent_autoload = dirname(get_template_directory()) . '/vendor/autoload.php';
-        
-        if (file_exists($theme_autoload)) {
-            require_once($theme_autoload);
-            error_log('Loading Carbon Fields from theme directory: ' . $theme_autoload);
-        } elseif (file_exists($parent_autoload)) {
-            require_once($parent_autoload);
-            error_log('Loading Carbon Fields from parent directory: ' . $parent_autoload);
-        } else {
-            throw new Exception('Carbon Fields autoloader not found in either ' . $theme_autoload . ' or ' . $parent_autoload);
+        // Get all possible WordPress paths
+        $possible_locations = array(
+            get_template_directory(),              // Current theme
+            get_stylesheet_directory(),            // Child theme if exists
+            WP_CONTENT_DIR,                        // wp-content directory
+            dirname(WP_CONTENT_DIR),               // WordPress root
+            dirname(get_template_directory()),     // Themes directory
+            dirname(dirname(get_template_directory())), // WordPress root (alternative)
+        );
+
+        // Add all theme directories in wp-content/themes
+        $themes_dir = dirname(get_template_directory());
+        if (is_dir($themes_dir)) {
+            $theme_folders = glob($themes_dir . '/*', GLOB_ONLYDIR);
+            $possible_locations = array_merge($possible_locations, $theme_folders);
+        }
+
+        // Remove duplicates and empty paths
+        $possible_locations = array_filter(array_unique($possible_locations));
+
+        // Function to find Carbon Fields in a directory
+        function find_carbon_fields($base_path) {
+            $possible_paths = array(
+                '/vendor/autoload.php',
+                '/vendor/htmlburger/carbon-fields/core/functions.php',
+                '/carbon-fields/core/functions.php',
+                '/wp-content/vendor/htmlburger/carbon-fields/core/functions.php'
+            );
+
+            foreach ($possible_paths as $path) {
+                $full_path = $base_path . $path;
+                if (file_exists($full_path)) {
+                    return $full_path;
+                }
+            }
+            return false;
+        }
+
+        // Try to find and load autoloader
+        $autoloader_found = false;
+        foreach ($possible_locations as $location) {
+            if ($autoloader_path = find_carbon_fields($location)) {
+                require_once($autoloader_path);
+                error_log('Found Carbon Fields at: ' . $autoloader_path);
+                $autoloader_found = true;
+                break;
+            }
+        }
+
+        if (!$autoloader_found) {
+            // If not found, try composer install
+            $theme_dir = get_template_directory();
+            if (!file_exists($theme_dir . '/composer.json')) {
+                file_put_contents($theme_dir . '/composer.json', json_encode([
+                    'require' => [
+                        'htmlburger/carbon-fields' => '^3.6'
+                    ]
+                ]));
+            }
+            
+            throw new Exception(
+                'Carbon Fields not found. Please run these commands in your theme directory: ' . 
+                "\n1. composer require htmlburger/carbon-fields" .
+                "\n2. Clear WordPress cache and refresh"
+            );
         }
 
         if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
-            throw new Exception('Carbon Fields class not found after loading autoloader');
+            throw new Exception('Carbon Fields class not found after loading autoloader. Try clearing WordPress cache.');
         }
 
         \Carbon_Fields\Carbon_Fields::boot();
-        error_log('Carbon Fields initialized successfully');
+
+        // Try to load functions file
+        $functions_found = false;
+        foreach ($possible_locations as $location) {
+            $functions_path = $location . '/vendor/htmlburger/carbon-fields/core/functions.php';
+            if (file_exists($functions_path)) {
+                require_once($functions_path);
+                error_log('Loaded Carbon Fields functions from: ' . $functions_path);
+                $functions_found = true;
+                break;
+            }
+        }
+
+        if (!$functions_found) {
+            throw new Exception('Carbon Fields functions file not found. Please verify your installation.');
+        }
+
+        // Add success notice
+        add_action('admin_notices', function() {
+            echo '<div class="notice notice-success is-dismissible"><p>✅ Carbon Fields initialized successfully!</p></div>';
+        });
+
     } catch (Exception $e) {
         error_log('Carbon Fields initialization failed: ' . $e->getMessage());
-        // Add admin notice
+        
+        // Add helpful error notice
         add_action('admin_notices', function() use ($e) {
-            echo '<div class="error"><p>Carbon Fields initialization failed: ' . esc_html($e->getMessage()) . '</p></div>';
+            $message = $e->getMessage();
+            $help_text = '
+            <p><strong>How to fix this:</strong></p>
+            <ol>
+                <li>Open terminal/command prompt</li>
+                <li>Navigate to your theme directory: <code>' . esc_html(get_template_directory()) . '</code></li>
+                <li>Run: <code>composer require htmlburger/carbon-fields</code></li>
+                <li>Clear WordPress cache</li>
+                <li>Refresh this page</li>
+            </ol>
+            <p>If you don\'t have Composer installed, <a href="https://getcomposer.org/download/" target="_blank">download it here</a>.</p>';
+            
+            echo '<div class="error"><p>❌ Carbon Fields initialization failed: ' . esc_html($message) . '</p>';
+            echo $help_text . '</div>';
         });
     }
 }
