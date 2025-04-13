@@ -15,8 +15,58 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Carbon Fields initialization
 add_action('after_setup_theme', 'crb_load');
 function crb_load() {
-    require_once get_template_directory() . '/vendor/autoload.php';
-    \Carbon_Fields\Carbon_Fields::boot();
+    try {
+        require_once('vendor/autoload.php');
+        \Carbon_Fields\Carbon_Fields::boot();
+        error_log('Carbon Fields initialized successfully');
+    } catch (Exception $e) {
+        error_log('Carbon Fields initialization failed: ' . $e->getMessage());
+    }
+}
+
+// Helper function to check if a page matches template or slug
+function tailpress_is_page($template, $slug) {
+    global $post;
+    
+    if (!$post) {
+        error_log('No post object available');
+        return false;
+    }
+    
+    // Get the current page's template and slug
+    $current_template = get_page_template_slug($post->ID);
+    $current_slug = $post->post_name;
+    
+    // Debug information
+    error_log('Checking page match:');
+    error_log('Template: ' . $current_template);
+    error_log('Slug: ' . $current_slug);
+    error_log('Expected template: ' . $template);
+    error_log('Expected slug: ' . $slug);
+    
+    // Check if we're in the admin area
+    if (is_admin()) {
+        $screen = get_current_screen();
+        if ($screen && $screen->base === 'post') {
+            // In admin, check both template and slug
+            $is_match = ($current_template === $template || $current_slug === $slug);
+            error_log('Admin check result: ' . ($is_match ? 'true' : 'false'));
+            return $is_match;
+        }
+    } else {
+        // On frontend, check both template and slug
+        $is_match = ($current_template === $template || $current_slug === $slug);
+        error_log('Frontend check result: ' . ($is_match ? 'true' : 'false'));
+        return $is_match;
+    }
+    
+    return false;
+}
+
+// Helper function to safely get page ID by slug
+function tailpress_get_page_id($slug) {
+    $page = get_page_by_path($slug);
+    return $page ? $page->ID : null;
 }
 
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
@@ -28,16 +78,12 @@ function crb_attach_theme_options() {
 }
 
 // Grooming Services Fields
-add_action( 'carbon_fields_register_fields', 'crb_attach_grooming_fields' );
+add_action('carbon_fields_register_fields', 'crb_attach_grooming_fields');
 function crb_attach_grooming_fields() {
-    // Get page IDs dynamically
-    $grooming_page = get_page_by_path('grooming');
-    $grooming_id = $grooming_page ? $grooming_page->ID : 0;
-
+    error_log('Attempting to attach grooming fields');
+    
     Container::make('post_meta', 'Grooming Services')
-        ->where('post_template', '=', 'page-grooming.php')
-        ->orWhere('post_slug', '=', 'grooming')
-        ->orWhere('post_id', '=', $grooming_id)
+        ->where('post_type', '=', 'page')
         ->add_fields(array(
             Field::make('complex', 'grooming_services', 'Services')
                 ->set_layout('tabbed-vertical')
@@ -82,525 +128,680 @@ function crb_attach_grooming_fields() {
                         ->set_required(true)
                 ))
         ));
+    error_log('Metabox created successfully');
 }
 
-// Training Page Metaboxes
+// Register all metaboxes
+add_action('add_meta_boxes', 'tailz_register_all_metaboxes');
+function tailz_register_all_metaboxes() {
+    global $post;
+    
+    if (!$post) {
+        return;
+    }
+    
+    $template = get_page_template_slug($post->ID);
+    $slug = $post->post_name;
+    
+    error_log('Checking page for metaboxes:');
+    error_log('Template: ' . $template);
+    error_log('Slug: ' . $slug);
+    
+    // Grooming Page
+    if ($template === 'Grooming' || $slug === 'grooming') {
+        add_meta_box(
+            'grooming_services',
+            'Grooming Services',
+            'tailz_grooming_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+    
+    // Training Page
+    if ($template === 'Training' || $slug === 'training') {
+        add_meta_box(
+            'training_options',
+            'Training Options',
+            'tailz_training_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+    
+    // Daycare Page
+    if ($template === 'Daycare' || $slug === 'daycare') {
+        add_meta_box(
+            'daycare_services',
+            'Daycare Services',
+            'tailz_daycare_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+    
+    // Hotel Page
+    if ($template === 'Hotel' || $slug === 'hotel') {
+        add_meta_box(
+            'hotel_packages',
+            'Hotel Packages',
+            'tailz_hotel_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+    
+    // Exercise Page
+    if ($template === 'Exercise' || $slug === 'exercise') {
+        add_meta_box(
+            'exercise_options',
+            'Exercise Options',
+            'tailz_exercise_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+    
+    // Portraits Page
+    if ($template === 'Portraits' || $slug === 'portraits') {
+        add_meta_box(
+            'portrait_packages',
+            'Portrait Packages',
+            'tailz_portraits_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+    
+    // About Page
+    if ($template === 'About' || $slug === 'about-us') {
+        add_meta_box(
+            'about_page_settings',
+            'About Page Settings',
+            'tailz_about_metabox_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
+}
+
+// Training Metabox Callback
+function tailz_training_metabox_callback($post) {
+    wp_nonce_field('tailz_training_metabox', 'tailz_training_metabox_nonce');
+    $puppy_classes = carbon_get_post_meta($post->ID, 'puppy_classes');
+    ?>
+    <div class="tailz-meta-box">
+        <h3>Puppy Classes</h3>
+        <div class="puppy-classes">
+            <?php
+            if (!empty($puppy_classes)) {
+                foreach ($puppy_classes as $index => $class) {
+                    ?>
+                    <div class="class-item">
+                        <h4>Class <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="class_title_<?php echo $index; ?>">Title:</label>
+                            <input type="text" id="class_title_<?php echo $index; ?>" name="puppy_classes[<?php echo $index; ?>][title]" value="<?php echo esc_attr($class['title']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="class_duration_<?php echo $index; ?>">Duration:</label>
+                            <input type="text" id="class_duration_<?php echo $index; ?>" name="puppy_classes[<?php echo $index; ?>][duration]" value="<?php echo esc_attr($class['duration']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="class_price_<?php echo $index; ?>">Price:</label>
+                            <input type="text" id="class_price_<?php echo $index; ?>" name="puppy_classes[<?php echo $index; ?>][price]" value="<?php echo esc_attr($class['price']); ?>" class="widefat" />
+                        </p>
+                        <div class="description">
+                            <h5>Description:</h5>
+                            <?php
+                            if (!empty($class['description'])) {
+                                foreach ($class['description'] as $desc_index => $desc) {
+                                    ?>
+                                    <p>
+                                        <textarea name="puppy_classes[<?php echo $index; ?>][description][<?php echo $desc_index; ?>][paragraph]" class="widefat"><?php echo esc_textarea($desc['paragraph']); ?></textarea>
+                                    </p>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="topics">
+                            <h5>Topics:</h5>
+                            <?php
+                            if (!empty($class['topics'])) {
+                                foreach ($class['topics'] as $topic_index => $topic) {
+                                    ?>
+                                    <p>
+                                        <input type="text" name="puppy_classes[<?php echo $index; ?>][topics][<?php echo $topic_index; ?>][topic]" value="<?php echo esc_attr($topic['topic']); ?>" class="widefat" />
+                                    </p>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+// Daycare Metabox Callback
+function tailz_daycare_metabox_callback($post) {
+    wp_nonce_field('tailz_daycare_metabox', 'tailz_daycare_metabox_nonce');
+    $daily_rates = carbon_get_post_meta($post->ID, 'daily_rates');
+    ?>
+    <div class="tailz-meta-box">
+        <h3>Daily Rates</h3>
+        <div class="daily-rates">
+            <?php
+            if (!empty($daily_rates)) {
+                foreach ($daily_rates as $index => $rate) {
+                    ?>
+                    <div class="rate-item">
+                        <h4>Rate <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="rate_title_<?php echo $index; ?>">Title:</label>
+                            <input type="text" id="rate_title_<?php echo $index; ?>" name="daily_rates[<?php echo $index; ?>][title]" value="<?php echo esc_attr($rate['title']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="rate_price_<?php echo $index; ?>">Price:</label>
+                            <input type="text" id="rate_price_<?php echo $index; ?>" name="daily_rates[<?php echo $index; ?>][price]" value="<?php echo esc_attr($rate['price']); ?>" class="widefat" />
+                        </p>
+                        <div class="description">
+                            <h5>Description:</h5>
+                            <?php
+                            if (!empty($rate['description'])) {
+                                foreach ($rate['description'] as $desc_index => $desc) {
+                                    ?>
+                                    <p>
+                                        <textarea name="daily_rates[<?php echo $index; ?>][description][<?php echo $desc_index; ?>][paragraph]" class="widefat"><?php echo esc_textarea($desc['paragraph']); ?></textarea>
+                                    </p>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+// Hotel Metabox Callback
+function tailz_hotel_metabox_callback($post) {
+    wp_nonce_field('tailz_hotel_metabox', 'tailz_hotel_metabox_nonce');
+    $hotel_packages = carbon_get_post_meta($post->ID, 'hotel_packages');
+    ?>
+    <div class="tailz-meta-box">
+        <h3>Hotel Packages</h3>
+        <div class="hotel-packages">
+            <?php
+            if (!empty($hotel_packages)) {
+                foreach ($hotel_packages as $index => $package) {
+                    ?>
+                    <div class="package-item">
+                        <h4>Package <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="package_title_<?php echo $index; ?>">Title:</label>
+                            <input type="text" id="package_title_<?php echo $index; ?>" name="hotel_packages[<?php echo $index; ?>][title]" value="<?php echo esc_attr($package['title']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="package_price_<?php echo $index; ?>">Price:</label>
+                            <input type="text" id="package_price_<?php echo $index; ?>" name="hotel_packages[<?php echo $index; ?>][price]" value="<?php echo esc_attr($package['price']); ?>" class="widefat" />
+                        </p>
+                        <div class="description">
+                            <h5>Description:</h5>
+                            <?php
+                            if (!empty($package['description'])) {
+                                foreach ($package['description'] as $desc_index => $desc) {
+                                    ?>
+                                    <p>
+                                        <textarea name="hotel_packages[<?php echo $index; ?>][description][<?php echo $desc_index; ?>][paragraph]" class="widefat"><?php echo esc_textarea($desc['paragraph']); ?></textarea>
+                                    </p>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+// Exercise Metabox Callback
+function tailz_exercise_metabox_callback($post) {
+    wp_nonce_field('tailz_exercise_metabox', 'tailz_exercise_metabox_nonce');
+    $exercise_options = carbon_get_post_meta($post->ID, 'exercise_options');
+    ?>
+    <div class="tailz-meta-box">
+        <h3>Exercise Options</h3>
+        <div class="exercise-options">
+            <?php
+            if (!empty($exercise_options)) {
+                foreach ($exercise_options as $index => $option) {
+                    ?>
+                    <div class="option-item">
+                        <h4>Option <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="option_title_<?php echo $index; ?>">Title:</label>
+                            <input type="text" id="option_title_<?php echo $index; ?>" name="exercise_options[<?php echo $index; ?>][title]" value="<?php echo esc_attr($option['title']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="option_price_<?php echo $index; ?>">Price:</label>
+                            <input type="text" id="option_price_<?php echo $index; ?>" name="exercise_options[<?php echo $index; ?>][price]" value="<?php echo esc_attr($option['price']); ?>" class="widefat" />
+                        </p>
+                        <div class="description">
+                            <h5>Description:</h5>
+                            <?php
+                            if (!empty($option['description'])) {
+                                foreach ($option['description'] as $desc_index => $desc) {
+                                    ?>
+                                    <p>
+                                        <textarea name="exercise_options[<?php echo $index; ?>][description][<?php echo $desc_index; ?>][paragraph]" class="widefat"><?php echo esc_textarea($desc['paragraph']); ?></textarea>
+                                    </p>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+// Portraits Metabox Callback
+function tailz_portraits_metabox_callback($post) {
+    wp_nonce_field('tailz_portraits_metabox', 'tailz_portraits_metabox_nonce');
+    $portrait_packages = carbon_get_post_meta($post->ID, 'portrait_packages');
+    ?>
+    <div class="tailz-meta-box">
+        <h3>Portrait Packages</h3>
+        <div class="portrait-packages">
+            <?php
+            if (!empty($portrait_packages)) {
+                foreach ($portrait_packages as $index => $package) {
+                    ?>
+                    <div class="package-item">
+                        <h4>Package <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="package_title_<?php echo $index; ?>">Title:</label>
+                            <input type="text" id="package_title_<?php echo $index; ?>" name="portrait_packages[<?php echo $index; ?>][title]" value="<?php echo esc_attr($package['title']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="package_price_<?php echo $index; ?>">Price:</label>
+                            <input type="text" id="package_price_<?php echo $index; ?>" name="portrait_packages[<?php echo $index; ?>][price]" value="<?php echo esc_attr($package['price']); ?>" class="widefat" />
+                        </p>
+                        <div class="description">
+                            <h5>Description:</h5>
+                            <?php
+                            if (!empty($package['description'])) {
+                                foreach ($package['description'] as $desc_index => $desc) {
+                                    ?>
+                                    <p>
+                                        <textarea name="portrait_packages[<?php echo $index; ?>][description][<?php echo $desc_index; ?>][paragraph]" class="widefat"><?php echo esc_textarea($desc['paragraph']); ?></textarea>
+                                    </p>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+// About Page Metabox Callback
+function tailz_about_metabox_callback($post) {
+    wp_nonce_field('tailz_about_metabox', 'tailz_about_metabox_nonce');
+    $story_bubbles = carbon_get_post_meta($post->ID, 'story_bubbles');
+    $team_members = carbon_get_post_meta($post->ID, 'team_members');
+    ?>
+    <div class="tailz-meta-box">
+        <h3>Story Section Bubbles</h3>
+        <div class="story-bubbles">
+            <?php
+            if (!empty($story_bubbles)) {
+                foreach ($story_bubbles as $index => $bubble) {
+                    ?>
+                    <div class="bubble-item">
+                        <h4>Bubble <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="bubble_title_<?php echo $index; ?>">Title:</label>
+                            <input type="text" id="bubble_title_<?php echo $index; ?>" name="story_bubbles[<?php echo $index; ?>][title]" value="<?php echo esc_attr($bubble['title']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="bubble_description_<?php echo $index; ?>">Description:</label>
+                            <textarea id="bubble_description_<?php echo $index; ?>" name="story_bubbles[<?php echo $index; ?>][description]" class="widefat"><?php echo esc_textarea($bubble['description']); ?></textarea>
+                        </p>
+                        <p>
+                            <label for="bubble_image_<?php echo $index; ?>">Image:</label>
+                            <input type="text" id="bubble_image_<?php echo $index; ?>" name="story_bubbles[<?php echo $index; ?>][image]" value="<?php echo esc_attr($bubble['image']); ?>" class="widefat" />
+                        </p>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+        
+        <h3>Team Members</h3>
+        <div class="team-members">
+            <?php
+            if (!empty($team_members)) {
+                foreach ($team_members as $index => $member) {
+                    ?>
+                    <div class="member-item">
+                        <h4>Member <?php echo $index + 1; ?></h4>
+                        <p>
+                            <label for="member_name_<?php echo $index; ?>">Name:</label>
+                            <input type="text" id="member_name_<?php echo $index; ?>" name="team_members[<?php echo $index; ?>][name]" value="<?php echo esc_attr($member['name']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="member_role_<?php echo $index; ?>">Role:</label>
+                            <input type="text" id="member_role_<?php echo $index; ?>" name="team_members[<?php echo $index; ?>][role]" value="<?php echo esc_attr($member['role']); ?>" class="widefat" />
+                        </p>
+                        <p>
+                            <label for="member_bio_<?php echo $index; ?>">Bio:</label>
+                            <textarea id="member_bio_<?php echo $index; ?>" name="team_members[<?php echo $index; ?>][bio]" class="widefat"><?php echo esc_textarea($member['bio']); ?></textarea>
+                        </p>
+                        <p>
+                            <label for="member_photo_<?php echo $index; ?>">Photo:</label>
+                            <input type="text" id="member_photo_<?php echo $index; ?>" name="team_members[<?php echo $index; ?>][photo]" value="<?php echo esc_attr($member['photo']); ?>" class="widefat" />
+                        </p>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+// Save all metabox data
+add_action('save_post', 'tailz_save_all_metaboxes');
+function tailz_save_all_metaboxes($post_id) {
+    // Check if our nonce is set
+    if (!isset($_POST['tailz_grooming_metabox_nonce']) && 
+        !isset($_POST['tailz_training_metabox_nonce']) && 
+        !isset($_POST['tailz_daycare_metabox_nonce']) && 
+        !isset($_POST['tailz_hotel_metabox_nonce']) && 
+        !isset($_POST['tailz_exercise_metabox_nonce']) && 
+        !isset($_POST['tailz_portraits_metabox_nonce']) && 
+        !isset($_POST['tailz_about_metabox_nonce'])) {
+        return;
+    }
+    
+    // If this is an autosave, our form has not been submitted, so we don't want to do anything
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    // Check the user's permissions
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    // Save the data for each metabox
+    if (isset($_POST['grooming_services'])) {
+        carbon_set_post_meta($post_id, 'grooming_services', $_POST['grooming_services']);
+    }
+    if (isset($_POST['boost_menu_items'])) {
+        carbon_set_post_meta($post_id, 'boost_menu_items', $_POST['boost_menu_items']);
+    }
+    if (isset($_POST['puppy_classes'])) {
+        carbon_set_post_meta($post_id, 'puppy_classes', $_POST['puppy_classes']);
+    }
+    if (isset($_POST['daily_rates'])) {
+        carbon_set_post_meta($post_id, 'daily_rates', $_POST['daily_rates']);
+    }
+    if (isset($_POST['hotel_packages'])) {
+        carbon_set_post_meta($post_id, 'hotel_packages', $_POST['hotel_packages']);
+    }
+    if (isset($_POST['exercise_options'])) {
+        carbon_set_post_meta($post_id, 'exercise_options', $_POST['exercise_options']);
+    }
+    if (isset($_POST['portrait_packages'])) {
+        carbon_set_post_meta($post_id, 'portrait_packages', $_POST['portrait_packages']);
+    }
+    if (isset($_POST['story_bubbles'])) {
+        carbon_set_post_meta($post_id, 'story_bubbles', $_POST['story_bubbles']);
+    }
+    if (isset($_POST['team_members'])) {
+        carbon_set_post_meta($post_id, 'team_members', $_POST['team_members']);
+    }
+}
+
+// Training Options Fields
 add_action('carbon_fields_register_fields', 'crb_training_options');
 function crb_training_options() {
-    // Get page IDs dynamically
-    $training_page = get_page_by_path('training');
-    $training_id = $training_page ? $training_page->ID : 0;
-
-    Container::make('post_meta', 'Training Options')
-        ->where('post_template', '=', 'page-training.php')
-        ->orWhere('post_slug', '=', 'training')
-        ->orWhere('post_id', '=', $training_id)
-        ->add_fields(array(
-            Field::make('complex', 'puppy_classes', 'Puppy Classes')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Classes',
-                    'singular_name' => 'Class'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Class Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'description', 'Description')
-                        ->add_fields(array(
-                            Field::make('textarea', 'paragraph', 'Paragraph')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (paragraph) { %>
-                                <%- paragraph.substring(0, 50) %>...
-                            <% } %>
-                        '),
-                    Field::make('complex', 'topics', 'Topics Reviewed')
-                        ->add_fields(array(
-                            Field::make('text', 'item', 'Topic')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (item) { %>
-                                <%- item %>
-                            <% } %>
-                        '),
-                    Field::make('complex', 'notes', 'Additional Notes')
-                        ->add_fields(array(
-                            Field::make('textarea', 'note', 'Note')
-                                ->set_help_text('Optional note to display below the topics')
-                        ))
-                        ->set_header_template('
-                            <% if (note) { %>
-                                <%- note.substring(0, 50) %>...
-                            <% } %>
-                        ')
-                )),
-            Field::make('complex', 'adult_classes', 'Adult Classes')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Classes',
-                    'singular_name' => 'Class'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Class Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'description', 'Description')
-                        ->add_fields(array(
-                            Field::make('textarea', 'paragraph', 'Paragraph')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (paragraph) { %>
-                                <%- paragraph.substring(0, 50) %>...
-                            <% } %>
-                        '),
-                    Field::make('complex', 'topics', 'Topics')
-                        ->add_fields(array(
-                            Field::make('text', 'item', 'Topic')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (item) { %>
-                                <%- item %>
-                            <% } %>
-                        '),
-                    Field::make('complex', 'notes', 'Additional Notes')
-                        ->add_fields(array(
-                            Field::make('textarea', 'note', 'Note')
-                                ->set_help_text('Optional note to display below the topics')
-                        ))
-                        ->set_header_template('
-                            <% if (note) { %>
-                                <%- note.substring(0, 50) %>...
-                            <% } %>
-                        ')
-                )),
-            Field::make('complex', 'growly_classes', 'Growly Dog Classes')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Classes',
-                    'singular_name' => 'Class'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Class Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('checkbox', 'is_online', 'Online Class?'),
-                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'description', 'Description')
-                        ->add_fields(array(
-                            Field::make('textarea', 'paragraph', 'Paragraph')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (paragraph) { %>
-                                <%- paragraph.substring(0, 50) %>...
-                            <% } %>
-                        '),
-                    Field::make('complex', 'topics', 'Topics')
-                        ->add_fields(array(
-                            Field::make('text', 'item', 'Topic')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (item) { %>
-                                <%- item %>
-                            <% } %>
-                        '),
-                    Field::make('complex', 'notes', 'Additional Notes')
-                        ->add_fields(array(
-                            Field::make('textarea', 'note', 'Note')
-                                ->set_help_text('Optional note to display below the topics')
-                        ))
-                        ->set_header_template('
-                            <% if (note) { %>
-                                <%- note.substring(0, 50) %>...
-                            <% } %>
-                        ')
-                )),
-            Field::make('complex', 'private_training', 'Private Training')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Training Options',
-                    'singular_name' => 'Option'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Training Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'additional_price', 'Additional Price per Session')
-                        ->set_help_text('Optional - leave blank if not applicable')
-                        ->set_width(100),
-                    Field::make('text', 'single_session_duration', 'Single Session Duration')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'single_session_price', 'Single Session Price')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'bundles', 'Session Bundles')
-                        ->add_fields(array(
-                            Field::make('text', 'sessions', 'Number of Sessions')
-                                ->set_required(true)
-                                ->set_width(50),
-                            Field::make('text', 'price', 'Bundle Price')
-                                ->set_required(true)
-                                ->set_width(50)
-                        ))
-                        ->set_header_template('
-                            <% if (sessions) { %>
-                                <%- sessions %> Sessions
-                            <% } %>
-                        '),
-                    Field::make('complex', 'notes', 'Additional Notes')
-                        ->add_fields(array(
-                            Field::make('textarea', 'note', 'Note')
-                                ->set_help_text('Optional note to display below the bundles')
-                        ))
-                        ->set_header_template('
-                            <% if (note) { %>
-                                <%- note.substring(0, 50) %>...
-                            <% } %>
-                        ')
-                )),
-            Field::make('complex', 'training_preview', 'Training Preview')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Videos',
-                    'singular_name' => 'Video'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Video Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'video_url', 'Video URL')
-                        ->set_required(true)
-                        ->set_help_text('Enter YouTube, Vimeo, or direct video URL')
-                        ->set_width(100)
-                ))
-                ->set_header_template('
-                    <% if (title) { %>
-                        <%- title %>
-                    <% } %>
-                ')
-        ));
+    if (tailpress_is_page('page-training.php', 'training')) {
+        Container::make('post_meta', 'Training Options')
+            ->add_fields(array(
+                Field::make('complex', 'puppy_classes', 'Puppy Classes')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Classes',
+                        'singular_name' => 'Class'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'title', 'Class Title')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'price', 'Price')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('complex', 'description', 'Description')
+                            ->add_fields(array(
+                                Field::make('textarea', 'paragraph', 'Paragraph')
+                                    ->set_required(true)
+                            )),
+                        Field::make('complex', 'topics', 'Topics Reviewed')
+                            ->add_fields(array(
+                                Field::make('text', 'topic', 'Topic')
+                                    ->set_required(true)
+                            ))
+                    ))
+            ));
+    }
 }
 
 // Daycare Services Fields
 add_action('carbon_fields_register_fields', 'crb_attach_daycare_fields');
 function crb_attach_daycare_fields() {
-    // Get page IDs dynamically
-    $daycare_page = get_page_by_path('daycare');
-    $daycare_id = $daycare_page ? $daycare_page->ID : 0;
-
-    Container::make('post_meta', 'Daycare Services')
-        ->where('post_template', '=', 'page-daycare.php')
-        ->orWhere('post_slug', '=', 'daycare')
-        ->orWhere('post_id', '=', $daycare_id)
-        ->add_fields(array(
-            Field::make('complex', 'daily_rates', 'Daily Rates')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Daily Rates',
-                    'singular_name' => 'Rate'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Service Title')
-                        ->set_required(true)
-                        ->set_width(70),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(30),
-                    Field::make('complex', 'notes', 'Notes')
-                        ->add_fields(array(
-                            Field::make('text', 'note', 'Note')
-                                ->set_required(true)
-                                ->set_width(100)
-                        ))
-                )),
-            Field::make('complex', 'flex_passes', 'Flex Passes')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Flex Passes',
-                    'singular_name' => 'Pass'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Service Title')
-                        ->set_required(true)
-                        ->set_width(70),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(30),
-                    Field::make('complex', 'notes', 'Notes')
-                        ->add_fields(array(
-                            Field::make('text', 'note', 'Note')
-                                ->set_required(true)
-                                ->set_width(100)
-                        ))
-                )),
-            Field::make('complex', 'monthly_play', 'Monthly Play Packages')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Monthly Packages',
-                    'singular_name' => 'Package'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Service Title')
-                        ->set_required(true)
-                        ->set_width(70),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(30),
-                    Field::make('complex', 'notes', 'Notes')
-                        ->add_fields(array(
-                            Field::make('text', 'note', 'Note')
-                                ->set_required(true)
-                                ->set_width(100)
-                        ))
-                )),
-            Field::make('complex', 'membership_perks', 'Monthly Membership Perks')
-                ->add_fields(array(
-                    Field::make('text', 'perk', 'Perk')
-                        ->set_required(true)
-                        ->set_width(100)
-                ))
-        ));
+    if (tailpress_is_page('page-daycare.php', 'daycare')) {
+        Container::make('post_meta', 'Daycare Services')
+            ->add_fields(array(
+                Field::make('complex', 'daily_rates', 'Daily Rates')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Rates',
+                        'singular_name' => 'Rate'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'title', 'Rate Title')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'price', 'Price')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('complex', 'description', 'Description')
+                            ->add_fields(array(
+                                Field::make('textarea', 'paragraph', 'Paragraph')
+                                    ->set_required(true)
+                            ))
+                    ))
+            ));
+    }
 }
 
 // Hotel Packages Fields
 add_action('carbon_fields_register_fields', 'crb_attach_hotel_fields');
 function crb_attach_hotel_fields() {
-    // Get page IDs dynamically
-    $hotel_page = get_page_by_path('hotel');
-    $hotel_id = $hotel_page ? $hotel_page->ID : 0;
-
-    Container::make('post_meta', 'Hotel Packages')
-        ->where('post_template', '=', 'page-hotel.php')
-        ->orWhere('post_slug', '=', 'hotel')
-        ->orWhere('post_id', '=', $hotel_id)
-        ->add_fields(array(
-            Field::make('complex', 'hotel_packages', 'Hotel Packages')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Packages',
-                    'singular_name' => 'Package'
-                ))
-                ->add_fields(array(
-                    Field::make('select', 'package_type', 'Package Type')
-                        ->set_options(array(
-                            'basic' => 'Basic',
-                            'most_popular' => 'Most Popular',
-                            'best_value' => 'Best Value'
-                        ))
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'title', 'Package Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'subtitle', 'Package Subtitle')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'features', 'Features')
-                        ->add_fields(array(
-                            Field::make('text', 'feature', 'Feature')
-                                ->set_required(true)
-                                ->set_width(100)
-                        ))
-                        ->set_header_template('
-                            <% if (feature) { %>
-                                <%- feature.substring(0, 50) %>...
-                            <% } %>
-                        '),
-                    Field::make('text', 'price', 'Price per Night')
-                        ->set_required(true)
-                        ->set_width(100)
-                )),
-            Field::make('text', 'surcharge_notice', 'Surcharge Notice')
-                ->set_default_value('A $10 nightly surcharge applies for Sundays, Long Weekends and Holidays.')
-                ->set_width(100)
-        ));
+    if (tailpress_is_page('page-hotel.php', 'hotel')) {
+        Container::make('post_meta', 'Hotel Packages')
+            ->add_fields(array(
+                Field::make('complex', 'hotel_packages', 'Hotel Packages')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Packages',
+                        'singular_name' => 'Package'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'title', 'Package Title')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'price', 'Price')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('complex', 'description', 'Description')
+                            ->add_fields(array(
+                                Field::make('textarea', 'paragraph', 'Paragraph')
+                                    ->set_required(true)
+                            ))
+                    ))
+            ));
+    }
 }
 
-// Exercise Page Metaboxes
+// Exercise Options Fields
 add_action('carbon_fields_register_fields', 'crb_exercise_options');
 function crb_exercise_options() {
-    // Get page IDs dynamically
-    $exercise_page = get_page_by_path('exercise');
-    $exercise_id = $exercise_page ? $exercise_page->ID : 0;
-
-    Container::make('post_meta', 'Exercise Options')
-        ->where('post_template', '=', 'page-exercise.php')
-        ->orWhere('post_slug', '=', 'exercise')
-        ->orWhere('post_id', '=', $exercise_id)
-        ->add_fields(array(
-            Field::make('complex', 'exercise_options', 'Exercise Options')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Options',
-                    'singular_name' => 'Option'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'title', 'Title')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('text', 'price', 'Price')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'description', 'Description')
-                        ->add_fields(array(
-                            Field::make('textarea', 'paragraph', 'Paragraph')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (paragraph) { %>
-                                <%- paragraph.substring(0, 50) %>...
-                            <% } %>
-                        '),
-                    Field::make('complex', 'skills', 'Skills Include')
-                        ->add_fields(array(
-                            Field::make('text', 'skill', 'Skill')
-                                ->set_required(true)
-                        ))
-                        ->set_header_template('
-                            <% if (skill) { %>
-                                <%- skill %>
-                            <% } %>
-                        '),
-                    Field::make('complex', 'notes', 'Additional Notes')
-                        ->add_fields(array(
-                            Field::make('textarea', 'note', 'Note')
-                                ->set_help_text('Optional note to display below the skills')
-                        ))
-                        ->set_header_template('
-                            <% if (note) { %>
-                                <%- note.substring(0, 50) %>...
-                            <% } %>
-                        ')
-                ))
-        ));
+    if (tailpress_is_page('page-exercise.php', 'exercise')) {
+        Container::make('post_meta', 'Exercise Options')
+            ->add_fields(array(
+                Field::make('complex', 'exercise_options', 'Exercise Options')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Options',
+                        'singular_name' => 'Option'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'title', 'Option Title')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'price', 'Price')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('complex', 'description', 'Description')
+                            ->add_fields(array(
+                                Field::make('textarea', 'paragraph', 'Paragraph')
+                                    ->set_required(true)
+                            ))
+                    ))
+            ));
+    }
 }
 
 // Portrait Packages Fields
 add_action('carbon_fields_register_fields', 'crb_attach_portrait_fields');
 function crb_attach_portrait_fields() {
-    // Get page IDs dynamically
-    $portrait_page = get_page_by_path('portrait');
-    $portrait_id = $portrait_page ? $portrait_page->ID : 0;
-
-    Container::make('post_meta', 'Portrait Packages')
-        ->where('post_template', '=', 'page-portrait.php')
-        ->orWhere('post_slug', '=', 'portrait')
-        ->orWhere('post_id', '=', $portrait_id)
-        ->add_fields(array(
-            Field::make('complex', 'portrait_packages', 'Portrait Packages')
-                ->set_layout('tabbed-vertical')
-                ->setup_labels(array(
-                    'plural_name' => 'Packages',
-                    'singular_name' => 'Package'
-                ))
-                ->add_fields(array(
-                    Field::make('text', 'header', 'Package Header')
-                        ->set_required(true)
-                        ->set_width(100),
-                    Field::make('complex', 'features', 'Features')
-                        ->add_fields(array(
-                            Field::make('text', 'feature', 'Feature')
-                                ->set_required(true)
-                                ->set_width(100)
-                        ))
-                        ->set_header_template('
-                            <% if (feature) { %>
-                                <%- feature %>
-                            <% } %>
-                        '),
-                    Field::make('text', 'price', 'Price per Hour')
-                        ->set_required(true)
-                        ->set_width(100)
-                ))
-        ));
+    if (tailpress_is_page('page-portraits.php', 'portraits')) {
+        Container::make('post_meta', 'Portrait Packages')
+            ->add_fields(array(
+                Field::make('complex', 'portrait_packages', 'Portrait Packages')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Packages',
+                        'singular_name' => 'Package'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'title', 'Package Title')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'price', 'Price')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('complex', 'description', 'Description')
+                            ->add_fields(array(
+                                Field::make('textarea', 'paragraph', 'Paragraph')
+                                    ->set_required(true)
+                            ))
+                    ))
+            ));
+    }
 }
 
 // About Page Fields
 add_action('carbon_fields_register_fields', 'crb_attach_about_page_fields');
 function crb_attach_about_page_fields() {
-    // Get page IDs dynamically
-    $about_page = get_page_by_path('about');
-    $about_id = $about_page ? $about_page->ID : 0;
-
-    Container::make('post_meta', 'About Page Settings')
-        ->where('post_template', '=', 'page-about.php')
-        ->orWhere('post_slug', '=', 'about')
-        ->orWhere('post_id', '=', $about_id)
-        ->add_fields([
-            // Story Section Bubbles
-            Field::make('separator', 'story_section_separator', 'Story Section Images')
-                ->set_classes('separator-class'),
-            
-            Field::make('image', 'tailz_shop_front_bubble', 'First Bubble')
-                ->set_value_type('url')
-                ->set_type(['image/webp'])
-                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 131x131px'),
-
-            Field::make('image', 'dog_food_bubble', 'Second Bubble')
-                ->set_value_type('url')
-                ->set_type(['image/webp'])
-                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 180x180px'),
-
-            Field::make('image', 'happy_dog_bubble', 'Third Bubble')
-                ->set_value_type('url')
-                ->set_type(['image/webp'])
-                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 180x180px'),
-
-            Field::make('image', 'cat_bubble', 'Fourth Bubble')
-                ->set_value_type('url')
-                ->set_type(['image/webp'])
-                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 153x153px'),
-
-            Field::make('image', 'store_front_bubble', 'Fifth Bubble')
-                ->set_value_type('url')
-                ->set_type(['image/webp'])
-                ->set_help_text('Upload a circular image (will be cropped to circle). Desktop size: 443x443px, Mobile size: 250x250px'),
-
-            // Team Section
-            Field::make('separator', 'team_section_separator', 'Team Section')
-                ->set_classes('separator-class'),
-
-            Field::make('complex', 'team_members', 'Team Members')
-                ->set_layout('tabbed-vertical')
-                ->add_fields([
-                    Field::make('image', 'photo', 'Team Member Photo')
-                        ->set_value_type('url')
-                        ->set_type(['image/webp', 'image/jpeg', 'image/png'])
-                        ->set_help_text('Upload a photo. Will be cropped to 113x130px'),
-                    Field::make('text', 'name', 'Name')
-                        ->set_help_text('Enter team member\'s first name'),
-                    Field::make('text', 'position', 'Position')
-                        ->set_help_text('Enter team member\'s position'),
-                ])
-                ->set_header_template('<%- name %>')
-        ]);
+    if (tailpress_is_page('page-about-us.php', 'about-us')) {
+        Container::make('post_meta', 'About Page Settings')
+            ->add_fields([
+                // Story Section Bubbles
+                Field::make('complex', 'story_bubbles', 'Story Section Bubbles')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Bubbles',
+                        'singular_name' => 'Bubble'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'title', 'Bubble Title')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('textarea', 'description', 'Description')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('image', 'image', 'Bubble Image')
+                            ->set_required(true)
+                            ->set_width(100)
+                    )),
+                // Team Members
+                Field::make('complex', 'team_members', 'Team Members')
+                    ->set_layout('tabbed-vertical')
+                    ->setup_labels(array(
+                        'plural_name' => 'Members',
+                        'singular_name' => 'Member'
+                    ))
+                    ->add_fields(array(
+                        Field::make('text', 'name', 'Name')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('text', 'role', 'Role')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('textarea', 'bio', 'Bio')
+                            ->set_required(true)
+                            ->set_width(100),
+                        Field::make('image', 'photo', 'Photo')
+                            ->set_required(true)
+                            ->set_width(100)
+                    ))
+            ]);
+    }
 }
 
 // Add image size for team members
@@ -742,10 +943,17 @@ function tailpress_enqueue_page_assets() {
         return;
     }
 
+    $page_templates = array(
+        'page-photos.php',
+        'page-hotel.php',
+        'page-grooming.php',
+        'page-exercise.php',
+        'page-training.php'
+    );
+
     $current_template = get_page_template_slug();
     
-    // Only enqueue grooming-specific scripts on the grooming page
-    if ($current_template === 'page-grooming.php') {
+    if (in_array($current_template, $page_templates)) {
         // Enqueue universal tabs assets
         wp_enqueue_style(
             'tailpress-tabs-style',
@@ -754,7 +962,7 @@ function tailpress_enqueue_page_assets() {
             '1.0.0'
         );
 
-        // Enqueue the service-tabs.js specifically for grooming
+        // Enqueue the new service-tabs.js for all service pages
         wp_enqueue_script(
             'service-tabs',
             get_template_directory_uri() . '/resources/js/service-tabs.js',
@@ -762,12 +970,6 @@ function tailpress_enqueue_page_assets() {
             '1.0.0',
             true
         );
-
-        // Add debugging data
-        wp_localize_script('service-tabs', 'groomingDebug', array(
-            'isGroomingPage' => true,
-            'template' => $current_template
-        ));
     }
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
