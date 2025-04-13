@@ -1,32 +1,33 @@
-let mix = require('laravel-mix');
-let path = require('path');
+const mix = require('laravel-mix');
+const path = require('path');
 
+// Set resource paths
 mix.setResourceRoot('../');
 mix.setPublicPath(path.resolve('./'));
 
+// Webpack configuration
 mix.webpackConfig({
-    watchOptions: { ignored: [
-        path.posix.resolve(__dirname, './node_modules'),
-        path.posix.resolve(__dirname, './css'),
-        path.posix.resolve(__dirname, './js')
-    ] }
+    watchOptions: {
+        ignored: [
+            path.resolve(__dirname, 'node_modules'),
+            path.resolve(__dirname, 'css'),
+            path.resolve(__dirname, 'js')
+        ]
+    }
 });
 
 // Compile JavaScript
 mix.js('resources/js/app.js', 'js');
 
-// Compile CSS
-mix.css('resources/css/app.css', 'css')
-   .options({
-        processCssUrls: false,
-        postCss: [
-            require('autoprefixer')({ cascade: false })
-        ]
-    });
+// Compile CSS with Tailwind
+mix.postCss('resources/css/app.css', 'css', [
+    require('tailwindcss')
+]);
 
+// Environment-specific settings
 if (mix.inProduction()) {
     mix.version();
 } else {
     mix.sourceMaps();
-    mix.options({ manifest: false });
+    mix.webpackConfig({ devtool: 'source-map' });
 }

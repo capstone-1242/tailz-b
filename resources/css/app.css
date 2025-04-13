@@ -3,20 +3,23 @@
 @tailwind utilities;
 
 /* Import custom CSS files */
-@import "custom/variables.css";
-@import "custom/base.css";
-@import "custom/buttons.css";
-@import "custom/contact-form.css";
-@import "custom/layout-components.css";
-@import "custom/login-signup.css";
-@import "custom/mobile-menu.css";
-@import "custom-colors.css";
-@import "custom.css";
-@import "custom/banner.css";
+@import "./custom/variables.css";
+@import "./custom/base.css";
+@import "./custom/buttons.css";
+@import "./custom/contact-form.css";
+@import "./custom/layout-components.css";
+@import "./custom/login-signup.css";
+@import "./custom/mobile-menu.css";
+@import "./custom/custom-colors.css";
+@import "./custom/custom.css";
+@import "./custom/banner.css";
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* Custom utilities for tailwind*/
 @layer utilities {
-  .section-spacing {
+  .section-spacing {  
     padding-top: var(--section-spacing-mobile);
     padding-bottom: var(--section-spacing-mobile);
   }
@@ -45,12 +48,6 @@
     margin-right: auto;
   }
 
-  /* Mobile menu overflow handling */
-  body.mobile-menu-open {
-    overflow: hidden;
-    padding-right: var(--scrollbar-width, 0px);
-  }
-
   /* Typography */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
@@ -75,3 +72,4 @@
     p { font-size: 18px; }
   }
 }
+ 
