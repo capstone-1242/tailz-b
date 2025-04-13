@@ -2,87 +2,286 @@
 /**
  * Tailz functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Tailz
+ * @package tailz
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-// Define theme constants
-define( 'TAILPRESS_VERSION', '1.0.0' );
-define( 'TAILPRESS_DIR', get_template_directory() );
-define( 'TAILPRESS_URI', get_template_directory_uri() );
-
-// Include required files
-require_once TAILPRESS_DIR . '/inc/class-tailpress.php';
-require_once TAILPRESS_DIR . '/inc/template-functions.php';
-require_once TAILPRESS_DIR . '/inc/template-tags.php';
-require_once TAILPRESS_DIR . '/inc/class-tailpress-customizer.php';
-
-// Initialize theme
-new Tailpress();
-
-// Add theme support
-add_action( 'after_setup_theme', 'tailpress_setup' );
+/**
+ * Theme setup and initialization
+ */
 function tailpress_setup() {
-    add_theme_support( 'title-tag' );
-    add_theme_support( 'post-thumbnails' );
-    add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
-    add_theme_support( 'customize-selective-refresh-widgets' );
-    add_theme_support( 'responsive-embeds' );
+	// Add theme supports
+	add_theme_support('title-tag');
+	add_theme_support('custom-logo');
+	add_theme_support('post-thumbnails');
+	add_theme_support('align-wide');
+	add_theme_support('wp-block-styles');
+	add_theme_support('responsive-embeds');
+	add_theme_support('editor-styles');
+	add_editor_style('css/editor-style.css');
+
+	// Register navigation menus
+	register_nav_menus(
+		array(
+			'primary' => __('Primary Menu', 'tailpress'),
+		)
+	);
+
+	// Add HTML5 support
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+}
+add_action('after_setup_theme', 'tailpress_setup');
+
+/**
+ * Enqueue theme assets
+ */
+function tailpress_enqueue_assets() {
+	$theme = wp_get_theme();
+	$timestamp = time();
+	$version = $theme->get('Version') . '.' . $timestamp;
+
+	// Enqueue Google Fonts
+	wp_enqueue_style(
+		'google-fonts',
+		'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
+		array(),
+		null
+	);
+
+	// Enqueue main stylesheet
+	wp_enqueue_style(
+		'tailpress',
+		tailpress_asset('css/app.css'),
+		array('google-fonts'),
+		$version
+	);
+
+	// Enqueue main script
+	wp_enqueue_script(
+		'tailpress',
+		tailpress_asset('js/app.js'),
+		array('jquery'),
+		$version,
+		true
+	);
+
+	// Enqueue mobile menu script
+	wp_enqueue_script(
+		'tailz-mobile-menu',
+		get_template_directory_uri() . '/resources/js/mobile-menu.js',
+		array('jquery'),
+		$version,
+		true
+	);
+}
+add_action('wp_enqueue_scripts', 'tailpress_enqueue_assets');
+
+/**
+ * Get asset path with cache busting
+ */
+function tailpress_asset($path) {
+	if (wp_get_environment_type() === 'production') {
+		return get_stylesheet_directory_uri() . '/' . $path;
+	}
+	return add_query_arg('time', time(), get_stylesheet_directory_uri() . '/' . $path);
 }
 
-// Enqueue scripts and styles
-add_action( 'wp_enqueue_scripts', 'tailpress_scripts' );
-function tailpress_scripts() {
-    wp_enqueue_style( 'tailpress-style', get_stylesheet_uri(), array(), TAILPRESS_VERSION );
-    wp_enqueue_script( 'tailpress-script', TAILPRESS_URI . '/js/script.js', array(), TAILPRESS_VERSION, true );
+/**
+ * Add custom classes to menu items
+ */
+function tailz_add_menu_classes($classes, $item, $args) {
+	if ($args->theme_location === 'primary') {
+		$classes[] = 'menu-item';
+		
+		if (in_array('menu-item-has-children', $classes)) {
+			$classes[] = 'has-submenu';
+		}
+	}
+	
+	return $classes;
+}
+add_filter('nav_menu_css_class', 'tailz_add_menu_classes', 10, 3);
+
+/**
+ * Add custom classes to menu links
+ */
+function tailz_add_link_classes($atts, $item, $args, $depth = 0) {
+	if (isset($args->theme_location) && $args->theme_location === 'primary') {
+		$classes = isset($atts['class']) ? $atts['class'] : '';
+		
+		if ($depth === 0) {
+			$atts['class'] = $classes . ' nav-link';
+		} else {
+			$atts['class'] = $classes . ' dropdown-link';
+		}
+	}
+	return $atts;
+}
+add_filter('nav_menu_link_attributes', 'tailz_add_link_classes', 10, 4);
+
+/**
+ * Enqueue page-specific scripts and styles
+ */
+function tailpress_enqueue_page_assets() {
+    if (!is_page()) {
+        return;
+    }
+
+    $page_templates = array(
+        'page-photos.php',
+        'page-hotel.php',
+        'page-grooming.php',
+        'page-exercise.php',
+        'page-training.php'
+    );
+
+    $current_template = get_page_template_slug();
+    
+    if (in_array($current_template, $page_templates)) {
+        // Enqueue universal tabs assets
+        wp_enqueue_style(
+            'tailpress-tabs-style',
+            get_template_directory_uri() . '/resources/css/tabs.css',
+            array(),
+            '1.0.0'
+        );
+
+        // Enqueue the new service-tabs.js for all service pages
+        wp_enqueue_script(
+            'service-tabs',
+            get_template_directory_uri() . '/resources/js/service-tabs.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
+
+/**
+ * Handle contact form submission
+ */
+function tailz_handle_contact_form() {
+	if (!isset($_POST['tailz_contact_form_nonce']) || 
+		!wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce')) {
+		wp_send_json_error('Invalid nonce');
+		return;
+	}
+
+	$required_fields = array('name', 'email', 'subject', 'message');
+	$form_data = array();
+
+	foreach ($required_fields as $field) {
+		if (empty($_POST[$field])) {
+			wp_send_json_error('Please fill in all required fields');
+			return;
+		}
+		$form_data[$field] = sanitize_text_field($_POST[$field]);
+	}
+
+	$form_data['phone'] = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
+
+	$headers = array(
+		'Content-Type: text/html; charset=UTF-8',
+		'From: ' . $form_data['name'] . ' <' . $form_data['email'] . '>',
+		'Reply-To: ' . $form_data['email']
+	);
+
+	$email_subject = 'New Contact Form Submission: ' . $form_data['subject'];
+	$email_body = sprintf(
+		'<h2>New Contact Form Submission</h2>
+		<p><strong>Name:</strong> %s</p>
+		<p><strong>Email:</strong> %s</p>
+		<p><strong>Phone:</strong> %s</p>
+		<p><strong>Subject:</strong> %s</p>
+		<p><strong>Message:</strong></p>
+		<p>%s</p>',
+		$form_data['name'],
+		$form_data['email'],
+		$form_data['phone'],
+		$form_data['subject'],
+		nl2br($form_data['message'])
+	);
+
+	$sent = wp_mail(get_option('admin_email'), $email_subject, $email_body, $headers);
+	wp_send_json_success($sent ? 
+		'Thank you for your message. We will get back to you soon!' : 
+		'There was an error sending your message. Please try again later.'
+	);
+}
+add_action('admin_post_tailz_contact_form', 'tailz_handle_contact_form');
+add_action('admin_post_nopriv_tailz_contact_form', 'tailz_handle_contact_form');
+
+/**
+ * Banner Alert Meta Box
+ */
+function tailz_register_banner_meta_box() {
+	add_meta_box(
+		'tailz_banner_alert',
+		'Banner Alert',
+		'tailz_banner_alert_callback',
+		'page',
+		'normal',
+		'high'
+	);
+}
+add_action('add_meta_boxes', 'tailz_register_banner_meta_box');
+
+function tailz_banner_alert_callback($post) {
+	wp_nonce_field('tailz_banner_alert_nonce', 'tailz_banner_alert_nonce');
+	
+	$banner_text = get_post_meta($post->ID, '_tailz_banner_text', true);
+	$banner_enabled = get_post_meta($post->ID, '_tailz_banner_enabled', true);
+	?>
+	<div class="tailz-meta-box">
+		<p>
+			<label for="tailz_banner_enabled">
+				<input type="checkbox" id="tailz_banner_enabled" name="tailz_banner_enabled" <?php checked($banner_enabled, 'on'); ?> />
+				Enable Banner Alert
+			</label>
+		</p>
+		<p>
+			<label for="tailz_banner_text">Banner Text:</label><br>
+			<input type="text" id="tailz_banner_text" name="tailz_banner_text" value="<?php echo esc_attr($banner_text); ?>" class="widefat" />
+		</p>
+	</div>
+	<?php
 }
 
-// Add custom image sizes
-add_action( 'after_setup_theme', 'tailpress_image_sizes' );
-function tailpress_image_sizes() {
-    add_image_size( 'tailpress-thumbnail', 300, 300, true );
-    add_image_size( 'tailpress-medium', 768, 0, false );
-    add_image_size( 'tailpress-large', 1024, 0, false );
+function tailz_save_banner_meta_box($post_id) {
+	if (
+        !isset($_POST['tailz_banner_alert_nonce']) || 
+		!wp_verify_nonce($_POST['tailz_banner_alert_nonce'], 'tailz_banner_alert_nonce') ||
+		( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ||
+		!current_user_can('edit_post', $post_id)
+    ) {
+		return;
+	}
+
+	update_post_meta(
+		$post_id, 
+		'_tailz_banner_text', 
+		isset($_POST['tailz_banner_text']) ? sanitize_text_field($_POST['tailz_banner_text']) : ''
+	);
+
+	update_post_meta(
+		$post_id, 
+		'_tailz_banner_enabled', 
+		isset($_POST['tailz_banner_enabled']) ? 'on' : 'off'
+	);
 }
+add_action('save_post', 'tailz_save_banner_meta_box');
 
-// Register navigation menus
-add_action( 'after_setup_theme', 'tailpress_register_nav_menus' );
-function tailpress_register_nav_menus() {
-    register_nav_menus( array(
-        'primary' => esc_html__( 'Primary Menu', 'tailpress' ),
-        'footer'  => esc_html__( 'Footer Menu', 'tailpress' ),
-    ) );
-}
-
-// Register widget areas
-add_action( 'widgets_init', 'tailpress_widgets_init' );
-function tailpress_widgets_init() {
-    register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar', 'tailpress' ),
-        'id'            => 'sidebar-1',
-        'description'   => esc_html__( 'Add widgets here.', 'tailpress' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ) );
-}
-
-// Custom template tags
-require get_template_directory() . '/inc/template-tags.php';
-
-// Functions which enhance the theme by hooking into WordPress
-require get_template_directory() . '/inc/template-functions.php';
-
-// Customizer additions
-require get_template_directory() . '/inc/customizer.php';
-
-// Load Jetpack compatibility file
-if ( defined( 'JETPACK__VERSION' ) ) {
-    require get_template_directory() . '/inc/jetpack.php';
-}
+// Include the accessible menu walker
+require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
