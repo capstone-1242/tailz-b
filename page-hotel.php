@@ -1,29 +1,12 @@
 <?php
 /**
  * Template Name: Hotel
- * Description: A custom template for the "Hotel" (Portraits) page.
  *
- * @package tailz
+ * @package Tailz
  */
 
 get_header();
-
-// Initialize variables with error handling
-$hotel_packages = null;
-$surcharge_notice = null;
-
-try {
-    if (function_exists('carbon_get_post_meta')) {
-        $hotel_packages = carbon_get_post_meta(get_the_ID(), 'hotel_packages');
-        $surcharge_notice = carbon_get_post_meta(get_the_ID(), 'surcharge_notice');
-    } else {
-        error_log('Carbon Fields not loaded in page-hotel.php');
-    }
-} catch (Exception $e) {
-    error_log('Error getting hotel data: ' . $e->getMessage());
-}
 ?>
-
 
 <div>
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
@@ -37,201 +20,131 @@ try {
                     <?php endif; ?>
                     <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
                         <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                        <p class="uppercase text-white text-[18px]">Five-star lodging for four-legged guests</p>
+                        <p class="uppercase text-white text-[18px]">A home away from home for your pet</p>
                     </div>
             </div>
         </section>
 
-        <!-- A home away from home retreat for pets -->
+        <!-- Introduction -->
         <section>
-            <div class="flex flex-col gap-[60px]">
-                <!-- Intro -->
-                <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] text-[#47423B] lowercase">A home away from home retreat for pets</h2>
-                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px] md:w-3/4">You've worked hard throughout the year to take time off. Whether it's a vacation, or a business trip - there are plenty of times when our lives take us out of town for a few days and pets are not always welcome. Luckily, you can feel comfortable leaving your dog at Tailz for a few nights of overnight lodging!</p>
-                </div>
-                <!-- Your pet's stay at tailz -->
-                <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
-                    <h3 class="lowercase text-[#47423B] text-[31px] md:text-[56.85px]">Your pet's stay at tailz</h3>
-                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px] md:w-3/4">When dogs stay the night at Tailz, they receive all the benefits of doggy daycare, plus extra special time at night before being tucked into bed! The mental and physical stimulation throughout the day provides a restful sleep at night in one of our suites, and your pup will wake up in the morning ready for another fun-filled day with us! A full day of doggy day care is included with every night of overnight lodging at Tailz</p>
-                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px] md:w-3/4">You deserve peace of mind in knowing that your beloved pet is being well cared for. Rest assured, we provide all the blankets, dog beds, feeding bowls, and toys that your dog needs; all you need to bring is a container with their food!</p>
-                    <div class="flex flex-col rounded-[20px] bg-[#F3F2EC] px-[25px] md:px-[30px] py-[20px] gap-[10px]">
-                        <h4 class="uppercase text-[#47423B] text-[18px] md:text-[20px] italic">Please note</h4>
-                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Blankets and personal items from home may be damaged.</p>
-                    </div>
-                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px]">Though twice a day is normal, we will feed your pup up to three times per day with their allotted food.</p>
-                    <div class="flex flex-col rounded-[20px] bg-[#F3F2EC] px-[25px] md:px-[30px] py-[20px] gap-[10px]">
-                        <h4 class="uppercase text-[#47423B] text-[18px] md:text-[20px] italic">Please note</h4>
-                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Bring all items in a marked resuable shopping bag.</p>
-                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Food that is pre-portioned is appreciated.</p>
-                    </div>
-                    <p class="text-[#2C2C2C] text-[18px] md:text-[24px]">For the perfect finishing touch, add a departure spa appointment on their last day - they'll come home fresh, squeaky clean, and ready to snuggle!</p>
-                    <div class="flex flex-col rounded-[20px] bg-[#F3F2EC] px-[25px] md:px-[30px] py-[20px] gap-[10px]">
-                        <h4 class="uppercase text-[#47423B] text-[18px] md:text-[20px] italic">Please note</h4>
-                        <p class="text-[#2C2C2C] text-[16px] md:text-[18px] italic md:w-3/4">Sign your pup up for a departure bath on their last day of lodging.</p>
-                    </div>
-                </div>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Luxury pet hotel</h2>
+                <p class="text-[18px] text-[#2C2C2C]">At Tailz, we understand that leaving your pet behind can be stressful. That's why we've created a luxurious, comfortable environment where your pet can feel at home while you're away.</p>
+                <p class="text-[18px] text-[#2C2C2C]">Our hotel features spacious suites, regular exercise, and plenty of playtime. We also offer additional services like grooming and training to make your pet's stay even more enjoyable.</p>
             </div>
         </section>
 
-        <!-- Hotel packages -->
+        <!-- Hotel Suites -->
         <section>
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase">Hotel packages</h2>
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Our suites</h2>
                 </div>
-                <!-- Packages -->
+                <!-- Suites -->
                 <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <?php 
-                        if (!empty($hotel_packages)) :
-                            foreach ($hotel_packages as $package) : 
-                                $package_type_class = '';
-                                $package_type_text = '';
-                                switch ($package['package_type']) {
-                                    case 'basic':
-                                        $package_type_text = 'Basic';
-                                        break;
-                                    case 'most_popular':
-                                        $package_type_text = 'Most Popular';
-                                        break;
-                                    case 'best_value':
-                                        $package_type_text = 'Best Value';
-                                        break;
-                                }
-                            ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php if (have_rows('hotel_suites')) : 
+                            while (have_rows('hotel_suites')) : the_row(); ?>
                             <div class="bg-white p-6 rounded-[20px]">
-                                <!-- Package Type -->
-                                <p class="font-poppins font-bold italic text-[18px] md:text-[24px] text-[#2C2C2C] mb-4"><?php echo esc_html($package_type_text); ?></p>
-                                
-                                <!-- Title -->
-                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-2"><?php echo esc_html($package['title']); ?></h3>
-                                
-                                <!-- Subtitle -->
-                                <h5 class="font-work-sans font-bold text-[18px] md:text-[32px] text-[#837660] mb-6"><?php echo esc_html($package['subtitle']); ?></h5>
-                                
-                                <!-- Features List -->
-                                <?php if (!empty($package['features'])) : ?>
-                                    <ul class="space-y-4 mb-6">
-                                        <?php foreach ($package['features'] as $feature) : ?>
-                                            <li class="flex items-center gap-3">
-                                                <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
-                                                    <path d="M8.97125 5.55493C10.3344 5.07281 11.0612 3.54116 10.5941 2.13402C10.1276 0.727311 8.64417 -0.0236561 7.28079 0.458569C5.9176 0.94031 5.19077 2.47186 5.65745 3.87905C6.12436 5.28663 7.60788 6.03629 8.97125 5.55493Z" fill="#2C2C2C"/>
-                                                    <path d="M4.7996 9.74671V9.74719C5.58268 8.49808 5.23628 6.83013 4.02693 6.02207C2.81711 5.21444 1.20169 5.5713 0.418662 6.81992V6.82041C-0.363899 8.06903 -0.0175474 9.7366 1.19185 10.5442C2.40162 11.3527 4.0168 10.9954 4.7996 9.74671Z" fill="#2C2C2C"/>
-                                                    <path d="M15.0281 5.55498C16.3915 6.03633 17.8749 5.28667 18.3418 3.87904C18.8085 2.4719 18.0817 0.940306 16.7186 0.458564C15.3552 -0.0236609 13.8717 0.727354 13.4052 2.13401C12.9381 3.54121 13.6649 5.07285 15.0281 5.55498Z" fill="#2C2C2C"/>
-                                                    <path d="M11.9994 6.87891C7.87565 6.87891 3.32549 12.7732 4.64275 16.9673C5.91453 21.0165 9.88799 19.3477 11.9994 19.3477C14.1109 19.3477 18.0843 21.0165 19.3561 16.9673C20.6734 12.7732 16.1232 6.87891 11.9994 6.87891Z" fill="#2C2C2C"/>
-                                                    <path d="M23.5812 6.82041V6.81992C22.7981 5.5713 21.1828 5.21444 19.973 6.02207C18.7636 6.83013 18.4172 8.49808 19.2002 9.74719V9.74671C19.983 10.9954 21.5982 11.3527 22.808 10.5442C24.0174 9.7366 24.3638 8.06908 23.5812 6.82041Z" fill="#2C2C2C"/>
-                                                </svg>
-                                                <span class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php echo esc_html($feature['feature']); ?></span>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
+                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-4"><?php the_sub_field('title'); ?></h3>
+                                <p class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-4">Starting at $<?php the_sub_field('price'); ?> per night</p>
+                                <?php if (have_rows('description')) : ?>
+                                    <?php while (have_rows('description')) : the_row(); ?>
+                                        <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C] mb-6"><?php the_sub_field('paragraph'); ?></p>
+                                    <?php endwhile; ?>
                                 <?php endif; ?>
                                 
-                                <!-- Price -->
-                                <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">$<?php echo esc_html($package['price']); ?> / night</p>
+                                <?php if (have_rows('amenities')) : ?>
+                                <div class="mb-6">
+                                    <h4 class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-3">Amenities Include:</h4>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <?php while (have_rows('amenities')) : the_row(); ?>
+                                            <li class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]"><?php the_sub_field('amenity'); ?></li>
+                                        <?php endwhile; ?>
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
+
+                                <?php if (have_rows('notes')) : ?>
+                                    <?php while (have_rows('notes')) : the_row(); ?>
+                                        <p class="font-work-sans font-bold italic text-[16px] md:text-[18px] text-[#47423B]"><?php the_sub_field('note'); ?></p>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
                             </div>
-                        <?php 
-                            endforeach;
+                            <?php endwhile;
                         endif; ?>
-                    </div>
-
-                    <!-- Surcharge Notice -->
-                    <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-6 text-center"><?php echo esc_html($surcharge_notice); ?></p>
-
-                    <!-- Book Button -->
-                    <div class="flex justify-center mt-8">
-                        <a href="/book-a-sleepover">
-                            <button class="bg-[#FCD41D] hover:bg-[#FCD41D]/90 transition-colors duration-200 rounded-[10px] px-8 py-4">
-                                <span class="font-poppins font-bold text-[18px] md:text-[26px] text-[#FFFFFF]">Book a sleepover</span>
-                            </button>
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Lodging requirements -->
+        <!-- Additional Services -->
         <section>
-            <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
-                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Lodging requirements</h2>
-                <ul class="flex flex-col md:text-[24px] text-[18px] text-[#2C2C2C] gap-3 leading-normal md:w-3/4">
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All stays are required to be prepaids at the time of arrival.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">During the holiday season a single night deposit is required to hold your pup's Luxury Overnight Lodging reservation. This is a non-refundable holiday season deposit.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Only social, dog friendly dogs are accepted into our lodging. We do not take aggressive dogs.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs must pass a Meet & Greet prior to lodging.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">They must have attended Doggy Daycare at least once in the last 3 months.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Alternatively, new pups must have passed their Meet & Greet within the last 2 months.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All dogs require up-to-date vaccinations for Bordetella, Distemper/Parvovirus/Parainfluenza, and Rabies (after 6 months of age.)</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All current vaccination records must be received 24-hours in advance of your pet's overnight stay.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">All pups are to be spayed or neutered by 7 months of age. If a medical exception has been granted, intact pups older than 10 months will not be accepted.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Our Canine Care Team may change the activity level of your dog should their needs require it during their stay.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Check-in time is 12:00PM or afterwards during regular business hours. Early check-in fee of $17.99 applies before 12:00PM.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Checkout time is 12:00PM during regular business hours. Late checkout fee of $17.99 applies after 12:00PM.</li>
-                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Dogs not checked out by closing time must stay overnight and will be surcharged for additional night's stay and can be picked up the following business day.</li>
-                    </ul>
+            <div class="flex flex-col gap-[30px] md:gap-[40px]">
+                <!-- Header -->
+                <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
+                    <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Additional services</h2>
+                </div>
+                <!-- Services -->
+                <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php if (have_rows('additional_services')) : 
+                            while (have_rows('additional_services')) : the_row(); ?>
+                            <div class="bg-white p-6 rounded-[20px]">
+                                <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-4"><?php the_sub_field('title'); ?></h3>
+                                <p class="font-poppins font-bold text-[21.99px] md:text-[31.99px] text-[#47423B] mb-4">$<?php the_sub_field('price'); ?></p>
+                                <?php if (have_rows('description')) : ?>
+                                    <?php while (have_rows('description')) : the_row(); ?>
+                                        <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C] mb-6"><?php the_sub_field('paragraph'); ?></p>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </div>
+                            <?php endwhile;
+                        endif; ?>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Our rooms -->
+        <!-- Requirements -->
         <section>
-            <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px]">
-                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Our rooms</h2>
-                <!-- Gallery Function -->
-                <div>Gallery function here</div>
+            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Requirements</h2>
+                <div class="flex flex-col gap-5">
+                    <?php if (have_rows('requirements')) : ?>
+                        <?php while (have_rows('requirements')) : the_row(); ?>
+                        <div class="flex flex-col gap-3">
+                            <h3 class="text-[22px] md:text-[30px] text-[#47423B]"><?php the_sub_field('title'); ?></h3>
+                            <ul class="flex flex-col gap-2">
+                                <?php if (have_rows('items')) : ?>
+                                    <?php while (have_rows('items')) : the_row(); ?>
+                                        <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2 text-[18px] md:text-[24px] text-[#2C2C2C]"><?php the_sub_field('item'); ?></li>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
             </div>
         </section>
 
         <!-- FAQs -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
-                <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What is included in my dog's overnight stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Every overnight lodging stay includes a full day of doggy daycare, plenty of supervised playtime, and a cozy suite for restful sleep. Your pup will also enjoy special evening attention before being tucked in for the night.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do I need to bring anything for my dog's stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">The only thing you need to bring is your dog's food in a marked reusable shopping bag. We provide blankets, dog beds, feeding bowls, and toys to ensure your pup is comfortable during their stay.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I bring my dog's favorite blanket or toy?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We understand the comfort of familiar items, but personal belongings from home may get damaged. We provide everything your pup needs to feel safe and secure.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase"> How often will my dog be fed?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We typically feed dogs twice a day, but if your pup requires three meals, we are happy to accommodate. Pre-portioned meals are appreciated.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase"> Will my dog interact with other dogs during their stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! Your pup will participate in our structured doggy daycare program, enjoying socialization, exercise, and mental enrichment during the day.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I add a bath for my dog before they come home?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">Absolutely! We offer a departure bath service, so your pup comes home fresh, clean, and ready to cuddle.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What if my dog has special dietary needs or medications?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">We can accommodate most dietary restrictions and administer medications as needed. Please provide clear instructions when dropping off your dog.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do you have staff on-site overnight?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">While our team is not in the facility overnight, our suites provide a safe and secure environment for your pup to rest peacefully after a fun-filled day.</p>
-                </div>
+                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">FAQs</h2>
+                <?php if (have_rows('faqs')) : ?>
+                    <?php while (have_rows('faqs')) : the_row(); ?>
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-[22px] md:text-[30px] text-[#47423B] lowercase"><?php the_sub_field('question'); ?></h3>
+                        <p class="text-[18px] md:text-[24px] text-[#2C2C2C]"><?php the_sub_field('answer'); ?></p>
+                    </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </section>
     </div>
 </div>
 
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>
