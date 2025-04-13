@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Carbon Fields initialization
 add_action('after_setup_theme', 'crb_load');
 function crb_load() {
-    require_once('vendor/autoload.php');
+    require_once get_template_directory() . '/vendor/autoload.php';
     \Carbon_Fields\Carbon_Fields::boot();
 }
 
@@ -87,7 +87,7 @@ function crb_attach_grooming_fields() {
 add_action('carbon_fields_register_fields', 'crb_training_options');
 function crb_training_options() {
     Container::make('post_meta', 'Training Options')
-        ->where('post_id', '=', 27) // Training page ID
+        ->where('post_id', '=', 77) // Training page ID
         ->add_fields(array(
             Field::make('complex', 'puppy_classes', 'Puppy Classes')
                 ->set_layout('tabbed-vertical')
@@ -302,7 +302,7 @@ function crb_training_options() {
 add_action('carbon_fields_register_fields', 'crb_attach_daycare_fields');
 function crb_attach_daycare_fields() {
     Container::make('post_meta', 'Daycare Services')
-        ->where('post_id', '=', 38)
+        ->where('post_id', '=', 73) // Daycare page ID
         ->add_fields(array(
             Field::make('complex', 'daily_rates', 'Daily Rates')
                 ->set_layout('tabbed-vertical')
@@ -377,7 +377,7 @@ function crb_attach_daycare_fields() {
 add_action('carbon_fields_register_fields', 'crb_attach_hotel_fields');
 function crb_attach_hotel_fields() {
     Container::make('post_meta', 'Hotel Packages')
-        ->where('post_id', '=', 19) // Replace with actual hotel page ID
+        ->where('post_id', '=', 75) // Hotel page ID
         ->add_fields(array(
             Field::make('complex', 'hotel_packages', 'Hotel Packages')
                 ->set_layout('tabbed-vertical')
@@ -425,7 +425,7 @@ function crb_attach_hotel_fields() {
 add_action('carbon_fields_register_fields', 'crb_exercise_options');
 function crb_exercise_options() {
     Container::make('post_meta', 'Exercise Options')
-        ->where('post_id', '=', 13) // Replace with actual exercise page ID
+        ->where('post_id', '=', 79) // Exercise page ID
         ->add_fields(array(
             Field::make('complex', 'exercise_options', 'Exercise Options')
                 ->set_layout('tabbed-vertical')
@@ -481,7 +481,7 @@ function crb_exercise_options() {
 add_action('carbon_fields_register_fields', 'crb_attach_portrait_fields');
 function crb_attach_portrait_fields() {
     Container::make('post_meta', 'Portrait Packages')
-        ->where('post_template', '=', 'page-portraits.php')
+        ->where('post_id', '=', 127) // Portrait page ID
         ->add_fields(array(
             Field::make('complex', 'portrait_packages', 'Portrait Packages')
                 ->set_layout('tabbed-vertical')
@@ -515,7 +515,7 @@ function crb_attach_portrait_fields() {
 add_action('carbon_fields_register_fields', 'crb_attach_about_page_fields');
 function crb_attach_about_page_fields() {
     Container::make('post_meta', 'About Page Settings')
-        ->where('post_template', '=', 'page-about-us.php')
+        ->where('post_id', '=', 109) // About Us page ID
         ->add_fields([
             // Story Section Bubbles
             Field::make('separator', 'story_section_separator', 'Story Section Images')
