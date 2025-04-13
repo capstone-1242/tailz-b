@@ -30,64 +30,71 @@ function crb_attach_theme_options() {
 // Grooming Services Fields
 add_action( 'carbon_fields_register_fields', 'crb_attach_grooming_fields' );
 function crb_attach_grooming_fields() {
-    Container::make( 'post_meta', 'Grooming Services' )
-        ->where( 'post_id', '=', 71 ) // Grooming page ID
-        ->add_fields( array(
-            Field::make( 'complex', 'grooming_services', 'Services' )
-                ->set_layout( 'tabbed-vertical' )
-                ->setup_labels( array(
+    // Get page IDs dynamically
+    $grooming_page = get_page_by_path('grooming');
+    $grooming_id = $grooming_page ? $grooming_page->ID : 0;
+
+    Container::make('post_meta', 'Grooming Services')
+        ->where('post_template', '=', 'page-grooming.php')
+        ->orWhere('post_slug', '=', 'grooming')
+        ->orWhere('post_id', '=', $grooming_id)
+        ->add_fields(array(
+            Field::make('complex', 'grooming_services', 'Services')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
                     'plural_name' => 'Services',
                     'singular_name' => 'Service'
-                ) )
-                ->add_fields( array(
-                    Field::make( 'text', 'service_title', 'Service Title' )
-                        ->set_required( true )
-                        ->set_width( 100 ),
-                    Field::make( 'textarea', 'service_description', 'Service Description' )
-                        ->set_required( true )
-                        ->set_width( 100 ),
-                    Field::make( 'complex', 'service_includes', 'Service Includes' )
-                        ->add_fields( array(
-                            Field::make( 'text', 'item', 'Include Item' )
-                                ->set_required( true )
-                        ) )
-                        ->set_header_template( '
-                            <% if (item) { %>
-                                <%- item %>
-                            <% } %>
-                        ' ),
-                    Field::make( 'complex', 'dog_prices', 'Dog Prices' )
-                        ->set_layout( 'tabbed-horizontal' )
-                        ->add_fields( array(
-                            Field::make( 'text', 'xs', 'XS Price' ),
-                            Field::make( 'text', 's', 'S Price' ),
-                            Field::make( 'text', 'm', 'M Price' ),
-                            Field::make( 'text', 'l', 'L Price' ),
-                            Field::make( 'text', 'xl', 'XL Price' ),
-                        ) ),
-                    Field::make( 'complex', 'cat_prices', 'Cat Prices' )
-                        ->set_layout( 'tabbed-horizontal' )
-                        ->add_fields( array(
-                            Field::make( 'text', 'xs', 'XS Price' ),
-                            Field::make( 'text', 's', 'S Price' ),
-                            Field::make( 'text', 'm', 'M Price' ),
-                            Field::make( 'text', 'l', 'L Price' ),
-                            Field::make( 'text', 'xl', 'XL Price' ),
-                        ) ),
-                ) ),
-            Field::make( 'complex', 'boost_menu_items', 'Boost Menu Items' )
-                ->add_fields( array(
-                    Field::make( 'text', 'item', 'Menu Item' )
-                        ->set_required( true )
-                ) )
-        ) );
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'service_title', 'Service Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('textarea', 'service_description', 'Service Description')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'service_includes', 'Service Includes')
+                        ->add_fields(array(
+                            Field::make('text', 'item', 'Include Item')
+                                ->set_required(true)
+                        )),
+                    Field::make('complex', 'dog_prices', 'Dog Prices')
+                        ->set_layout('tabbed-horizontal')
+                        ->add_fields(array(
+                            Field::make('text', 'xs', 'XS Price'),
+                            Field::make('text', 's', 'S Price'),
+                            Field::make('text', 'm', 'M Price'),
+                            Field::make('text', 'l', 'L Price'),
+                            Field::make('text', 'xl', 'XL Price'),
+                        )),
+                    Field::make('complex', 'cat_prices', 'Cat Prices')
+                        ->set_layout('tabbed-horizontal')
+                        ->add_fields(array(
+                            Field::make('text', 'xs', 'XS Price'),
+                            Field::make('text', 's', 'S Price'),
+                            Field::make('text', 'm', 'M Price'),
+                            Field::make('text', 'l', 'L Price'),
+                            Field::make('text', 'xl', 'XL Price'),
+                        )),
+                )),
+            Field::make('complex', 'boost_menu_items', 'Boost Menu Items')
+                ->add_fields(array(
+                    Field::make('text', 'item', 'Menu Item')
+                        ->set_required(true)
+                ))
+        ));
 }
 
 // Training Page Metaboxes
 add_action('carbon_fields_register_fields', 'crb_training_options');
 function crb_training_options() {
+    // Get page IDs dynamically
+    $training_page = get_page_by_path('training');
+    $training_id = $training_page ? $training_page->ID : 0;
+
     Container::make('post_meta', 'Training Options')
-        ->where('post_id', '=', 77) // Training page ID
+        ->where('post_template', '=', 'page-training.php')
+        ->orWhere('post_slug', '=', 'training')
+        ->orWhere('post_id', '=', $training_id)
         ->add_fields(array(
             Field::make('complex', 'puppy_classes', 'Puppy Classes')
                 ->set_layout('tabbed-vertical')
@@ -301,8 +308,14 @@ function crb_training_options() {
 // Daycare Services Fields
 add_action('carbon_fields_register_fields', 'crb_attach_daycare_fields');
 function crb_attach_daycare_fields() {
+    // Get page IDs dynamically
+    $daycare_page = get_page_by_path('daycare');
+    $daycare_id = $daycare_page ? $daycare_page->ID : 0;
+
     Container::make('post_meta', 'Daycare Services')
-        ->where('post_id', '=', 73) // Daycare page ID
+        ->where('post_template', '=', 'page-daycare.php')
+        ->orWhere('post_slug', '=', 'daycare')
+        ->orWhere('post_id', '=', $daycare_id)
         ->add_fields(array(
             Field::make('complex', 'daily_rates', 'Daily Rates')
                 ->set_layout('tabbed-vertical')
@@ -376,8 +389,14 @@ function crb_attach_daycare_fields() {
 // Hotel Packages Fields
 add_action('carbon_fields_register_fields', 'crb_attach_hotel_fields');
 function crb_attach_hotel_fields() {
+    // Get page IDs dynamically
+    $hotel_page = get_page_by_path('hotel');
+    $hotel_id = $hotel_page ? $hotel_page->ID : 0;
+
     Container::make('post_meta', 'Hotel Packages')
-        ->where('post_id', '=', 75) // Hotel page ID
+        ->where('post_template', '=', 'page-hotel.php')
+        ->orWhere('post_slug', '=', 'hotel')
+        ->orWhere('post_id', '=', $hotel_id)
         ->add_fields(array(
             Field::make('complex', 'hotel_packages', 'Hotel Packages')
                 ->set_layout('tabbed-vertical')
@@ -424,8 +443,14 @@ function crb_attach_hotel_fields() {
 // Exercise Page Metaboxes
 add_action('carbon_fields_register_fields', 'crb_exercise_options');
 function crb_exercise_options() {
+    // Get page IDs dynamically
+    $exercise_page = get_page_by_path('exercise');
+    $exercise_id = $exercise_page ? $exercise_page->ID : 0;
+
     Container::make('post_meta', 'Exercise Options')
-        ->where('post_id', '=', 79) // Exercise page ID
+        ->where('post_template', '=', 'page-exercise.php')
+        ->orWhere('post_slug', '=', 'exercise')
+        ->orWhere('post_id', '=', $exercise_id)
         ->add_fields(array(
             Field::make('complex', 'exercise_options', 'Exercise Options')
                 ->set_layout('tabbed-vertical')
@@ -480,8 +505,14 @@ function crb_exercise_options() {
 // Portrait Packages Fields
 add_action('carbon_fields_register_fields', 'crb_attach_portrait_fields');
 function crb_attach_portrait_fields() {
+    // Get page IDs dynamically
+    $portrait_page = get_page_by_path('portrait');
+    $portrait_id = $portrait_page ? $portrait_page->ID : 0;
+
     Container::make('post_meta', 'Portrait Packages')
-        ->where('post_id', '=', 127) // Portrait page ID
+        ->where('post_template', '=', 'page-portrait.php')
+        ->orWhere('post_slug', '=', 'portrait')
+        ->orWhere('post_id', '=', $portrait_id)
         ->add_fields(array(
             Field::make('complex', 'portrait_packages', 'Portrait Packages')
                 ->set_layout('tabbed-vertical')
@@ -514,8 +545,14 @@ function crb_attach_portrait_fields() {
 // About Page Fields
 add_action('carbon_fields_register_fields', 'crb_attach_about_page_fields');
 function crb_attach_about_page_fields() {
+    // Get page IDs dynamically
+    $about_page = get_page_by_path('about');
+    $about_id = $about_page ? $about_page->ID : 0;
+
     Container::make('post_meta', 'About Page Settings')
-        ->where('post_id', '=', 109) // About Us page ID
+        ->where('post_template', '=', 'page-about.php')
+        ->orWhere('post_slug', '=', 'about')
+        ->orWhere('post_id', '=', $about_id)
         ->add_fields([
             // Story Section Bubbles
             Field::make('separator', 'story_section_separator', 'Story Section Images')
@@ -705,17 +742,10 @@ function tailpress_enqueue_page_assets() {
         return;
     }
 
-    $page_templates = array(
-        'page-photos.php',
-        'page-hotel.php',
-        'page-grooming.php',
-        'page-exercise.php',
-        'page-training.php'
-    );
-
     $current_template = get_page_template_slug();
     
-    if (in_array($current_template, $page_templates)) {
+    // Only enqueue grooming-specific scripts on the grooming page
+    if ($current_template === 'page-grooming.php') {
         // Enqueue universal tabs assets
         wp_enqueue_style(
             'tailpress-tabs-style',
@@ -724,7 +754,7 @@ function tailpress_enqueue_page_assets() {
             '1.0.0'
         );
 
-        // Enqueue the new service-tabs.js for all service pages
+        // Enqueue the service-tabs.js specifically for grooming
         wp_enqueue_script(
             'service-tabs',
             get_template_directory_uri() . '/resources/js/service-tabs.js',
@@ -732,6 +762,12 @@ function tailpress_enqueue_page_assets() {
             '1.0.0',
             true
         );
+
+        // Add debugging data
+        wp_localize_script('service-tabs', 'groomingDebug', array(
+            'isGroomingPage' => true,
+            'template' => $current_template
+        ));
     }
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
