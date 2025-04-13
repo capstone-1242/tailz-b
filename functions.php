@@ -1197,3 +1197,28 @@ add_action('save_post', 'tailz_save_banner_meta_box');
 
 // Include the accessible menu walker
 require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
+
+// Add Carbon Fields function fallbacks
+if (!function_exists('carbon_get_post_meta')) {
+    function carbon_get_post_meta($id, $name, $type = null) {
+        error_log('Carbon Fields not loaded! Attempting to load...');
+        
+        // Try to load Carbon Fields
+        if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
+            if (function_exists('crb_load')) {
+                crb_load();
+            } else {
+                error_log('Carbon Fields initialization function not found!');
+                return null;
+            }
+        }
+        
+        // If still not loaded, return null
+        if (!function_exists('\Carbon_Fields\carbon_get_post_meta')) {
+            error_log('Carbon Fields functions still not available after loading attempt!');
+            return null;
+        }
+        
+        return \Carbon_Fields\carbon_get_post_meta($id, $name, $type);
+    }
+}

@@ -8,8 +8,18 @@
 
 get_header();
 
-// Get portrait data from Carbon Fields
-$portrait_packages = carbon_get_post_meta(get_the_ID(), 'portrait_packages');
+// Initialize variables with error handling
+$portrait_packages = null;
+
+try {
+    if (function_exists('carbon_get_post_meta')) {
+        $portrait_packages = carbon_get_post_meta(get_the_ID(), 'portrait_packages');
+    } else {
+        error_log('Carbon Fields not loaded in page-portraits.php');
+    }
+} catch (Exception $e) {
+    error_log('Error getting portrait data: ' . $e->getMessage());
+}
 
 /**
  * Helper function for tab content

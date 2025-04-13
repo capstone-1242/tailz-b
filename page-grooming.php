@@ -8,9 +8,20 @@
 
 get_header();
 
-// Get grooming services
-$services = carbon_get_post_meta(get_the_ID(), 'grooming_services');
-error_log('Raw Carbon Fields data for grooming_services: ' . print_r($services, true));
+// Initialize variables with error handling
+$services = null;
+$boost_items = null;
+
+try {
+    if (function_exists('carbon_get_post_meta')) {
+        $services = carbon_get_post_meta(get_the_ID(), 'grooming_services');
+        $boost_items = carbon_get_post_meta(get_the_ID(), 'boost_menu_items');
+    } else {
+        error_log('Carbon Fields not loaded in page-grooming.php');
+    }
+} catch (Exception $e) {
+    error_log('Error getting grooming services: ' . $e->getMessage());
+}
 
 $services_array = array();
 
@@ -220,7 +231,6 @@ function render_grooming_tab( $animal, $services ) {
                                     <h4 class="text-xl md:text-2xl mb-4 text-[#47423B]">Pamper your pet</h4>
                                     <ul class="space-y-3">
                                         <?php 
-                                        $boost_items = carbon_get_post_meta(get_the_ID(), 'boost_menu_items');
                                         if (!empty($boost_items)) :
                                             foreach ($boost_items as $item) : ?>
                                                 <li class="flex items-start">

@@ -8,8 +8,18 @@
 
 get_header();
 
-// Get exercise data from Carbon Fields
-$exercise_options = carbon_get_post_meta(get_the_ID(), 'exercise_options');
+// Initialize variables with error handling
+$exercise_options = null;
+
+try {
+    if (function_exists('carbon_get_post_meta')) {
+        $exercise_options = carbon_get_post_meta(get_the_ID(), 'exercise_options');
+    } else {
+        error_log('Carbon Fields not loaded in page-exercise.php');
+    }
+} catch (Exception $e) {
+    error_log('Error getting exercise data: ' . $e->getMessage());
+}
 ?>
 
 <div>

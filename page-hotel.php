@@ -8,9 +8,20 @@
 
 get_header();
 
-// Get hotel data from Carbon Fields
-$hotel_packages = carbon_get_post_meta(get_the_ID(), 'hotel_packages');
-$surcharge_notice = carbon_get_post_meta(get_the_ID(), 'surcharge_notice');
+// Initialize variables with error handling
+$hotel_packages = null;
+$surcharge_notice = null;
+
+try {
+    if (function_exists('carbon_get_post_meta')) {
+        $hotel_packages = carbon_get_post_meta(get_the_ID(), 'hotel_packages');
+        $surcharge_notice = carbon_get_post_meta(get_the_ID(), 'surcharge_notice');
+    } else {
+        error_log('Carbon Fields not loaded in page-hotel.php');
+    }
+} catch (Exception $e) {
+    error_log('Error getting hotel data: ' . $e->getMessage());
+}
 ?>
 
 
