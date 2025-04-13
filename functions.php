@@ -1,4 +1,579 @@
 <?php
+/**
+ * Tailz functions and definitions
+ *
+ * @package tailz
+ */
+
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+// Carbon Fields initialization
+add_action('after_setup_theme', 'crb_load');
+function crb_load() {
+    require_once('vendor/autoload.php');
+    \Carbon_Fields\Carbon_Fields::boot();
+}
+
+add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
+function crb_attach_theme_options() {
+    Container::make( 'theme_options', __( 'Theme Options' ) )
+        ->add_fields( array(
+            Field::make( 'text', 'crb_text', 'Text Field' ),
+        ) );
+}
+
+// Grooming Services Fields
+add_action( 'carbon_fields_register_fields', 'crb_attach_grooming_fields' );
+function crb_attach_grooming_fields() {
+    Container::make( 'post_meta', 'Grooming Services' )
+        ->where( 'post_id', '=', 17 ) // Grooming page ID
+        ->add_fields( array(
+            Field::make( 'complex', 'grooming_services', 'Services' )
+                ->set_layout( 'tabbed-vertical' )
+                ->setup_labels( array(
+                    'plural_name' => 'Services',
+                    'singular_name' => 'Service'
+                ) )
+                ->add_fields( array(
+                    Field::make( 'text', 'service_title', 'Service Title' )
+                        ->set_required( true )
+                        ->set_width( 100 ),
+                    Field::make( 'textarea', 'service_description', 'Service Description' )
+                        ->set_required( true )
+                        ->set_width( 100 ),
+                    Field::make( 'complex', 'service_includes', 'Service Includes' )
+                        ->add_fields( array(
+                            Field::make( 'text', 'item', 'Include Item' )
+                                ->set_required( true )
+                        ) )
+                        ->set_header_template( '
+                            <% if (item) { %>
+                                <%- item %>
+                            <% } %>
+                        ' ),
+                    Field::make( 'complex', 'dog_prices', 'Dog Prices' )
+                        ->set_layout( 'tabbed-horizontal' )
+                        ->add_fields( array(
+                            Field::make( 'text', 'xs', 'XS Price' ),
+                            Field::make( 'text', 's', 'S Price' ),
+                            Field::make( 'text', 'm', 'M Price' ),
+                            Field::make( 'text', 'l', 'L Price' ),
+                            Field::make( 'text', 'xl', 'XL Price' ),
+                        ) ),
+                    Field::make( 'complex', 'cat_prices', 'Cat Prices' )
+                        ->set_layout( 'tabbed-horizontal' )
+                        ->add_fields( array(
+                            Field::make( 'text', 'xs', 'XS Price' ),
+                            Field::make( 'text', 's', 'S Price' ),
+                            Field::make( 'text', 'm', 'M Price' ),
+                            Field::make( 'text', 'l', 'L Price' ),
+                            Field::make( 'text', 'xl', 'XL Price' ),
+                        ) ),
+                ) ),
+            Field::make( 'complex', 'boost_menu_items', 'Boost Menu Items' )
+                ->add_fields( array(
+                    Field::make( 'text', 'item', 'Menu Item' )
+                        ->set_required( true )
+                ) )
+        ) );
+}
+
+// Training Page Metaboxes
+add_action('carbon_fields_register_fields', 'crb_training_options');
+function crb_training_options() {
+    Container::make('post_meta', 'Training Options')
+        ->where('post_id', '=', 27) // Training page ID
+        ->add_fields(array(
+            Field::make('complex', 'puppy_classes', 'Puppy Classes')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Classes',
+                    'singular_name' => 'Class'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Class Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'description', 'Description')
+                        ->add_fields(array(
+                            Field::make('textarea', 'paragraph', 'Paragraph')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (paragraph) { %>
+                                <%- paragraph.substring(0, 50) %>...
+                            <% } %>
+                        '),
+                    Field::make('complex', 'topics', 'Topics Reviewed')
+                        ->add_fields(array(
+                            Field::make('text', 'item', 'Topic')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (item) { %>
+                                <%- item %>
+                            <% } %>
+                        '),
+                    Field::make('complex', 'notes', 'Additional Notes')
+                        ->add_fields(array(
+                            Field::make('textarea', 'note', 'Note')
+                                ->set_help_text('Optional note to display below the topics')
+                        ))
+                        ->set_header_template('
+                            <% if (note) { %>
+                                <%- note.substring(0, 50) %>...
+                            <% } %>
+                        ')
+                )),
+            Field::make('complex', 'adult_classes', 'Adult Classes')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Classes',
+                    'singular_name' => 'Class'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Class Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'description', 'Description')
+                        ->add_fields(array(
+                            Field::make('textarea', 'paragraph', 'Paragraph')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (paragraph) { %>
+                                <%- paragraph.substring(0, 50) %>...
+                            <% } %>
+                        '),
+                    Field::make('complex', 'topics', 'Topics')
+                        ->add_fields(array(
+                            Field::make('text', 'item', 'Topic')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (item) { %>
+                                <%- item %>
+                            <% } %>
+                        '),
+                    Field::make('complex', 'notes', 'Additional Notes')
+                        ->add_fields(array(
+                            Field::make('textarea', 'note', 'Note')
+                                ->set_help_text('Optional note to display below the topics')
+                        ))
+                        ->set_header_template('
+                            <% if (note) { %>
+                                <%- note.substring(0, 50) %>...
+                            <% } %>
+                        ')
+                )),
+            Field::make('complex', 'growly_classes', 'Growly Dog Classes')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Classes',
+                    'singular_name' => 'Class'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Class Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('checkbox', 'is_online', 'Online Class?'),
+                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'description', 'Description')
+                        ->add_fields(array(
+                            Field::make('textarea', 'paragraph', 'Paragraph')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (paragraph) { %>
+                                <%- paragraph.substring(0, 50) %>...
+                            <% } %>
+                        '),
+                    Field::make('complex', 'topics', 'Topics')
+                        ->add_fields(array(
+                            Field::make('text', 'item', 'Topic')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (item) { %>
+                                <%- item %>
+                            <% } %>
+                        '),
+                    Field::make('complex', 'notes', 'Additional Notes')
+                        ->add_fields(array(
+                            Field::make('textarea', 'note', 'Note')
+                                ->set_help_text('Optional note to display below the topics')
+                        ))
+                        ->set_header_template('
+                            <% if (note) { %>
+                                <%- note.substring(0, 50) %>...
+                            <% } %>
+                        ')
+                )),
+            Field::make('complex', 'private_training', 'Private Training')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Training Options',
+                    'singular_name' => 'Option'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Training Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'additional_price', 'Additional Price per Session')
+                        ->set_help_text('Optional - leave blank if not applicable')
+                        ->set_width(100),
+                    Field::make('text', 'single_session_duration', 'Single Session Duration')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'single_session_price', 'Single Session Price')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'bundles', 'Session Bundles')
+                        ->add_fields(array(
+                            Field::make('text', 'sessions', 'Number of Sessions')
+                                ->set_required(true)
+                                ->set_width(50),
+                            Field::make('text', 'price', 'Bundle Price')
+                                ->set_required(true)
+                                ->set_width(50)
+                        ))
+                        ->set_header_template('
+                            <% if (sessions) { %>
+                                <%- sessions %> Sessions
+                            <% } %>
+                        '),
+                    Field::make('complex', 'notes', 'Additional Notes')
+                        ->add_fields(array(
+                            Field::make('textarea', 'note', 'Note')
+                                ->set_help_text('Optional note to display below the bundles')
+                        ))
+                        ->set_header_template('
+                            <% if (note) { %>
+                                <%- note.substring(0, 50) %>...
+                            <% } %>
+                        ')
+                )),
+            Field::make('complex', 'training_preview', 'Training Preview')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Videos',
+                    'singular_name' => 'Video'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Video Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'video_url', 'Video URL')
+                        ->set_required(true)
+                        ->set_help_text('Enter YouTube, Vimeo, or direct video URL')
+                        ->set_width(100)
+                ))
+                ->set_header_template('
+                    <% if (title) { %>
+                        <%- title %>
+                    <% } %>
+                ')
+        ));
+}
+
+// Daycare Services Fields
+add_action('carbon_fields_register_fields', 'crb_attach_daycare_fields');
+function crb_attach_daycare_fields() {
+    Container::make('post_meta', 'Daycare Services')
+        ->where('post_id', '=', 38)
+        ->add_fields(array(
+            Field::make('complex', 'daily_rates', 'Daily Rates')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Daily Rates',
+                    'singular_name' => 'Rate'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Service Title')
+                        ->set_required(true)
+                        ->set_width(70),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(30),
+                    Field::make('complex', 'notes', 'Notes')
+                        ->add_fields(array(
+                            Field::make('text', 'note', 'Note')
+                                ->set_required(true)
+                                ->set_width(100)
+                        ))
+                )),
+            Field::make('complex', 'flex_passes', 'Flex Passes')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Flex Passes',
+                    'singular_name' => 'Pass'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Service Title')
+                        ->set_required(true)
+                        ->set_width(70),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(30),
+                    Field::make('complex', 'notes', 'Notes')
+                        ->add_fields(array(
+                            Field::make('text', 'note', 'Note')
+                                ->set_required(true)
+                                ->set_width(100)
+                        ))
+                )),
+            Field::make('complex', 'monthly_play', 'Monthly Play Packages')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Monthly Packages',
+                    'singular_name' => 'Package'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Service Title')
+                        ->set_required(true)
+                        ->set_width(70),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(30),
+                    Field::make('complex', 'notes', 'Notes')
+                        ->add_fields(array(
+                            Field::make('text', 'note', 'Note')
+                                ->set_required(true)
+                                ->set_width(100)
+                        ))
+                )),
+            Field::make('complex', 'membership_perks', 'Monthly Membership Perks')
+                ->add_fields(array(
+                    Field::make('text', 'perk', 'Perk')
+                        ->set_required(true)
+                        ->set_width(100)
+                ))
+        ));
+}
+
+// Hotel Packages Fields
+add_action('carbon_fields_register_fields', 'crb_attach_hotel_fields');
+function crb_attach_hotel_fields() {
+    Container::make('post_meta', 'Hotel Packages')
+        ->where('post_id', '=', 19) // Replace with actual hotel page ID
+        ->add_fields(array(
+            Field::make('complex', 'hotel_packages', 'Hotel Packages')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Packages',
+                    'singular_name' => 'Package'
+                ))
+                ->add_fields(array(
+                    Field::make('select', 'package_type', 'Package Type')
+                        ->set_options(array(
+                            'basic' => 'Basic',
+                            'most_popular' => 'Most Popular',
+                            'best_value' => 'Best Value'
+                        ))
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'title', 'Package Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'subtitle', 'Package Subtitle')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'features', 'Features')
+                        ->add_fields(array(
+                            Field::make('text', 'feature', 'Feature')
+                                ->set_required(true)
+                                ->set_width(100)
+                        ))
+                        ->set_header_template('
+                            <% if (feature) { %>
+                                <%- feature.substring(0, 50) %>...
+                            <% } %>
+                        '),
+                    Field::make('text', 'price', 'Price per Night')
+                        ->set_required(true)
+                        ->set_width(100)
+                )),
+            Field::make('text', 'surcharge_notice', 'Surcharge Notice')
+                ->set_default_value('A $10 nightly surcharge applies for Sundays, Long Weekends and Holidays.')
+                ->set_width(100)
+        ));
+}
+
+// Exercise Page Metaboxes
+add_action('carbon_fields_register_fields', 'crb_exercise_options');
+function crb_exercise_options() {
+    Container::make('post_meta', 'Exercise Options')
+        ->where('post_id', '=', 13) // Replace with actual exercise page ID
+        ->add_fields(array(
+            Field::make('complex', 'exercise_options', 'Exercise Options')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Options',
+                    'singular_name' => 'Option'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'title', 'Title')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'duration', 'Duration (e.g., 6 weeks)')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('text', 'price', 'Price')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'description', 'Description')
+                        ->add_fields(array(
+                            Field::make('textarea', 'paragraph', 'Paragraph')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (paragraph) { %>
+                                <%- paragraph.substring(0, 50) %>...
+                            <% } %>
+                        '),
+                    Field::make('complex', 'skills', 'Skills Include')
+                        ->add_fields(array(
+                            Field::make('text', 'skill', 'Skill')
+                                ->set_required(true)
+                        ))
+                        ->set_header_template('
+                            <% if (skill) { %>
+                                <%- skill %>
+                            <% } %>
+                        '),
+                    Field::make('complex', 'notes', 'Additional Notes')
+                        ->add_fields(array(
+                            Field::make('textarea', 'note', 'Note')
+                                ->set_help_text('Optional note to display below the skills')
+                        ))
+                        ->set_header_template('
+                            <% if (note) { %>
+                                <%- note.substring(0, 50) %>...
+                            <% } %>
+                        ')
+                ))
+        ));
+}
+
+// Portrait Packages Fields
+add_action('carbon_fields_register_fields', 'crb_attach_portrait_fields');
+function crb_attach_portrait_fields() {
+    Container::make('post_meta', 'Portrait Packages')
+        ->where('post_template', '=', 'page-portraits.php')
+        ->add_fields(array(
+            Field::make('complex', 'portrait_packages', 'Portrait Packages')
+                ->set_layout('tabbed-vertical')
+                ->setup_labels(array(
+                    'plural_name' => 'Packages',
+                    'singular_name' => 'Package'
+                ))
+                ->add_fields(array(
+                    Field::make('text', 'header', 'Package Header')
+                        ->set_required(true)
+                        ->set_width(100),
+                    Field::make('complex', 'features', 'Features')
+                        ->add_fields(array(
+                            Field::make('text', 'feature', 'Feature')
+                                ->set_required(true)
+                                ->set_width(100)
+                        ))
+                        ->set_header_template('
+                            <% if (feature) { %>
+                                <%- feature %>
+                            <% } %>
+                        '),
+                    Field::make('text', 'price', 'Price per Hour')
+                        ->set_required(true)
+                        ->set_width(100)
+                ))
+        ));
+}
+
+// About Page Fields
+add_action('carbon_fields_register_fields', 'crb_attach_about_page_fields');
+function crb_attach_about_page_fields() {
+    Container::make('post_meta', 'About Page Settings')
+        ->where('post_template', '=', 'page-about-us.php')
+        ->add_fields([
+            // Story Section Bubbles
+            Field::make('separator', 'story_section_separator', 'Story Section Images')
+                ->set_classes('separator-class'),
+            
+            Field::make('image', 'tailz_shop_front_bubble', 'First Bubble')
+                ->set_value_type('url')
+                ->set_type(['image/webp'])
+                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 131x131px'),
+
+            Field::make('image', 'dog_food_bubble', 'Second Bubble')
+                ->set_value_type('url')
+                ->set_type(['image/webp'])
+                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 180x180px'),
+
+            Field::make('image', 'happy_dog_bubble', 'Third Bubble')
+                ->set_value_type('url')
+                ->set_type(['image/webp'])
+                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 180x180px'),
+
+            Field::make('image', 'cat_bubble', 'Fourth Bubble')
+                ->set_value_type('url')
+                ->set_type(['image/webp'])
+                ->set_help_text('Upload a circular image (will be cropped to circle). Recommended size: 153x153px'),
+
+            Field::make('image', 'store_front_bubble', 'Fifth Bubble')
+                ->set_value_type('url')
+                ->set_type(['image/webp'])
+                ->set_help_text('Upload a circular image (will be cropped to circle). Desktop size: 443x443px, Mobile size: 250x250px'),
+
+            // Team Section
+            Field::make('separator', 'team_section_separator', 'Team Section')
+                ->set_classes('separator-class'),
+
+            Field::make('complex', 'team_members', 'Team Members')
+                ->set_layout('tabbed-vertical')
+                ->add_fields([
+                    Field::make('image', 'photo', 'Team Member Photo')
+                        ->set_value_type('url')
+                        ->set_type(['image/webp', 'image/jpeg', 'image/png'])
+                        ->set_help_text('Upload a photo. Will be cropped to 113x130px'),
+                    Field::make('text', 'name', 'Name')
+                        ->set_help_text('Enter team member\'s first name'),
+                    Field::make('text', 'position', 'Position')
+                        ->set_help_text('Enter team member\'s position'),
+                ])
+                ->set_header_template('<%- name %>')
+        ]);
+}
+
+// Add image size for team members
+add_action('after_setup_theme', 'tailz_add_image_sizes');
+function tailz_add_image_sizes() {
+    add_image_size('team-member', 113, 130, true);
+    add_image_size('bubble-small', 131, 131, true);
+    add_image_size('bubble-medium', 180, 180, true);
+    add_image_size('bubble-large', 443, 443, true);
+}
 
 /**
  * Theme setup and initialization
@@ -126,48 +701,38 @@ add_filter('nav_menu_link_attributes', 'tailz_add_link_classes', 10, 4);
  * Enqueue page-specific scripts and styles
  */
 function tailpress_enqueue_page_assets() {
-	if (!is_page()) {
-		return;
-	}
+    if (!is_page()) {
+        return;
+    }
 
-	$page_templates = array(
-		'page-photos.php',
-		'page-hotel.php',
-		'page-grooming.php',
-		'page-exercise.php',
-		'page-training.php'
-	);
+    $page_templates = array(
+        'page-photos.php',
+        'page-hotel.php',
+        'page-grooming.php',
+        'page-exercise.php',
+        'page-training.php'
+    );
 
-	$current_template = get_page_template_slug();
-	
-	if (in_array($current_template, $page_templates)) {
-		// Enqueue universal tabs assets
-		wp_enqueue_style(
-			'tailpress-tabs-style',
-			get_template_directory_uri() . '/resources/css/tabs.css',
-			array(),
-			'1.0.0'
-		);
+    $current_template = get_page_template_slug();
+    
+    if (in_array($current_template, $page_templates)) {
+        // Enqueue universal tabs assets
+        wp_enqueue_style(
+            'tailpress-tabs-style',
+            get_template_directory_uri() . '/resources/css/tabs.css',
+            array(),
+            '1.0.0'
+        );
 
-		wp_enqueue_script(
-			'tailpress-tabs',
-			get_template_directory_uri() . '/resources/js/tabs.js',
-			array('jquery'),
-			'1.0.0',
-			true
-		);
-
-		// Enqueue grooming-specific script
-		if ($current_template === 'page-grooming.php') {
-			wp_enqueue_script(
-				'grooming-tabs',
-				get_template_directory_uri() . '/resources/js/grooming-tabs.js',
-				array('jquery'),
-				'1.0.0',
-				true
-			);
-		}
-	}
+        // Enqueue the new service-tabs.js for all service pages
+        wp_enqueue_script(
+            'service-tabs',
+            get_template_directory_uri() . '/resources/js/service-tabs.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
 
@@ -285,96 +850,3 @@ add_action('save_post', 'tailz_save_banner_meta_box');
 
 // Include the accessible menu walker
 require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
-
-/**
- * Register service pricing metaboxes based on page template
- */
-function tailz_register_service_metaboxes($meta_boxes) {
-	$template = get_page_template_slug();
-	if (strpos($template, 'page-') !== 0) {
-		return $meta_boxes;
-	}
-
-	$service_type = str_replace(['page-', '.php'], '', $template);
-	$service_titles = [
-		'grooming' => 'Grooming Services',
-		'training' => 'Training Services',
-		'exercise' => 'Exercise Services',
-		'portraits' => 'Portrait Packages'
-	];
-
-	if (!isset($service_titles[$service_type])) {
-		return $meta_boxes;
-	}
-
-	$fields = [
-		[
-			'id' => $service_type . '_service_title',
-			'name' => 'Service Title',
-			'type' => 'text',
-			'clone' => true,
-		],
-		[
-			'id' => $service_type . '_service_description',
-			'name' => 'Service Description',
-			'type' => 'textarea',
-			'clone' => true,
-		]
-	];
-
-	// Add pricing fields based on service type
-	if ($service_type === 'grooming') {
-		foreach (['dog', 'cat'] as $pet) {
-			foreach (['xs', 's', 'm', 'l', 'xl'] as $size) {
-				$fields[] = [
-					'id' => $service_type . '_' . $pet . '_' . $size,
-					'name' => ucfirst($pet) . ' ' . strtoupper($size) . ' Price',
-					'type' => 'text',
-					'clone' => true,
-				];
-			}
-		}
-	} elseif ($service_type === 'portraits') {
-		foreach (['dog', 'cat'] as $pet) {
-			$fields[] = [
-				'id' => $service_type . '_' . $pet . '_title',
-				'name' => ucfirst($pet) . ' Package Title',
-				'type' => 'text',
-				'clone' => true,
-			];
-			$fields[] = [
-				'id' => $service_type . '_' . $pet . '_price',
-				'name' => ucfirst($pet) . ' Package Price',
-				'type' => 'text',
-				'clone' => true,
-			];
-			$fields[] = [
-				'id' => $service_type . '_' . $pet . '_desc',
-				'name' => ucfirst($pet) . ' Package Description',
-				'type' => 'textarea',
-				'clone' => true,
-			];
-		}
-	} else {
-		foreach (['dog', 'cat'] as $pet) {
-			$fields[] = [
-				'id' => $service_type . '_' . $pet . '_price',
-				'name' => ucfirst($pet) . ' Price',
-				'type' => 'text',
-				'clone' => true,
-			];
-		}
-	}
-
-	$meta_boxes[] = [
-		'id' => $service_type . '_services',
-		'title' => $service_titles[$service_type],
-		'post_types' => ['page'],
-		'context' => 'normal',
-		'priority' => 'high',
-		'fields' => $fields
-	];
-
-	return $meta_boxes;
-}
-add_filter('rwmb_meta_boxes', 'tailz_register_service_metaboxes');

@@ -8,43 +8,8 @@
 
 get_header();
 
-// 1) Retrieve the cloned fields and cast to arrays.
-// fix metaboxes
-$dog_titles       = (array) rwmb_meta( 'photos_dog_title' );
-$dog_prices       = (array) rwmb_meta( 'photos_dog_price' );
-$dog_descriptions = (array) rwmb_meta( 'photos_dog_desc' );
-
-$cat_titles       = (array) rwmb_meta( 'photos_cat_title' );
-$cat_prices       = (array) rwmb_meta( 'photos_cat_price' );
-$cat_descriptions = (array) rwmb_meta( 'photos_cat_desc' );
-
-// 2) Build dog packages array
-$dog_packages = [];
-$dog_total = count( $dog_titles );
-for ( $i = 0; $i < $dog_total; $i++ ) {
-    if ( empty( $dog_titles[ $i ] ) ) {
-        continue;
-    }
-    $dog_packages[] = [
-        'title' => $dog_titles[ $i ],
-        'price' => isset( $dog_prices[ $i ] ) ? $dog_prices[ $i ] : '',
-        'desc'  => isset( $dog_descriptions[ $i ] ) ? $dog_descriptions[ $i ] : '',
-    ];
-}
-
-// 3) Build cat packages array
-$cat_packages = [];
-$cat_total = count( $cat_titles );
-for ( $i = 0; $i < $cat_total; $i++ ) {
-    if ( empty( $cat_titles[ $i ] ) ) {
-        continue;
-    }
-    $cat_packages[] = [
-        'title' => $cat_titles[ $i ],
-        'price' => isset( $cat_prices[ $i ] ) ? $cat_prices[ $i ] : '',
-        'desc'  => isset( $cat_descriptions[ $i ] ) ? $cat_descriptions[ $i ] : '',
-    ];
-}
+// Get portrait data from Carbon Fields
+$portrait_packages = carbon_get_post_meta(get_the_ID(), 'portrait_packages');
 
 /**
  * Helper function for tab content
@@ -53,7 +18,7 @@ function render_portrait_tab($animal, $packages) {
     ?>
     <div class="tab-content hidden" id="<?php echo esc_attr($animal); ?>-content">
         <div class="bg-[#F3F2EC] p-6 rounded-[20px]">
-            <div class="flex flex-col gap-6">
+            <div class="grid grid-cols-1 gap-[var(--grid-gutter-mobile)] md:grid-cols-3 md:gap-[var(--grid-gutter-desktop)]">
                 <?php foreach ($packages as $pkg) : ?>
                     <div class="bg-white rounded-[18px] p-6">
                         <h3 class="text-[22px] text-[#47423B] mb-4"><?php echo esc_html($pkg['title']); ?></h3>
@@ -95,7 +60,6 @@ function render_portrait_tab($animal, $packages) {
         </nav>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="flex flex-col gap-[40px]">
             <!-- Fur-ever captured -->
@@ -138,46 +102,30 @@ function render_portrait_tab($animal, $packages) {
             <section class="flex flex-col gap-8">
                 <h2 class="text-[44.8px] md:text-[53.8px] text-[#CB93FF] lowercase md:w-1/2">portrait packages</h2>
                 
-                <!-- Dog/Cat Tabs -->
-                <div class="tabs-container" id="portrait-tabs">
-                    <div class="tabs flex items-center gap-4 mb-4 md:w-1/2">
-                        <!-- DOG Tab -->
-                        <button class="tab-button active bg-white text-[#47423B] text-[18px] font-bold px-6 py-2 rounded-full shadow-md hover:bg-[#47423B] hover:text-white transition flex items-center gap-2 cursor-pointer" data-tab="dog">
-                            DOG
-                        </button>
-                        <!-- CAT Tab -->
-                        <button class="tab-button bg-white text-[#47423B] text-[18px] font-bold px-6 py-2 rounded-full shadow-md hover:bg-[#47423B] hover:text-white transition flex items-center gap-2 cursor-pointer" data-tab="cat">
-                            CAT
-                        </button>
-                    </div>
+                <div class="bg-[#F3F2EC] p-6 rounded-[20px]">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <?php foreach ($portrait_packages as $package) : ?>
+                            <div class="bg-white rounded-[18px] p-6">
+                                <h3 class="text-[22px] text-[#47423B] mb-4"><?php echo esc_html($package['header']); ?></h3>
+                                
+                                <ul class="space-y-3 mb-6">
+                                    <?php foreach ($package['features'] as $feature) : ?>
+                                        <li class="flex items-start">
+                                            <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+                                                <path d="M11.2135 7.42917C12.9174 6.82501 13.8259 4.90571 13.242 3.14241C12.6589 1.37966 10.8046 0.438625 9.10038 1.0429C7.39639 1.64657 6.48785 3.56576 7.0712 5.32911C7.65484 7.09295 9.50923 8.03235 11.2135 7.42917Z" fill="#2C2C2C"/>
+                                                <path d="M5.9995 12.6826V12.6832C6.97834 11.118 6.54535 9.02784 5.03366 8.01526C3.52139 7.00322 1.50211 7.45039 0.523327 9.01505V9.01565C-0.454874 10.5803 -0.0219343 12.6699 1.48981 13.6819C3.00202 14.695 5.021 14.2473 5.9995 12.6826Z" fill="#2C2C2C"/>
+                                                <path d="M18.7856 7.42922C20.4898 8.03241 22.3442 7.09301 22.9278 5.32911C23.5111 3.56581 22.6026 1.64657 20.8987 1.0429C19.1945 0.438619 17.3401 1.37972 16.757 3.14241C16.1731 4.90576 17.0817 6.82507 18.7856 7.42922Z" fill="#2C2C2C"/>
+                                                <path d="M15.001 9.08838C9.84627 9.08838 4.15858 16.4746 5.80514 21.7301C7.39488 26.8042 12.3617 24.713 15.001 24.713C17.6403 24.713 22.6071 26.8042 24.1968 21.7301C25.8434 16.4746 20.1557 9.08838 15.001 9.08838Z" fill="#2C2C2C"/>
+                                                <path d="M29.4765 9.01565V9.01505C28.4977 7.45039 26.4785 7.00321 24.9662 8.01526C23.4545 9.02784 23.0216 11.118 24.0003 12.6832V12.6826C24.9788 14.2473 26.9978 14.6951 28.51 13.6819C30.0217 12.6699 30.4547 10.5804 29.4765 9.01565Z" fill="#2C2C2C"/>
+                                            </svg>
+                                            <span class="text-[18px] text-[#2C2C2C] ml-3"><?php echo esc_html($feature['feature']); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
 
-                    <!-- Tab Content -->
-                    <div class="tab-content hidden" id="dog-content">
-                        <div class="bg-[#F3F2EC] p-6 rounded-[20px]">
-                            <div class="grid grid-cols-1 gap-[var(--grid-gutter-mobile)] md:grid-cols-3 md:gap-[var(--grid-gutter-desktop)]">
-                                <?php foreach ($dog_packages as $pkg) : ?>
-                                    <div class="bg-white rounded-[18px] p-6">
-                                        <h3 class="text-[22px] text-[#47423B] mb-4"><?php echo esc_html($pkg['title']); ?></h3>
-                                        <p class="text-[18px] text-[#2C2C2C] mb-2"><?php echo esc_html($pkg['price']); ?></p>
-                                        <p class="text-[18px] text-[#2C2C2C]"><?php echo esc_html($pkg['desc']); ?></p>
-                                    </div>
-                                <?php endforeach; ?>
+                                <p class="text-[22px] font-bold text-[#CB93FF]"><?php echo esc_html($package['price']); ?> / hour</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content hidden" id="cat-content">
-                        <div class="bg-[#F3F2EC] p-6 rounded-[20px]">
-                            <div class="grid grid-cols-1 gap-[var(--grid-gutter-mobile)] md:grid-cols-3 md:gap-[var(--grid-gutter-desktop)]">
-                                <?php foreach ($cat_packages as $pkg) : ?>
-                                    <div class="bg-white rounded-[18px] p-6">
-                                        <h3 class="text-[22px] text-[#47423B] mb-4"><?php echo esc_html($pkg['title']); ?></h3>
-                                        <p class="text-[18px] text-[#2C2C2C] mb-2"><?php echo esc_html($pkg['price']); ?></p>
-                                        <p class="text-[18px] text-[#2C2C2C]"><?php echo esc_html($pkg['desc']); ?></p>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
