@@ -10,16 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleMenu() {
         if (!mobileMenu || !mobileMenuOverlay) return;
         
-        const isOpen = mobileMenu.style.transform === 'translateX(0)';
+        // Check if menu is open by looking at the classList instead of the inline style
+        const isOpen = !mobileMenu.classList.contains('menu-closed');
         
         if (!isOpen) {
             // Opening menu
             mobileMenu.style.transform = 'translateX(0)';
+            mobileMenu.classList.remove('menu-closed');
             mobileMenuOverlay.classList.remove('hidden');
             body.classList.add('overflow-hidden');
         } else {
             // Closing menu
             mobileMenu.style.transform = 'translateX(-100%)';
+            mobileMenu.classList.add('menu-closed');
             mobileMenuOverlay.classList.add('hidden');
             body.classList.remove('overflow-hidden');
             
@@ -111,10 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Close menu on ESC key press
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu && mobileMenu.style.transform === 'translateX(0)') {
-            toggleMenu();
-        }
-    });
-}); 
+    // Add this class initially 
+    if (mobileMenu) {
+        mobileMenu.classList.add('menu-closed');
+    }
+});
