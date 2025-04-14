@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Gallery
  *
@@ -8,18 +9,19 @@
 get_header();
 
 // Banner
-get_template_part('template-parts/banner'); 
-?>
+get_template_part('template-parts/banner');
 
+// Getting the Posts
 $args = array(
     'post_type' => 'gallery-image',
     'posts_per_page' => -1,
 );
 $query = new WP_Query($args);
 ?>
+
 <div class="mx-6 my-5">
     <h2 class="lowercase text-darkbrown text-4xl py-[20px] lg:text-7xl lg:py-[60px]">A picture speaks a thousand woofs</h2>
-    <h3 class="pb-4 text-brown text-3xl lg:text-[56px]">photos</h3>
+    <h3 class="pb-8 text-brown text-3xl lg:text-[56px]">photos</h3>
     <button id="gallery-filter-btn" class="md:hidden bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue">Filter</button>
     <!-- Content -->
     <section class="md:flex md:gap-[70px]">
@@ -102,7 +104,7 @@ $query = new WP_Query($args);
         </div>
         <!-- Gallery -->
         <div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery">
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                 <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();
                         $image = get_field('image');
                         $name = get_field('name');
@@ -116,7 +118,7 @@ $query = new WP_Query($args);
                         $service = get_field('service'); // Service (Array of Term Objects)
                 ?>
 
-                        <div class="gallery-image"
+                        <div class="gallery-image break-inside-avoid overflow-hidden pb-[10px] md:pb-[20px]"
                             data-pet="<?php echo esc_attr($pet_slug); ?>"
                             data-service="<?php
 
@@ -128,7 +130,7 @@ $query = new WP_Query($args);
                                             }
                                             ?>">
                             <?php if ($image): ?>
-                                <img src="<?php echo esc_url($image); ?>" class="rounded-[18px] mb-4">
+                                <img src="<?php echo esc_url($image); ?>" class="rounded-[18px] mb-[8px]">
                             <?php endif; ?>
                             <?php if ($name): ?>
                                 <p class="font-bold text-darkbrown font-worksans text-lg lg:text-2xl"><?php echo esc_html($name); ?></p>
@@ -139,7 +141,7 @@ $query = new WP_Query($args);
                 endif; ?>
             </div>
             <!-- End of Gallery -->
-            <div class="flex items-center justify-center min-h-screen">
+            <div class="flex items-center justify-center pt-[60px] pb-[100px]">
                 <div class="text-center items-center space-y-4">
                     <svg class="inline-block" width="105" height="104" viewBox="0 0 105 104" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_2327_2377)">
