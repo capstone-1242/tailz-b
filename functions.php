@@ -13,9 +13,9 @@ if (! defined('ABSPATH')) {
 }
 
 // Define theme constants
-define( 'TAILPRESS_VERSION', '1.0.0' );
-define( 'TAILPRESS_DIR', get_template_directory() );
-define( 'TAILPRESS_URI', get_template_directory_uri() );
+define('TAILPRESS_VERSION', '1.0.0');
+define('TAILPRESS_DIR', get_template_directory());
+define('TAILPRESS_URI', get_template_directory_uri());
 
 // Include required files
 require_once TAILPRESS_DIR . '/inc/class-tailz-accessible-menu-walker.php';
@@ -156,39 +156,40 @@ add_filter('nav_menu_link_attributes', 'tailz_add_link_classes', 10, 4);
  * Enqueue page-specific scripts and styles
  */
 
-function tailpress_enqueue_page_assets() {
-    if ( ! is_page() ) {
-        return;
-    }
+function tailpress_enqueue_page_assets()
+{
+	if (! is_page()) {
+		return;
+	}
 
-    $page_templates = array(
-        'page-photos.php',
-        'page-hotel.php',
-        'page-grooming.php',
-        'page-exercise.php',
-        'page-training.php'
-    );
+	$page_templates = array(
+		'page-photos.php',
+		'page-hotel.php',
+		'page-grooming.php',
+		'page-exercise.php',
+		'page-training.php'
+	);
 
-    $current_template = get_page_template_slug();
-    
-    if ( in_array($current_template, $page_templates) ) {
-        // Enqueue universal tabs assets
-        wp_enqueue_style(
-            'tailpress-tabs-style',
-            get_template_directory_uri() . '/resources/css/tabs.css',
-            array(),
-            '1.0.0'
-        );
+	$current_template = get_page_template_slug();
 
-        // Enqueue the new service-tabs.js for all service pages
-        wp_enqueue_script(
-            'service-tabs',
-            get_template_directory_uri() . '/resources/js/service-tabs.js',
-            array('jquery'),
-            '1.0.0',
-            true
-        );
-    }
+	if (in_array($current_template, $page_templates)) {
+		// Enqueue universal tabs assets
+		wp_enqueue_style(
+			'tailpress-tabs-style',
+			get_template_directory_uri() . '/resources/css/tabs.css',
+			array(),
+			'1.0.0'
+		);
+
+		// Enqueue the new service-tabs.js for all service pages
+		wp_enqueue_script(
+			'service-tabs',
+			get_template_directory_uri() . '/resources/js/service-tabs.js',
+			array('jquery'),
+			'1.0.0',
+			true
+		);
+	}
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
 
@@ -196,9 +197,12 @@ add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
  * Handle contact form submission
  */
 
-function tailz_handle_contact_form() {
-	if ( ! isset($_POST['tailz_contact_form_nonce']) || 
-		! wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce') ) {
+function tailz_handle_contact_form()
+{
+	if (
+		! isset($_POST['tailz_contact_form_nonce']) ||
+		! wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce')
+	) {
 		wp_send_json_error('Invalid nonce');
 		return;
 	}
@@ -207,7 +211,7 @@ function tailz_handle_contact_form() {
 	$form_data = array();
 
 	foreach ($required_fields as $field) {
-		if ( empty($_POST[$field]) ) {
+		if (empty($_POST[$field])) {
 			wp_send_json_error('Please fill in all required fields');
 			return;
 		}
@@ -289,11 +293,11 @@ function tailz_banner_alert_callback($post)
 function tailz_save_banner_meta_box($post_id)
 {
 	if (
-        ! isset($_POST['tailz_banner_alert_nonce']) || 
+		! isset($_POST['tailz_banner_alert_nonce']) ||
 		! wp_verify_nonce($_POST['tailz_banner_alert_nonce'], 'tailz_banner_alert_nonce') ||
-		( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ||
+		(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) ||
 		! current_user_can('edit_post', $post_id)
-    ) {
+	) {
 		return;
 	}
 
@@ -326,3 +330,8 @@ function tailz_enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'tailz_enqueue_scripts');
 
+function tailz_add_woocommerce_support()
+{
+	add_theme_support('woocommerce');
+}
+add_action('after_setup_theme', 'tailz_add_woocommerce_support');

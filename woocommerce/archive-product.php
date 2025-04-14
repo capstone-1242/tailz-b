@@ -37,34 +37,10 @@ if ($pet_filter && in_array($pet_filter, ['dog', 'cat'])) {
 $products_query = new WP_Query($args);
 ?>
 
-<div class="container mx-auto px-4 py-4">
-    <section class="bg-gray-100 p-4 mb-6 text-center">
-        <p class="text-xl font-bold">SAVE 50%</p>
-    </section>
-
-    <!-- SHOP Heading & Pet Filter Tabs -->
-    <section class="mb-6">
-        <h1 class="text-2xl font-extrabold mb-2">SHOP</h1>
-        <!-- SHOP BY PET as tab-like links -->
-        <div class="flex items-center space-x-4">
-            <a href="<?php echo esc_url(add_query_arg('pet', 'dog')); ?>"
-                class="border border-black text-black text-sm font-bold px-4 py-2 rounded-full shadow-md transition flex items-center gap-2 <?php echo ($pet_filter === 'dog' || $pet_filter === '') ? 'bg-black text-white' : 'hover:bg-black hover:text-white'; ?>">
-                <!-- Dog Icon Placeholder -->
-                <div class="bg-gray-300 w-4 h-4"></div>
-                DOG
-            </a>
-            <a href="<?php echo esc_url(add_query_arg('pet', 'cat')); ?>"
-                class="border border-black text-black text-sm font-bold px-4 py-2 rounded-full shadow-md transition flex items-center gap-2 <?php echo ($pet_filter === 'cat') ? 'bg-black text-white' : 'hover:bg-black hover:text-white'; ?>">
-                <!-- Cat Icon Placeholder -->
-                <div class="bg-gray-300 w-4 h-4"></div>
-                CAT
-            </a>
-        </div>
-    </section>
-
+<div>
     <!-- FEATURED Section (Using the filtered query) -->
     <section class="mb-10">
-        <h2 class="text-lg font-bold mb-4">FEATURED</h2>
+        <h2 class="lowercase text-brown text-lg font-bold mb-4">FEATURED</h2>
         <div class="grid grid-cols-2 gap-4">
             <?php
             if ($products_query->have_posts()) :
@@ -101,6 +77,25 @@ $products_query = new WP_Query($args);
             endif;
             wp_reset_postdata();
             ?>
+        </div>
+    </section>
+
+    <!-- Pet Filter Tabs -->
+    <section class="bg-cream mb-6">
+        <!-- SHOP BY PET as tab-like links -->
+        <div class="flex items-center space-x-4">
+            <a href="<?php echo esc_url(add_query_arg('pet', 'dog')); ?>"
+                class="border border-black text-black text-sm font-bold px-4 py-2 rounded-full shadow-md transition flex items-center gap-2 <?php echo ($pet_filter === 'dog' || $pet_filter === '') ? 'bg-black text-white' : 'hover:bg-black hover:text-white'; ?>">
+                <!-- Dog Icon Placeholder -->
+                <div class="bg-gray-300 w-4 h-4"></div>
+                DOG
+            </a>
+            <a href="<?php echo esc_url(add_query_arg('pet', 'cat')); ?>"
+                class="border border-black text-black text-sm font-bold px-4 py-2 rounded-full shadow-md transition flex items-center gap-2 <?php echo ($pet_filter === 'cat') ? 'bg-black text-white' : 'hover:bg-black hover:text-white'; ?>">
+                <!-- Cat Icon Placeholder -->
+                <div class="bg-gray-300 w-4 h-4"></div>
+                CAT
+            </a>
         </div>
     </section>
 
