@@ -19,7 +19,22 @@ $args = array(
 $query = new WP_Query($args);
 ?>
 
-<div class="mx-[24px] my-[20px] md:mx-[40px] lg:mx-[90px] my-[30px]">
+<div class="mx-[24px] my-[20px] md:mx-[40px] lg:mx-[90px] lg:my-[30px]">
+    <!-- Breadcrumbs -->
+    <nav class="border-b-2 border-cream pb-[20px] lg:pb-[30px]" aria-label="Breadcrumb">
+        <ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
+            <li>
+                <a href="<?php echo home_url(); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
+                    Home
+                </a>
+            </li>
+            <li class="mx-2" aria-hidden="true">/</li>
+            <li aria-current="page">
+                <span class="uppercase font-bold">Gallery</span>
+            </li>
+        </ol>
+    </nav>
+    <!-- Content -->
     <h2 class="lowercase text-darkbrown text-4xl py-[20px] lg:text-7xl lg:py-[60px]">A picture speaks a thousand woofs</h2>
     <h3 class="pb-8 text-brown text-3xl lg:text-[56px]">photos</h3>
     <button id="gallery-filter-btn" class="md:hidden bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue">Filter</button>
@@ -38,7 +53,7 @@ $query = new WP_Query($args);
                 </svg>
             </div>
             <!-- By Pet -->
-            <div class="w-full border-cream border-b-2 pb-4 mb-4">
+            <div class="w-full border-cream border-b-2 pb-[20px] lg:pb-[30px] mb-[20px] mb-[30px]">
                 <h4 class="pb-4 text-brown text-[26px] lg:text-3xl">by pet</h4>
                 <!-- Dog -->
                 <div class="flex">
@@ -55,7 +70,7 @@ $query = new WP_Query($args);
                 </div>
             </div>
             <!-- By Service -->
-            <div class="border-cream border-b-2 pb-4 mb-8">
+            <div class="border-cream border-b-2 pb-[20px] lg:pb-[30px] mb-[60px]">
                 <h4 class="text-brown text-[26px] lg:text-3xl">by service</h4>
                 <div class="flex flex-col space-y-4 font-poppins">
                     <!-- Grooming -->
@@ -156,7 +171,7 @@ $query = new WP_Query($args);
                         </defs>
                     </svg>
                     <p class="text-lg">You have reached the end of our gallery!</p>
-                    <button class="bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue"><a href="index.php">Go to Homepage</a></button>
+                    <button class="bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue"><a href="<?php echo home_url(); ?>">Go to Homepage</a></button>
                 </div>
             </div>
         </div>

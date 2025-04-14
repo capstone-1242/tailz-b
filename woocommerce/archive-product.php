@@ -38,8 +38,22 @@ $products_query = new WP_Query($args);
 ?>
 
 <div class="my-[20px] lg:my-[30px]">
+    <!-- Breadcrumbs -->
+    <nav class="border-b-2 border-cream mx-[24px] lg:mx-[90px] pb-[20px] lg:pb-[30px]" aria-label="Breadcrumb">
+        <ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
+            <li>
+                <a href="<?php echo home_url(); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
+                    Home
+                </a>
+            </li>
+            <li class="mx-2" aria-hidden="true">/</li>
+            <li aria-current="page">
+                <span class="uppercase font-bold">Shop</span>
+            </li>
+        </ol>
+    </nav>
     <!-- Featured Section -->
-    <section class="px-[24px] mb-[60px] lg:px-[90px] lg:mb-[130px]">
+    <section class="px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
         <h2 class="lowercase text-brown text-4xl mb-[20px] lg:text-7xl lg:mb-[30px]">featured</h2>
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] lg:gap-[32px]">
             <?php
@@ -95,10 +109,33 @@ $products_query = new WP_Query($args);
         </div>
     </section>
 
-    <!-- SHOP ALL Section -->
+    <!-- Shop All -->
     <section class="px-[24px] mb-[60px] lg:px-[90px] lg:mb-[130px]">
         <h2 class="lowercase text-brown text-4xl mb-[20px] lg:text-7xl lg:mb-[30px]">Shop All</h2>
         <button id="shop-filter-btn" class="md:hidden bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue">Filter</button>
+        <form method="GET" class="mb-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <!-- Category Filter -->
+            <select name="product_cat" class="border rounded px-4 py-2 w-full">
+                <option value="">All Categories</option>
+                <?php
+                $terms = get_terms('product_cat');
+                foreach ($terms as $term) {
+                    echo '<option value="' . $term->slug . '">' . $term->name . '</option>';
+                }
+                ?>
+            </select>
+
+            <!-- Tag Filter -->
+            <select name="product_tag" class="border rounded px-4 py-2 w-full">
+                <option value="">All Tags</option>
+                <?php
+                $tags = get_terms('product_tag');
+                foreach ($tags as $tag) {
+                    echo '<option value="' . $tag->slug . '">' . $tag->name . '</option>';
+                }
+                ?>
+            </select>
+        </form>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php
