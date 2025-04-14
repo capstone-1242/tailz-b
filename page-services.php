@@ -13,8 +13,8 @@ get_template_part('template-parts/banner');
 ?>
 
 <!-- Breadcrumb -->
-<nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
-    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px]">
+<nav class="flex flex-col mx-6 lg:mx-[89px]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] lg:text-[16px]">
         <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
         <li><span class="text-[#47423B]">/</span></li>
         <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
