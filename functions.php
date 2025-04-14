@@ -1,17 +1,19 @@
 <?php
+
 /**
  * Tailz functions and definitions
  *
  * @package tailz
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 /**
  * Theme setup and initialization
  */
-function tailpress_setup() {
+function tailpress_setup()
+{
 	// Add theme supports
 	add_theme_support('title-tag');
 	add_theme_support('custom-logo');
@@ -46,7 +48,8 @@ add_action('after_setup_theme', 'tailpress_setup');
 /**
  * Enqueue theme assets
  */
-function tailpress_enqueue_assets() {
+function tailpress_enqueue_assets()
+{
 	$theme = wp_get_theme();
 	$timestamp = time();
 	$version = $theme->get('Version') . '.' . $timestamp;
@@ -90,7 +93,8 @@ add_action('wp_enqueue_scripts', 'tailpress_enqueue_assets');
 /**
  * Get asset path with cache busting
  */
-function tailpress_asset($path) {
+function tailpress_asset($path)
+{
 	if (wp_get_environment_type() === 'production') {
 		return get_stylesheet_directory_uri() . '/' . $path;
 	}
@@ -100,15 +104,16 @@ function tailpress_asset($path) {
 /**
  * Add custom classes to menu items
  */
-function tailz_add_menu_classes($classes, $item, $args) {
+function tailz_add_menu_classes($classes, $item, $args)
+{
 	if ($args->theme_location === 'primary') {
 		$classes[] = 'menu-item';
-		
+
 		if (in_array('menu-item-has-children', $classes)) {
 			$classes[] = 'has-submenu';
 		}
 	}
-	
+
 	return $classes;
 }
 add_filter('nav_menu_css_class', 'tailz_add_menu_classes', 10, 3);
@@ -116,10 +121,11 @@ add_filter('nav_menu_css_class', 'tailz_add_menu_classes', 10, 3);
 /**
  * Add custom classes to menu links
  */
-function tailz_add_link_classes($atts, $item, $args, $depth = 0) {
+function tailz_add_link_classes($atts, $item, $args, $depth = 0)
+{
 	if (isset($args->theme_location) && $args->theme_location === 'primary') {
 		$classes = isset($atts['class']) ? $atts['class'] : '';
-		
+
 		if ($depth === 0) {
 			$atts['class'] = $classes . ' nav-link';
 		} else {
@@ -133,48 +139,52 @@ add_filter('nav_menu_link_attributes', 'tailz_add_link_classes', 10, 4);
 /**
  * Enqueue page-specific scripts and styles
  */
-function tailpress_enqueue_page_assets() {
-    if (!is_page()) {
-        return;
-    }
+function tailpress_enqueue_page_assets()
+{
+	if (!is_page()) {
+		return;
+	}
 
-    $page_templates = array(
-        'page-photos.php',
-        'page-hotel.php',
-        'page-grooming.php',
-        'page-exercise.php',
-        'page-training.php'
-    );
+	$page_templates = array(
+		'page-photos.php',
+		'page-hotel.php',
+		'page-grooming.php',
+		'page-exercise.php',
+		'page-training.php'
+	);
 
-    $current_template = get_page_template_slug();
-    
-    if (in_array($current_template, $page_templates)) {
-        // Enqueue universal tabs assets
-        wp_enqueue_style(
-            'tailpress-tabs-style',
-            get_template_directory_uri() . '/resources/css/tabs.css',
-            array(),
-            '1.0.0'
-        );
+	$current_template = get_page_template_slug();
 
-        // Enqueue the new service-tabs.js for all service pages
-        wp_enqueue_script(
-            'service-tabs',
-            get_template_directory_uri() . '/resources/js/service-tabs.js',
-            array('jquery'),
-            '1.0.0',
-            true
-        );
-    }
+	if (in_array($current_template, $page_templates)) {
+		// Enqueue universal tabs assets
+		wp_enqueue_style(
+			'tailpress-tabs-style',
+			get_template_directory_uri() . '/resources/css/tabs.css',
+			array(),
+			'1.0.0'
+		);
+
+		// Enqueue the new service-tabs.js for all service pages
+		wp_enqueue_script(
+			'service-tabs',
+			get_template_directory_uri() . '/resources/js/service-tabs.js',
+			array('jquery'),
+			'1.0.0',
+			true
+		);
+	}
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
 
 /**
  * Handle contact form submission
  */
-function tailz_handle_contact_form() {
-	if (!isset($_POST['tailz_contact_form_nonce']) || 
-		!wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce')) {
+function tailz_handle_contact_form()
+{
+	if (
+		!isset($_POST['tailz_contact_form_nonce']) ||
+		!wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce')
+	) {
 		wp_send_json_error('Invalid nonce');
 		return;
 	}
@@ -215,9 +225,10 @@ function tailz_handle_contact_form() {
 	);
 
 	$sent = wp_mail(get_option('admin_email'), $email_subject, $email_body, $headers);
-	wp_send_json_success($sent ? 
-		'Thank you for your message. We will get back to you soon!' : 
-		'There was an error sending your message. Please try again later.'
+	wp_send_json_success(
+		$sent ?
+			'Thank you for your message. We will get back to you soon!' :
+			'There was an error sending your message. Please try again later.'
 	);
 }
 add_action('admin_post_tailz_contact_form', 'tailz_handle_contact_form');
@@ -226,7 +237,8 @@ add_action('admin_post_nopriv_tailz_contact_form', 'tailz_handle_contact_form');
 /**
  * Banner Alert Meta Box
  */
-function tailz_register_banner_meta_box() {
+function tailz_register_banner_meta_box()
+{
 	add_meta_box(
 		'tailz_banner_alert',
 		'Banner Alert',
@@ -238,12 +250,13 @@ function tailz_register_banner_meta_box() {
 }
 add_action('add_meta_boxes', 'tailz_register_banner_meta_box');
 
-function tailz_banner_alert_callback($post) {
+function tailz_banner_alert_callback($post)
+{
 	wp_nonce_field('tailz_banner_alert_nonce', 'tailz_banner_alert_nonce');
-	
+
 	$banner_text = get_post_meta($post->ID, '_tailz_banner_text', true);
 	$banner_enabled = get_post_meta($post->ID, '_tailz_banner_enabled', true);
-	?>
+?>
 	<div class="tailz-meta-box">
 		<p>
 			<label for="tailz_banner_enabled">
@@ -256,28 +269,29 @@ function tailz_banner_alert_callback($post) {
 			<input type="text" id="tailz_banner_text" name="tailz_banner_text" value="<?php echo esc_attr($banner_text); ?>" class="widefat" />
 		</p>
 	</div>
-	<?php
+<?php
 }
 
-function tailz_save_banner_meta_box($post_id) {
+function tailz_save_banner_meta_box($post_id)
+{
 	if (
-        !isset($_POST['tailz_banner_alert_nonce']) || 
+		!isset($_POST['tailz_banner_alert_nonce']) ||
 		!wp_verify_nonce($_POST['tailz_banner_alert_nonce'], 'tailz_banner_alert_nonce') ||
-		( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ||
+		(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) ||
 		!current_user_can('edit_post', $post_id)
-    ) {
+	) {
 		return;
 	}
 
 	update_post_meta(
-		$post_id, 
-		'_tailz_banner_text', 
+		$post_id,
+		'_tailz_banner_text',
 		isset($_POST['tailz_banner_text']) ? sanitize_text_field($_POST['tailz_banner_text']) : ''
 	);
 
 	update_post_meta(
-		$post_id, 
-		'_tailz_banner_enabled', 
+		$post_id,
+		'_tailz_banner_enabled',
 		isset($_POST['tailz_banner_enabled']) ? 'on' : 'off'
 	);
 }
@@ -285,3 +299,15 @@ add_action('save_post', 'tailz_save_banner_meta_box');
 
 // Include the accessible menu walker
 require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
+
+function tailz_enqueue_scripts()
+{
+	wp_enqueue_script(
+		'gallery-filter.js',
+		get_template_directory_uri() . '/resources/js/gallery-filter.js',
+		array(),
+		null,
+		true
+	);
+}
+add_action('wp_enqueue_scripts', 'tailz_enqueue_scripts');
