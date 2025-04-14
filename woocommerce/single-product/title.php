@@ -20,4 +20,4 @@ if (! defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-the_title('<h1 class="text-3xl font-bold text-brown mb-4"><?php the_title(); ?></h1>');
+the_title('<h1><?php the_title(); ?></h1>');
