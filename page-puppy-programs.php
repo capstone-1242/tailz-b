@@ -12,6 +12,18 @@ get_header();
 get_template_part('template-parts/banner');
 ?>
 
+<!-- Breadcrumb -->
+<nav class="flex flex-col mx-6 md:mx-[89px]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
+        <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><span class="font-bold text-[#615849]" aria-current="page">Puppy Programs</span></li>
+    </ol>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
+</nav>
+
 <div>
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Nurturing your pup's growth and socialization -->
@@ -26,21 +38,21 @@ get_template_part('template-parts/banner');
                 <div class="flex flex-col lg:flex-row flex-wrap gap-5 mx-6 lg:mx-[5.56rem] text-center lg:text-left items-center lg:items-start lg:justify-between">
                     <!-- Puppy preschool -->
                     <a class="lg:w-[calc(33.333333%_-_30px)] hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6A6A]" href="#puppy-preschool" aria-label="Learn more about Puppy Preschool">
-                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="Puppy in a preschool setting" width="600" height="400">
+                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-1.jpg'); ?>" alt="Puppy in a preschool setting" width="600" height="400">
                         <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy preschool</h3>
                         </div>
                     </a>
                     <!-- Puppy plus -->
                     <a class="lg:w-[calc(33.333333%_-_30px)] hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FEA91D]" href="#puppy-plus" aria-label="Learn more about Puppy Plus">
-                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="Puppy in advanced training" width="600" height="400">
+                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-2.jpg'); ?>" alt="Puppy in advanced training" width="600" height="400">
                         <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy plus</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-3/5">Puppy plus</h3>
                         </div>
                     </a>
                     <!-- Puppy daycare -->
                     <a class="lg:w-[calc(33.333333%_-_30px)] hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FCD41D]" href="#puppy-daycare" aria-label="Learn more about Puppy Daycare">
-                        <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="Puppies playing in daycare" width="600" height="400">
+                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-3.jpg'); ?>" alt="Puppies playing in daycare" width="600" height="400">
                         <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy daycare</h3>
                         </div>

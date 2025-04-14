@@ -7,9 +7,18 @@
  */
 
 get_header();
+
+// Banner
+get_template_part('template-parts/banner'); 
 ?>
 
-<?php get_template_part('template-parts/banner'); ?>
+<!-- Breadcrumb -->
+<nav class="flex flex-col mx-6 lg:mx-[89px]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] lg:text-[16px] mb-[16px] lg-[20px]">
+        <li><span class="font-bold text-[#615849]" aria-current="page">Home</span></li>
+    </ol>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
+</nav>
 
 <div>
     <div class="flex flex-col gap-[60px] lg:gap-[130px]">
@@ -19,63 +28,63 @@ get_header();
                 <h2 class="text-[44.8px] lg:text-[75.8px] text-[#47423B] lowercase">Our services</h2>
                 <!-- Deck -->
                 <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 text-center">
-                    <div>
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('grooming'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.jpg'); ?>" alt="Photo of a dog getting groomed">
                             <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Grooming</h3>
                             </div>
                         </a>
                     </div>
                     
-                    <div>
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.jpg'); ?>" alt="Photo of a dog in a playground">
                             <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Daycare</h3>
                             </div>
                         </a>
                     </div>
                     
-                    <div>
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('hotel'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.jpg'); ?>" alt="photo of a dog in a dog bed">
                             <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Hotel</h3>
                             </div>
                         </a>
                     </div>
                     
-                    <div>
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('training'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.jpg'); ?>" alt="Photo of a man training a dog">
                             <div class="bg-[#C0E333] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Training</h3>
                             </div>
                         </a>
                     </div>
                     
-                    <div>
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.jpg'); ?>" alt="Photo of a dog doing a stretch">
                             <div class="bg-[#6FDBFC] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Exercise</h3>
                             </div>
                         </a>
                     </div>
                     
-                    <div>
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('portraits'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.jpg'); ?>" alt="Portrait of a dog">
                             <div class="bg-[#CB93FF] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Portraits</h3>
                             </div>
                         </a>
                     </div>
                     
-                    <div class="col-span-2">
-                        <a href="">
-                            <img class="rounded-t-[30px] w-full" src="https://placehold.co/600x400" alt="">
+                    <div class="lg:col-start-2 col-span-2 lg:col-span-1 group">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.jpg'); ?>" alt="Photo of a file of puppies">
                             <div class="bg-[#FF8ECC] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Puppy programs</h3>
                             </div>
@@ -90,7 +99,7 @@ get_header();
             <div class="flex flex-col">
                 <div class="relative w-full h-screen max-h-[15.75rem] lg:max-h-[50rem] overflow-hidden">
                     <div class="absolute inset-0">
-                        <img src="https://placehold.co/1920x1080" alt="" class="w-full h-full object-cover">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/home-swim-banner.jpg'); ?>" alt="Dog swimming in pool" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col gap-[10px] lg:gap-[30px] absolute inset-0 mx-6 lg:mx-[89px] py-6 lg:py-[89px] justify-end">
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">New facility! New features!</h2>
@@ -173,13 +182,13 @@ get_header();
             <div class="flex flex-col">
                 <div class="relative w-full h-screen max-h-[20rem] lg:max-h-[50rem] overflow-hidden">
                     <div class="absolute inset-0">
-                        <img src="https://placehold.co/1920x1080" alt="" class="w-full h-full object-cover">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/home-newsletter-banner.jpg'); ?>" alt="Dog looking at laptop" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col gap-[10px] lg:gap-[30px] absolute inset-0 mx-6 lg:mx-[89px] py-6 lg:py-[89px] justify-end">
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
                         <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
                         <div class="rounded-[30px] border-4 border-[#FEA91D] w-fit">
-                            <input type="email" name="email" placeholder="your email address" class="py-[5px] px-[12px] focus:outline-none lg:text-[24px]">
+                            <input type="email" name="email" placeholder="your email address" class="py-[5px] px-[12px] focus:outline-none focus:border-transparent focus:ring-0 bg-transparent lg:text-[24px]">
                             <button class="lowercase hover:cursor-pointer text-[18px] lg:text-[24px] text-[#FFFFFF] bg-[#FEA91D] rounded-r-[25px] py-[5px] px-[12px] lg:py-[10px] lg:px-[55px]">Join the pack</button>
                         </div>
                     </div>
@@ -187,199 +196,6 @@ get_header();
             </div>
         </section>
     </div>
-</div>
-
-<div class="container mx-auto px-4 py-6">
-    <!-- Breadcrumb Navigation -->
-    <nav class="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="hover:text-gray-700">Home</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative w-full h-72 bg-gray-200 mb-6" aria-labelledby="hero-heading">
-        <!-- Background Image Placeholder -->
-        <div class="absolute inset-0 bg-gray-300 bg-cover bg-center">
-            <!-- Replace with an actual image when available -->
-        </div>
-        <!-- Overlay Content with Partial Transparency -->
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="bg-white bg-opacity-80 p-6 rounded-2xl shadow-lg text-center w-[90%] max-w-md">
-                <h1 id="hero-heading" class="text-2xl font-extrabold text-gray-900">WELCOME TO TAILZ</h1>
-                <p class="text-gray-700 mt-4 text-sm leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel malesuada ligula. Sed luctus nisl et justo tincidunt.
-                </p>
-                <div class="mt-6 flex justify-center gap-3">
-                    <a href="/book-now" class="border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition cursor-pointer">
-                        BOOK NOW
-                    </a>
-                    <a href="/shop" class="border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition cursor-pointer">
-                        SHOP NOW
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="mt-10 mb-6" aria-labelledby="services-heading">
-        <h2 id="services-heading" class="text-xl font-bold text-gray-900 text-center">OUR SERVICES</h2>
-        <div class="grid grid-cols-2 gap-4 mt-6">
-            <?php
-            // Services array
-            $services = [
-                [
-                    'title' => 'GROOMING',
-                    'slug'  => 'grooming',
-                ],
-                [
-                    'title' => 'DAYCARE',
-                    'slug'  => 'daycare',
-                ],
-                [
-                    'title' => 'TRAINING',
-                    'slug'  => 'training',
-                ],
-                [
-                    'title' => 'HOTEL',
-                    'slug'  => 'hotel',
-                ],
-                [
-                    'title' => 'EXERCISE',
-                    'slug'  => 'exercise',
-                ],
-                [
-                    'title' => 'PHOTOS',
-                    'slug'  => 'photos',
-                ],
-                [
-                    'title' => 'PUPPY PROGRAMS',
-                    'slug'  => 'puppy-programs',
-                ],
-            ];
-
-            foreach ($services as $index => $service): ?>
-                <div class="relative bg-gray-300 rounded-lg p-6 flex justify-center items-end h-32 <?php echo $index === count($services) - 1 ? 'col-span-2' : ''; ?>">
-                    <a href="<?php echo esc_url(home_url('/' . $service['slug'])); ?>" class="hover:text-gray-700">
-                        <?php echo esc_html($service['title']); ?>
-                    </a>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <!-- Carousel Section -->
-    <section class="relative w-full h-72 bg-gray-200 mb-6" aria-labelledby="features-heading">
-        <!-- SwiperJS or Static Image Placeholder -->
-        <div class="absolute inset-0 bg-gray-300 bg-cover bg-center">
-            <!-- Replace bg-gray with an actual image carousel later -->
-        </div>
-
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="bg-white/80 p-6 rounded-2xl shadow-lg text-center w-[90%] max-w-md">
-                <h2 id="features-heading" class="text-xl font-extrabold text-gray-900">NEW FACILITY!<br>NEW FEATURES!</h2>
-                <p class="text-gray-700 mt-4 text-sm leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel malesuada ligula. Sed luctus nisl et justo tincidunt.
-                </p>
-                <div class="mt-6">
-                    <a href="/learn-more" class="border border-black text-black text-sm font-bold px-6 py-2 rounded-full shadow-md hover:bg-black hover:text-white transition">
-                        LEARN MORE
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Carousel Dots (Static for Now) -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            <span class="w-3 h-3 bg-gray-400 rounded-full"></span>
-            <span class="w-3 h-3 bg-gray-600 rounded-full"></span>
-            <span class="w-3 h-3 bg-gray-400 rounded-full"></span>
-        </div>
-    </section>
-
-    <!-- WooCommerce Featured Products Section (Fully Setup ACF later) -->
-    <section class="container mx-auto px-4 py-10" aria-labelledby="shop-heading">
-        <h2 id="shop-heading" class="text-xl font-bold text-gray-900 text-center mb-6">OUR SHOP</h2>
-    </section>
-
-    <!-- WooCommerce Category Selection Section (Set it up with ACF later) -->
-    <section class="container mx-auto px-4 py-10" aria-labelledby="shop-by-pet-heading">
-        <h2 id="shop-by-pet-heading" class="text-lg font-bold text-gray-900 mb-4">SHOP BY PET</h2>
-
-        <!-- Go to Shop Button -->
-        <div class="flex justify-center mt-6">
-            <a href="/shop" class="bg-gray-200 text-black text-sm font-bold px-6 py-3 rounded-full shadow-md hover:bg-gray-300 transition">
-                GO TO SHOP
-            </a>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="container mx-auto px-4 py-10" aria-labelledby="gallery-heading">
-        <h2 id="gallery-heading" class="text-xl font-bold text-gray-900 text-center mb-4">GALLERY</h2>
-
-        <!-- Swiper Container -->
-        <div class="swiper gallery-slider">
-            <div class="swiper-wrapper">
-                <?php
-                // Fallback gallery content if ACF is not available
-                if (function_exists('get_field')) {
-                    $gallery_images = get_field('gallery_images');
-                    if ($gallery_images) :
-                        foreach ($gallery_images as $image) :
-                            ?>
-                            <div class="swiper-slide">
-                                <img src="<?php echo esc_url($image['url']); ?>" alt="Gallery Image" class="w-full rounded-lg shadow-lg">
-                            </div>
-                            <?php
-                        endforeach;
-                    endif;
-                } else {
-                    // Fallback content
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="w-full h-64 bg-gray-300 rounded-lg shadow-lg flex items-center justify-center">
-                            <p class="text-gray-600">Gallery images will appear here</p>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-
-        <!-- View More Photos Button -->
-        <div class="flex justify-center mt-4">
-            <a href="/gallery" class="bg-gray-200 text-black text-sm font-bold px-6 py-3 rounded-full shadow-md hover:bg-gray-300 transition">
-                VIEW MORE PHOTOS
-            </a>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup Section -->
-    <section class="w-full bg-gray-200 py-12" aria-labelledby="newsletter-heading">
-        <div class="max-w-md mx-auto text-center">
-            <h2 id="newsletter-heading" class="text-xl font-extrabold text-gray-900">
-                <?php echo function_exists('get_field') ? esc_html(get_field('newsletter_heading')) : 'SIGN UP FOR OUR NEWSLETTER!'; ?>
-            </h2>
-            <p class="text-gray-700 mt-4 text-sm leading-relaxed">
-                <?php echo function_exists('get_field') ? esc_html(get_field('newsletter_description')) : 'Stay updated with our latest news and offers.'; ?>
-            </p>
-
-            <!-- Newsletter Form -->
-            <form action="#" method="POST" class="mt-6 flex justify-center rounded bg-gray-200 p-4">
-                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required 
-                    class="w-full max-w-xs px-4 py-3 border border-gray-400 rounded-l-full text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
-                <button type="submit" class="bg-gray-600 text-white px-6 py-3 rounded-r-full font-bold hover:bg-black transition">
-                    JOIN
-                </button>
-            </form>
-        </div>
-    </section>
-
 </div>
 
 <?php get_footer(); ?>

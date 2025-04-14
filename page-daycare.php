@@ -14,7 +14,6 @@ $flex_passes_group   = get_field('flex_passes');
 $monthly_play_group  = get_field('monthly_play');
 $membership_perks_group = get_field('membership_perks');
 
-// Banner
 get_template_part('template-parts/banner');
 ?>
 
@@ -23,7 +22,19 @@ get_template_part('template-parts/banner');
   Skip to main content
 </a>
 
-<main id="main-content" class="container mx-auto px-4 sm:px-6 md:px-[90px] py-10">
+<!-- Breadcrumb -->
+<nav class="flex flex-col mx-6 md:mx-[89px]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
+        <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><span class="font-bold text-[#615849]" aria-current="page">Daycare</span></li>
+    </ol>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
+</nav>
+
+<main id="main-content" class="mx-auto px-4 sm:px-6 md:px-[90px] py-10">
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Enriching doggy daycare -->
         <section aria-labelledby="enriching-daycare-heading" role="region">
