@@ -10,10 +10,6 @@
 </head>
 
 <body <?php body_class( 'bg-white text-gray-900 antialiased font-worksans' ); ?>>
-	<!-- Accessibility: Skip to content link for keyboard users -->
-	<a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 p-4 bg-white text-blue-600 z-50">
-		Skip to content
-	</a>
 
 	<?php do_action( 'my_tailpress_theme_site_before' ); ?>
 
@@ -21,7 +17,7 @@
 
 		<?php do_action( 'my_tailpress_theme_header' ); ?>
 
-		<header class="site-header bg-[#2B3FB8] fixed top-0 left-0 right-0 w-full z-30" role="banner">
+		<header class="site-header bg-[#2B3FB8] sticky top-0 left-0 right-0 w-full z-30" role="banner">
 			<!-- Top Banner with Location -->
 			<?php 
 			$banner_enabled = get_post_meta(get_the_ID(), '_tailz_banner_enabled', true);
