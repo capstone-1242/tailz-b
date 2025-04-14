@@ -13,8 +13,8 @@ get_template_part('template-parts/banner');
 ?>
 
 <!-- Breadcrumb -->
-<nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
-    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
+<nav class="flex flex-col mx-6 lg:mx-[89px]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] lg:text-[16px] mb-[16px] lg-[20px]">
         <li><span class="font-bold text-[#615849]" aria-current="page">Home</span></li>
     </ol>
     <hr class="w-full border-t-2 border-[#F3F2EC]">
@@ -30,7 +30,7 @@ get_template_part('template-parts/banner');
                 <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 text-center">
                     <div class="group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('grooming'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.jpg'); ?>" alt="Photo of a dog getting groomed">
                             <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Grooming</h3>
                             </div>
@@ -39,7 +39,7 @@ get_template_part('template-parts/banner');
                     
                     <div class="group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.jpg'); ?>" alt="Photo of a dog in a playground">
                             <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Daycare</h3>
                             </div>
@@ -48,7 +48,7 @@ get_template_part('template-parts/banner');
                     
                     <div class="group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('hotel'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.jpg'); ?>" alt="photo of a dog in a dog bed">
                             <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Hotel</h3>
                             </div>
@@ -57,7 +57,7 @@ get_template_part('template-parts/banner');
                     
                     <div class="group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('training'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.jpg'); ?>" alt="Photo of a man training a dog">
                             <div class="bg-[#C0E333] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Training</h3>
                             </div>
@@ -66,7 +66,7 @@ get_template_part('template-parts/banner');
                     
                     <div class="group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.jpg'); ?>" alt="Photo of a dog doing a stretch">
                             <div class="bg-[#6FDBFC] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Exercise</h3>
                             </div>
@@ -75,7 +75,7 @@ get_template_part('template-parts/banner');
                     
                     <div class="group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('portraits'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px]" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.jpg'); ?>" alt="Portrait of a dog">
                             <div class="bg-[#CB93FF] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Portraits</h3>
                             </div>
@@ -84,7 +84,7 @@ get_template_part('template-parts/banner');
                     
                     <div class="lg:col-start-2 col-span-2 lg:col-span-1 group">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.jpg'); ?>" alt="">
+                            <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.jpg'); ?>" alt="Photo of a file of puppies">
                             <div class="bg-[#FF8ECC] p-[25px] rounded-b-[30px]">
                                 <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Puppy programs</h3>
                             </div>
