@@ -7,6 +7,61 @@
     width: 100%;
 }
 
+/* Add these styles to make them both sticky as a unit and fix the gap */
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.header-wrapper.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+}
+
+/* Fix the banner-header gap */
+.banner-alert + .site-header {
+    margin-top: -1px; /* Remove gap between banner and header */
+}
+
+/* Calculate banner height for different device sizes */
+.banner-alert {
+    --banner-height: 56px; /* Default (desktop) */
+}
+
+/* Adjust main content when header is sticky */
+body .header-wrapper.sticky + #content {
+    padding-top: calc(80px + var(--banner-height, 0px));
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1023px) {
+    .banner-alert {
+        --banner-height: 65px;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 639px) {
+    .banner-alert {
+        --banner-height: 90px;
+    }
+}
+
+/* Ensure no extra spacing in the main content */
+#content.site-content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* If using padding in the banner that might cause gaps */
+.banner-alert .py-3 {
+    padding-bottom: 4px; /* Slight extra padding to ensure no gap */
+}
+
 .site-logo {
     flex-shrink: 0;
 }
