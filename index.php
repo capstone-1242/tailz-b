@@ -163,22 +163,6 @@ get_template_part('template-parts/banner');
 
         <!-- New Facility Banner -->
         <section>
-            <div class="flex flex-col">
-                <div class="relative w-full h-screen max-h-[15.75rem] lg:max-h-[50rem] overflow-hidden">
-                    <div class="absolute inset-0">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/home-swim-banner.jpg'); ?>" alt="Dog swimming in pool" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col gap-[10px] lg:gap-[30px] absolute inset-0 mx-6 lg:mx-[89px] py-6 lg:py-[89px] justify-end">
-                        <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">New facility! New features!</h2>
-                        <p class="text-[#6FDBFC] text-[24px] lg:text-[42.65px] font-bold">Doggy swim!</p>
-                        <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Find out more about doggy swim on our exercise page!</p>
-                        <button class="text-[#FFFFFF] text-[18px] lg:text-[24px] bg-[#6FDBFC] py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:bg-[#5ac5e6] transition-colors">Learn more</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
             <div class="hero-banner new-facility">
                 <div class="hero-banner-content">
                     <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">New facility! New features!</h2>
