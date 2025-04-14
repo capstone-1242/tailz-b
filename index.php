@@ -111,6 +111,17 @@ get_template_part('template-parts/banner');
             </div>
         </section>
 
+        <section>
+            <div class="hero-banner new-facility">
+                <div class="hero-banner-content">
+                    <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">New facility! New features!</h2>
+                    <p class="text-[#6FDBFC] text-[24px] lg:text-[42.65px] font-bold">Doggy swim!</p>
+                    <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Find out more about doggy swim on our exercise page!</p>
+                    <button class="text-[#FFFFFF] text-[18px] lg:text-[24px] bg-[#6FDBFC] py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:bg-[#5ac5e6] transition-colors">Learn more</button>
+                </div>
+            </div>
+        </section>
+
         <!-- Pet Registration -->
         <section>
             <div class="flex flex-col">
@@ -224,14 +235,11 @@ get_template_part('template-parts/banner');
             </div>
         </section>
 
-        <!-- Newletter -->
+        <!-- Newsletter -->
         <section>
             <div class="flex flex-col">
-                <div class="relative w-full h-screen max-h-[20rem] lg:max-h-[50rem] overflow-hidden">
-                    <div class="absolute inset-0">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/images/home-newsletter-banner.jpg'); ?>" alt="Dog looking at laptop" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col gap-[10px] lg:gap-[30px] absolute inset-0 mx-6 lg:mx-[89px] py-6 lg:py-[89px] justify-end">
+                <section class="hero-banner newsletter">
+                    <div class="hero-banner-content">
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
                         <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
                         <div class="rounded-[30px] border-4 border-[#FEA91D] w-fit">
@@ -239,7 +247,7 @@ get_template_part('template-parts/banner');
                             <button class="lowercase hover:cursor-pointer text-[18px] lg:text-[24px] text-[#FFFFFF] bg-[#FEA91D] rounded-r-[25px] py-[5px] px-[12px] lg:py-[10px] lg:px-[55px]">Join the pack</button>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </section>
     </div>
