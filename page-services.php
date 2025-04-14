@@ -18,6 +18,8 @@ get_template_part('template-parts/banner');
         <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
         <li><span class="text-[#47423B]">/</span></li>
         <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+    </ol>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
 </nav>
 
 <div class="flex flex-col lg:grid lg:grid-cols-2 gap-[30px] mx-6 lg:mx-[89px] mb-6 lg:mb-[89px]">

@@ -12,6 +12,14 @@ get_header();
 get_template_part('template-parts/banner'); 
 ?>
 
+<!-- Breadcrumb -->
+<nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
+        <li><span class="font-bold text-[#615849]" aria-current="page">Home</span></li>
+    </ol>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
+</nav>
+
 <div>
     <div class="flex flex-col gap-[60px] lg:gap-[130px]">
         <!-- Our services -->
