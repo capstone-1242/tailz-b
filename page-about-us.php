@@ -6,19 +6,10 @@
  * @package tailz
  */
 get_header();
-?>
 
-<!-- Hero Section banner add-->
-<div class="bg-[#2B3FB8] py-12 md:py-20">
-  <div class="container mx-auto px-4 md:px-[90px]">
-    <h1 class="font-poppins font-bold text-[40px] md:text-[53.75px] text-white leading-tight">
-      about us
-    </h1>
-    <p class="font-worksans text-[16px] md:text-[18px] uppercase text-white mt-2 md:mt-4">
-      Our Goals - Our Story - Our Team
-    </p>
-  </div>
-</div>
+// Banner
+get_template_part('template-parts/banner'); 
+?>
 
 <!-- Breadcrumb with Separator -->
 <div class="relative">

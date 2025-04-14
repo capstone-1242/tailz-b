@@ -6,6 +6,9 @@
  */
 
 get_header();
+
+// Banner
+get_template_part('template-parts/banner'); 
 ?>
 
 <main id="primary" class="site-main">
