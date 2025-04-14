@@ -169,6 +169,11 @@ get_template_part('template-parts/banner');
         <section>
             <div class="flex flex-col gap-[20px] lg:gap-[30px]">
                 <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase mx-6 lg:mx-[89px]">Testimonials</h2>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+                    <div class="max-w-7xl mx-auto">
+                        <?php echo do_shortcode('[trustindex no-registration=google]'); ?>
+                    </div>
+                </div>
             </div>
         </section>
 
