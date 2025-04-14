@@ -1,6 +1,14 @@
 <?php
+/**
+ * Template Name: Gallery
+ *
+ * @package Tailz
+ */
+
 get_header();
-get_template_part('template-parts/banner');
+
+// Banner
+get_template_part('template-parts/banner'); 
 ?>
 
 <div class="mx-6 my-5">

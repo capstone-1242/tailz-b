@@ -6,25 +6,13 @@
  */
 
 get_header();
+
+// Banner
+get_template_part('template-parts/banner'); 
 ?>
 
 <div>
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
-        <!-- Banner -->
-        <section class="flex flex-col gap-3">
-            <div class="relative h-[15.375rem] w-full overflow-hidden">
-                <?php
-                    $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                    if($featured_image_url) : ?>
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-                    <?php endif; ?>
-                    <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                        <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                        <p class="uppercase text-white text-[18px]">Professional grooming services for your furry friend</p>
-                    </div>
-            </div>
-        </section>
-
         <!-- Introduction -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">

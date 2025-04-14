@@ -7,9 +7,10 @@
  */
 
 get_header();
-?>
 
-<?php get_template_part('template-parts/banner'); ?>
+// Banner
+get_template_part('template-parts/banner'); 
+?>
 
 <div>
     <div class="flex flex-col gap-[60px] lg:gap-[130px]">

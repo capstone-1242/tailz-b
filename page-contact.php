@@ -6,64 +6,10 @@
  * @package tailz
  */
 get_header();
+
+// Banner
+get_template_part('template-parts/banner'); 
 ?>
-
-<!-- 
-  MOBILE LAYOUT 
-  (shown on screens < md)
--->
-<div class="block md:hidden">
-  <!-- Mobile Hero banner -->
-  <section 
-    class="relative w-full bg-center bg-cover bg-no-repeat min-h-[500px] flex items-center overflow-hidden" 
-    style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/03/contact-heading.webp'); ?>'); background-position: center 20%;"
-    aria-labelledby="mobile-hero-title"
-  >
-    <!-- Dark overlay for mobile -->
-    <div class="absolute inset-0 bg-black opacity-40"></div>
-    
-    <div class="container mx-auto px-6 py-20 relative z-10">
-      <div class="max-w-[600px]">
-        <h1 id="mobile-hero-title" class="font-poppins font-bold text-[53.75px] text-white lowercase">
-          contact
-        </h1>
-        <p class="font-worksans font-normal text-[18px] uppercase text-white mt-4">
-          We'll be happy to give you a paw when you need it!
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<!-- end MOBILE layout -->
-
-<!-- 
-  DESKTOP LAYOUT 
-  (shown on screens >= md)
--->
-<div class="hidden md:block">
-  <!-- Hero section with curved design -->
-  <div class="curved-image-container">
-    <!-- Image with curved edge -->
-    <div class="curved-image" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/03/contact-heading.webp'); ?>'); background-position: center 20%;"></div>
-    
-    <!-- Content container -->
-    <div class="container mx-auto px-6 md:px-[90px] content-container">
-      <!-- Text container -->
-      <div class="max-w-[910px]">
-        <!-- 'contact' heading -->
-        <h1 id="desktop-hero-title" class="font-poppins font-bold text-[52.8px] md:text-[134.6px] leading-none lowercase text-[#2C2C2C]">
-          contact
-        </h1>
-        
-        <!-- Subheading -->
-        <p class="font-poppins font-medium text-[43.95px] leading-tight uppercase max-w-[909px] mt-[72px] text-[#47423B]">
-          We'll be happy to give you a paw when you need it!
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end DESKTOP layout -->
 
 <!-- Consolidated Breadcrumb Navigation with Bar -->
 <div class="relative">
