@@ -14,7 +14,6 @@ $flex_passes_group   = get_field('flex_passes');
 $monthly_play_group  = get_field('monthly_play');
 $membership_perks_group = get_field('membership_perks');
 
-// Banner
 get_template_part('template-parts/banner');
 ?>
 
@@ -35,7 +34,7 @@ get_template_part('template-parts/banner');
     <hr class="w-full border-t-2 border-[#F3F2EC]">
 </nav>
 
-<main id="main-content" class="container mx-auto px-4 sm:px-6 md:px-[90px] py-10">
+<main id="main-content" class="mx-auto px-4 sm:px-6 md:px-[90px] py-10">
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Enriching doggy daycare -->
         <section aria-labelledby="enriching-daycare-heading" role="region">
