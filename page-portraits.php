@@ -49,30 +49,31 @@ function render_portrait_tab($animal, $packages) {
     </div>
     <?php
 }
-
-// Banner
-get_template_part('template-parts/banner');
 ?>
 
-<div class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)]">
-    <!-- Breadcrumb -->
-    <div class="container">
-        <nav class="flex items-center space-x-2 text-[14px]" aria-label="Breadcrumb">
-            <a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#47423B]">Home</a>
-            <span class="text-[#47423B]" aria-hidden="true">/</span>
-            <a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#47423B]">Services</a>
-            <span class="text-[#47423B]" aria-hidden="true">/</span>
-            <span class="font-bold text-[#615849]" aria-current="page">Portraits</span>
-        </nav>
-    </div>
+<main class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)]">
+    <!-- Banner -->
+    <?php get_template_part('template-parts/banner'); ?>
 
-    <div class="container">
-        <div class="flex flex-col gap-[40px]">
+    <!-- Breadcrumb -->
+    <nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-[14px] md:text-[16px]">
+            <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
+            <li><span class="text-[#47423B]">/</span></li>
+            <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+            <li><span class="text-[#47423B]">/</span></li>
+            <li><span class="font-bold text-[#615849]" aria-current="page">Portraits</span></li>
+        </ol>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]">
+        <div class="flex flex-col gap-[40px] md:gap-[60px]">
             <!-- Fur-ever captured -->
             <section aria-labelledby="fur-ever-heading">
                 <div class="flex flex-col gap-5 md:w-1/2">
-                    <h2 id="fur-ever-heading" class="text-[44.8px] md:text-[53.8px] text-[#47423B] lowercase">fur-ever captured in art</h2>
-                    <p class="text-[18px] md:text-[22px] text-[#47423B]">
+                    <h2 id="fur-ever-heading" class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">fur-ever captured in art</h2>
+                    <p class="text-[16px] md:text-[18px] text-[#47423B]">
                         From mischievous grins to regal poses—your pet's personality shines in a one-of-a-kind portrait that's as unforgettable as they are!
                     </p>
                 </div>
@@ -81,14 +82,14 @@ get_template_part('template-parts/banner');
             <!-- Picture purr-fect -->
             <section aria-labelledby="purr-fect-heading">
                 <div class="flex flex-col gap-5">
-                    <h2 id="purr-fect-heading" class="text-[44.8px] md:text-[53.8px] text-[#47423B] lowercase">
+                    <h2 id="purr-fect-heading" class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">
                         picture purr-fect pet portraits from snouts to TAILZ
                     </h2>
                     <div class="flex flex-col gap-5 md:w-1/2">
                         <h3 id="studio-heading" class="text-[22px] md:text-[28px] text-[#47423B] lowercase">
                             jump into the studio with your furry friend
                         </h3>
-                        <p class="text-[18px] md:text-[22px] text-[#47423B]">
+                        <p class="text-[16px] md:text-[18px] text-[#47423B]">
                             Preserve your pet's unique personality with a professional portrait session designed to showcase their charm, energy, and quirks. Unlike smartphone snapshots, our photography service uses expert lighting, composition, and patience to create stunning, frame-worthy images you'll treasure forever.
                         </p>
                     </div>
@@ -301,6 +302,6 @@ get_template_part('template-parts/banner');
             </section>
         </div>
     </div>
-</div>
+</main>
 
 <?php get_footer(); ?>
