@@ -2,12 +2,26 @@
 /**
  * Tailz functions and definitions
  *
- * @package tailz
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package Tailz
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
+// Define theme constants
+define( 'TAILPRESS_VERSION', '1.0.0' );
+define( 'TAILPRESS_DIR', get_template_directory() );
+define( 'TAILPRESS_URI', get_template_directory_uri() );
+
+// Include required files
+require_once TAILPRESS_DIR . '/inc/class-tailz-accessible-menu-walker.php';
+require_once TAILPRESS_DIR . '/inc/class-tailz-mobile-menu-walker.php';
+
+// ACF Options and Field Groups have been removed.
+
 /**
  * Theme setup and initialization
  */
@@ -21,11 +35,13 @@ function tailpress_setup() {
 	add_theme_support('responsive-embeds');
 	add_theme_support('editor-styles');
 	add_editor_style('css/editor-style.css');
+	add_theme_support('customize-selective-refresh-widgets');
 
 	// Register navigation menus
 	register_nav_menus(
 		array(
 			'primary' => __('Primary Menu', 'tailpress'),
+			'footer'  => __('Footer Menu', 'tailpress'),
 		)
 	);
 
@@ -134,7 +150,7 @@ add_filter('nav_menu_link_attributes', 'tailz_add_link_classes', 10, 4);
  * Enqueue page-specific scripts and styles
  */
 function tailpress_enqueue_page_assets() {
-    if (!is_page()) {
+    if ( ! is_page() ) {
         return;
     }
 
@@ -148,7 +164,7 @@ function tailpress_enqueue_page_assets() {
 
     $current_template = get_page_template_slug();
     
-    if (in_array($current_template, $page_templates)) {
+    if ( in_array($current_template, $page_templates) ) {
         // Enqueue universal tabs assets
         wp_enqueue_style(
             'tailpress-tabs-style',
@@ -173,8 +189,8 @@ add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
  * Handle contact form submission
  */
 function tailz_handle_contact_form() {
-	if (!isset($_POST['tailz_contact_form_nonce']) || 
-		!wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce')) {
+	if ( ! isset($_POST['tailz_contact_form_nonce']) || 
+		! wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce') ) {
 		wp_send_json_error('Invalid nonce');
 		return;
 	}
@@ -183,7 +199,7 @@ function tailz_handle_contact_form() {
 	$form_data = array();
 
 	foreach ($required_fields as $field) {
-		if (empty($_POST[$field])) {
+		if ( empty($_POST[$field]) ) {
 			wp_send_json_error('Please fill in all required fields');
 			return;
 		}
@@ -261,10 +277,10 @@ function tailz_banner_alert_callback($post) {
 
 function tailz_save_banner_meta_box($post_id) {
 	if (
-        !isset($_POST['tailz_banner_alert_nonce']) || 
-		!wp_verify_nonce($_POST['tailz_banner_alert_nonce'], 'tailz_banner_alert_nonce') ||
+        ! isset($_POST['tailz_banner_alert_nonce']) || 
+		! wp_verify_nonce($_POST['tailz_banner_alert_nonce'], 'tailz_banner_alert_nonce') ||
 		( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) ||
-		!current_user_can('edit_post', $post_id)
+		! current_user_can('edit_post', $post_id)
     ) {
 		return;
 	}
@@ -282,6 +298,3 @@ function tailz_save_banner_meta_box($post_id) {
 	);
 }
 add_action('save_post', 'tailz_save_banner_meta_box');
-
-// Include the accessible menu walker
-require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
