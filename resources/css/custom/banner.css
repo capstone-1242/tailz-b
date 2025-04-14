@@ -2,7 +2,7 @@
 .custom-cover {
   display: flex;
   flex-direction: column;
-  min-height: 400px;
+  min-height: 300px;
   max-height: none;  
   background-image: var(--cover-img);
   background-size: cover;
@@ -23,14 +23,14 @@
 }
 
 .cover-content h1 {
-  font-size: 53.75PX;
+  font-size: clamp(3.359375rem, 2.0953rem + 7.9004vw, 8.415625rem);
   font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
   color: #fff;
 }
 
 .cover-content p {
-  font-size: 18px;
+  font-size: clamp(1.125rem, 0.7195rem + 2.5342vw, 2.746875rem);
   font-family: 'Work Sans', sans-serif;
   text-transform: uppercase;
   color: #fff;
@@ -49,11 +49,9 @@
   text-decoration: none;
   border-radius: 30px;
   margin-top: 20px;
-  /* transition: background-color 0.3s ease; */
 }
 
 .btn-cover:hover {
-  /* background-color: #e67e22; */
   box-shadow: 4px 6px 6px #2c2c2c49;
 }
 
@@ -62,7 +60,7 @@
 }
 
 .main-page-cover p:first-of-type{
-  font-size: 20px;
+  font-size: clamp(1.25rem, 0.9063rem + 2.1484vw, 2.625rem); 
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   text-transform: lowercase;
@@ -70,7 +68,7 @@
 }
 
 .main-page-cover p:nth-of-type(2){
-  font-size: 18px;
+  font-size: clamp(1.125rem, 1.0313rem + 0.5859vw, 1.5rem);  
   font-family: 'Work Sans', sans-serif;
   text-transform: none;
 }
@@ -79,7 +77,7 @@
 @media (min-width: 1000px) {
   .custom-cover {
     flex-direction: row;
-    min-height: 600px;
+    min-height: 400px;
     max-height: none;  
     background-image: none;
     background-color: #F3F2EC;
@@ -99,19 +97,15 @@
     background-image: var(--cover-img);
     background-size: cover;
     background-position: center;
-    /* clip-path: polygon(100% 0%, 0% 0% , 0.00% -2.00%, 5.00% -0.40%, 10.00% 2.01%, 15.00% 5.20%, 20.00% 9.12%, 25.00% 13.70%, 30.00% 18.87%, 35.00% 24.55%, 40.00% 30.66%, 45.00% 37.09%, 50.00% 43.74%, 55.00% 50.51%, 60.00% 57.30%, 65.00% 63.99%, 70.00% 70.47%, 75.00% 76.66%, 80.00% 82.44%, 85.00% 87.74%, 90.00% 92.46%, 95.00% 96.52%, 100.00% 99.88%); */
-
     clip-path: polygon(100% 0%, 0% 0% , 0.00% 0.04%, 2.22% 2.85%, 4.44% 6.10%, 6.67% 9.78%, 8.89% 13.84%, 11.11% 18.28%, 13.33% 23.05%, 15.56% 28.12%, 17.78% 33.45%, 20.00% 39.02%, 22.22% 44.78%, 24.44% 50.68%, 26.67% 56.70%, 28.89% 62.78%, 31.11% 68.88%, 33.33% 74.96%, 35.56% 80.98%, 37.78% 86.90%, 40.00% 92.67%, 42.22% 98.25%, 44.44% 103.61%, 46.67% 108.70%, 48.89% 113.50%, 51.11% 117.96%, 53.33% 122.06%, 55.56% 125.77%, 57.78% 129.06%, 60.00% 131.90%, 62.22% 134.29%, 64.44% 136.19%, 66.67% 137.61%, 68.89% 138.52%, 71.11% 138.92%, 73.33% 138.82%, 75.56% 138.20%, 77.78% 137.08%, 80.00% 135.46%, 82.22% 133.35%, 84.44% 130.77%, 86.67% 127.74%, 88.89% 124.27%, 91.11% 120.40%, 93.33% 116.14%, 95.56% 111.54%, 97.78% 106.61%, 100.00% 101.41%);
   }
 
   .cover-content h1 {
-    font-size: 134.65px;
     color: #47423B;
   }
   
   .cover-content p {
     color: #47423B;
-    font-size: 43.95px;
     font-family: 'Poppins', sans-serif;
   }
  
@@ -120,7 +114,6 @@
   }
 
   .main-page-cover p:first-of-type{
-    font-size: 42px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     text-transform: lowercase;
@@ -128,11 +121,8 @@
   }
 
   .main-page-cover p:nth-of-type(2){
-    font-size: 24px;
     font-family: 'Work Sans', sans-serif;
     text-transform: none;
   }
-
-
 }
   

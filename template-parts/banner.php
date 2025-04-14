@@ -35,4 +35,3 @@ $is_desktop = $form_id === 'desktop';
 
 
 
-
