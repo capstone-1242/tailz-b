@@ -31,6 +31,9 @@ if ( $pet_filter && in_array( $pet_filter, ['dog', 'cat'] ) ) {
 
 // Run the query
 $products_query = new WP_Query( $args );
+
+// Banner
+get_template_part('template-parts/banner'); 
 ?>
 
 <div class="container mx-auto px-4 py-4">

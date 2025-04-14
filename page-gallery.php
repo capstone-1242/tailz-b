@@ -1,6 +1,15 @@
 <?php
+/**
+ * Template Name: Gallery
+ *
+ * @package Tailz
+ */
+
 get_header();
-get_template_part('template-parts/banner');
+
+// Banner
+get_template_part('template-parts/banner'); 
+?>
 
 $args = array(
     'post_type' => 'gallery-image',
