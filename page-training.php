@@ -82,7 +82,7 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 </a>
 
 <!-- Breadcrumb -->
-<nav class="flex flex-col mx-6 md:mx-[89px]" aria-label="Breadcrumb">
+<nav class="flex flex-col mx-6 md:mx-[89px] my-[16px] md:my-[60px]" aria-label="Breadcrumb">
     <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
         <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
         <li><span class="text-[#47423B]">/</span></li>
