@@ -62,6 +62,21 @@ function tailpress_setup()
 add_action('after_setup_theme', 'tailpress_setup');
 
 /**
+ * ACF Options Page Setup
+ */
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(array(
+        'page_title' => 'Site Settings',
+        'menu_title' => 'Site Settings',
+        'menu_slug'  => 'site-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false,
+        'position'   => '59.5',
+        'icon_url'   => 'dashicons-admin-generic'
+    ));
+}
+
+/**
  * Enqueue theme assets
  */
 function tailpress_enqueue_assets()
