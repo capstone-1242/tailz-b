@@ -13,7 +13,7 @@ get_template_part('template-parts/banner');
 ?>
 
 <!-- Breadcrumb -->
-<nav class="flex flex-col mx-6 lg:mx-[89px]" aria-label="Breadcrumb">
+<nav class="flex flex-col mx-6 lg:mx-[89px] my-[16px] lg:my-[60px]" aria-label="Breadcrumb">
     <ol class="flex items-center space-x-2 text-[14px] lg:text-[16px] mb-[16px] lg-[20px]">
         <li><span class="font-bold text-[#615849]" aria-current="page">Home</span></li>
     </ol>
@@ -169,6 +169,44 @@ get_template_part('template-parts/banner');
         <section>
             <div class="flex flex-col gap-[20px] lg:gap-[30px]">
                 <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase mx-6 lg:mx-[89px]">Testimonials</h2>
+            </div>
+        </section>
+
+        <!-- Instagram Feed -->
+        <section>
+            <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px]">
+                <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase">Follow us for more furry fun - tips, deals, and adorable pet pics!</h2>
+                <?php
+                    $args = array(
+                        'post_type' => 'instagram_post',
+                        'posts_per_page' => 4, // Number of posts to display
+                        'orderby' => 'date',
+                        'order' => 'DESC'
+                    );
+
+                    $instagram_query = new WP_Query($args);
+
+                    if ($instagram_query->have_posts()) :
+                        echo '<div class="instagram-feed">';
+                        while ($instagram_query->have_posts()) : $instagram_query->the_post();
+                            $image_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                            $post_url = get_post_meta(get_the_ID(), 'instagram_post_url', true);
+                            ?>
+                            
+                            <div class="instagram-post">
+                                <a href="<?php echo esc_url($post_url); ?>" target="_blank">
+                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title(); ?>">
+                                </a>
+                            </div>
+                            
+                            <?php
+                        endwhile;
+                        echo '</div>';
+                        wp_reset_postdata();
+                    else :
+                        echo '<p>No Instagram posts found.</p>';
+                    endif;
+                ?>
             </div>
         </section>
 
