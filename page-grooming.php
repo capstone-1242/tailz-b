@@ -76,19 +76,7 @@ error_log('Final processed services array: ' . print_r($services_array, true));
 
 <main class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)]">
     <!-- Banner -->
-    <section class="flex flex-col gap-3" aria-label="Page banner">
-        <div class="relative h-[15.375rem] md:h-[31.25rem] w-full overflow-hidden">
-            <?php
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                if ( $featured_image_url ) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')" role="img" aria-label="<?php echo esc_attr(get_the_title()); ?> banner image"></div>
-            <?php endif; ?>
-            <div class="container flex flex-col absolute inset-0 justify-end my-[43px] md:my-[90px]">
-                <h1 class="font-poppins font-bold text-[53.75px] md:text-[120px] text-white"><?php echo esc_html(get_the_title()); ?></h1>
-                <p class="uppercase text-[18px] md:text-[22px] text-white">Pamper your pet from head to Tailz</p>
-            </div>
-        </div>
-    </section>
+    <?php get_template_part('template-parts/banner'); ?>
 
     <!-- Breadcrumb -->
     <nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
@@ -106,12 +94,12 @@ error_log('Final processed services array: ' . print_r($services_array, true));
         <div class="flex flex-col gap-[40px] md:gap-[60px]">
             <!-- Intro -->
             <section class="flex flex-col gap-5 md:gap-8 md:w-1/2" aria-labelledby="grooming-intro">
-                <h2 id="grooming-intro" class="font-poppins font-bold text-[37px] md:text-[75.8px] text-[#47423B]">Grooming to Furfection</h2>
+                <h2 id="grooming-intro" class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">Grooming to Furfection</h2>
                 <div class="flex flex-col gap-4 md:gap-6">
-                    <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">
+                    <p class="text-[16px] md:text-[18px] text-[#2C2C2C]">
                         At Tailz, we believe that grooming is more than just a bath and haircut. Our experienced pet stylists are committed to providing your furry friend with a stress-free, enjoyable experience that leaves them looking and feeling their best.
                     </p>
-                    <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">
+                    <p class="text-[16px] md:text-[18px] text-[#2C2C2C]">
                         We understand that every pet is unique, which is why we take the time to listen to your preferences and provide personalized grooming services. Whether you're looking for a simple bath and brush or a complete makeover, we'll work with you to achieve the perfect look for your pet.
                     </p>
                 </div>
@@ -119,7 +107,7 @@ error_log('Final processed services array: ' . print_r($services_array, true));
 
             <!-- Options and Prices -->
             <section class="flex flex-col gap-8 md:gap-12" aria-labelledby="grooming-options">
-                <h2 id="grooming-options" class="font-poppins font-bold text-[37px] md:text-[75.78px] text-[#FF6A6A] md:w-1/2">Options and Prices</h2>
+                <h2 id="grooming-options" class="text-[40px] md:text-[53.75px] text-[#FF6A6A] md:w-1/2">Options and Prices</h2>
                 
                 <!-- Service Tabs -->
                 <div class="flex flex-col gap-8">
