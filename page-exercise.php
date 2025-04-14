@@ -8,6 +8,9 @@
 
 get_header();
 
+// Banner
+get_template_part('template-parts/banner');
+
 // Retrieve the ACF group for exercise options.
 $exercise_options_group = get_field('exercise_options');
 
@@ -23,23 +26,20 @@ if (!empty($exercise_options_group['exercise_option_3']) && !empty($exercise_opt
 }
 ?>
 
+<!-- Breadcrumb -->
+<nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
+        <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><span class="font-bold text-[#615849]" aria-current="page">Exercise</span></li>
+    </ol>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
+</nav>
+
 <div>
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
-        <!-- Banner -->
-        <section class="flex flex-col gap-3">
-            <div class="relative h-[15.375rem] w-full overflow-hidden">
-                <?php 
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                if ($featured_image_url) : ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo esc_url($featured_image_url); ?>')"></div>
-                <?php endif; ?>
-                <div class="flex flex-col absolute inset-0 mx-6 justify-end my-[43px]">
-                    <h2 class="lowercase font-bold text-white text-[53.8px]"><?php the_title(); ?></h2>
-                    <p class="uppercase text-white text-[18px]">Unleash the fun with your dog!</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Fun and engaging classes for active dogs -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
