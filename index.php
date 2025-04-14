@@ -64,7 +64,7 @@ get_template_part('template-parts/banner');
                         </a>
                     </div>
                     
-                    <div class="group flex flex-col h-full">
+                    <div class="group flex flex-col h-full lg:h-fit">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
                             <div class="bg-[#6FDBFC] p-[25px] rounded-b-[30px] flex flex-grow">
@@ -82,7 +82,7 @@ get_template_part('template-parts/banner');
                         </a>
                     </div>
                     
-                    <div class="lg:col-start-2 col-span-2 lg:col-span-1 group flex flex-col h-full">
+                    <div class="lg:col-start-2 col-span-2 lg:col-span-1 group flex flex-col h-full lg:h-fit">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
                             <div class="bg-[#FF8ECC] p-[25px] rounded-b-[30px] flex flex-grow">
