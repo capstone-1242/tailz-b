@@ -169,13 +169,7 @@ get_template_part('template-parts/banner');
         <section>
             <div class="flex flex-col gap-[20px] lg:gap-[30px] bg-[#D9D9D9] py-[30px] px-6 lg:py-[60px] lg:px-[89px]">
                 <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase">Testimonials</h2>
-                <?php
-                    if (is_active_sidebar('fullwidth-reviews')) {
-                        echo '<div class="full-width-reviews-section">';
-                        dynamic_sidebar('fullwidth-reviews');
-                        echo '</div>';
-                    }
-                ?>
+                <?php echo do_shortcode('[trustindex no-registration=google]'); ?>
             </div>
         </section>
 
