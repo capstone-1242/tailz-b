@@ -11,37 +11,20 @@ get_header();
 get_template_part('template-parts/banner');
 ?>
 
-<!-- Consolidated Breadcrumb Navigation with Bar -->
-<div class="relative">
-  <nav class="flex flex-col mx-6 md:mx-[89px] pt-4 pb-8 md:pt-6 md:pb-12" aria-label="Breadcrumb">
-    <ol class="flex items-center text-[16px] md:text-[24px] leading-none text-[#2C2C2C]" itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="<?php echo esc_url(home_url()); ?>" class="font-poppins font-normal hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C]" itemprop="item">
-          <span itemprop="name">HOME</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li class="mx-2 font-poppins" aria-hidden="true">/</li>
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="<?php echo esc_url(home_url('/services')); ?>" class="font-poppins font-normal hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C]" itemprop="item">
-          <span itemprop="name">SERVICES</span>
-        </a>
-        <meta itemprop="position" content="2" />
-      </li>
-      <li class="mx-2 font-poppins" aria-hidden="true">/</li>
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
-        <span class="font-poppins font-bold" itemprop="name">CONTACT</span>
-        <meta itemprop="position" content="3" />
-      </li>
+<!-- Breadcrumb -->
+<nav class="flex flex-col mx-6 md:mx-[89px] my-[16px] md:my-[60px]" aria-label="Breadcrumb">
+    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg:[20px]">
+        <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
+        <li><span class="text-[#47423B]">/</span></li>
+        <li><span class="font-bold text-[#615849]" aria-current="page">Contact</span></li>
     </ol>
-  </nav>
-  
-  <!-- Subtle bar under breadcrumb -->
-  <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[3px] bg-[#F3F2EC]" aria-hidden="true"></div>
-</div>
+    <hr class="w-full border-t-2 border-[#F3F2EC]">
+</nav>
 
 <!-- Main Content -->
-<main id="main-content" class="mx-6 md:mx-[89px] py-10">
+  <main id="main-content" class="mx-6 md:mx-[89px] pt-4">
   <!-- Mobile Content -->
   <div class="block md:hidden">
     <!-- Hours -->

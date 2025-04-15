@@ -98,7 +98,7 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 		<!-- Positive training methods for positive results -->
 		<section aria-labelledby="positive-training-heading" role="region">
 			<div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-				<h2 id="positive-training-heading" class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Positive training methods for positive results</h2>
+				<h2 id="positive-training-heading" class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">Positive training methods for positive results</h2>
 				<p class="text-[18px] text-[#2C2C2C]">Humane handling and a positive approach are the foundation of our training philosophy. At Tailz, we believe in building relationships based on scientifically-backed training techniques.</p>
 				<p class="text-[18px] text-[#2C2C2C]">Having a well-trained dog is very important for your dog's safety and your own peace of mind. We provide a wide range of training options for both puppies and older dogs who need to brush up on their obedience.</p>
 				<p class="text-[18px] text-[#2C2C2C]">We teach you how to train your dog to make good choices that result in positive outcomes for your pup. The inherent nature of private lessons will help you build a stronger bond with your dog while we provide direct guidance and direction specific to your pup's needs.</p>

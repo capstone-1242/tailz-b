@@ -19,7 +19,7 @@ get_template_part('template-parts/banner');
 
 <!-- Breadcrumb -->
 <nav class="flex flex-col mx-6 md:mx-[89px] my-[16px] md:my-[60px]" aria-label="Breadcrumb">
-    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px] mb-[16px] lg-[20px]">
+    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px]">
         <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
         <li><span class="text-[#47423B]">/</span></li>
         <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
@@ -30,16 +30,16 @@ get_template_part('template-parts/banner');
 </nav>
 
 <!-- Main Content -->
-<main id="main-content" class="mx-6 md:mx-[89px] py-10">
+<main id="main-content" class="mx-6 md:mx-[89px]">
     <div class="flex flex-col gap-[60px] md:gap-[130px]">
         <!-- Enriching doggy daycare -->
         <section aria-labelledby="enriching-daycare-heading" role="region">
-            <div class="flex flex-col gap-5 md:w-2/3">
-                <h2 id="enriching-daycare-heading" class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Enriching doggy daycare</h2>
-                <p class="text-[18px] text-[#2C2C2C]">
+            <div class="flex flex-col gap-[20px] md:gap-[30px] md:w-2/3">
+                <h2 id="enriching-daycare-heading" class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">Enriching doggy daycare</h2>
+                <p class="text-[16px] md:text-[18px] text-[#2C2C2C]">
                     Our daycare program is thoughtfully designed to create a unique experience for your pup. We are different from your typical doggy daycare, and that starts first with understanding dog behavior. This allows us to create an environment in which your pup gets appropriate exercise, enrichment, socialization, and rest.
                 </p>
-                <p class="text-[18px] text-[#2C2C2C]">
+                <p class="text-[16px] md:text-[18px] text-[#2C2C2C]">
                     Our daycare schedule includes a variety of training, games, and activities specifically chosen to enrich your pet's life and ensure they have the best time.
                 </p>
             </div>

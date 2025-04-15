@@ -43,7 +43,7 @@ if (!empty($exercise_options_group['exercise_option_3']) && !empty($exercise_opt
         <!-- Fun and engaging classes for active dogs -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Fun and engaging classes for active dogs</h2>
+                <h2 class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">Fun and engaging classes for active dogs</h2>
                 <p class="text-[18px] text-[#2C2C2C]">
                     Our Sports & Games class is designed to build teamwork between you and your dog in a non-competitive setting. Over six weeks, you'll work together to navigate agility equipment, learn fun tricks, and improve focus and relaxation exercises. It's a great way for your dog to burn off energy while developing essential skills at their own pace.
                 </p>
