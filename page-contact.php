@@ -11,14 +11,9 @@ get_header();
 get_template_part('template-parts/banner');
 ?>
 
-<!-- Skip to main content link -->
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-[#2C2C2C]">
-  Skip to main content
-</a>
-
 <!-- Consolidated Breadcrumb Navigation with Bar -->
 <div class="relative">
-  <nav class="container mx-auto px-6 md:px-[90px] pt-4 pb-8 md:pt-6 md:pb-12" aria-label="Breadcrumb">
+  <nav class="flex flex-col mx-6 md:mx-[89px] pt-4 pb-8 md:pt-6 md:pb-12" aria-label="Breadcrumb">
     <ol class="flex items-center text-[16px] md:text-[24px] leading-none text-[#2C2C2C]" itemscope itemtype="https://schema.org/BreadcrumbList">
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a href="<?php echo esc_url(home_url()); ?>" class="font-poppins font-normal hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C]" itemprop="item">
@@ -46,7 +41,7 @@ get_template_part('template-parts/banner');
 </div>
 
 <!-- Main Content -->
-<main id="main-content" class="container mx-auto px-4 sm:px-6 md:px-[90px] py-10">
+<main id="main-content" class="mx-6 md:mx-[89px] py-10">
   <!-- Mobile Content -->
   <div class="block md:hidden">
     <!-- Hours -->

@@ -74,12 +74,13 @@ try {
 error_log('Final processed services array: ' . print_r($services_array, true));
 ?>
 
-<main class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)]">
     <!-- Banner -->
     <?php get_template_part('template-parts/banner'); ?>
+    
+<main class="flex flex-col gap-[var(--section-spacing-mobile)] md:gap-[var(--section-spacing-desktop)] mx-6 md:mx-[89px]">
 
     <!-- Breadcrumb -->
-    <nav class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]" aria-label="Breadcrumb">
+    <nav class="flex flex-col mx-6 md:mx-[89px]" aria-label="Breadcrumb">
         <ol class="flex items-center space-x-2 text-[14px] md:text-[16px]">
             <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
             <li><span class="text-[#47423B]">/</span></li>
@@ -90,7 +91,7 @@ error_log('Final processed services array: ' . print_r($services_array, true));
     </nav>
 
     <!-- Main Content -->
-    <div class="container mx-[var(--container-margin-mobile)] md:mx-[var(--container-margin-desktop)]">
+    <div class="mx-6 md:mx-[89px]">
         <div class="flex flex-col gap-[40px] md:gap-[60px]">
             <!-- Intro -->
             <section class="flex flex-col gap-5 md:gap-8 md:w-1/2" aria-labelledby="grooming-intro">
