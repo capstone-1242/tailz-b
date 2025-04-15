@@ -65,15 +65,15 @@ add_action('after_setup_theme', 'tailpress_setup');
  * ACF Options Page Setup
  */
 if (function_exists('acf_add_options_page')) {
-    acf_add_options_page(array(
-        'page_title' => 'Site Settings',
-        'menu_title' => 'Site Settings',
-        'menu_slug'  => 'site-settings',
-        'capability' => 'edit_posts',
-        'redirect'   => false,
-        'position'   => '59.5',
-        'icon_url'   => 'dashicons-admin-generic'
-    ));
+	acf_add_options_page(array(
+		'page_title' => 'Site Settings',
+		'menu_title' => 'Site Settings',
+		'menu_slug'  => 'site-settings',
+		'capability' => 'edit_posts',
+		'redirect'   => false,
+		'position'   => '59.5',
+		'icon_url'   => 'dashicons-admin-generic'
+	));
 }
 
 /**
@@ -333,7 +333,7 @@ add_action('save_post', 'tailz_save_banner_meta_box');
 // Include the accessible menu walker
 require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
 
-function tailz_enqueue_scripts()
+function tailz_enqueue_gallery_scripts()
 {
 	wp_enqueue_script(
 		'gallery-filter.js',
@@ -343,10 +343,95 @@ function tailz_enqueue_scripts()
 		true
 	);
 }
-add_action('wp_enqueue_scripts', 'tailz_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'tailz_enqueue_gallery_scripts');
 
 function tailz_add_woocommerce_support()
 {
 	add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'tailz_add_woocommerce_support');
+
+
+function tailz_enqueue_ajax_filter_script()
+{
+	wp_enqueue_script('ajax-filters', get_template_directory_uri() . '/resources/js/ajax-filters.js', ['jquery'], null, true);
+
+	wp_localize_script('ajax-filters', 'theme_vars', [
+		'ajax_url' => admin_url('admin-ajax.php'),
+	]);
+}
+add_action('wp_enqueue_scripts', 'tailz_enqueue_ajax_filter_script');
+
+function tailz_ajax_product_filter()
+{
+	// Pull in your filtering logic here (same as what you're using in archive-product.php)
+	// Example:
+	$pet_filter = $_GET['pets'] ?? [];
+	$brand_filter = $_GET['brands'] ?? [];
+	$food_filter = $_GET['foods'] ?? [];
+	$treat_filter = $_GET['treats'] ?? [];
+	$supply_filter = $_GET['supplies'] ?? [];
+
+	$tax_query = [];
+
+	if (!empty($pet_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'product_cat',
+			'field'    => 'slug',
+			'terms'    => $pet_filter,
+		];
+	}
+
+	if (!empty($brand_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'product_brand',
+			'field'    => 'slug',
+			'terms'    => $brand_filter,
+		];
+	}
+
+	if (!empty($food_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'food',
+			'field'    => 'slug',
+			'terms'    => $food_filter,
+		];
+	}
+
+	if (!empty($treat_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'treat',
+			'field'    => 'slug',
+			'terms'    => $treat_filter,
+		];
+	}
+
+	if (!empty($supply_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'supply',
+			'field'    => 'slug',
+			'terms'    => $supply_filter,
+		];
+	}
+
+	$args = [
+		'post_type'      => 'product',
+		'posts_per_page' => -1,
+		'post_status'    => 'publish',
+		'tax_query'      => count($tax_query) > 1 ? array_merge(['relation' => 'AND'], $tax_query) : $tax_query,
+	];
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) :
+		while ($query->have_posts()) : $query->the_post();
+			wc_get_template_part('content', 'product');
+		endwhile;
+	else :
+		echo '<p class="text-brown">No products found.</p>';
+	endif;
+
+	wp_die();
+}
+add_action('wp_ajax_filter_products', 'tailz_ajax_product_filter');
+add_action('wp_ajax_nopriv_filter_products', 'tailz_ajax_product_filter');
