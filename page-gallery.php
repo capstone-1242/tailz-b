@@ -38,7 +38,7 @@ $query = new WP_Query($args);
     <h2 class="lowercase text-darkbrown text-4xl py-[20px] lg:text-7xl lg:py-[60px]">A picture speaks a thousand woofs</h2>
     <h3 class="pb-8 text-brown text-3xl lg:text-[56px]">photos</h3>
     <button id="gallery-filter-btn" class="md:hidden bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue">Filter</button>
-    <!-- Content -->
+    <!-- Filter and Shop -->
     <section class="md:flex md:gap-[70px]">
         <!-- Filters -->
         <div id="filter-menu" class="hidden md:block min-w-[300px]">
