@@ -282,3 +282,126 @@
     text-align: center;
   }
 }
+
+/* Hero Banner */
+.newsletter {
+  --banner-img: url('/wp-content/themes/tailz-b/img/home-newsletter-banner.webp');
+}
+
+.new-facility{
+  --banner-img: url('/wp-content/themes/tailz-b/img/home-swim-banner.webp');
+}
+
+
+.hero-banner {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  max-height: none;  
+  background-image: var(--banner-img);
+  background-size: cover;
+  background-position: center;
+  color: #F3F2EC;
+  align-items: stretch;
+}
+
+.hero-banner-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(26, 26, 26, 0.574);
+  padding: 20px;
+  height: 100%;
+}
+
+.hero-banner-content h2 {
+  font-size: clamp(2.3125rem, 1.4263rem + 2.2154vw, 3.553125rem);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero-banner-content p {
+  font-size: clamp(1.125rem, 0.8571rem + 0.6696vw, 1.5rem);  
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hero-banner button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+.new-facility button{
+  font-size: 18px;
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 26px;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+.new-facility p:first-of-type{
+  color: #6FDBFC !important;
+}
+
+.new-facility button{
+  background-color: #6FDBFC !important;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .hero-banner {
+    flex-direction: row;
+    min-height: 400px;
+    max-height: none;  
+    background-image: none;
+    background-color: #F3F2EC;
+  }
+
+  .hero-banner-content {
+    background-color: #F3F2EC;
+    color: #2c2c2c;
+    padding: 30px 0 20px 90px;
+    justify-content: center;
+  }
+
+  .hero-banner::after {
+    content: '';
+    flex: 1;
+    background-color: #F3F2EC;
+    background-image: var(--banner-img);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(100% 0%, 0% 0% , 0.00% 0.04%, 2.22% 2.85%, 4.44% 6.10%, 6.67% 9.78%, 8.89% 13.84%, 11.11% 18.28%, 13.33% 23.05%, 15.56% 28.12%, 17.78% 33.45%, 20.00% 39.02%, 22.22% 44.78%, 24.44% 50.68%, 26.67% 56.70%, 28.89% 62.78%, 31.11% 68.88%, 33.33% 74.96%, 35.56% 80.98%, 37.78% 86.90%, 40.00% 92.67%, 42.22% 98.25%, 44.44% 103.61%, 46.67% 108.70%, 48.89% 113.50%, 51.11% 117.96%, 53.33% 122.06%, 55.56% 125.77%, 57.78% 129.06%, 60.00% 131.90%, 62.22% 134.29%, 64.44% 136.19%, 66.67% 137.61%, 68.89% 138.52%, 71.11% 138.92%, 73.33% 138.82%, 75.56% 138.20%, 77.78% 137.08%, 80.00% 135.46%, 82.22% 133.35%, 84.44% 130.77%, 86.67% 127.74%, 88.89% 124.27%, 91.11% 120.40%, 93.33% 116.14%, 95.56% 111.54%, 97.78% 106.61%, 100.00% 101.41%);
+  }
+
+  .hero-banner-content h2 {
+    color: #47423B;
+  }
+  
+  .hero-banner-content p {
+    color: #47423B;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .new-facility p:first-of-type{
+    color: #2B3FB8 !important;
+  }
+  
+  .new-facility button{
+    font-size: 26px;
+  }
+
+  .new-facility button{
+    background-color: #2B3FB8 !important;
+  }
+
+}
