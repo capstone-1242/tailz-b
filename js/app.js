@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -6,9 +6,13 @@
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
-/***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nError: It looks like you're trying to use `tailwindcss` directly as a PostCSS plugin. The PostCSS plugin has moved to a separate package, so to continue using Tailwind CSS with PostCSS you'll need to install `@tailwindcss/postcss` and update your PostCSS configuration.\n    at ze (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\tailwindcss\\dist\\lib.js:36:1984)\n    at LazyResult.runOnRoot (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\postcss\\lib\\lazy-result.js:361:16)\n    at LazyResult.runAsync (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\postcss\\lib\\lazy-result.js:290:26)\n    at LazyResult.async (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\postcss\\lib\\lazy-result.js:192:30)\n    at LazyResult.then (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\postcss\\lib\\lazy-result.js:436:17)\n    at processResult (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\webpack\\lib\\NormalModule.js:917:19)\n    at C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\webpack\\lib\\NormalModule.js:1065:5\n    at C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\JoshS\\Downloads\\NAIT\\capstone\\tailz-b\\node_modules\\postcss-loader\\dist\\index.js:142:7)");
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -108,17 +112,146 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /******/ 	});
 /************************************************************************/
+
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/app": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunktailpress"] = self["webpackChunktailpress"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_modules__["./resources/js/app.js"]();
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./resources/css/app.css"]();
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=app.js.map
-=======
-(()=>{var e,t={547:()=>{},988:()=>{document.addEventListener("DOMContentLoaded",(function(){var e,t=document.querySelector(".login-signup-popup"),o=document.querySelector(".login-signup-close");function n(){t&&(t.classList.add("opacity-0"),setTimeout((function(){t.classList.add("pointer-events-none")}),300),sessionStorage.setItem("loginPopupClosed","true"))}sessionStorage.getItem("loginPopupClosed")||setTimeout((function(){t&&!sessionStorage.getItem("loginPopupClosed")&&(t.classList.remove("pointer-events-none"),t.classList.remove("opacity-0"),setTimeout(n,5e3))}),500),window.addEventListener("scroll",(function(){!t||t.classList.contains("opacity-0")||sessionStorage.getItem("loginPopupClosed")||(clearTimeout(e),e=setTimeout(n,150))}),{passive:!0}),o&&o.addEventListener("click",(function(e){e.preventDefault(),n()})),document.addEventListener("keydown",(function(e){"Escape"===e.key&&t&&!t.classList.contains("opacity-0")&&n()}))})),document.addEventListener("DOMContentLoaded",(function(){var e=document.querySelector(".video-carousel");if(e){var t=e.querySelectorAll(".carousel-item"),o=document.querySelector(".carousel-prev"),n=document.querySelector(".carousel-next"),s=0;o&&o.addEventListener("click",(function(){i(s=(s-1+t.length)%t.length)})),n&&n.addEventListener("click",(function(){i(s=(s+1)%t.length)}))}function i(e){t.forEach((function(e){return e.classList.remove("active")})),t[e].classList.add("active")}}))}},o={};function n(e){var s=o[e];if(void 0!==s)return s.exports;var i=o[e]={exports:{}};return t[e](i,i.exports,n),i.exports}n.m=t,e=[],n.O=(t,o,s,i)=>{if(!o){var r=1/0;for(u=0;u<e.length;u++){for(var[o,s,i]=e[u],c=!0,a=0;a<o.length;a++)(!1&i||r>=i)&&Object.keys(n.O).every((e=>n.O[e](o[a])))?o.splice(a--,1):(c=!1,i<r&&(r=i));if(c){e.splice(u--,1);var l=s();void 0!==l&&(t=l)}}return t}i=i||0;for(var u=e.length;u>0&&e[u-1][2]>i;u--)e[u]=e[u-1];e[u]=[o,s,i]},n.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={847:0,252:0};n.O.j=t=>0===e[t];var t=(t,o)=>{var s,i,[r,c,a]=o,l=0;if(r.some((t=>0!==e[t]))){for(s in c)n.o(c,s)&&(n.m[s]=c[s]);if(a)var u=a(n)}for(t&&t(o);l<r.length;l++)i=r[l],n.o(e,i)&&e[i]&&e[i][0](),e[i]=0;return n.O(u)},o=self.webpackChunktailpress=self.webpackChunktailpress||[];o.forEach(t.bind(null,0)),o.push=t.bind(null,o.push.bind(o))})(),n.O(void 0,[252],(()=>n(988)));var s=n.O(void 0,[252],(()=>n(547)));s=n.O(s)})();
->>>>>>> 4b6fe8654c8e1b37600b817a41f591689427e0b8
