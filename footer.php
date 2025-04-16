@@ -1,191 +1,258 @@
-</main>
-
-<?php do_action('my_tailpress_theme_content_end'); ?>
-
-</div>
-
-<?php do_action('my_tailpress_theme_content_after'); ?>
-
 <footer id="colophon" class="site-footer m-0 p-0" role="contentinfo">
-	<?php do_action('my_tailpress_theme_footer'); ?>
+    <?php do_action('my_tailpress_theme_footer'); ?>
 
-	<!-- Top Call-to-Action Section -->
-	<section aria-label="Call-to-Action" class="bg-white py-6">
-		<div class="container mx-auto px-4">
-			<h2 class="font-poppins font-bold text-[75.78px] text-[#FEA91D] md:text-left text-center lowercase">
-				stop in at tailz
-			</h2>
-		</div>
-	</section>
+    <!-- Top Call-to-Action Section -->
+    <section aria-label="Call-to-Action" class="bg-white py-6">
+        <div class="container mx-auto px-6 sm:px-4">
+            <h2 class="font-poppins font-bold text-[38px] sm:text-[55px] md:text-[75.78px] md:text-left text-center lowercase text-[#FEA91D]">
+                stop in at tailz
+            </h2>
+        </div>
+    </section>
 
-	<!-- Footer Information Section (Hours, Address & Map) -->
-	<section aria-label="Footer Information" class="bg-[#FEA91D]">
-		<div class="container mx-auto px-4 py-16">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-				<!-- Hours & Address -->
-				<div class="flex flex-col gap-16">
-					<!-- Hours -->
-					<section aria-labelledby="hours-heading">
-						<h3 id="hours-heading" class="font-poppins font-bold text-[42.65px] text-white lowercase mb-8">hours</h3>
-						<div class="font-worksans text-[31.99px] text-white">
-							<dl class="space-y-4">
-								<div class="flex justify-between items-center">
-									<dt class="flex-1">Monday - Friday</dt>
-									<dd class="flex-1 text-right">6:30 AM - 7 PM</dd>
-								</div>
-								<div class="flex justify-between items-center">
-									<dt class="flex-1">Saturday</dt>
-									<dd class="flex-1 text-right">10 AM - 6 PM</dd>
-								</div>
-								<div class="flex justify-between items-center">
-									<dt class="flex-1">Sunday</dt>
-									<dd class="flex-1 text-right">CLOSED</dd>
-								</div>
-							</dl>
-						</div>
-					</section>
+    <!-- Footer Information Section (Hours, Address & Map) -->
+    <section aria-label="Footer Information" class="bg-[#FEA91D]">
+        <div class="container mx-auto px-6 sm:px-4 py-8 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                <!-- Hours & Address -->
+                <div class="md:flex md:justify-between p-4 md:p-6">
+                    <!-- Hours -->
+                    <section aria-labelledby="hours-heading" class="mb-8 md:mb-0 md:flex-1 md:pr-16">
+                        <h3 id="hours-heading" class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase mb-4 md:mb-6">hours</h3>
+                        <div class="font-worksans text-[22px] sm:text-[26px] md:text-[28px] text-white">
+                            <dl class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <dt class="mr-10">Monday - Friday</dt>
+                                    <dd class="text-right whitespace-nowrap">6:30 AM - 7 PM</dd>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <dt class="mr-10">Saturday</dt>
+                                    <dd class="text-right whitespace-nowrap">10 AM - 6 PM</dd>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <dt class="mr-10">Sunday</dt>
+                                    <dd class="text-right whitespace-nowrap">CLOSED</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </section>
 
-					<!-- Address -->
-					<section aria-labelledby="address-heading">
-						<h3 id="address-heading" class="font-poppins font-bold text-[42.65px] text-white lowercase mb-8">address</h3>
-						<address class="font-worksans text-[31.99px] not-italic text-white space-y-2">
-							12004 111 Ave NW<br>
-							Edmonton, AB T5G 0E6<br>
-							Canada
-						</address>
-					</section>
-				</div>
+                    <!-- Address -->
+                    <section aria-labelledby="address-heading" class="md:flex-1">
+                        <h3 id="address-heading" class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase mb-4 md:mb-6">address<span class="hidden md:inline"> (old)</span></h3>
+                        <address class="font-worksans text-[22px] sm:text-[26px] md:text-[28px] not-italic text-white space-y-3">
+                            12004 111 Ave NW<br>
+                            Edmonton, AB T5G 0E6<br>
+                            Canada
+                        </address>
+                    </section>
+                </div>
 
-				<!-- Google Map - Responsive -->
-				<div class="w-full">
-					<div class="w-full aspect-[779/358]">
-						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1922.9597619688468!2d-113.52907477517583!3d53.561621584151794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a023c6693a924b%3A0x3d62cc652cdd68b4!2s11204%20119%20St%20NW%2C%20Edmonton%2C%20AB%20T5G%202X3!5e1!3m2!1sen!2sca!4v1741293696592!5m2!1sen!2sca"
-							width="100%"
-							height="100%"
-							style="border:0;"
-							allowfullscreen=""
-							loading="lazy"
-							referrerpolicy="no-referrer-when-downgrade"
-							title="Tailz Location on Google Maps"
-							aria-label="Interactive map showing Tailz location"
-							class="w-full h-full object-cover rounded-lg"></iframe>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                <!-- Google Map - Responsive -->
+                <div class="w-full px-0 md:px-6">
+                    <div class="w-full aspect-[4/3] md:aspect-[779/358] rounded-lg overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1922.9597619688468!2d-113.52907477517583!3d53.561621584151794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a023c6693a924b%3A0x3d62cc652cdd68b4!2s11204%20119%20St%20NW%2C%20Edmonton%2C%20AB%20T5G%202X3!5e1!3m2!1sen!2sca!4v1741293696592!5m2!1sen!2sca"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Tailz Location on Google Maps"
+                            aria-label="Interactive map showing Tailz location"
+                            class="w-full h-full object-cover"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- Main Footer Navigation & Social Section -->
-	<section aria-label="Footer Navigation" class="bg-[#2B3FB8] text-white py-16">
-		<div class="container mx-auto px-4">
-			<div class="grid md:grid-cols-[300px_1fr] gap-x-32">
-				<!-- Logo and Social - Left Column -->
-				<div class="mb-12 md:mb-0">
-					<?php if (has_custom_logo()) : ?>
-						<?php the_custom_logo(); ?>
-					<?php else : ?>
-						<a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> - Home">
-							<img
-								src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/Tailz-Logo.webp"
-								alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo"
-								class="h-16"
-								width="200"
-								height="64"
-								loading="lazy">
-						</a>
-					<?php endif; ?>
+    <!-- Main Footer Navigation & Social Section -->
+    <section aria-label="Footer Navigation" class="bg-[#2B3FB8] text-white py-8 md:py-16">
+        <div class="container mx-auto px-6 sm:px-4">
+            <!-- Mobile Logo (centered) -->
+            <div class="flex justify-center mb-8 md:hidden">
+                <?php if (has_custom_logo()) : ?>
+                    <?php the_custom_logo(); ?>
+                <?php else : ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> - Home">
+                        <img
+                            src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/Tailz-Logo.webp"
+                            alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo"
+                            class="h-16"
+                            width="200"
+                            height="64"
+                            loading="lazy">
+                    </a>
+                <?php endif; ?>
+            </div>
+            
+            <!-- Mobile Social Icons (centered) -->
+            <div class="flex justify-center gap-8 mb-10 md:hidden">
+                <a href="https://www.instagram.com/tailz_yeg" aria-label="Follow us on Instagram" class="text-white hover:text-[#FEA91D] transition-colors p-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.332.013 7.052.072 3.694.272.272 3.694.072 7.052.013 8.332 0 8.741 0 12s.013 3.668.072 4.948c.2 3.358 3.622 6.78 6.98 6.98C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c3.358-.2 6.78-3.622 6.98-6.98.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948C23.728 3.622 20.306.2 16.948 0 15.668.013 15.259 0 12 0zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.882 0 1.44 1.44 0 012.882 0z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/Tailz_YEG" aria-label="Follow us on Facebook" class="text-white hover:text-[#FEA91D] transition-colors p-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M9 8H6v4h3v12h5V12h3.642l.358-4H14V5.333C14 4.397 14.192 4 15.115 4H18V0h-3.808C10.596 0 9 1.79 9 4.667V8z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/tailz_yeg" aria-label="Follow us on Twitter X" class="text-white hover:text-[#FEA91D] transition-colors p-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.38 8.54 8.54 0 01-2.72 1.04 4.29 4.29 0 00-7.31 3.91A12.16 12.16 0 013 4.79a4.28 4.28 0 001.33 5.72 4.27 4.27 0 01-1.94-.54v.05a4.29 4.29 0 003.44 4.2 4.3 4.3 0 01-1.93.07 4.29 4.29 0 004 2.98A8.6 8.6 0 012 19.54a12.14 12.14 0 006.56 1.92c7.87 0 12.18-6.53 12.18-12.18l-.01-.56A8.67 8.67 0 0024 4.59a8.55 8.55 0 01-2.54.7z"/>
+                    </svg>
+                </a>
+            </div>
 
-					<!-- Social Media Icons -->
-					<nav aria-label="Social media links" class="mt-8">
-						<div class="flex gap-6">
-							<a href="https://www.instagram.com/tailz_yeg" aria-label="Follow us on Instagram" class="text-white hover:text-[#FEA91D] transition-colors">
-								<svg width="32" height="32" viewBox="0 0 36 35" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-									<path d="M18 0C13.2509 0 12.6538 0.021875 10.7878 0.105C8.92188 0.1925 7.65094 0.485625 6.5375 0.91875C5.36903 1.35696 4.31093 2.04618 3.43781 2.93781C2.54618 3.81093 1.85696 4.86903 1.41875 6.0375C0.985625 7.14875 0.690313 8.42188 0.605 10.2812C0.521875 12.1516 0.5 12.7466 0.5 17.5022C0.5 22.2534 0.521875 22.8484 0.605 24.7144C0.6925 26.5781 0.985625 27.8491 1.41875 28.9625C1.86719 30.1131 2.46438 31.0887 3.43781 32.0622C4.40906 33.0356 5.38469 33.635 6.53531 34.0812C7.65094 34.5144 8.91969 34.8097 10.7834 34.895C12.6516 34.9781 13.2466 35 18 35C22.7534 35 23.3463 34.9781 25.2144 34.895C27.0759 34.8075 28.3512 34.5144 29.4647 34.0812C30.6324 33.6428 31.6897 32.9535 32.5622 32.0622C33.5356 31.0887 34.1328 30.1131 34.5812 28.9625C35.0122 27.8491 35.3075 26.5781 35.395 24.7144C35.4781 22.8484 35.5 22.2534 35.5 17.5C35.5 12.7466 35.4781 12.1516 35.395 10.2834C35.3075 8.42188 35.0122 7.14875 34.5812 6.0375C34.143 4.86903 33.4538 3.81093 32.5622 2.93781C31.6891 2.04618 30.631 1.35696 29.4625 0.91875C28.3469 0.485625 27.0737 0.190313 25.2122 0.105C23.3441 0.021875 22.7513 0 17.9956 0H18Z"/>
-								</svg>
-							</a>
-							<a href="https://www.facebook.com/Tailz_YEG" aria-label="Follow us on Facebook" class="text-white hover:text-[#FEA91D] transition-colors">
-								<svg width="32" height="32" viewBox="0 0 36 35" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-									<path d="M35.5 17.6072C35.5 7.88155 27.6644 -0.00219727 18 -0.00219727C8.33126 -9.76562e-06 0.495636 7.88155 0.495636 17.6094C0.495636 26.3966 6.89626 33.6809 15.2613 35.0022V22.6975H10.8206V17.6094H15.2656V13.7266C15.2656 9.31437 17.8797 6.87749 21.8763 6.87749C23.7925 6.87749 25.7941 7.22093 25.7941 7.22093V11.5522H23.5869C21.4147 11.5522 20.7366 12.9106 20.7366 14.3041V17.6072H25.5884L24.8141 22.6953H20.7344V35C29.0994 33.6787 35.5 26.3944 35.5 17.6072Z"/>
-								</svg>
-							</a>
-							<a href="https://x.com/tailz_yeg" aria-label="Follow us on Twitter X" class="text-white hover:text-[#FEA91D] transition-colors">
-								<svg width="32" height="32" viewBox="0 0 36 33" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-									<path d="M28.0625 0.640625H33.4306L21.7056 14.0763L35.5 32.3594H24.7003L16.2413 21.2688L6.56156 32.3594H1.19125L13.7322 17.9875L0.5 0.640625H11.5753L19.2206 10.7753L28.0625 0.640625Z"/>
-								</svg>
-							</a>
-						</div>
-					</nav>
-				</div>
+            <div class="md:grid md:grid-cols-[250px_1fr] md:gap-16 items-start">
+                <!-- Desktop Logo and Social - Left Column (hidden on mobile) -->
+                <div class="hidden md:block">
+                    <?php if (has_custom_logo()) : ?>
+                        <?php the_custom_logo(); ?>
+                    <?php else : ?>
+                        <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?> - Home">
+                            <img
+                                src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/Tailz-Logo.webp"
+                                alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo"
+                                class="h-16"
+                                width="200"
+                                height="64"
+                                loading="lazy">
+                        </a>
+                    <?php endif; ?>
 
-				<!-- Navigation Grid - Right Column -->
-				<div class="grid grid-cols-2 gap-x-32">
-					<!-- What We Offer Section -->
-					<section aria-labelledby="services-heading">
-						<h2 id="services-heading" class="font-worksans text-[31.99px] text-white mb-8 lowercase">what we offer</h2>
+                    <!-- Social Media Icons -->
+                    <nav aria-label="Social media links" class="mt-8">
+                        <div class="flex gap-6">
+                            <a href="https://www.instagram.com/tailz_yeg" aria-label="Follow us on Instagram" class="text-white hover:text-[#FEA91D] transition-colors p-2">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.332.013 7.052.072 3.694.272.272 3.694.072 7.052.013 8.332 0 8.741 0 12s.013 3.668.072 4.948c.2 3.358 3.622 6.78 6.98 6.98C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c3.358-.2 6.78-3.622 6.98-6.98.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948C23.728 3.622 20.306.2 16.948 0 15.668.013 15.259 0 12 0zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.882 0 1.44 1.44 0 012.882 0z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/Tailz_YEG" aria-label="Follow us on Facebook" class="text-white hover:text-[#FEA91D] transition-colors p-2">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M9 8H6v4h3v12h5V12h3.642l.358-4H14V5.333C14 4.397 14.192 4 15.115 4H18V0h-3.808C10.596 0 9 1.79 9 4.667V8z"/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/tailz_yeg" aria-label="Follow us on Twitter X" class="text-white hover:text-[#FEA91D] transition-colors p-2">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.38 8.54 8.54 0 01-2.72 1.04 4.29 4.29 0 00-7.31 3.91A12.16 12.16 0 013 4.79a4.28 4.28 0 001.33 5.72 4.27 4.27 0 01-1.94-.54v.05a4.29 4.29 0 003.44 4.2 4.3 4.3 0 01-1.93.07 4.29 4.29 0 004 2.98A8.6 8.6 0 012 19.54a12.14 12.14 0 006.56 1.92c7.87 0 12.18-6.53 12.18-12.18l-.01-.56A8.67 8.67 0 0024 4.59a8.55 8.55 0 01-2.54.7z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
 
-						<!-- Services Column -->
-						<nav aria-labelledby="services-list-heading">
-							<h3 id="services-list-heading" class="font-worksans font-bold text-[24px] text-white uppercase mb-4">
-								<a href="<?php echo esc_url(home_url('/services')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">SERVICES</a>
-							</h3>
-							<ul class="font-worksans text-[24px] uppercase space-y-3 text-white">
-								<li><a href="<?php echo esc_url(home_url('/grooming')); ?>" class="hover:text-[#FEA91D] transition-colors">GROOMING</a></li>
-								<li><a href="<?php echo esc_url(home_url('/daycare')); ?>" class="hover:text-[#FEA91D] transition-colors">DAYCARE</a></li>
-								<li><a href="<?php echo esc_url(home_url('/hotel')); ?>" class="hover:text-[#FEA91D] transition-colors">HOTEL</a></li>
-								<li><a href="<?php echo esc_url(home_url('/training')); ?>" class="hover:text-[#FEA91D] transition-colors">TRAINING</a></li>
-								<li><a href="<?php echo esc_url(home_url('/exercise')); ?>" class="hover:text-[#FEA91D] transition-colors">EXERCISE</a></li>
-								<li><a href="<?php echo esc_url(home_url('/portraits')); ?>" class="hover:text-[#FEA91D] transition-colors">PORTRAITS</a></li>
-								<li><a href="<?php echo esc_url(home_url('/puppy-programs')); ?>" class="hover:text-[#FEA91D] transition-colors">PUPPY PROGRAMS</a></li>
-							</ul>
-						</nav>
+                <!-- Mobile Menu Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Mobile What We Offer Column -->
+                    <div>
+                        <h2 class="font-worksans text-[24px] md:text-[31.99px] text-white mb-6 md:mb-8 lowercase pb-4 border-b border-white/40">what we offer</h2>
+                        
+                        <!-- Services & Shop Grid (side by side on mobile) -->
+                        <div class="grid grid-cols-2 gap-6 md:gap-4">
+                            <!-- Services Section -->
+                            <div>
+                                <h3 class="font-worksans font-bold text-[20px] md:text-[24px] text-white uppercase mb-4 md:mb-4">
+                                    <a href="<?php echo esc_url(home_url('/services')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">SERVICES</a>
+                                </h3>
+                                <ul class="font-worksans text-[18px] md:text-[24px] uppercase space-y-4 md:space-y-3 text-white">
+                                    <li><a href="<?php echo esc_url(home_url('/grooming')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">GROOMING</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/daycare')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">DAYCARE</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/hotel')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">HOTEL</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/training')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">TRAINING</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/exercise')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">EXERCISE</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/portraits')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">PORTRAITS</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/puppy-programs')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">PUPPY PROGRAMS</a></li>
+                                </ul>
+                            </div>
 
-						<!-- Shop Column -->
-						<nav aria-labelledby="shop-list-heading" class="mt-8">
-							<h3 id="shop-list-heading" class="font-worksans font-bold text-[24px] text-white uppercase mb-4">
-								<a href="<?php echo esc_url(home_url('/shop')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">SHOP</a>
-							</h3>
-							<ul class="font-worksans text-[24px] uppercase space-y-3 text-white">
-								<li><a href="<?php echo esc_url(home_url('/shop/dog')); ?>" class="hover:text-[#FEA91D] transition-colors">DOG</a></li>
-								<li><a href="<?php echo esc_url(home_url('/shop/cat')); ?>" class="hover:text-[#FEA91D] transition-colors">CAT</a></li>
-							</ul>
-						</nav>
-					</section>
+                            <!-- Shop Section -->
+                            <div>
+                                <h3 class="font-worksans font-bold text-[20px] md:text-[24px] text-white uppercase mb-4 md:mb-4">
+                                    <a href="<?php echo esc_url(home_url('/shop')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">SHOP</a>
+                                </h3>
+                                <ul class="font-worksans text-[18px] md:text-[24px] uppercase space-y-4 md:space-y-3 text-white">
+                                    <li><a href="<?php echo esc_url(home_url('/shop/dog')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">DOG</a></li>
+                                    <li><a href="<?php echo esc_url(home_url('/shop/cat')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">CAT</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-					<!-- Who We Are Section -->
-					<section aria-labelledby="about-heading">
-						<h2 id="about-heading" class="font-worksans text-[31.99px] text-white mb-8 lowercase">who we are</h2>
+                    <!-- Mobile Who We Are Column -->
+                    <div class="mt-8 md:mt-0">
+                        <h2 class="font-worksans text-[24px] md:text-[31.99px] text-white mb-6 md:mb-8 lowercase pb-4 border-b border-white/40">who we are</h2>
+                        
+                        <!-- About/Gallery + Contact Grid (side by side) -->
+                        <div class="grid grid-cols-2 gap-6 md:gap-4">
+                            <!-- About/Gallery Section -->
+                            <div>
+                                <h3 class="font-worksans font-bold text-[20px] md:text-[24px] text-white uppercase mb-4 md:mb-4">
+                                    <a href="<?php echo esc_url(home_url('/about')); ?>" class="text-white hover:text-[#FEA91D] transition-colors block py-1">ABOUT US</a>
+                                </h3>
+                                <h3 class="font-worksans font-bold text-[20px] md:text-[24px] text-white uppercase mb-3 mt-6 md:mb-4 md:mt-8">
+                                    <a href="<?php echo esc_url(home_url('/gallery')); ?>" class="text-white hover:text-[#FEA91D] transition-colors block py-1">GALLERY</a>
+                                </h3>
+                            </div>
 
-						<nav aria-labelledby="about-list-heading">
-							<h3 id="about-list-heading" class="font-worksans font-bold text-[24px] text-white uppercase mb-4">
-								<a href="<?php echo esc_url(home_url('/about')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">ABOUT US</a>
-							</h3>
-							<h3 class="font-worksans font-bold text-[24px] text-white uppercase mb-4 mt-8">
-								<a href="<?php echo esc_url(home_url('/gallery')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">GALLERY</a>
-							</h3>
-						</nav>
-					</section>
-				</div>
-			</div>
-		</div>
-	</section>
+                            <!-- Contact Section -->
+                            <div>
+                                <h3 class="font-worksans font-bold text-[20px] md:text-[24px] text-white uppercase mb-4 md:mb-4">CONTACT</h3>
+                                <!-- Phone -->
+                                <div class="flex items-center gap-3 mb-4">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="flex-shrink-0">
+                                        <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2a9 9 0 00-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z"/>
+                                    </svg>
+                                    <a href="tel:7809880089" class="font-worksans text-[18px] md:text-[24px] hover:text-[#FEA91D] transition-colors">780 988 0089</a>
+                                </div>
+                                <!-- Email -->
+                                <div class="flex items-center gap-3 mb-5">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="flex-shrink-0">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    <a href="mailto:tailz@gmail.com" class="font-worksans text-[18px] md:text-[24px] hover:text-[#FEA91D] transition-colors break-all">tailz@gmail.com</a>
+                                </div>
+                                <!-- Contact Page Button -->
+                                <a href="<?php echo esc_url(home_url('/contact')); ?>" 
+                                   class="inline-block bg-[#FEA91D] text-white font-worksans font-normal text-base py-3 px-6 rounded-[20px] hover:bg-[#e0881a] transition-colors">
+                                    contact page
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- Bottom Footer Section -->
-	<div class="bg-[#1E2B79] text-white py-4">
-		<div class="container mx-auto px-4">
-			<div class="flex md:justify-start justify-center items-center space-x-6">
-				<span class="font-worksans text-base">© <?php echo date("Y"); ?> <span class="font-bold">TAILZ</span></span>
-				<span class="text-gray-300">|</span>
-				<a href="<?php echo esc_url(home_url('/terms')); ?>" class="font-worksans text-base hover:text-[#FEA91D] transition-colors">Terms of Use</a>
-				<span class="text-gray-300">|</span>
-				<a href="<?php echo esc_url(home_url('/privacy')); ?>" class="font-worksans text-base hover:text-[#FEA91D] transition-colors">Privacy Policy</a>
-			</div>
-		</div>
-	</div>
+    <!-- Bottom Footer Section -->
+    <div class="bg-[#1E2B79] text-white py-6">
+        <div class="container mx-auto px-6 sm:px-4">
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-4 md:gap-6">
+                <span class="font-worksans text-base">© <?php echo date("Y"); ?> <span class="font-bold">TAILZ</span></span>
+                <div class="flex gap-4 sm:gap-6 items-center">
+                    <span class="text-gray-300 hidden sm:inline">|</span>
+                    <a href="<?php echo esc_url(home_url('/terms')); ?>" class="font-worksans text-base hover:text-[#FEA91D] transition-colors py-1 px-2">Terms of Use</a>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
+                    <a href="<?php echo esc_url(home_url('/privacy')); ?>" class="font-worksans text-base hover:text-[#FEA91D] transition-colors py-1 px-2">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
 
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-8 right-8 z-50 p-3 bg-[#47423B] text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-[#2C2C2C] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#47423B]">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+    <span class="sr-only">Back to top</span>
+</button>
+
 <?php wp_footer(); ?>
-
 </body>
-
 </html>
