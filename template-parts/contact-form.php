@@ -12,18 +12,19 @@ $form_id = isset($args['form_id']) ? $args['form_id'] : 'default';
 $is_desktop = $form_id === 'desktop';
 ?>
 
-<div class="relative bg-[#F3F2EC] rounded-[30px] p-8 md:p-12">
-  <!-- Form Title -->
-  <h2 class="font-poppins font-bold <?php echo $is_desktop ? 'text-[42.65px]' : 'text-[28px]'; ?> text-[#47423B] mb-8">
-    Send us an email
-  </h2>
-
-  <!-- Clear Button -->
+<!-- Update container: extra top padding on mobile (pt-20) ensures the heading stays below the clear button -->
+<div class="relative bg-[#F3F2EC] rounded-[30px] pt-20 pb-8 px-4 sm:px-6 md:p-12">
+  <!-- Clear Button (always absolutely positioned in the container) -->
   <button type="button" 
     onclick="document.getElementById('contact-form-<?php echo $form_id; ?>').reset();"
     class="absolute top-8 right-8 <?php echo $is_desktop ? 'font-poppins text-[20px] font-normal' : 'font-worksans text-[16px] uppercase'; ?> text-[#000000] hover:opacity-80 transition-opacity">
     Clear
   </button>
+
+  <!-- Form Title (the extra top padding now pushes this below the clear button) -->
+  <h2 class="font-poppins font-bold <?php echo $is_desktop ? 'text-[42.65px]' : 'text-[28px]'; ?> text-[#47423B] mb-8">
+    Send us an email
+  </h2>
 
   <form 
     id="contact-form-<?php echo $form_id; ?>" 

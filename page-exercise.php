@@ -43,7 +43,7 @@ if (!empty($exercise_options_group['exercise_option_3']) && !empty($exercise_opt
         <!-- Fun and engaging classes for active dogs -->
         <section>
             <div class="flex flex-col mx-6 md:mx-[89px] gap-5 md:w-2/3">
-                <h2 class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Fun and engaging classes for active dogs</h2>
+                <h2 class="text-[40px] md:text-[53.75px] text-[#47423B] lowercase">Fun and engaging classes for active dogs</h2>
                 <p class="text-[18px] text-[#2C2C2C]">
                     Our Sports & Games class is designed to build teamwork between you and your dog in a non-competitive setting. Over six weeks, you'll work together to navigate agility equipment, learn fun tricks, and improve focus and relaxation exercises. It's a great way for your dog to burn off energy while developing essential skills at their own pace.
                 </p>
@@ -151,35 +151,35 @@ if (!empty($exercise_options_group['exercise_option_3']) && !empty($exercise_opt
                 <h2 class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
 
                 <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can any dog join these classes?</h3>
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Can any dog join these classes?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Yes! Both the Sports & Games and Nosework classes are open to dogs who have completed any Tailz class. Dogs must be comfortable in a group setting and able to work on basic obedience.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What is the age requirement for these classes?</h3>
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What is the age requirement for these classes?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         The Sports & Games class is for dogs 9 months and older, while the Nosework Games class is for dogs 8 months and older. If you have a puppy, we recommend starting with our Puppy Development program first.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do I need to have prior experience with dog training?</h3>
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Do I need to have prior experience with dog training?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         No prior experience is necessary! These classes are designed to be fun and beginner-friendly while also helping to improve your training skills.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What if my dog doesn't enjoy the activities?</h3>
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What if my dog doesn't enjoy the activities?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         We tailor activities to meet your dog's individual needs and pace. If at any time your dog is feeling overwhelmed, our trainers will work with you to adjust the exercises and ensure they're comfortable.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I join the class with my dog?</h3>
+                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Can I join the class with my dog?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Yes! These classes are designed for you to participate alongside your dog. You'll work together as a team, helping to strengthen your bond and enhance your dog's skills.
                     </p>

@@ -27,132 +27,132 @@ get_template_part('template-parts/banner');
             <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px]">
                 <h2 class="text-[44.8px] lg:text-[75.8px] text-[#47423B] lowercase">Our services</h2>
                 <!-- Deck -->
-                <div class="lg:hidden grid grid-cols-2 gap-4 lg:grid-cols-3 text-center">
+                <div class="2xl:hidden grid grid-cols-2 gap-4 lg:grid-cols-3 text-center">
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('grooming'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.webp'); ?>" alt="Photo of a dog getting groomed">
+                            <img class="rounded-t-[30px] w-full object-cover aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.webp'); ?>" alt="Photo of a dog getting groomed">
                             <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Grooming</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Grooming</h3>
                             </div>
                         </a>
                     </div>
                     
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.webp'); ?>" alt="Photo of a dog in a playground">
+                            <img class="rounded-t-[30px] w-full object-cover aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.webp'); ?>" alt="Photo of a dog in a playground">
                             <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Daycare</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Daycare</h3>
                             </div>
                         </a>
                     </div>
                     
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('hotel'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.webp'); ?>" alt="photo of a dog in a dog bed">
+                            <img class="rounded-t-[30px] w-full object-cover aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.webp'); ?>" alt="photo of a dog in a dog bed">
                             <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Hotel</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Hotel</h3>
                             </div>
                         </a>
                     </div>
                     
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('training'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.webp'); ?>" alt="Photo of a man training a dog">
+                            <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.webp'); ?>" alt="Photo of a man training a dog">
                             <div class="bg-[#C0E333] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Training</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Training</h3>
                             </div>
                         </a>
                     </div>
                     
                     <div class="group flex flex-col h-full lg:h-fit">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
+                            <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
                             <div class="bg-[#6FDBFC] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Exercise</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Exercise</h3>
                             </div>
                         </a>
                     </div>
                     
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('portraits'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.webp'); ?>" alt="Portrait of a dog">
+                            <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.webp'); ?>" alt="Portrait of a dog">
                             <div class="bg-[#CB93FF] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Portraits</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Portraits</h3>
                             </div>
                         </a>
                     </div>
                     
                     <div class="lg:col-start-2 col-span-2 lg:col-span-1 group flex flex-col h-full lg:h-fit">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                            <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
+                            <img class="rounded-t-[30px] w-full object-cover overflow-hidden aspect-[1/0.5] lg:aspect-square" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
                             <div class="bg-[#FF8ECC] p-[25px] rounded-b-[30px] flex flex-grow">
-                                <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Puppy programs</h3>
+                                <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Puppy programs</h3>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="hidden lg:flex flex-col gap-4">
-                    <div class="grid grid-cols-3 text-center">
+                <div class="hidden 2xl:flex flex-col gap-4">
+                    <div class="grid grid-cols-3 text-center gap-4">
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('grooming'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.webp'); ?>" alt="Photo of a dog getting groomed">
+                                <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.1] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-grooming-photo.webp'); ?>" alt="Photo of a dog getting groomed">
                                 <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Grooming</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Grooming</h3>
                                 </div>
                             </a>
                         </div>
                         
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.webp'); ?>" alt="Photo of a dog in a playground">
+                                <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.1] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.webp'); ?>" alt="Photo of a dog in a playground">
                                 <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Daycare</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Daycare</h3>
                                 </div>
                             </a>
                         </div>
                         
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('hotel'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.webp'); ?>" alt="photo of a dog in a dog bed">
+                                <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.1] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.webp'); ?>" alt="photo of a dog in a dog bed">
                                 <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Hotel</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Hotel</h3>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="grid grid-cols-5 text-center">
+                    <div class="grid grid-cols-5 text-center gap-4">
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('training'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.webp'); ?>" alt="Photo of a man training a dog">
+                                <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.webp'); ?>" alt="Photo of a man training a dog">
                                 <div class="bg-[#C0E333] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Training</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Training</h3>
                                 </div>
                             </a>
                         </div>
                         
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
+                                <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
                                 <div class="bg-[#6FDBFC] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Exercise</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Exercise</h3>
                                 </div>
                             </a>
                         </div>
                         
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('portraits'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.webp'); ?>" alt="Portrait of a dog">
+                                <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.webp'); ?>" alt="Portrait of a dog">
                                 <div class="bg-[#CB93FF] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Portraits</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Portraits</h3>
                                 </div>
                             </a>
                         </div>
                         
-                        <div class="lg:col-start-2 col-span-2 lg:col-span-1 group flex flex-col h-full">
+                        <div class="col-span-2 group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
-                                <img class="rounded-t-[30px] w-full aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
+                                <img class="rounded-t-[30px] w-full object-cover overflow-hidden lg:aspect-[1/0.492]" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
                                 <div class="bg-[#FF8ECC] p-[25px] rounded-b-[30px] flex flex-grow">
-                                    <h3 class="lowercase text-[26px] lg:text-[56.8px] text-[#47423B]">Puppy programs</h3>
+                                    <h3 class="lowercase text-[clamp(26px,5vw,56.8px)] text-[#47423B]">Puppy programs</h3>
                                 </div>
                             </a>
                         </div>
@@ -162,7 +162,7 @@ get_template_part('template-parts/banner');
         </section>
 
         <!-- New Facility Banner -->
-        <section>
+       <section>
             <div class="hero-banner new-facility">
                 <div class="hero-banner-content">
                     <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">New facility! New features!</h2>
@@ -180,7 +180,7 @@ get_template_part('template-parts/banner');
                 <div class="flex flex-col py-6 lg:py-[60px] px-6 lg:px-[89px] bg-[#2B3FB8] gap-[30px] lg:gap-[40px]">
                     <div class="text-[#FFFFFF] flex flex-col gap-[20px] lg:gap-[30px]">
                         <h3 class="text-[clamp(31px,3.5vw,56.8px)] lowercase">We welcome all new furry friends!</h3>
-                        <p class="text-[clamp(18px,1.8vw,32px)]">Register your cat or dog today for our <span class="underline">Daycare</span> & <span class="underline">Puppy Programs</span> and enjoy quicker bookings for all of ours services - their profile will be ready whenever you need us!</p>
+                        <p class="text-[clamp(18px,1.8vw,32px)]">Register your cat or dog today for our <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="underline">Daycare</a> & <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="underline">Puppy Programs</a> and enjoy quicker bookings for all of ours services - their profile will be ready whenever you need us!</p>
                     </div>
                     <div class="flex flex-col gap-[20px] lg:gap-[30px]">
                         <h3 class="text-[clamp(31px,3.5vw,56.8px)] lowercase text-[#FFFFFF]">Gain rewards</h3>
@@ -202,21 +202,51 @@ get_template_part('template-parts/banner');
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-[10px] p-[5px] p-[25px] border-4 border-[#FEA91D] rounded-[30px] 2xl:w-1/4 lg:h-fit">
+                            <div class="flex flex-col gap-[10px] p-[5px] lg:p-[25px] border-4 border-[#FEA91D] rounded-[30px] 2xl:w-1/4 lg:h-fit">
                                 <h4 class="text-[clamp(26px,3vw,56.8px)] text-[#FEA91D]">WagMore rewards</h4>
-                                <p class="text-[clamp(18px,1.8vw,32px)] text-[#FFFFFF]">Collect points at the <a href="" class="underline">TAILZ shop!</a></p>
+                                <p class="text-[clamp(18px,1.8vw,32px)] text-[#FFFFFF]">Collect points at the <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="underline">TAILZ shop!</a></p>
                             </div>
                         </div>
                     </div>
-                    <button class="bg-[#FEA91D] text-[#FFFFFF] rounded-[60px] text-[clamp(18px,1.8vw,26px)] py-[15px] px-[50px] w-fit self-center lowercase">Register today</button>
+                    <button class="bg-[#FEA91D] text-[#FFFFFF] rounded-[60px] text-[clamp(18px,1.8vw,26px)] py-[15px] px-[50px] w-fit self-center lowercase font-bold">Register today</button>
                 </div>
             </div>
         </section>
 
         <!-- Gallery -->
         <section>
-            <div class="flex flex-col gap-[20px] xl:gap-[30px]">
-                <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase mx-6 lg:mx-[89px]">Gallery</h2>
+            <div class="flex flex-col gap-[20px] xl:gap-[30px] px-6 lg:px-[89px] py-[30px] lg:py-[60px] bg-[#F3F2EC]">
+                <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase">Gallery</h2>
+                <?php
+                    $gallery_args = array(
+                        'post_type'      => 'gallery-image',
+                        'posts_per_page' => 5,
+                        'orderby'       => 'rand', // For random order (remove for newest)
+                        // 'orderby'       => 'date', // Uncomment for newest instead of random
+                        'order'         => 'DESC',
+                    );
+
+                    $gallery_query = new WP_Query($gallery_args);
+                    ?>
+
+                    <?php if ($gallery_query->have_posts()) : ?>
+                        <div class="flex flex-col gap-[33px] lg:flex-row max-h-[327.6px]">
+                            <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
+                                <div class="">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('full', array(
+                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
+                                            'alt'   => get_the_title()
+                                        )); ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php else : ?>
+                        <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
+                    <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
+                <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
             </div>
         </section>
 
@@ -224,6 +254,47 @@ get_template_part('template-parts/banner');
         <section>
             <div class="flex flex-col gap-[20px] lg:gap-[30px]">
                 <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase mx-6 lg:mx-[89px]">Our shop</h2>
+                <h3 class="text-[31px] lg:text-[56.8px] text-[#837660] lowercase mx-6 lg:mx-[89px]">Featured</h3>
+                <?php
+                    $args = array(
+                        'post_type'      => 'product',
+                        'posts_per_page' => 4,
+                        'ignore_sticky_posts' => 1,
+                        'meta_query'     => array(
+                            array(
+                                'key'   => '_featured',
+                                'value' => 'yes'
+                            )
+                        )
+                    );
+
+                    $featured_query = new WP_Query($args);
+
+                    if ($featured_query->have_posts()) : ?>
+                        <div class="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[16px]">
+                            <?php while ($featured_query->have_posts()) : $featured_query->the_post(); global $product; ?>
+                                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                                    <a href="<?php the_permalink(); ?>" class="block">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="w-full h-64 object-cover">
+                                        <?php else : ?>
+                                            <div class="w-full h-64 bg-gray-200 flex items-center justify-center text-gray-500">No Image</div>
+                                        <?php endif; ?>
+
+                                        <div class="flex flex-col gap-[16px]">
+                                            <h4 class="text-[32px] font-semibold text-[#47423B]"><?php the_title(); ?></h4>
+                                            <span class="text-[32px] text-[#47423B] font-bold"><?php echo $product->get_price_html(); ?></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php else : ?>
+                        <div class="text-center text-[#47423B] text-[24px] font-semibold my-8">
+                            <p>No featured products found at the moment.</p>
+                        </div>
+                    <?php endif; wp_reset_postdata(); ?>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="mx-auto text-[#FFFFFF] text-[18px] lg:text-[24px] bg-[#6FDBFC] py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:bg-[#5ac5e6] transition-colors font-bold lowercase">Go to shop</a>
             </div>
         </section>
 
@@ -270,14 +341,6 @@ get_template_part('template-parts/banner');
                         echo '<p>No Instagram posts found.</p>';
                     endif;
                 ?>
-            <div class="flex flex-col gap-[20px] lg:gap-[30px]">
-                <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase mx-6 lg:mx-[89px]">Testimonials</h2>
-                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
-                    <div class="max-w-7xl mx-auto">
-                        <?php echo do_shortcode('[trustindex no-registration=google]'); ?>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Newsletter -->
