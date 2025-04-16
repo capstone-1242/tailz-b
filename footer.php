@@ -39,7 +39,10 @@
 
                     <!-- Address -->
                     <section aria-labelledby="address-heading" class="md:flex-1">
-                        <h3 id="address-heading" class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase mb-4 md:mb-6">address<span class="hidden md:inline"> (old)</span></h3>
+                        <div class="flex items-center gap-2 mb-4 md:mb-6">
+                            <h3 id="address-heading" class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase">address</h3>
+                            <span class="hidden md:inline font-poppins font-bold text-[24px] md:text-[32px] text-white lowercase">(old)</span>
+                        </div>
                         <address class="font-worksans text-[22px] sm:text-[26px] md:text-[28px] not-italic text-white space-y-3">
                             12004 111 Ave NW<br>
                             Edmonton, AB T5G 0E6<br>
