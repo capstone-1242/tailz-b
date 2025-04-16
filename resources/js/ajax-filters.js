@@ -1,12 +1,11 @@
 jQuery(document).ready(function ($) {
   const filterForm = $("#filter-form");
 
-  // Test
   console.log("AJAX filters ready");
   console.log(theme_vars.ajax_url);
 
   // Prevent Default
-  filterForm.on("change", function (e) {
+  filterForm.on("submit", function (e) {
     e.preventDefault();
   });
 
@@ -15,15 +14,28 @@ jQuery(document).ready(function ($) {
   filterForm.on("change", "input", function () {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-      const formData = filterForm.serialize();
+      // Get form data directly
+      const formData = new FormData(filterForm[0]);
+      // Add the action
+      formData.append('action', 'filter_products');
+      
+      // Convert FormData to a plain object
+      const data = {};
+      for (let [key, value] of formData.entries()) {
+        if (data[key]) {
+          if (!Array.isArray(data[key])) {
+            data[key] = [data[key]];
+          }
+          data[key].push(value);
+        } else {
+          data[key] = value;
+        }
+      }
 
       $.ajax({
         url: theme_vars.ajax_url,
         type: "POST",
-        data: {
-          action: "filter_products",
-          ...Object.fromEntries(new URLSearchParams(formData)),
-        },
+        data: data,
         beforeSend: function () {
           $(".products").fadeTo(200, 0.5);
         },
@@ -32,6 +44,7 @@ jQuery(document).ready(function ($) {
         },
         error: function (xhr, status, error) {
           console.error("AJAX Error:", status, error);
+          console.log(xhr.responseText); // Add this to see the full error
           $(".products")
             .html(
               '<p class="text-brown">Something went wrong. Please try again.</p>'

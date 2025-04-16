@@ -118,15 +118,6 @@ function tailpress_enqueue_assets()
 		$version,
 		true
 	);
-
-	// Enqueue back-to-top script
-	wp_enqueue_script(
-		'back-to-top',
-		get_template_directory_uri() . '/resources/js/back-to-top.js',
-		array(),
-		'1.0.0',
-		true
-	);
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_assets');
 
@@ -386,13 +377,12 @@ add_action('wp_enqueue_scripts', 'tailz_enqueue_ajax_filter_script');
 
 function tailz_ajax_product_filter()
 {
-	// Pull in your filtering logic here (same as what you're using in archive-product.php)
-	// Example:
-	$pet_filter = $_GET['pets'] ?? [];
-	$brand_filter = $_GET['brands'] ?? [];
-	$food_filter = $_GET['foods'] ?? [];
-	$treat_filter = $_GET['treats'] ?? [];
-	$supply_filter = $_GET['supplies'] ?? [];
+	// Use $_POST instead of $_GET since the AJAX request is using POST method
+	$pet_filter = isset($_POST['pets']) ? $_POST['pets'] : [];
+	$brand_filter = isset($_POST['brand']) ? $_POST['brand'] : []; // Changed from 'brands' to 'brand' to match form
+	$food_filter = isset($_POST['foods']) ? $_POST['foods'] : [];
+	$treat_filter = isset($_POST['treats']) ? $_POST['treats'] : [];
+	$supply_filter = isset($_POST['supplies']) ? $_POST['supplies'] : [];
 
 	$tax_query = [];
 
@@ -440,19 +430,29 @@ function tailz_ajax_product_filter()
 		'post_type'      => 'product',
 		'posts_per_page' => -1,
 		'post_status'    => 'publish',
-		'tax_query'      => count($tax_query) > 1 ? array_merge(['relation' => 'AND'], $tax_query) : $tax_query,
 	];
+	
+	// Only add tax_query if we have filters
+	if (!empty($tax_query)) {
+		$args['tax_query'] = count($tax_query) > 1 ? 
+			array_merge(['relation' => 'AND'], $tax_query) : 
+			$tax_query;
+	}
 
 	$query = new WP_Query($args);
 
+	ob_start();
 	if ($query->have_posts()) :
 		while ($query->have_posts()) : $query->the_post();
 			wc_get_template_part('content', 'product');
 		endwhile;
+		wp_reset_postdata();
 	else :
 		echo '<p class="text-brown">No products found.</p>';
 	endif;
-
+	
+	$content = ob_get_clean();
+	echo $content;
 	wp_die();
 }
 add_action('wp_ajax_filter_products', 'tailz_ajax_product_filter');
