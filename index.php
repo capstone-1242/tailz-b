@@ -251,7 +251,7 @@ get_template_part('template-parts/banner');
                                 <div class="">
                                     <?php if (has_post_thumbnail()) : ?>
                                         <?php the_post_thumbnail('full', array(
-                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
+                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px] duration-300 lg:hover:scale-[1.1]',
                                             'alt'   => get_the_title()
                                         )); ?>
                                     <?php endif; ?>
