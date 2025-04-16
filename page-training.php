@@ -438,42 +438,42 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 				<h2 id="faq-heading" class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-1">
-					<h3 id="faq-1" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-1-content">What kind of training philosophy does Tailz follow?</h3>
+					<h3 id="faq-1" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-1-content">What kind of training philosophy does Tailz follow?</h3>
 					<p id="faq-1-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">We use only positive, science-backed training methods. Our approach is rooted in humane handling and building a trusting relationship between you and your dog.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-2">
-					<h3 id="faq-2" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-2-content">What's the difference between puppy kindergarten and puppy elementary?</h3>
+					<h3 id="faq-2" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-2-content">What's the difference between puppy kindergarten and puppy elementary?</h3>
 					<p id="faq-2-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Puppy Kindergarten is for younger pups (8–22 weeks) and focuses on basic commands and socialization. Puppy Elementary (5–10 months) builds on those foundations with more advanced skills and the option to earn an AKC S.T.A.R. Puppy Certificate.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-3">
-					<h3 id="faq-3" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-3-content">My dog is older and hasn't had formal training – can we still join a class?</h3>
+					<h3 id="faq-3" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-3-content">My dog is older and hasn't had formal training – can we still join a class?</h3>
 					<p id="faq-3-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Absolutely! Our Basic Dog Manners class (for dogs 9 months and up) is perfect for new learners or for dogs needing a refresher on obedience and manners.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-4">
-					<h3 id="faq-4" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-4-content">What if my dog has behavioral issues like barking or lunging at other dogs?</h3>
+					<h3 id="faq-4" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-4-content">What if my dog has behavioral issues like barking or lunging at other dogs?</h3>
 					<p id="faq-4-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">We recommend starting with our Fear & Aggression 101 class online. From there, you may move into the Reactivity Evaluation or Growly Dog classes, which are designed to help reactive dogs in a safe, supportive environment.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-5">
-					<h3 id="faq-5" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-5-content">Are private lessons available if my dog needs one-on-one support?</h3>
+					<h3 id="faq-5" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-5-content">Are private lessons available if my dog needs one-on-one support?</h3>
 					<p id="faq-5-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! We offer private training both in-person and virtually. It's a great option for dogs with specific needs or if you want personalized guidance for your pup's training journey.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-6">
-					<h3 id="faq-6" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-6-content">Do I need to complete a certain class before enrolling in intermediate manners?</h3>
+					<h3 id="faq-6" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-6-content">Do I need to complete a certain class before enrolling in intermediate manners?</h3>
 					<p id="faq-6-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes, dogs should have completed Puppy Elementary, Kindergarten, or Basic Manners. This ensures your pup has a foundation of skills before tackling more challenging distractions and tasks.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-7">
-					<h3 id="faq-7" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-7-content">Can I do something more playful with my dog than obedience training?</h3>
+					<h3 id="faq-7" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-7-content">Can I do something more playful with my dog than obedience training?</h3>
 					<p id="faq-7-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Definitely! Try our Sports & Games or Nosework Games classes. They're fun, enriching, and designed to strengthen your bond through teamwork, tricks, and confidence-building exercises.</p>
 				</div>
 
 				<div class="flex flex-col gap-3" role="region" aria-labelledby="faq-8">
-					<h3 id="faq-8" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase" aria-expanded="false" aria-controls="faq-8-content">How do I know which class is right for my dog?</h3>
+					<h3 id="faq-8" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2" aria-expanded="false" aria-controls="faq-8-content">How do I know which class is right for my dog?</h3>
 					<p id="faq-8-content" class="text-[18px] md:text-[24px] text-[#2C2C2C]">If you're unsure, reach out! We're happy to help assess your dog's age, experience, and temperament to find the best class. You can also book a private evaluation to get started on the right paw.</p>
 				</div>
 			</div>
