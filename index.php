@@ -218,7 +218,7 @@ get_template_part('template-parts/banner');
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-[10px] p-[5px] lg:p-[25px] border-4 border-[#FEA91D] rounded-[30px] 2xl:w-1/4 lg:h-fit">
+                            <div class="flex flex-col gap-[10px] p-[15px] lg:p-[25px] border-4 border-[#FEA91D] rounded-[30px] 2xl:w-1/4 lg:h-fit">
                                 <h4 class="text-[clamp(26px,3vw,56.8px)] text-[#FEA91D]">WagMore rewards</h4>
                                 <p class="text-[clamp(18px,1.8vw,32px)] text-[#FFFFFF]">Collect points at the <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="underline">TAILZ shop!</a></p>
                             </div>
@@ -246,7 +246,7 @@ get_template_part('template-parts/banner');
                     ?>
 
                     <?php if ($gallery_query->have_posts()) : ?>
-                        <div class="flex flex-col gap-[33px] lg:flex-row max-h-[327.6px]">
+                        <div class="flex flex-col gap-[33px] lg:flex-row lg:max-h-[327.6px]">
                             <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
                                 <div class="">
                                     <?php if (has_post_thumbnail()) : ?>
