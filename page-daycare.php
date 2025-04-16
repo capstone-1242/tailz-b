@@ -242,7 +242,7 @@ get_template_part('template-parts/banner');
                     Our Puppy Program is designed to give your little one the perfect start with early training, socialization, and plenty of fun to help them grow into a happy, well-adjusted dog!
                 </p>
                 <a 
-                   class="self-start rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white inline-block hover:bg-[#e77db7] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8ECC]" 
+                   class="font-bold self-start rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white inline-block hover:bg-[#e77db7] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8ECC]" 
                    href="<?php echo esc_url(home_url('/puppy-programs')); ?>"
                    aria-label="Learn more about our puppy programs">
                     Puppy programs
@@ -256,56 +256,56 @@ get_template_part('template-parts/banner');
                 <h2 id="faq-heading" class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-1">
-                    <h3 id="faq-1" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What makes your daycare different from others?</h3>
+                    <h3 id="faq-1" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What makes your daycare different from others?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Our daycare focuses on understanding dog behavior to provide a balanced experience with exercise, enrichment, socialization, and rest. We tailor activities to keep your pup happy and engaged.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-2">
-                    <h3 id="faq-2" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What does a typical day look like for my dog?</h3>
+                    <h3 id="faq-2" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What does a typical day look like for my dog?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Each day includes structured playtime, training exercises, interactive games, and rest periods to ensure a well-rounded experience.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-3">
-                    <h3 id="faq-3" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do you separate dogs by size or temperament?</h3>
+                    <h3 id="faq-3" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Do you separate dogs by size or temperament?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Yes! We group dogs based on their play style, energy level, and temperament to ensure safe and positive interactions.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-4">
-                    <h3 id="faq-4" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Will my dogs receive any training while at daycare?</h3>
+                    <h3 id="faq-4" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Will my dogs receive any training while at daycare?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Yes! Our daycare includes basic training exercises and enrichment activities to reinforce good manners and mental stimulation.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-5">
-                    <h3 id="faq-5" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How do you ensure the safety of all dogs?</h3>
+                    <h3 id="faq-5" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">How do you ensure the safety of all dogs?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Our team closely supervises all play sessions, and we maintain small group sizes to prevent overstimulation. All dogs must meet our health and behavior requirements before joining daycare.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-6">
-                    <h3 id="faq-6" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can my dog come for just a half-day?</h3>
+                    <h3 id="faq-6" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Can my dog come for just a half-day?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         Yes! We offer both full-day and half-day daycare options to fit your schedule and your pup's needs.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-7">
-                    <h3 id="faq-7" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What vaccinations are required?</h3>
+                    <h3 id="faq-7" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What vaccinations are required?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         All dogs must be up to date on rabies, distemper, and Bordetella vaccinations. Proof of vaccination is required before attending daycare.
                     </p>
                 </div>
 
                 <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-8">
-                    <h3 id="faq-8" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How do I sign up for daycare?</h3>
+                    <h3 id="faq-8" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">How do I sign up for daycare?</h3>
                     <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
                         You can register online or contact us directly to schedule an evaluation and book your pup's first daycare visit!
                     </p>
