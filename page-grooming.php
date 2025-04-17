@@ -318,70 +318,9 @@ error_log('Final processed services array: ' . print_r($services_array, true));
         </section>
 
         <!-- FAQs Section -->
-        <section aria-labelledby="grooming-faqs">
-            <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px] md:w-2/3">
-                <h2 id="grooming-faqs" class="font-poppins font-bold text-[37px] md:text-[75.8px] text-[#47423B]">
-                    Frequently Asked Questions
-                </h2>
-                <div class="flex flex-col gap-6 md:gap-8">
-                    <?php
-                    $faqs = [
-                        [
-                            'question' => 'What grooming services do you offer?',
-                            'answer'   => 'We offer a full range of grooming services, including haircuts, baths, nail trims, ear cleaning, and more. We tailor each service to meet your pet\'s specific needs.'
-                        ],
-                        [
-                            'question' => 'How do I communicate the grooming style I want for my pet?',
-                            'answer'   => 'Be specific about the look you\'re going for! Photos are a great way to ensure our Pet Stylists understand exactly what you want. If you\'re unsure, our stylists will work with you to achieve the best look for your pet.'
-                        ],
-                        [
-                            'question' => 'What if my dog only needs a trim, not a full haircut?',
-                            'answer'   => 'If you just want a little length off, we can use a guard blade to maintain a fuller, longer coat. However, this requires your dog\'s coat to be in excellent condition.'
-                        ],
-                        [
-                            'question' => 'How long does a grooming appointment take?',
-                            'answer'   => 'The length of the grooming appointment depends on your pet\'s size, coat condition, and the services requested. On average, grooming can take between 1 to 2 hours.'
-                        ],
-                        [
-                            'question' => 'Can I stay with my pet during grooming?',
-                            'answer'   => 'For the safety and comfort of your pet, we generally recommend that you leave your pet with us. However, if you have specific concerns, feel free to ask about accommodations.'
-                        ],
-                        [
-                            'question' => 'Do you groom all breeds and sizes?',
-                            'answer'   => 'Yes! We are equipped to groom dogs of all breeds and sizes, with customized care to suit each pet\'s specific needs.'
-                        ],
-                        [
-                            'question' => 'What should I do to prepare my pet for grooming?',
-                            'answer'   => 'Please ensure your pet is comfortable and up to date on their vaccinations. It\'s also helpful to brush out any tangles in your pet\'s coat before their appointment.'
-                        ],
-                        [
-                            'question' => 'What if I\'m not happy with the grooming results?',
-                            'answer'   => 'Our goal is to ensure you and your pet are happy with the results. If you\'re not satisfied, please let us know, and we\'ll work with you to address any concerns.'
-                        ]
-                    ];
-
-                    foreach ($faqs as $index => $faq) : ?>
-                        <div class="flex gap-4 md:gap-6">
-                            <svg width="30" height="26" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-[30px] h-[26px] md:w-[34px] md:h-[30px]" aria-hidden="true" focusable="false">
-                                <path d="M11.2135 7.42917C12.9174 6.82501 13.8259 4.90571 13.242 3.14241C12.6589 1.37966 10.8046 0.438625 9.10038 1.0429C7.39639 1.64657 6.48785 3.56576 7.0712 5.32911C7.65484 7.09295 9.50923 8.03235 11.2135 7.42917Z" fill="#2C2C2C" />
-                                <path d="M5.9995 12.6826V12.6832C6.97834 11.118 6.54535 9.02784 5.03366 8.01526C3.52139 7.00322 1.50211 7.45039 0.523327 9.01505V9.01565C-0.454874 10.5803 -0.0219343 12.6699 1.48981 13.6819C3.00202 14.695 5.021 14.2473 5.9995 12.6826Z" fill="#2C2C2C" />
-                                <path d="M18.7856 7.42922C20.4898 8.03235 22.3442 7.09301 22.9278 5.32911C23.5111 3.56576 22.6026 1.64657 20.8987 1.0429C19.1945 0.438619 17.3401 1.37972 16.757 3.14241C16.1731 4.90576 17.0817 6.82507 18.7856 7.42922Z" fill="#2C2C2C" />
-                                <path d="M15.001 9.08838C9.84627 9.08838 4.15858 16.4746 5.80514 21.7301C7.39488 26.8042 12.3617 24.713 15.001 24.713C17.6403 24.713 22.6071 26.8042 24.1968 21.7301C25.8434 16.4746 20.1557 9.08838 15.001 9.08838Z" fill="#2C2C2C" />
-                                <path d="M29.4765 9.01565V9.01505C28.4977 7.45039 26.4785 7.00321 24.9662 8.01526C23.4545 9.02784 23.0216 11.118 24.0003 12.6832V12.6826C24.9788 14.2473 26.9978 14.6951 28.51 13.6819C30.0217 12.6699 30.4547 10.5804 29.4765 9.01565Z" fill="#2C2C2C" />
-                            </svg>
-                            <div class="flex flex-col gap-2 md:gap-3">
-                                <h3 class="font-poppins font-bold text-[22px] md:text-[42.65px] text-[#47423B]">
-                                    <?php echo esc_html($faq['question']); ?>
-                                </h3>
-                                <p class="font-work-sans text-[18px] md:text-[24px] text-[#2C2C2C]">
-                                    <?php echo esc_html($faq['answer']); ?>
-                                </p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
+        <div class="mt-[60px] md:mt-[100px] mb-[60px] md:mb-[100px] mx-6 md:mx-[89px]">
+            <?php get_template_part('template-parts/faq-section'); ?>
+        </div>
 
     </div><!-- /.flex.flex-col.gap -->
 </div><!-- /.outer wrapper -->

@@ -56,10 +56,10 @@ get_template_part('template-parts/banner');
                     </p>
                 </div>
                 <!-- Packages Container -->
-                <div class="px-0 md:px-0 bg-[#F3F2EC] py-8 rounded-[20px]" role="region" aria-label="Daycare packages">
+                <div class="px-4 md:px-8 bg-[#F3F2EC] py-8 rounded-[20px]" role="region" aria-label="Daycare packages">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <!-- Daily Rates -->
-                        <div class="bg-white p-6 rounded-[20px] max-w-[340px] mx-auto" role="region" aria-label="Daily rates">
+                        <div class="bg-white p-6 rounded-[20px] w-full md:w-auto" role="region" aria-label="Daily rates">
                             <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">daily</h3>
                             <?php if ($daily_rates_group) : ?>
                                 <?php if (!empty($daily_rates_group['daily_rate_1']) && !empty($daily_rates_group['daily_rate_1']['title'])) :
@@ -102,7 +102,7 @@ get_template_part('template-parts/banner');
                         </div>
 
                         <!-- Flex Passes -->
-                        <div class="bg-white p-6 rounded-[20px] max-w-[340px] mx-auto" role="region" aria-label="Flex passes">
+                        <div class="bg-white p-6 rounded-[20px] w-full md:w-auto" role="region" aria-label="Flex passes">
                             <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">flex passes</h3>
                             <?php if ($flex_passes_group) : ?>
                                 <?php if (!empty($flex_passes_group['flex_pass_1']) && !empty($flex_passes_group['flex_pass_1']['title'])) :
@@ -145,7 +145,7 @@ get_template_part('template-parts/banner');
                         </div>
 
                         <!-- Monthly Play -->
-                        <div class="bg-white p-6 rounded-[20px] max-w-[340px] mx-auto" role="region" aria-label="Monthly play packages">
+                        <div class="bg-white p-6 rounded-[20px] w-full md:w-auto" role="region" aria-label="Monthly play packages">
                             <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">monthly play packages</h3>
                             <?php if ($monthly_play_group) : ?>
                                 <?php if (!empty($monthly_play_group['monthly_play_1']) && !empty($monthly_play_group['monthly_play_1']['title'])) :
@@ -251,67 +251,8 @@ get_template_part('template-parts/banner');
         </section>
 
         <!-- FAQs -->
-        <section aria-labelledby="faq-heading" role="region">
-            <div class="flex flex-col gap-[20px] md:gap-[30px] md:w-2/3">
-                <h2 id="faq-heading" class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+        <?php get_template_part('template-parts/faq-section'); ?>
 
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-1">
-                    <h3 id="faq-1" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What makes your daycare different from others?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Our daycare focuses on understanding dog behavior to provide a balanced experience with exercise, enrichment, socialization, and rest. We tailor activities to keep your pup happy and engaged.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-2">
-                    <h3 id="faq-2" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What does a typical day look like for my dog?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Each day includes structured playtime, training exercises, interactive games, and rest periods to ensure a well-rounded experience.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-3">
-                    <h3 id="faq-3" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Do you separate dogs by size or temperament?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Yes! We group dogs based on their play style, energy level, and temperament to ensure safe and positive interactions.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-4">
-                    <h3 id="faq-4" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Will my dogs receive any training while at daycare?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Yes! Our daycare includes basic training exercises and enrichment activities to reinforce good manners and mental stimulation.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-5">
-                    <h3 id="faq-5" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">How do you ensure the safety of all dogs?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Our team closely supervises all play sessions, and we maintain small group sizes to prevent overstimulation. All dogs must meet our health and behavior requirements before joining daycare.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-6">
-                    <h3 id="faq-6" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Can my dog come for just a half-day?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Yes! We offer both full-day and half-day daycare options to fit your schedule and your pup's needs.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-7">
-                    <h3 id="faq-7" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What vaccinations are required?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        All dogs must be up to date on rabies, distemper, and Bordetella vaccinations. Proof of vaccination is required before attending daycare.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3" role="region" aria-labelledby="faq-8">
-                    <h3 id="faq-8" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">How do I sign up for daycare?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        You can register online or contact us directly to schedule an evaluation and book your pup's first daycare visit!
-                    </p>
-                </div>
-            </div>
-        </section>
     </div>
 </main>
 
