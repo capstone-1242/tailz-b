@@ -118,6 +118,15 @@ function tailpress_enqueue_assets()
 		$version,
 		true
 	);
+
+	// Enqueue back to top script
+	wp_enqueue_script(
+		'tailz-back-to-top',
+		get_template_directory_uri() . '/resources/js/back-to-top.js',
+		array(),
+		$version,
+		true
+	);
 }
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_assets');
 
