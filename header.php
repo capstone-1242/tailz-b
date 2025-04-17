@@ -141,8 +141,8 @@
 										</a>
 									</div>
 									<div class="absolute top-[calc(100%-1px)] left-0 hidden group-hover:block bg-[#1F3190] rounded-b-[20px] rounded-r-[20px] p-4 space-y-4 min-w-[200px] z-50 shadow-lg">
-										<a href="/shop/dog" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">DOG</a>
-										<a href="/shop/cat" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">CAT</a>
+										<a href="<?php echo get_term_link('dog', 'product_cat'); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">DOG</a>
+										<a href="<?php echo get_term_link('cat', 'product_cat'); ?>" class="block text-[#9CA3AF] text-[16px] font-bold font-work-sans hover:text-white transition-colors duration-200">CAT</a>
 									</div>
 								</li>
 							</ul>
@@ -208,8 +208,8 @@
 							</svg>
 						</button>
 						<div id="shop-submenu" class="sub-menu hidden pt-6 space-y-5 pl-4" role="menu">
-							<a href="/shop/dog" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">DOG</a>
-							<a href="/shop/cat" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">CAT</a>
+							<a href="<?php echo get_term_link('dog', 'product_cat'); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">DOG</a>
+							<a href="<?php echo get_term_link('cat', 'product_cat'); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">CAT</a>
 						</div>
 					</div>
 
