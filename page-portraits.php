@@ -241,53 +241,7 @@ get_template_part('template-parts/banner');
         </section>
 
         <!-- FAQs -->
-        <section aria-labelledby="faq-heading">
-            <div class="flex flex-col gap-8 md:w-2/3">
-                <h2 id="faq-heading" class="text-[44.8px] md:text-[53.8px] text-[#47423B] lowercase">
-                    faqs
-                </h2>
-                <div class="flex flex-col gap-6">
-                    <?php
-                    $faqs = [
-                        [
-                            'question' => 'Can I bring multiple pets?',
-                            'answer'   => 'Of course! If you plan to bring more than 4, please let us know beforehand. We recommend scheduling extra time if more than 2 are coming.'
-                        ],
-                        [
-                            'question' => 'Do you allow pets other than cats and dogs?',
-                            'answer'   => 'Yes, we can photograph any pet that is friendly and willing, but please note there will be dogs and cats on site.'
-                        ],
-                        [
-                            'question' => 'Can I use my own props and costumes?',
-                            'answer'   => 'Yes! You may use your own, provided they can fit through doors easily.'
-                        ]
-                    ];
-                    $faq_index = 1;
-                    foreach ($faqs as $faq) : ?>
-                        <div class="flex gap-4">
-                            <svg width="30" height="26" viewBox="0 0 30 26" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0" aria-hidden="true">
-                                <path d="M11.2135 7.42917C12.9174 6.82501 13.8259 4.90571 13.242 3.14241C12.6589 1.37966 10.8046 0.438625 9.10038 1.0429C7.39639 1.64657 6.48785 3.56576 7.0712 5.32911C7.65484 7.09295 9.50923 8.03235 11.2135 7.42917Z" fill="#2C2C2C" />
-                                <path d="M5.9995 12.6826V12.6832C6.97834 11.118 6.54535 9.02784 5.03366 8.01526C3.52139 7.00322 1.50211 7.45039 0.523327 9.01505V9.01565C-0.454874 10.5803 -0.0219343 12.6699 1.48981 13.6819C3.00202 14.695 5.021 14.2473 5.9995 12.6826Z" fill="#2C2C2C" />
-                                <path d="M18.7856 7.42922C20.4898 8.03241 22.3442 7.09301 22.9278 5.32911C23.5111 3.56581 22.6026 1.64657 20.8987 1.0429C19.1945 0.438619 17.3401 1.37972 16.757 3.14241C16.1731 4.90576 17.0817 6.82507 18.7856 7.42922Z" fill="#2C2C2C" />
-                                <path d="M15.001 9.08838C9.84627 9.08838 4.15858 16.4746 5.80514 21.7301C7.39488 26.8042 12.3617 24.713 15.001 24.713C17.6403 24.713 22.6071 26.8042 24.1968 21.7301C25.8434 16.4746 20.1557 9.08838 15.001 9.08838Z" fill="#2C2C2C" />
-                                <path d="M29.4765 9.01565V9.01505C28.4977 7.45039 26.4785 7.00321 24.9662 8.01526C23.4545 9.02784 23.0216 11.118 24.0003 12.6832V12.6826C24.9788 14.2473 26.9978 14.6951 28.51 13.6819C30.0217 12.6699 30.4547 10.5804 29.4765 9.01565Z" fill="#2C2C2C" />
-                            </svg>
-                            <div class="flex flex-col gap-2">
-                                <h3 id="faq-question-<?php echo $faq_index; ?>" class="text-[22px] md:text-[28px] text-[#47423B]">
-                                    <?php echo esc_html($faq['question']); ?>
-                                </h3>
-                                <p class="text-[18px] md:text-[22px] text-[#2C2C2C]" aria-labelledby="faq-question-<?php echo $faq_index; ?>">
-                                    <?php echo esc_html($faq['answer']); ?>
-                                </p>
-                            </div>
-                        </div>
-                    <?php
-                        $faq_index++;
-                    endforeach; ?>
-                </div>
-            </div>
-        </section>
+        <?php get_template_part('template-parts/faq-section'); ?>
 
     </div>
 </main>
