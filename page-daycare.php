@@ -56,10 +56,10 @@ get_template_part('template-parts/banner');
                     </p>
                 </div>
                 <!-- Packages Container -->
-                <div class="px-0 md:px-0 bg-[#F3F2EC] py-8 rounded-[20px]" role="region" aria-label="Daycare packages">
+                <div class="px-4 md:px-8 bg-[#F3F2EC] py-8 rounded-[20px]" role="region" aria-label="Daycare packages">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <!-- Daily Rates -->
-                        <div class="bg-white p-6 rounded-[20px] max-w-[340px] mx-auto" role="region" aria-label="Daily rates">
+                        <div class="bg-white p-6 rounded-[20px] w-full md:w-auto" role="region" aria-label="Daily rates">
                             <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">daily</h3>
                             <?php if ($daily_rates_group) : ?>
                                 <?php if (!empty($daily_rates_group['daily_rate_1']) && !empty($daily_rates_group['daily_rate_1']['title'])) :
@@ -102,7 +102,7 @@ get_template_part('template-parts/banner');
                         </div>
 
                         <!-- Flex Passes -->
-                        <div class="bg-white p-6 rounded-[20px] max-w-[340px] mx-auto" role="region" aria-label="Flex passes">
+                        <div class="bg-white p-6 rounded-[20px] w-full md:w-auto" role="region" aria-label="Flex passes">
                             <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">flex passes</h3>
                             <?php if ($flex_passes_group) : ?>
                                 <?php if (!empty($flex_passes_group['flex_pass_1']) && !empty($flex_passes_group['flex_pass_1']['title'])) :
@@ -145,7 +145,7 @@ get_template_part('template-parts/banner');
                         </div>
 
                         <!-- Monthly Play -->
-                        <div class="bg-white p-6 rounded-[20px] max-w-[340px] mx-auto" role="region" aria-label="Monthly play packages">
+                        <div class="bg-white p-6 rounded-[20px] w-full md:w-auto" role="region" aria-label="Monthly play packages">
                             <h3 class="font-poppins font-bold text-[32.65px] md:text-[42.65px] text-[#47423B] mb-6">monthly play packages</h3>
                             <?php if ($monthly_play_group) : ?>
                                 <?php if (!empty($monthly_play_group['monthly_play_1']) && !empty($monthly_play_group['monthly_play_1']['title'])) :
