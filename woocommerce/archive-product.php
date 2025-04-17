@@ -7,6 +7,10 @@
  * @package tailz
  */
 
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
 get_header();
 
 // Banner
@@ -93,17 +97,36 @@ $query = new WP_Query($args);
             </li>
         </ol>
     </nav>
+    <?php
+    $args = [
+        'post_type'      => 'product',
+        'posts_per_page' => 4, // or however many you want
+        'post_status'    => 'publish',
+        'tax_query'      => [
+            [
+                'taxonomy' => 'product_visibility',
+                'field'    => 'name',
+                'terms'    => 'featured',
+                'operator' => 'IN',
+            ],
+        ],
+    ];
+
+    $featured_query = new WP_Query($args);
+    ?>
+
     <!-- Featured Section -->
     <section class="px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
         <h2 class="lowercase text-brown text-4xl mb-[20px] lg:text-7xl lg:mb-[30px]">featured</h2>
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] lg:gap-[32px]">
-            <?php
-            if (have_posts()) :
-                while (have_posts()) : the_post();
-                    wc_get_template_part('content', 'product'); // content-product.php
-                endwhile;
-            endif;
-            ?>
+            <?php if ($featured_query->have_posts()) : ?>
+                <?php while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
+                    <?php wc_get_template_part('content', 'product'); ?>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+                <p class="col-span-full text-brown">No featured products found.</p>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -126,7 +149,7 @@ $query = new WP_Query($args);
                     </svg>
                     <h3 class="text-brown text-3xl lg:text-[56px]">Dog</h3>
                 </div>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/dog.png" alt="Dog" class="mx-auto md:mx-0">
+                <img src="../resources/img/dog.png" alt="Dog" class="mx-auto md:mx-0">
             </div>
             <!-- Cat -->
             <div class="bg-white text-brown lowercase font-poppins text-3xl font-bold px-4 pt-4 rounded-[12px] ml-[10px] w-full cursor-pointer md:flex md:justify-around">
@@ -145,7 +168,7 @@ $query = new WP_Query($args);
                     </svg>
                     <h3 class="text-brown text-3xl lg:text-[56px]">Cat</h3>
                 </div>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/cat.png" alt="Cat" class="mx-auto md:mx-0">
+                <img src="../resources/img/dog.png" alt="Cat" class="mx-auto md:mx-0">
             </div>
         </div>
     </section>

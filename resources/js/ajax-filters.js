@@ -17,11 +17,11 @@ jQuery(document).ready(function ($) {
       // Get form data directly
       const formData = new FormData(filterForm[0]);
       // Add the action
-      formData.append('action', 'filter_products');
-      
+      formData.append("action", "filter_products");
+
       // Convert FormData to a plain object
       const data = {};
-      for (let [key, value] of formData.entries()) {
+      formData.forEach((value, key) => {
         if (data[key]) {
           if (!Array.isArray(data[key])) {
             data[key] = [data[key]];
@@ -30,7 +30,9 @@ jQuery(document).ready(function ($) {
         } else {
           data[key] = value;
         }
-      }
+      });
+
+      console.log("Form Data: ", data); // Debugging the data being sent
 
       $.ajax({
         url: theme_vars.ajax_url,
@@ -59,11 +61,10 @@ jQuery(document).ready(function ($) {
   $("#clear-all-shop").on("click", function (e) {
     e.preventDefault();
     filterForm.find("input[type=checkbox]").prop("checked", false);
-    filterForm.trigger("change");
+    filterForm.trigger("change"); // Trigger a change event to refresh the product listing
   });
-});
 
-jQuery(document).ready(function ($) {
+  // Update filter button states
   function updateFilterButtonStates() {
     $("#filter-form input[type=checkbox]").each(function () {
       const label = $("label[for='" + $(this).attr("id") + "']");
