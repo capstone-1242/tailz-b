@@ -25,16 +25,30 @@ global $product;
         ?>
     </div>
 
-
+    <!-- Product Info -->
     <div class="product-details">
+
+        <!-- Title -->
         <p class="product-title text-lg lg:text-3xl/[1.2] text-darkbrown pb-2 lg:pb-4">
             <a href="<?php the_permalink(); ?>">
                 <?php the_title(); ?>
             </a>
         </p>
 
-        <div class="product-price">
-            <p class="text-base lg:text-2xl text-darkbrown font-bold">From <?php echo $product->get_price_html(); ?></p>
+        <!-- Price -->
+        <div class="flex gap-2 items-center">
+            <p class="text-md lg:text-xl text-darkbrown">From:</p>
+            <?php
+            if ($product->is_type('variable')) {
+                // Get the minimum price for variable products
+                $min_price = $product->get_variation_price('min');
+
+                // Display only the minimum price (first price)
+                echo '<span class="text-base lg:text-2xl text-darkbrown font-bold">' . wc_price($min_price) . '</span>';
+            } else {
+                echo '<p class="text-base lg:text-2xl text-darkbrown font-bold">' . $product->get_price_html() . '</p>';
+            }
+            ?>
         </div>
     </div>
 </div>

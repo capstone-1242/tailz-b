@@ -38,7 +38,7 @@ if ($product->is_in_stock()) : ?>
         do_action('woocommerce_after_add_to_cart_quantity');
         ?>
 
-        <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button rounded-full bg-orange text-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange font-poppins lowercase font-bold text-lg lg:text-2xl rounded-full px-6 py-2.5 cursor-pointer alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
+        <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button alt rounded-full bg-orange text-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-darkbrown font-poppins lowercase font-bold text-lg lg:text-2xl px-6 py-2.5<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
 
 
         <?php do_action('woocommerce_after_add_to_cart_button'); ?>
