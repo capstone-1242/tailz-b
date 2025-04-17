@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Index
  * Description: The front page template for TailPress.
@@ -9,7 +10,7 @@
 get_header();
 
 // Banner
-get_template_part('template-parts/banner'); 
+get_template_part('template-parts/banner');
 ?>
 
 <!-- Breadcrumb -->
@@ -36,7 +37,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full object-cover aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.webp'); ?>" alt="Photo of a dog in a playground">
@@ -45,7 +46,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('hotel'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full object-cover aspect-square lg:aspect-[1/1.5] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.webp'); ?>" alt="photo of a dog in a dog bed">
@@ -54,7 +55,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('training'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-training-photo.webp'); ?>" alt="Photo of a man training a dog">
@@ -63,7 +64,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="group flex flex-col h-full lg:h-fit">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
@@ -72,7 +73,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="group flex flex-col h-full">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('portraits'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.webp'); ?>" alt="Portrait of a dog">
@@ -81,7 +82,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="lg:col-start-2 col-span-2 lg:col-span-1 group flex flex-col h-full lg:h-fit">
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                             <img class="rounded-t-[30px] w-full object-cover overflow-hidden aspect-[1/0.5] lg:aspect-square" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
@@ -101,7 +102,7 @@ get_template_part('template-parts/banner');
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                                 <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.1] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-daycare-photo.webp'); ?>" alt="Photo of a dog in a playground">
@@ -110,7 +111,7 @@ get_template_part('template-parts/banner');
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('hotel'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                                 <img class="rounded-t-[30px] w-full aspect-square lg:aspect-[1/1.1] overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-hotel-photo.webp'); ?>" alt="photo of a dog in a dog bed">
@@ -129,7 +130,7 @@ get_template_part('template-parts/banner');
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('exercise'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                                 <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-exercise-photo.webp'); ?>" alt="Photo of a dog doing a stretch">
@@ -138,7 +139,7 @@ get_template_part('template-parts/banner');
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('portraits'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                                 <img class="rounded-t-[30px] w-full object-cover aspect-square overflow-hidden" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-portraits-photo.webp'); ?>" alt="Portrait of a dog">
@@ -147,7 +148,7 @@ get_template_part('template-parts/banner');
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="col-span-2 group flex flex-col h-full">
                             <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="block transition-all duration-300 hover:scale-[1.02]">
                                 <img class="rounded-t-[30px] w-full object-cover overflow-hidden lg:aspect-[1/0.492]" src="<?php echo esc_url(get_template_directory_uri() . '/images/services-puppy-programs-photo.webp'); ?>" alt="Photo of a file of puppies">
@@ -162,13 +163,13 @@ get_template_part('template-parts/banner');
         </section>
 
         <!-- New Facility Banner -->
-       <section>
+        <section>
             <div class="hero-banner new-facility">
                 <div class="hero-banner-content">
                     <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">New facility! New features!</h2>
                     <p class="text-[#6FDBFC] text-[24px] lg:text-[42.65px] font-bold">Doggy swim!</p>
                     <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Find out more about doggy swim on our exercise page!</p>
-                    <button class="text-[#FFFFFF] text-[18px] lg:text-[24px] bg-[#6FDBFC] py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:bg-[#5ac5e6] transition-colors">Learn more</button>
+                    <button class="text-[#FFFFFF] text-[18px] lg:text-[24px] bg-[#6FDBFC] py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:bg-[#5ac5e6] transition-colors hover:shadow-md">Learn more</button>
                 </div>
             </div>
         </section>
@@ -208,7 +209,7 @@ get_template_part('template-parts/banner');
                             </div>
                         </div>
                     </div>
-                    <button class="bg-[#FEA91D] text-[#FFFFFF] rounded-[60px] text-[clamp(18px,1.8vw,26px)] py-[15px] px-[50px] w-fit self-center lowercase font-bold">Register today</button>
+                    <button class="bg-[#FEA91D] text-[#FFFFFF] rounded-[60px] text-[clamp(18px,1.8vw,26px)] py-[15px] px-[50px] w-fit self-center lowercase font-bold hover:shadow-md">Register today</button>
                 </div>
             </div>
         </section>
@@ -218,83 +219,76 @@ get_template_part('template-parts/banner');
             <div class="flex flex-col gap-[20px] xl:gap-[30px] px-6 lg:px-[89px] py-[30px] lg:py-[60px] bg-[#F3F2EC]">
                 <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase">Gallery</h2>
                 <?php
-                    $gallery_args = array(
-                        'post_type'      => 'gallery-image',
-                        'posts_per_page' => 5,
-                        'orderby'       => 'rand', // For random order (remove for newest)
-                        // 'orderby'       => 'date', // Uncomment for newest instead of random
-                        'order'         => 'DESC',
-                    );
+                $gallery_args = array(
+                    'post_type'      => 'gallery-image',
+                    'posts_per_page' => 5,
+                    'orderby'       => 'rand', // For random order (remove for newest)
+                    // 'orderby'       => 'date', // Uncomment for newest instead of random
+                    'order'         => 'DESC',
+                );
 
-                    $gallery_query = new WP_Query($gallery_args);
-                    ?>
+                $gallery_query = new WP_Query($gallery_args);
+                ?>
 
-                    <?php if ($gallery_query->have_posts()) : ?>
-                        <div class="flex flex-col gap-[33px] lg:flex-row max-h-[327.6px]">
-                            <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
-                                <div class="">
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        <?php the_post_thumbnail('full', array(
-                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
-                                            'alt'   => get_the_title()
-                                        )); ?>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endwhile; ?>
-                        </div>
-                    <?php else : ?>
-                        <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
-                    <?php endif; ?>
+                <?php if ($gallery_query->have_posts()) : ?>
+                    <div class="flex flex-col gap-[33px] lg:flex-row max-h-[327.6px]">
+                        <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
+                            <div class="">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <?php the_post_thumbnail('full', array(
+                                        'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
+                                        'alt'   => get_the_title()
+                                    )); ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php else : ?>
+                    <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
+                <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
-                <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
+                <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
             </div>
         </section>
 
         <!-- Our shop -->
         <section>
-            <div class="flex flex-col gap-[20px] lg:gap-[30px]">
-                <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase mx-6 lg:mx-[89px]">Our shop</h2>
-                <h3 class="text-[31px] lg:text-[56.8px] text-[#837660] lowercase mx-6 lg:mx-[89px]">Featured</h3>
+            <div class="px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
                 <?php
-                    $args = array(
-                        'post_type'      => 'product',
-                        'posts_per_page' => 4,
-                        'ignore_sticky_posts' => 1,
-                        'meta_query'     => array(
-                            array(
-                                'key'   => '_featured',
-                                'value' => 'yes'
-                            )
-                        )
-                    );
+                $args = [
+                    'post_type'      => 'product',
+                    'posts_per_page' => 4, // or however many you want
+                    'post_status'    => 'publish',
+                    'tax_query'      => [
+                        [
+                            'taxonomy' => 'product_visibility',
+                            'field'    => 'name',
+                            'terms'    => 'featured',
+                            'operator' => 'IN',
+                        ],
+                    ],
+                ];
 
-                    $featured_query = new WP_Query($args);
+                $featured_query = new WP_Query($args);
+                ?>
 
-                    if ($featured_query->have_posts()) : ?>
-                        <div class="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[16px]">
-                            <?php while ($featured_query->have_posts()) : $featured_query->the_post(); global $product; ?>
-                                <div class="bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                                    <a href="<?php the_permalink(); ?>" class="block">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" class="w-full h-64 object-cover">
-                                        <?php else : ?>
-                                            <div class="w-full h-64 bg-gray-200 flex items-center justify-center text-gray-500">No Image</div>
-                                        <?php endif; ?>
 
-                                        <div class="flex flex-col gap-[16px]">
-                                            <h4 class="text-[32px] font-semibold text-[#47423B]"><?php the_title(); ?></h4>
-                                            <span class="text-[32px] text-[#47423B] font-bold"><?php echo $product->get_price_html(); ?></span>
-                                        </div>
-                                    </a>
-                                </div>
-                            <?php endwhile; ?>
-                        </div>
+                <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] mb-[20px] lg:mb-[30px] lowercase">Our shop</h2>
+                <h3 class="text-[31px] lg:text-[56.8px] text-[#837660] mb-[20px] lg:mb-[30px] lowercase">Featured</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] lg:gap-[32px]">
+                    <?php if ($featured_query->have_posts()) : ?>
+                        <?php while ($featured_query->have_posts()) : $featured_query->the_post(); ?>
+                            <?php wc_get_template_part('content', 'product'); ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     <?php else : ?>
-                        <div class="text-center text-[#47423B] text-[24px] font-semibold my-8">
-                            <p>No featured products found at the moment.</p>
-                        </div>
-                    <?php endif; wp_reset_postdata(); ?>
-                <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="mx-auto text-[#FFFFFF] text-[18px] lg:text-[24px] bg-[#6FDBFC] py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:bg-[#5ac5e6] transition-colors font-bold lowercase">Go to shop</a>
+                        <p class="col-span-full text-brown">No featured products found.</p>
+                    <?php endif; ?>
+                </div>
+                <div>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="text-[#FFFFFF] text-[18px] lg:text-[24px] bg-orange py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:shadow-md transition-colors font-bold lowercase">Go to shop</a>
+                </div>
+
             </div>
         </section>
 
@@ -311,35 +305,35 @@ get_template_part('template-parts/banner');
             <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px]">
                 <h2 class="text-[#47423B] text-[37px] lg:text-[75.8px] lowercase">Follow us for more furry fun - tips, deals, and adorable pet pics!</h2>
                 <?php
-                    $args = array(
-                        'post_type' => 'instagram_post',
-                        'posts_per_page' => 4, // Number of posts to display
-                        'orderby' => 'date',
-                        'order' => 'DESC'
-                    );
+                $args = array(
+                    'post_type' => 'instagram_post',
+                    'posts_per_page' => 4, // Number of posts to display
+                    'orderby' => 'date',
+                    'order' => 'DESC'
+                );
 
-                    $instagram_query = new WP_Query($args);
+                $instagram_query = new WP_Query($args);
 
-                    if ($instagram_query->have_posts()) :
-                        echo '<div class="instagram-feed">';
-                        while ($instagram_query->have_posts()) : $instagram_query->the_post();
-                            $image_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-                            $post_url = get_post_meta(get_the_ID(), 'instagram_post_url', true);
-                            ?>
-                            
-                            <div class="instagram-post">
-                                <a href="<?php echo esc_url($post_url); ?>" target="_blank">
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title(); ?>">
-                                </a>
-                            </div>
-                            
-                            <?php
-                        endwhile;
-                        echo '</div>';
-                        wp_reset_postdata();
-                    else :
-                        echo '<p>No Instagram posts found.</p>';
-                    endif;
+                if ($instagram_query->have_posts()) :
+                    echo '<div class="instagram-feed">';
+                    while ($instagram_query->have_posts()) : $instagram_query->the_post();
+                        $image_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                        $post_url = get_post_meta(get_the_ID(), 'instagram_post_url', true);
+                ?>
+
+                        <div class="instagram-post">
+                            <a href="<?php echo esc_url($post_url); ?>" target="_blank">
+                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title(); ?>">
+                            </a>
+                        </div>
+
+                <?php
+                    endwhile;
+                    echo '</div>';
+                    wp_reset_postdata();
+                else :
+                    echo '<p>No Instagram posts found.</p>';
+                endif;
                 ?>
         </section>
 
