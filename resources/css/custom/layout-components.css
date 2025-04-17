@@ -293,11 +293,11 @@
 
 /* Hero Banner */
 .newsletter {
-  --banner-img: url('/wp-content/themes/tailz-b/img/home-newsletter-banner.webp');
+  --banner-img: url('../../img/home-newsletter-banner.webp');
 }
 
 .new-facility{
-  --banner-img: url('/wp-content/themes/tailz-b/img/home-swim-banner.webp');
+  --banner-img: url('../../img/home-swim-banner.webp');
 }
 
 
