@@ -116,7 +116,7 @@ $query = new WP_Query($args);
     ?>
 
     <!-- Featured Section -->
-    <section class="px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
+    <section class="px-[24px] pt-6 mb-[60px] lg:px-[90px] lg:pt-[60px] lg:mb-[130px]">
         <h2 class="lowercase text-brown text-4xl mb-[20px] lg:text-7xl lg:mb-[30px]">featured</h2>
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] lg:gap-[32px]">
             <?php if ($featured_query->have_posts()) : ?>
@@ -135,7 +135,7 @@ $query = new WP_Query($args);
         <h2 class="lowercase text-brown text-4xl mb-[20px] lg:text-7xl lg:mb-[30px]">Shop By</h2>
         <div class="flex items-center justify-center flex-1">
             <!-- Dog -->
-            <div class="bg-white lowercase font-poppins font-bold px-4 pt-4 rounded-[12px] mr-[10px] w-full cursor-pointer md:flex md:justify-around">
+            <a href="<?php echo get_term_link('dog', 'product_cat'); ?>" class="bg-white lowercase font-poppins font-bold px-4 pt-4 rounded-[12px] mr-[10px] w-full cursor-pointer md:flex md:justify-around">
                 <div class="flex items-center gap-2 pb-2">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="block lg:hidden">
                         <path d="M20.5488 4.96307V14.3126C20.5488 18.936 16.8975 22.69 12.3927 22.69H12.1161C11.9896 22.69 11.8632 22.69 11.7446 22.6742C11.634 22.6663 11.5154 22.6663 11.4048 22.6505C11.2388 22.6426 11.0808 22.6268 10.9306 22.5952C6.9869 22.0024 3.95996 18.5171 3.95996 14.3126V4.96307C3.95996 4.26759 4.41835 2.94775 4.77399 2.39452C5.20867 1.69114 5.45367 1.68323 6.46528 2.11001C7.69819 2.63162 9.55544 3.92775 9.55544 5.13694V6.55162C9.55544 6.7571 9.74512 6.93098 9.99012 6.93098H14.5108C14.7558 6.93098 14.9454 6.7571 14.9454 6.55162V5.13694C14.9454 3.92775 16.8027 2.63162 18.0356 2.11001C19.0551 1.68323 19.2922 1.69114 19.7269 2.39452C20.0825 2.94775 20.5409 4.26759 20.5409 4.96307H20.5488Z" stroke="#615849" stroke-width="2" stroke-miterlimit="10" />
@@ -150,9 +150,9 @@ $query = new WP_Query($args);
                     <h3 class="text-brown text-3xl lg:text-[56px]">Dog</h3>
                 </div>
                 <img src="../resources/img/dog.png" alt="Dog" class="mx-auto md:mx-0">
-            </div>
+            </a>
             <!-- Cat -->
-            <div class="bg-white text-brown lowercase font-poppins text-3xl font-bold px-4 pt-4 rounded-[12px] ml-[10px] w-full cursor-pointer md:flex md:justify-around">
+            <a href="<?php echo get_term_link('cat', 'product_cat'); ?>" class="bg-white text-brown lowercase font-poppins text-3xl font-bold px-4 pt-4 rounded-[12px] ml-[10px] w-full cursor-pointer md:flex md:justify-around">
                 <div class="flex items-center gap-2 pb-2">
                     <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="block lg:hidden">
                         <path d="M5.98803 17.1185H2.64258M3.93349 20.6821L6.79712 20.0821M23.4698 17.1185H26.8153M22.3971 20.073L25.5244 20.6821M19.5971 4.64578L17.5244 8.44578H11.9244L9.86076 4.69123C8.45167 2.18214 5.99712 3.78214 5.99712 7.17305V14.2003C5.99712 19.973 9.98803 24.0912 14.7426 24.0912C19.4971 24.0912 23.488 19.8185 23.488 13.8094V7.15487C23.488 3.72759 21.0153 2.10941 19.6153 4.64578H19.5971Z" stroke="#615849" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" />
@@ -169,7 +169,7 @@ $query = new WP_Query($args);
                     <h3 class="text-brown text-3xl lg:text-[56px]">Cat</h3>
                 </div>
                 <img src="../resources/img/dog.png" alt="Cat" class="mx-auto md:mx-0">
-            </div>
+            </a>
         </div>
     </section>
 

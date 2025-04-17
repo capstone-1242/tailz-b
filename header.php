@@ -72,8 +72,8 @@
 			<!-- Main Site Header -->
 			<header class="site-header bg-[#2B3FB8] w-full" role="banner">
 				<!-- Main Navigation -->
-				<div class="container mx-auto px-6 sm:px-4">
-					<div class="header-main h-[110px] sm:h-[80px] relative lg:flex lg:items-center lg:justify-between">
+				<div class="mx-[24px] lg:mx-[90px]">
+					<div class="header-main h-[110px] sm:h-[80px] relative lg:flex items-center lg:justify-between">
 						<!-- Mobile Menu Toggle -->
 						<button id="primary-menu-toggle" class="absolute left-[26px] top-1/2 -translate-y-1/2 block lg:hidden text-white mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
 							<svg width="35" height="26.24" viewBox="0 0 35 26.24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="block">
@@ -156,7 +156,7 @@
 									<path d="M35.3571 32.4643C35.3571 35.3571 32.4643 35.3571 32.4643 35.3571H3.53571C3.53571 35.3571 0.642857 35.3571 0.642857 32.4643C0.642857 29.5714 3.53571 20.8929 18 20.8929C32.4643 20.8929 35.3571 29.5714 35.3571 32.4643Z" fill="currentColor" />
 								</svg>
 							</a>
-							<a href="<?php echo esc_url(home_url('/cart')); ?>" class="text-white" aria-label="Shopping Cart">
+							<a href="<?php echo wc_get_cart_url(); ?>" class="text-white" aria-label="Shopping Cart">
 								<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="block">
 									<path d="M15 2C16.3909 2 17.7141 2.52679 18.7142 3.52686C19.7143 4.52694 20.2411 5.85073 20.2411 7.23809V8.28571H9.75893V7.23809C9.75893 5.85073 10.2857 4.52694 11.2858 3.52686C12.2859 2.52679 13.6091 2 15 2ZM22.2615 8.28571V7.23809C22.2615 5.24494 21.4744 3.33373 20.0735 1.93252C18.6725 0.531305 16.7613 -0.256409 14.7692 -0.256409C12.7772 -0.256409 10.8659 0.531305 9.46496 1.93252C8.06411 3.33373 7.27692 5.24494 7.27692 7.23809V8.28571H2V28.5714C2 29.6646 2.43369 30.7128 3.20648 31.4856C3.97926 32.2583 5.02739 32.6919 6.12308 32.6919H23.8769C24.9726 32.6919 26.0207 32.2583 26.7935 31.4856C27.5663 30.7128 28 29.6646 28 28.5714V8.28571H22.2615Z" fill="currentColor" />
 								</svg>

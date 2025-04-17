@@ -26,6 +26,10 @@ module.exports = {
         brown: "#615849",
         lightbrown: "#837660",
       },
+      fontFamily: {
+        worksans: ["Work Sans", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

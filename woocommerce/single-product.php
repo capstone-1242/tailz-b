@@ -61,26 +61,9 @@ get_header();
 
                 <!-- Price -->
                 <div class="flex gap-2 items-center">
-                    <p class="text-lg lg:text-2xl text-darkbrown">From:</p>
+                    <p class="text-md lg:text-2xl text-darkbrown">From:</p>
                     <?php
-                    if ($product->is_type('variable')) {
-                        $variable_product = new WC_Product_Variable($product->get_id());
-                        $available_variations = $variable_product->get_available_variations();
-
-                        if (!empty($available_variations)) {
-                            $first_variation = current($available_variations);
-                            $first_price = wc_price($first_variation['display_price']);
-                    ?>
-                            <p id="custom-dynamic-price"
-                                data-default-price="<?php echo esc_attr($first_price); ?>"
-                                class="text-xl lg:text-3xl text-blue font-semibold">
-                                <?php echo $first_price; ?>
-                            </p>
-                    <?php
-                        }
-                    } else {
-                        echo '<p class="text-xl lg:text-3xl text-blue font-semibold">' . $product->get_price_html() . '</p>';
-                    }
+                    echo '<p class="text-xl lg:text-3xl text-darkblue font-bold">' . $product->get_price_html() . '</p>';
                     ?>
                 </div>
 
@@ -91,32 +74,13 @@ get_header();
                     if ($product->is_in_stock()) {
                         // If the product is in stock, display stock quantity or a message
                         if ($stock_quantity > 0) {
-                            echo '<p class="text-sm text-green-600">In stock: ' . $stock_quantity . ' available</p>';
+                            echo '<p class="text-base text-darkbrown font-bold">In stock: ' . $stock_quantity . ' available</p>';
                         } else {
-                            echo '<p class="text-sm text-yellow-500">In stock: Limited stock available</p>';
+                            echo '<p class="text-base text-darkbrown font-bold">In stock: Limited stock available</p>';
                         }
                     } else {
                         // If the product is out of stock
-                        echo '<p class="text-sm text-red-500">Out of stock</p>';
-                    }
-                    ?>
-                </div>
-
-                <!-- Description -->
-                <div class="prose max-w-none">
-                    <?php the_content(); ?>
-                </div>
-
-                <!-- Attributes -->
-                <div class="text-sm text-gray-700 space-y-1">
-                    <?php
-                    $attributes = $product->get_attributes();
-                    if (!empty($attributes)) {
-                        foreach ($attributes as $attribute) {
-                            $name = wc_attribute_label($attribute->get_name());
-                            $options = wc_get_product_terms($product->get_id(), $attribute->get_name(), ['fields' => 'names']);
-                            echo '<p><strong>' . esc_html($name) . ':</strong> ' . implode(', ', $options) . '</p>';
-                        }
+                        echo '<p class="text-base text-darkbrown font-bold">Out of stock</p>';
                     }
                     ?>
                 </div>
@@ -124,12 +88,18 @@ get_header();
                 <!-- Variations / Add to Cart -->
                 <div>
                     <?php if ($product->is_type('variable')) : ?>
-                        <form class="variations_form cart space-y-4" method="post" enctype='multipart/form-data'>
+                        <form class="variations_form cart space-y-8 text-lg" method="post" enctype='multipart/form-data'>
                             <?php woocommerce_template_single_add_to_cart(); ?>
                         </form>
                     <?php else : ?>
                         <?php woocommerce_template_single_add_to_cart(); ?>
                     <?php endif; ?>
+                </div>
+
+                <!-- Description -->
+                <div class="prose max-w-none">
+                    <h2 class="lowercase text-lightbrown text-xl lg:text-2xl mb-2">Description</h2>
+                    <p class="text-darkbrown font-worksans"><?php the_content(); ?></p>
                 </div>
             </div>
         </div>
