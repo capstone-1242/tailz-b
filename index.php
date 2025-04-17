@@ -195,7 +195,7 @@ get_template_part('template-parts/banner');
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-[10px] p-[5px] lg:p-[25px] border-4 border-[#FEA91D] rounded-[30px] 2xl:w-1/4 lg:h-fit">
+                            <div class="flex flex-col gap-[10px] p-[15px] lg:p-[25px] border-4 border-[#FEA91D] rounded-[30px] 2xl:w-1/4 lg:h-fit">
                                 <h4 class="text-[clamp(26px,3vw,56.8px)] text-[#FEA91D]">WagMore rewards</h4>
                                 <p class="text-[clamp(18px,1.8vw,32px)] text-[#FFFFFF]">Collect points at the <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="underline">TAILZ shop!</a></p>
                             </div>
@@ -222,22 +222,22 @@ get_template_part('template-parts/banner');
                 $gallery_query = new WP_Query($gallery_args);
                 ?>
 
-                <?php if ($gallery_query->have_posts()) : ?>
-                    <div class="flex flex-col gap-[33px] lg:flex-row max-h-[327.6px]">
-                        <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
-                            <div class="">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('full', array(
-                                        'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
-                                        'alt'   => get_the_title()
-                                    )); ?>
-                                <?php endif; ?>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                <?php else : ?>
-                    <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
-                <?php endif; ?>
+                    <?php if ($gallery_query->have_posts()) : ?>
+                        <div class="flex flex-col gap-[33px] lg:flex-row lg:max-h-[327.6px]">
+                            <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
+                                <div class="">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('full', array(
+                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
+                                            'alt'   => get_the_title()
+                                        )); ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php else : ?>
+                        <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
+                    <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
                 <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
             </div>
