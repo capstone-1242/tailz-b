@@ -253,68 +253,11 @@ get_template_part('template-parts/banner');
             </div>
         </section>
 
-        <!-- FAQs -->
-        <section aria-labelledby="faq-heading">
-            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
-                <h2 id="faq-heading" class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+        <!-- FAQ Section -->
+        <div class="mt-[60px] md:mt-[100px] mb-[60px] md:mb-[100px] mx-6 md:mx-[89px]">
+            <?php get_template_part('template-parts/faq-section'); ?>
+        </div>
 
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What is included in my dog's overnight stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Every overnight lodging stay includes a full day of doggy daycare, plenty of supervised playtime, and a cozy suite for restful sleep. Your pup will also enjoy special evening attention before being tucked in for the night.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Do I need to bring anything for my dog's stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        The only thing you need to bring is your dog's food in a marked reusable shopping bag. We provide blankets, dog beds, feeding bowls, and toys to ensure your pup is comfortable during their stay.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Can I bring my dog's favorite blanket or toy?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        We understand the comfort of familiar items, but personal belongings from home may get damaged. We provide everything your pup needs to feel safe and secure.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">How often will my dog be fed?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        We typically feed dogs twice a day, but if your pup requires three meals, we are happy to accommodate. Pre-portioned meals are appreciated.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Will my dog interact with other dogs during their stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Yes! Your pup will participate in our structured doggy daycare program, enjoying socialization, exercise, and mental enrichment during the day.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Can I add a bath for my dog before they come home?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Absolutely! We offer a departure bath service, so your pup comes home fresh, clean, and ready to cuddle.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">What if my dog has special dietary needs or medications?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        We can accommodate most dietary restrictions and administer medications as needed. Please provide clear instructions when dropping off your dog.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Do you have staff on-site overnight?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        While our team is not in the facility overnight, our suites provide a safe and secure environment for your pup to rest peacefully after a fun-filled day.
-                    </p>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
 

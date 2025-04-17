@@ -5,10 +5,35 @@
  *
  * @package tailz
  */
+
 get_header();
 
 // Banner
 get_template_part('template-parts/banner');
+
+/**
+ * Get ACF field with default value
+ * 
+ * @param string $field_name The ACF field name
+ * @param mixed $default The default value if field is empty
+ * @return mixed The field value or default
+ */
+function get_contact_field($field_name, $default) {
+    $value = get_field($field_name);
+    return !empty($value) ? $value : $default;
+}
+
+// Set up default values for ACF fields
+$contact_info = [
+    'monday_friday_hours' => get_contact_field('monday_friday_hours', '6:30am - 6:30pm'),
+    'saturday_hours' => get_contact_field('saturday_hours', '10:00am - 5:00pm'),
+    'phone_number' => get_contact_field('phone_number', '780-988-0089'),
+    'address' => get_contact_field('address', '12004 111 ave nw, edmonton'),
+    'email_address' => get_contact_field('email_address', 'info@tailz.com')
+];
+
+// Format phone number for tel: link
+$phone_number_formatted = str_replace(['-', ' ', '(', ')'], '', $contact_info['phone_number']);
 ?>
 
 <!-- Breadcrumb -->
@@ -35,11 +60,11 @@ get_template_part('template-parts/banner');
       <dl class="space-y-4">
         <div class="flex items-center">
           <dt class="font-worksans text-[16px] uppercase text-[#2C2C2C] w-[160px]">MONDAY - FRIDAY</dt>
-          <dd class="font-worksans text-[16px] uppercase text-[#2C2C2C]">6:30am - 6:30pm</dd>
+          <dd class="font-worksans text-[16px] uppercase text-[#2C2C2C]"><?php echo esc_html($contact_info['monday_friday_hours']); ?></dd>
         </div>
         <div class="flex items-center">
           <dt class="font-worksans text-[16px] uppercase text-[#2C2C2C] w-[160px]">SATURDAY</dt>
-          <dd class="font-worksans text-[16px] uppercase text-[#2C2C2C]">10:00am - 5:00pm</dd>
+          <dd class="font-worksans text-[16px] uppercase text-[#2C2C2C]"><?php echo esc_html($contact_info['saturday_hours']); ?></dd>
         </div>
         <div>
           <dd class="font-worksans text-[16px] italic text-[#2C2C2C]">
@@ -58,8 +83,8 @@ get_template_part('template-parts/banner');
         <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M2.3125 10.0208C2.3125 5.76352 5.76352 2.3125 10.0208 2.3125H10.4594C10.9216 2.31258 11.3731 2.45111 11.7557 2.71024C12.1384 2.96937 12.4346 3.3372 12.6062 3.76629L14.5071 8.51771C14.7312 9.07794 14.7861 9.69163 14.6648 10.2827C14.5436 10.8738 14.2515 11.4164 13.8249 11.8431L11.453 14.2149C11.073 14.595 10.9135 15.1476 11.0692 15.6626C11.8083 18.0842 13.1313 20.2872 14.9217 22.0775C16.7121 23.8679 18.915 25.1909 21.3367 25.9301C21.8516 26.0865 22.4043 25.9262 22.7843 25.5462L25.1561 23.1743C25.5829 22.7477 26.1254 22.4557 26.7165 22.3344C27.3076 22.2131 27.9213 22.268 28.4815 22.4921L33.2337 24.393C33.6628 24.5646 34.0306 24.8609 34.2898 25.2435C34.5489 25.6261 34.6874 26.0777 34.6875 26.5398V26.9792C34.6875 31.2365 31.2365 34.6875 26.9792 34.6875H26.5938C13.4048 34.6875 2.67171 24.1718 2.32098 11.0676C2.32098 11.0638 2.31944 11.0599 2.31713 11.0576C2.31571 11.0563 2.31457 11.0548 2.31377 11.0531C2.31298 11.0513 2.31255 11.0495 2.3125 11.0476V10.0208Z" stroke="#2C2C2C" stroke-width="4" stroke-linejoin="round"/>
         </svg>
-        <a href="tel:+1-780-988-0089" class="font-worksans text-[18px] text-[#2C2C2C] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C] py-2 px-1">
-          780-988-0089
+        <a href="tel:+1-<?php echo esc_attr($phone_number_formatted); ?>" class="font-worksans text-[18px] text-[#2C2C2C] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C] py-2 px-1">
+          <?php echo esc_html($contact_info['phone_number']); ?>
         </a>
       </div>
     </section>
@@ -70,12 +95,12 @@ get_template_part('template-parts/banner');
         address
       </h2>
       <address class="not-italic">
-        <a href="https://www.google.com/maps/place/Tailz/@53.5725,-113.5725,17z/" 
+        <a href="https://www.google.com/maps/place/<?php echo esc_attr(urlencode($contact_info['address'])); ?>" 
            target="_blank" 
            rel="noopener noreferrer"
            class="font-worksans text-[18px] text-[#2C2C2C] lowercase hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C] inline-block py-2"
-           aria-label="Our address: 12004 111 avenue northwest, edmonton. Opens Google Maps in a new tab.">
-          12004 111 ave nw, edmonton
+           aria-label="Our address: <?php echo esc_attr($contact_info['address']); ?>. Opens Google Maps in a new tab.">
+          <?php echo esc_html($contact_info['address']); ?>
         </a>
       </address>
     </section>
@@ -160,11 +185,11 @@ get_template_part('template-parts/banner');
         <dl class="space-y-4">
           <div class="flex justify-between items-center">
             <dt class="font-worksans text-[24px] uppercase text-[#2C2C2C]">MONDAY - FRIDAY</dt>
-            <dd class="font-worksans text-[24px] uppercase text-[#2C2C2C]">6:30am - 6:30pm</dd>
+            <dd class="font-worksans text-[24px] uppercase text-[#2C2C2C]"><?php echo esc_html($contact_info['monday_friday_hours']); ?></dd>
           </div>
           <div class="flex justify-between items-center">
             <dt class="font-worksans text-[24px] uppercase text-[#2C2C2C]">SATURDAY</dt>
-            <dd class="font-worksans text-[24px] uppercase text-[#2C2C2C]">10:00am - 5:00pm</dd>
+            <dd class="font-worksans text-[24px] uppercase text-[#2C2C2C]"><?php echo esc_html($contact_info['saturday_hours']); ?></dd>
           </div>
           <div>
             <dd class="font-worksans text-[24px] italic text-[#2C2C2C]">
@@ -183,8 +208,8 @@ get_template_part('template-parts/banner');
           <svg width="54" height="54" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M2.3125 10.0208C2.3125 5.76352 5.76352 2.3125 10.0208 2.3125H10.4594C10.9216 2.31258 11.3731 2.45111 11.7557 2.71024C12.1384 2.96937 12.4346 3.3372 12.6062 3.76629L14.5071 8.51771C14.7312 9.07794 14.7861 9.69163 14.6648 10.2827C14.5436 10.8738 14.2515 11.4164 13.8249 11.8431L11.453 14.2149C11.073 14.595 10.9135 15.1476 11.0692 15.6626C11.8083 18.0842 13.1313 20.2872 14.9217 22.0775C16.7121 23.8679 18.915 25.1909 21.3367 25.9301C21.8516 26.0865 22.4043 25.9262 22.7843 25.5462L25.1561 23.1743C25.5829 22.7477 26.1254 22.4557 26.7165 22.3344C27.3076 22.2131 27.9213 22.268 28.4815 22.4921L33.2337 24.393C33.6628 24.5646 34.0306 24.8609 34.2898 25.2435C34.5489 25.6261 34.6874 26.0777 34.6875 26.5398V26.9792C34.6875 31.2365 31.2365 34.6875 26.9792 34.6875H26.5938C13.4048 34.6875 2.67171 24.1718 2.32098 11.0676C2.32098 11.0638 2.31944 11.0599 2.31713 11.0576C2.31571 11.0563 2.31457 11.0548 2.31377 11.0531C2.31298 11.0513 2.31255 11.0495 2.3125 11.0476V10.0208Z" stroke="#2C2C2C" stroke-width="4" stroke-linejoin="round"/>
           </svg>
-          <a href="tel:+1-780-988-0089" class="font-worksans text-[24px] text-[#2C2C2C] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C]">
-            780-988-0089
+          <a href="tel:+1-<?php echo esc_attr($phone_number_formatted); ?>" class="font-worksans text-[24px] text-[#2C2C2C] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C]">
+            <?php echo esc_html($contact_info['phone_number']); ?>
           </a>
         </div>
       </section>
@@ -195,12 +220,12 @@ get_template_part('template-parts/banner');
           address
         </h2>
         <address class="not-italic">
-          <a href="https://www.google.com/maps/place/Tailz/@53.5725,-113.5725,17z/" 
+          <a href="https://www.google.com/maps/place/<?php echo esc_attr(urlencode($contact_info['address'])); ?>" 
              target="_blank" 
              rel="noopener noreferrer"
              class="font-worksans text-[24px] text-[#2C2C2C] lowercase hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2C2C2C]"
-             aria-label="Our address: 12004 111 avenue northwest, edmonton. Opens Google Maps in a new tab.">
-            12004 111 ave nw, edmonton
+             aria-label="Our address: <?php echo esc_attr($contact_info['address']); ?>. Opens Google Maps in a new tab.">
+            <?php echo esc_html($contact_info['address']); ?>
           </a>
         </address>
       </section>
