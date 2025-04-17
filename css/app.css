@@ -2046,9 +2046,6 @@ video {
 .flex {
   display: flex;
 }
-.table {
-  display: table;
-}
 .grid {
   display: grid;
 }
@@ -2408,11 +2405,6 @@ video {
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-1 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -2496,9 +2488,6 @@ video {
 }
 .rounded-xl {
   border-radius: 0.75rem;
-}
-.rounded-md {
-  border-radius: 0.375rem;
 }
 .rounded-b-\[20px\] {
   border-bottom-right-radius: 20px;
@@ -3188,13 +3177,13 @@ video {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
-.text-blue {
-  --tw-text-opacity: 1;
-  color: rgb(43 63 184 / var(--tw-text-opacity, 1));
-}
 .text-brown {
   --tw-text-opacity: 1;
   color: rgb(97 88 73 / var(--tw-text-opacity, 1));
+}
+.text-darkblue {
+  --tw-text-opacity: 1;
+  color: rgb(30 43 121 / var(--tw-text-opacity, 1));
 }
 .text-darkbrown {
   --tw-text-opacity: 1;
@@ -3224,29 +3213,13 @@ video {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
-.text-green-600 {
-  --tw-text-opacity: 1;
-  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
-}
 .text-lightbrown {
   --tw-text-opacity: 1;
   color: rgb(131 118 96 / var(--tw-text-opacity, 1));
 }
-.text-orange {
-  --tw-text-opacity: 1;
-  color: rgb(254 169 29 / var(--tw-text-opacity, 1));
-}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.text-darkblue {
-  --tw-text-opacity: 1;
-  color: rgb(30 43 121 / var(--tw-text-opacity, 1));
-}
-.text-yellow {
-  --tw-text-opacity: 1;
-  color: rgb(252 212 29 / var(--tw-text-opacity, 1));
 }
 .underline {
   text-decoration-line: underline;
@@ -4379,10 +4352,6 @@ video {
 
   .lg\:items-start {
     align-items: flex-start;
-  }
-
-  .lg\:items-center {
-    align-items: center;
   }
 
   .lg\:justify-between {
