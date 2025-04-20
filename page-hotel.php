@@ -213,73 +213,51 @@ get_template_part('template-parts/banner');
         <section aria-labelledby="rooms-heading">
             <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px]">
                 <h2 id="rooms-heading" class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Our rooms</h2>
-                <!-- Gallery Function -->
-                <div>Gallery function here</div>
+                <!-- Gallery -->
+                <?php
+                    $gallery_args = array(
+                        'post_type'      => 'gallery-image',
+                        'posts_per_page' => 5,
+                        'orderby'       => 'rand',
+                        'order'         => 'DESC',
+                        'tax_query'     => array(
+                            array(
+                                'taxonomy' => 'service',
+                                'field'    => 'slug',
+                                'terms'    => 'hotel',
+                            ),
+                        ),
+                    );
+
+                    $gallery_query = new WP_Query($gallery_args);
+                    ?>
+
+                    <?php if ($gallery_query->have_posts()) : ?>
+                        <div class="flex flex-col gap-[33px] lg:flex-row lg:max-h-[327.6px]">
+                            <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
+                                <div class="">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('full', array(
+                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
+                                            'alt'   => get_the_title()
+                                        )); ?>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php else : ?>
+                        <p class="font-bold text-[clamp(22px,2vw,24px)]">No hotel gallery images yet. Check back soon!</p>
+                    <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
+                <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
             </div>
         </section>
 
-        <!-- FAQs -->
-        <section aria-labelledby="faq-heading">
-            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
-                <h2 id="faq-heading" class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+        <!-- FAQ Section -->
+        <div class="mt-[60px] md:mt-[100px] mb-[60px] md:mb-[100px] mx-6 md:mx-[89px]">
+            <?php get_template_part('template-parts/faq-section'); ?>
+        </div>
 
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What is included in my dog's overnight stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Every overnight lodging stay includes a full day of doggy daycare, plenty of supervised playtime, and a cozy suite for restful sleep. Your pup will also enjoy special evening attention before being tucked in for the night.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do I need to bring anything for my dog's stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        The only thing you need to bring is your dog's food in a marked reusable shopping bag. We provide blankets, dog beds, feeding bowls, and toys to ensure your pup is comfortable during their stay.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I bring my dog's favorite blanket or toy?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        We understand the comfort of familiar items, but personal belongings from home may get damaged. We provide everything your pup needs to feel safe and secure.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How often will my dog be fed?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        We typically feed dogs twice a day, but if your pup requires three meals, we are happy to accommodate. Pre-portioned meals are appreciated.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Will my dog interact with other dogs during their stay?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Yes! Your pup will participate in our structured doggy daycare program, enjoying socialization, exercise, and mental enrichment during the day.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I add a bath for my dog before they come home?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        Absolutely! We offer a departure bath service, so your pup comes home fresh, clean, and ready to cuddle.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What if my dog has special dietary needs or medications?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        We can accommodate most dietary restrictions and administer medications as needed. Please provide clear instructions when dropping off your dog.
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Do you have staff on-site overnight?</h3>
-                    <p class="text-[18px] md:text-[24px] text-[#2C2C2C]">
-                        While our team is not in the facility overnight, our suites provide a safe and secure environment for your pup to rest peacefully after a fun-filled day.
-                    </p>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
 

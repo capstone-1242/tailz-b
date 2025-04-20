@@ -65,15 +65,15 @@ add_action('after_setup_theme', 'tailpress_setup');
  * ACF Options Page Setup
  */
 if (function_exists('acf_add_options_page')) {
-    acf_add_options_page(array(
-        'page_title' => 'Site Settings',
-        'menu_title' => 'Site Settings',
-        'menu_slug'  => 'site-settings',
-        'capability' => 'edit_posts',
-        'redirect'   => false,
-        'position'   => '59.5',
-        'icon_url'   => 'dashicons-admin-generic'
-    ));
+	acf_add_options_page(array(
+		'page_title' => 'Site Settings',
+		'menu_title' => 'Site Settings',
+		'menu_slug'  => 'site-settings',
+		'capability' => 'edit_posts',
+		'redirect'   => false,
+		'position'   => '59.5',
+		'icon_url'   => 'dashicons-admin-generic'
+	));
 }
 
 /**
@@ -115,6 +115,15 @@ function tailpress_enqueue_assets()
 		'tailz-mobile-menu',
 		get_template_directory_uri() . '/resources/js/mobile-menu.js',
 		array('jquery'),
+		$version,
+		true
+	);
+
+	// Enqueue back to top script
+	wp_enqueue_script(
+		'tailz-back-to-top',
+		get_template_directory_uri() . '/resources/js/back-to-top.js',
+		array(),
 		$version,
 		true
 	);
@@ -283,16 +292,17 @@ function tailz_register_banner_meta_box()
 }
 add_action('add_meta_boxes', 'tailz_register_banner_meta_box');
 
-function register_fullwidth_widget_area() {
-    register_sidebar(array(
-        'name'          => 'Full Width Reviews Area',
-        'id'            => 'fullwidth-reviews',
-        'description'   => 'For displaying Google reviews across full page width',
-        'before_widget' => '<div id="%1$s" class="full-width-widget w-full %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="reviews-title">',
-        'after_title'   => '</h3>',
-    ));
+function register_fullwidth_widget_area()
+{
+	register_sidebar(array(
+		'name'          => 'Full Width Reviews Area',
+		'id'            => 'fullwidth-reviews',
+		'description'   => 'For displaying Google reviews across full page width',
+		'before_widget' => '<div id="%1$s" class="full-width-widget w-full %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="reviews-title">',
+		'after_title'   => '</h3>',
+	));
 }
 add_action('widgets_init', 'register_fullwidth_widget_area');
 
@@ -346,7 +356,7 @@ add_action('save_post', 'tailz_save_banner_meta_box');
 // Include the accessible menu walker
 require_once get_template_directory() . '/inc/class-tailz-accessible-menu-walker.php';
 
-function tailz_enqueue_scripts()
+function tailz_enqueue_gallery_scripts()
 {
 	wp_enqueue_script(
 		'gallery-filter.js',
@@ -356,10 +366,123 @@ function tailz_enqueue_scripts()
 		true
 	);
 }
-add_action('wp_enqueue_scripts', 'tailz_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'tailz_enqueue_gallery_scripts');
 
 function tailz_add_woocommerce_support()
 {
 	add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'tailz_add_woocommerce_support');
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+
+function tailz_enqueue_ajax_filter_script()
+{
+	wp_enqueue_script('ajax-filters', get_template_directory_uri() . '/resources/js/ajax-filters.js', ['jquery'], null, true);
+
+	wp_localize_script('ajax-filters', 'theme_vars', [
+		'ajax_url' => admin_url('admin-ajax.php'),
+	]);
+}
+add_action('wp_enqueue_scripts', 'tailz_enqueue_ajax_filter_script');
+
+function tailz_ajax_product_filter()
+{
+	// Use $_POST instead of $_GET since the AJAX request is using POST method
+	$pet_filter = isset($_POST['pets']) ? $_POST['pets'] : [];
+	$brand_filter = isset($_POST['brand']) ? $_POST['brand'] : [];
+	$food_filter = isset($_POST['foods']) ? $_POST['foods'] : [];
+	$treat_filter = isset($_POST['treats']) ? $_POST['treats'] : [];
+	$supply_filter = isset($_POST['supplies']) ? $_POST['supplies'] : [];
+
+	// Prepare the tax_query array
+	$tax_query = [];
+
+	// Only add filters if they are selected
+	if (!empty($pet_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'product_cat',
+			'field'    => 'slug',
+			'terms'    => $pet_filter,
+		];
+	}
+
+	if (!empty($brand_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'product_brand',
+			'field'    => 'slug',
+			'terms'    => $brand_filter,
+		];
+	}
+
+	if (!empty($food_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'food',
+			'field'    => 'slug',
+			'terms'    => $food_filter,
+		];
+	}
+
+	if (!empty($treat_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'treat',
+			'field'    => 'slug',
+			'terms'    => $treat_filter,
+		];
+	}
+
+	if (!empty($supply_filter)) {
+		$tax_query[] = [
+			'taxonomy' => 'supply',
+			'field'    => 'slug',
+			'terms'    => $supply_filter,
+		];
+	}
+
+	// Default query args
+	$args = [
+		'post_type'      => 'product',
+		'posts_per_page' => -1,
+		'post_status'    => 'publish',
+	];
+
+	// Check if we are on a product category page
+	if (is_product_category()) {
+		$category = get_queried_object();
+		// Ensure only products from the queried category are displayed
+		$args['tax_query'][] = [
+			'taxonomy' => 'product_cat',
+			'field'    => 'id',
+			'terms'    => $category->term_id,
+			'operator' => 'IN',
+		];
+	}
+
+	// Only add tax_query if we have filters
+	if (!empty($tax_query)) {
+		$args['tax_query'] = count($tax_query) > 1 ?
+			array_merge(['relation' => 'AND'], $tax_query) :
+			$tax_query;
+	}
+
+	// Perform the query
+	$query = new WP_Query($args);
+
+	ob_start();
+	if ($query->have_posts()) :
+		while ($query->have_posts()) : $query->the_post();
+			wc_get_template_part('content', 'product');
+		endwhile;
+		wp_reset_postdata();
+	else :
+		echo '<p class="text-brown">No products found.</p>';
+	endif;
+
+	// Return the filtered content
+	$content = ob_get_clean();
+	echo $content;
+	wp_die(); // End AJAX request
+}
+add_action('wp_ajax_filter_products', 'tailz_ajax_product_filter');
+add_action('wp_ajax_nopriv_filter_products', 'tailz_ajax_product_filter');

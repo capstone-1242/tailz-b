@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Puppy Programs
  * Description: A custom template for the "Puppy Programs" page.
@@ -38,21 +39,21 @@ get_template_part('template-parts/banner');
                 <div class="flex flex-col lg:flex-row flex-wrap gap-5 mx-6 lg:mx-[5.56rem] text-center lg:text-left items-center lg:items-start lg:justify-between">
                     <!-- Puppy preschool -->
                     <a class="lg:w-[calc(33.333333%_-_30px)] hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6A6A]" href="#puppy-preschool" aria-label="Learn more about Puppy Preschool">
-                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-1.jpg'); ?>" alt="Puppy in a preschool setting" width="600" height="400">
+                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-1.webp'); ?>" alt="Puppy in a preschool setting" width="600" height="400">
                         <div class="bg-[#FF6A6A] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy preschool</h3>
                         </div>
                     </a>
                     <!-- Puppy plus -->
                     <a class="lg:w-[calc(33.333333%_-_30px)] hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FEA91D]" href="#puppy-plus" aria-label="Learn more about Puppy Plus">
-                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-2.jpg'); ?>" alt="Puppy in advanced training" width="600" height="400">
+                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-2.webp'); ?>" alt="Puppy in advanced training" width="600" height="400">
                         <div class="bg-[#FEA91D] p-[25px] rounded-b-[30px]">
-                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-3/5">Puppy plus</h3>
+                            <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-2/5">Puppy<br class="hidden lg:inline"><span class="lg:hidden"> </span>plus</h3>
                         </div>
                     </a>
                     <!-- Puppy daycare -->
                     <a class="lg:w-[calc(33.333333%_-_30px)] hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FCD41D]" href="#puppy-daycare" aria-label="Learn more about Puppy Daycare">
-                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-3.jpg'); ?>" alt="Puppies playing in daycare" width="600" height="400">
+                        <img class="rounded-t-[30px] w-full" src="<?php echo esc_url(get_template_directory_uri() . '/images/puppy-programs-puppy-3.webp'); ?>" alt="Puppies playing in daycare" width="600" height="400">
                         <div class="bg-[#FCD41D] p-[25px] rounded-b-[30px]">
                             <h3 class="lowercase text-[clamp(2rem,4vw,4.75rem)] text-[#47423B] lg:max-w-1/3">Puppy daycare</h3>
                         </div>
@@ -130,52 +131,11 @@ get_template_part('template-parts/banner');
             </div>
         </section>
 
-        <!-- FAQs -->
-        <section aria-labelledby="faq-heading">
-            <div class="flex flex-col mx-6 md:mx-[89px] gap-[20px] md:gap-[30px] md:w-2/3">
-                <h2 id="faq-heading" class="md:text-[75.8px] text-[44.8px] text-[#47423B] lowercase">FAQs</h2>
+        <!-- FAQ Section -->
+        <div class="mt-[60px] md:mt-[100px] mb-[60px] md:mb-[100px] mx-6 md:mx-[89px]">
+            <?php get_template_part('template-parts/faq-section'); ?>
+        </div>
 
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-1" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What is the puppy preschool program?</h3>
-                    <p aria-labelledby="faq-1" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Our Puppy Preschool program is a customized curriculum designed to help puppies grow into balanced, socialized, and well-behaved dogs through early socialization, training, and positive experiences.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-2" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Why is early socialization important for my puppy?</h3>
-                    <p aria-labelledby="faq-2" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Early socialization helps reduce fears and anxieties, leading to a more confident, friendly, and sociable dog as they grow. It sets a strong foundation for good behavior throughout their life.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-3" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How often should my puppy attend the program?</h3>
-                    <p aria-labelledby="faq-3" class="text-[18px] md:text-[24px] text-[#2C2C2C]">We recommend regular visits for optimal development. Whether your puppy comes once a week or every day, they will benefit from the structured environment that encourages growth and positive behavior.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-4" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">What activities are included in the program?</h3>
-                    <p aria-labelledby="faq-4" class="text-[18px] md:text-[24px] text-[#2C2C2C]">The program includes interactive play, gentle training, socialization with other dogs, and desensitization to various environments and situations to build your puppy's confidence.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-5" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Is the program suitable for all breeds and sizes?</h3>
-                    <p aria-labelledby="faq-5" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! Our Puppy Development program is tailored to meet the needs of all puppies, regardless of breed or size, with activities designed to support their unique development stages.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-6" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Will my puppy learn basic commands?</h3>
-                    <p aria-labelledby="faq-6" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Yes! We incorporate basic training into the program, such as sit, stay, and recall, to help your puppy learn essential commands and good manners.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-7" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">How do I know if my puppy is ready for the program?</h3>
-                    <p aria-labelledby="faq-7" class="text-[18px] md:text-[24px] text-[#2C2C2C]">Most puppies can start the program after they've had their first set of vaccinations. If you're unsure, our team can help you determine the best time to enroll your puppy.</p>
-                </div>
-
-                <div class="flex flex-col gap-3">
-                    <h3 id="faq-8" class="md:text-[42.7px] text-[22px] text-[#47423B] lowercase">Can I observe my puppy during the program?</h3>
-                    <p aria-labelledby="faq-8" class="text-[18px] md:text-[24px] text-[#2C2C2C]">For the comfort and focus of your puppy, we typically recommend leaving them for their session. However, if you have concerns or special requests, we can discuss accommodations.</p>
-                </div>
-            </div>
-        </section>
     </div>
 </div>
 

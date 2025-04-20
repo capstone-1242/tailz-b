@@ -7,11 +7,14 @@
     width: 100%;
 }
 
-/* Add these styles to make them both sticky as a unit and fix the gap */
+/* Improved sticky header styles */
 .header-wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin-bottom: 0;
+    will-change: transform; /* Performance optimization */
+    transition: transform 0.3s ease-in-out;
 }
 
 .header-wrapper.sticky {
@@ -20,6 +23,7 @@
     left: 0;
     right: 0;
     z-index: 30;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for better visual indication */
 }
 
 /* Fix the banner-header gap */
@@ -27,14 +31,9 @@
     margin-top: -1px; /* Remove gap between banner and header */
 }
 
-/* Calculate banner height for different device sizes */
+/* Banner height calculations */
 .banner-alert {
     --banner-height: 56px; /* Default (desktop) */
-}
-
-/* Adjust main content when header is sticky */
-body .header-wrapper.sticky + #content {
-    padding-top: calc(80px + var(--banner-height, 0px));
 }
 
 /* Tablet breakpoint */
@@ -49,19 +48,19 @@ body .header-wrapper.sticky + #content {
     .banner-alert {
         --banner-height: 90px;
     }
+    
+    .header-main {
+        height: 110px; /* Match the mobile header height from your HTML */
+    }
 }
 
-/* Ensure no extra spacing in the main content */
+/* Content spacing fix */
 #content.site-content {
     margin-top: 0;
-    padding-top: 0;
+    transition: padding-top 0.3s ease-in-out; /* Smooth transition for padding changes */
 }
 
-/* If using padding in the banner that might cause gaps */
-.banner-alert .py-3 {
-    padding-bottom: 4px; /* Slight extra padding to ensure no gap */
-}
-
+/* Rest of your existing CSS... */
 .site-logo {
     flex-shrink: 0;
 }
