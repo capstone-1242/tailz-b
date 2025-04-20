@@ -62,6 +62,21 @@ function tailpress_setup()
 add_action('after_setup_theme', 'tailpress_setup');
 
 /**
+ * ACF Options Page Setup
+ */
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(array(
+        'page_title' => 'Site Settings',
+        'menu_title' => 'Site Settings',
+        'menu_slug'  => 'site-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false,
+        'position'   => '59.5',
+        'icon_url'   => 'dashicons-admin-generic'
+    ));
+}
+
+/**
  * Enqueue theme assets
  */
 function tailpress_enqueue_assets()
@@ -267,6 +282,19 @@ function tailz_register_banner_meta_box()
 	);
 }
 add_action('add_meta_boxes', 'tailz_register_banner_meta_box');
+
+function register_fullwidth_widget_area() {
+    register_sidebar(array(
+        'name'          => 'Full Width Reviews Area',
+        'id'            => 'fullwidth-reviews',
+        'description'   => 'For displaying Google reviews across full page width',
+        'before_widget' => '<div id="%1$s" class="full-width-widget w-full %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="reviews-title">',
+        'after_title'   => '</h3>',
+    ));
+}
+add_action('widgets_init', 'register_fullwidth_widget_area');
 
 function tailz_banner_alert_callback($post)
 {
