@@ -4,6 +4,8 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Your one-stop shop for your pets – We are a company that truly cares for our clients and treats your pets as if they were our own. We prioritize their overall well-being - mind, body, and emotions - through compassionate care and positive reinforcement.">
+	<meta name="keywords" content="tailz, pets, pet, pet store, pet shop, dog, cat, dogs, cats, daycare, dog daycare, grooming, training, dog training, hotel, pet hotel, professional pet pictures, puppy, puppies, edmonton">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
