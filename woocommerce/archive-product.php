@@ -13,9 +13,6 @@ if (! defined('ABSPATH')) {
 
 get_header();
 
-// Banner
-get_template_part('template-parts/banner');
-
 // Check for the filter parameter
 $pet_filter = $_GET['pets'] ?? [];
 $brand_filter  = $_GET['brands'] ?? [];
@@ -116,7 +113,8 @@ $query = new WP_Query($args);
     ?>
 
     <!-- Featured Section -->
-    <section class="px-[24px] pt-6 mb-[60px] lg:px-[90px] lg:pt-[60px] lg:mb-[130px]">
+    <h1 class="lowercase text-darkbrown text-[54px] mx-[24px] lg:mx-[90px] py-[30px] lg:text-[135px] lg:py-[60px]">Shop</h1>
+    <section class="px-[24px] mb-[60px] lg:px-[90px] lg:mb-[130px]">
         <h2 class="lowercase text-brown text-4xl mb-[20px] lg:text-7xl lg:mb-[30px]">featured</h2>
         <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] lg:gap-[32px]">
             <?php if ($featured_query->have_posts()) : ?>
@@ -149,7 +147,7 @@ $query = new WP_Query($args);
                     </svg>
                     <h3 class="text-brown text-3xl lg:text-[56px]">Dog</h3>
                 </div>
-                <img src="../resources/img/dog.png" alt="Dog" class="mx-auto md:mx-0">
+                <img src="<?php echo get_template_directory_uri(); ?>/public/img/dog.png" alt="Dog" class="mx-auto md:mx-0">
             </a>
             <!-- Cat -->
             <a href="<?php echo get_term_link('cat', 'product_cat'); ?>" class="bg-white text-brown lowercase font-poppins text-3xl font-bold px-4 pt-4 rounded-[12px] ml-[10px] w-full cursor-pointer md:flex md:justify-around">
@@ -168,7 +166,7 @@ $query = new WP_Query($args);
                     </svg>
                     <h3 class="text-brown text-3xl lg:text-[56px]">Cat</h3>
                 </div>
-                <img src="../resources/img/dog.png" alt="Cat" class="mx-auto md:mx-0">
+                <img src="<?php echo get_template_directory_uri(); ?>/public/img/cat.png" alt="Cat" class="mx-auto md:mx-0">
             </a>
         </div>
     </section>
