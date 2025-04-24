@@ -162,20 +162,9 @@ $phone_number_formatted = str_replace(['-', ' ', '(', ')'], '', $contact_info['p
     </section>
 
     <!-- Mobile Form Section -->
-    <section class="mb-8" aria-labelledby="mobile-form-heading">
-      <h2 id="mobile-form-heading" class="sr-only">Contact Form</h2>
-      <div class="bg-[#F3F2EC] rounded-[20px] p-5 max-w-[100%] mx-auto shadow-sm">
-        <?php
-        // Pass additional parameters to the form template to optimize for mobile
-        get_template_part('template-parts/contact-form', null, [
-          'form_id' => 'mobile',
-          'is_mobile' => true,
-          'input_class' => 'text-[14px] py-2',
-          'button_class' => 'text-[16px] py-2 px-4'
-        ]);
-        ?>
-      </div>
-    </section>
+    <div class="md:hidden w-full mb-16">
+        <?php get_template_part('template-parts/contact-form', null, ['form_id' => 'mobile']); ?>
+    </div>
   </div>
   <!-- end MOBILE layout -->
 
@@ -288,12 +277,12 @@ $phone_number_formatted = str_replace(['-', ' ', '(', ')'], '', $contact_info['p
     </section>
 
     <!-- Desktop Form Section -->
-    <section class="mt-16" aria-labelledby="desktop-form-heading">
-      <h2 id="desktop-form-heading" class="sr-only">Contact Form</h2>
-      <div class="bg-[#F3F2EC] rounded-[30px] p-8">
-        <?php get_template_part('template-parts/contact-form', null, ['form_id' => 'desktop']); ?>
-      </div>
-    </section>
+    <div class="hidden md:block w-full">
+        <section class="mt-16" aria-labelledby="desktop-form-heading">
+            <h2 id="desktop-form-heading" class="sr-only">Contact Form</h2>
+            <?php get_template_part('template-parts/contact-form', null, ['form_id' => 'desktop']); ?>
+        </section>
+    </div>
   </div>
 </main>
 

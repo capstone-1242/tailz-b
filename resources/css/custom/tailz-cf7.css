@@ -1,0 +1,59 @@
+/* Contact Form 7 validation message styling */
+.wpcf7-not-valid-tip {
+    color: #dc2626;
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 4px;
+}
+
+.wpcf7-response-output {
+    margin: 2em 0 1em;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+    border-color: #dc2626;
+    background-color: rgba(220, 38, 38, 0.1);
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+    border-color: #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Fix for Contact Form 7 added elements */
+.wpcf7 br {
+    display: none;
+}
+
+.wpcf7 .wpcf7-spinner {
+    margin: 0 0 0 8px;
+    background-color: #FEA91D;
+}
+
+/* Focus styles for inputs */
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus {
+    outline: none;
+    border-color: #FEA91D;
+    box-shadow: 0 0 0 2px rgba(254, 169, 29, 0.3);
+}
+
+/* Force submit button width/height to match design */
+@media (max-width: 767px) {
+    .wpcf7-submit {
+        width: 128px !important;
+        height: 46px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .wpcf7-submit {
+        width: 159.54px !important;
+        height: 60px !important;
+    }
+} 

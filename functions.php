@@ -486,3 +486,29 @@ function tailz_ajax_product_filter()
 }
 add_action('wp_ajax_filter_products', 'tailz_ajax_product_filter');
 add_action('wp_ajax_nopriv_filter_products', 'tailz_ajax_product_filter');
+
+/**
+ * Enqueue Tailz Contact Form 7 custom scripts and styles
+ */
+function tailz_cf7_scripts() {
+	// Only load on pages with Contact Form 7
+	if (function_exists('wpcf7_enqueue_scripts')) {
+		// Enqueue custom CSS
+		wp_enqueue_style(
+			'tailz-cf7-styles',
+			get_template_directory_uri() . '/resources/css/custom/tailz-cf7.css',
+			array(),
+			'1.0'
+		);
+		
+		// Enqueue custom JavaScript
+		wp_enqueue_script(
+			'tailz-cf7-scripts',
+			get_template_directory_uri() . '/resources/js/tailz-cf7.js',
+			array('jquery', 'contact-form-7'),
+			'1.0',
+			true
+		);
+	}
+}
+add_action('wp_enqueue_scripts', 'tailz_cf7_scripts');
