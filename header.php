@@ -86,7 +86,7 @@
 						</button>
 
 						<!-- Logo -->
-						<div class="site-logo absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:translate-x-0 lg:translate-y-0 lg:ml-[53px]">
+						<div class="site-logo absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:translate-x-0 lg:translate-y-0 lg:ml-0">
 							<?php if (has_custom_logo()) { ?>
 								<?php the_custom_logo(); ?>
 							<?php } else { ?>
@@ -103,7 +103,7 @@
 						</div>
 
 						<!-- Desktop Navigation -->
-						<nav id="desktop-nav" class="hidden lg:flex items-center ml-[53px]" role="navigation" aria-label="Main navigation">
+						<nav id="desktop-nav" class="hidden lg:flex items-center lg:ml-8" role="navigation" aria-label="Main navigation">
 							<ul class="flex items-center gap-x-[53px]">
 								<li class="group relative">
 									<div class="relative">
@@ -149,21 +149,6 @@
 								</li>
 							</ul>
 						</nav>
-
-						<!-- User & Cart Icons -->
-						<div class="absolute right-[24px] top-1/2 -translate-y-1/2 lg:static lg:transform-none header-icons flex items-center gap-x-[16px] sm:gap-x-8">
-							<a href="<?php echo esc_url(home_url('/my-account')); ?>" class="text-white" aria-label="My Account">
-								<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="block">
-									<path d="M18 18C20.3016 18 22.5091 17.0833 24.1364 15.4557C25.7637 13.8281 26.6786 11.6209 26.6786 9.32143C26.6786 7.02189 25.7637 4.81471 24.1364 3.18708C22.5091 1.55946 20.3016 0.642857 18 0.642857C15.6984 0.642857 13.4909 1.55946 11.8636 3.18708C10.2363 4.81471 9.32143 7.02189 9.32143 9.32143C9.32143 11.6209 10.2363 13.8281 11.8636 15.4557C13.4909 17.0833 15.6984 18 18 18Z" fill="currentColor" />
-									<path d="M35.3571 32.4643C35.3571 35.3571 32.4643 35.3571 32.4643 35.3571H3.53571C3.53571 35.3571 0.642857 35.3571 0.642857 32.4643C0.642857 29.5714 3.53571 20.8929 18 20.8929C32.4643 20.8929 35.3571 29.5714 35.3571 32.4643Z" fill="currentColor" />
-								</svg>
-							</a>
-							<a href="<?php echo wc_get_cart_url(); ?>" class="text-white" aria-label="Shopping Cart">
-								<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="block">
-									<path d="M15 2C16.3909 2 17.7141 2.52679 18.7142 3.52686C19.7143 4.52694 20.2411 5.85073 20.2411 7.23809V8.28571H9.75893V7.23809C9.75893 5.85073 10.2857 4.52694 11.2858 3.52686C12.2859 2.52679 13.6091 2 15 2ZM22.2615 8.28571V7.23809C22.2615 5.24494 21.4744 3.33373 20.0735 1.93252C18.6725 0.531305 16.7613 -0.256409 14.7692 -0.256409C12.7772 -0.256409 10.8659 0.531305 9.46496 1.93252C8.06411 3.33373 7.27692 5.24494 7.27692 7.23809V8.28571H2V28.5714C2 29.6646 2.43369 30.7128 3.20648 31.4856C3.97926 32.2583 5.02739 32.6919 6.12308 32.6919H23.8769C24.9726 32.6919 26.0207 32.2583 26.7935 31.4856C27.5663 30.7128 28 29.6646 28 28.5714V8.28571H22.2615Z" fill="currentColor" />
-								</svg>
-							</a>
-						</div>
 					</div>
 				</div>
 			</header>
