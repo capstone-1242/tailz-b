@@ -176,11 +176,11 @@
                             <!-- Shop Section -->
                             <div>
                                 <h3 class="font-worksans font-bold text-[20px] md:text-[24px] text-white uppercase mb-4 md:mb-4">
-                                    <a href="<?php echo esc_url(home_url('/shop')); ?>" class="text-white hover:text-[#FEA91D] transition-colors">SHOP</a>
+                                    <a href="/shop/" class="text-white hover:text-[#FEA91D] transition-colors">SHOP</a>
                                 </h3>
                                 <ul class="font-worksans text-[18px] md:text-[24px] uppercase space-y-4 md:space-y-3 text-white">
-                                    <li><a href="<?php echo esc_url(home_url('/shop/dog')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">DOG</a></li>
-                                    <li><a href="<?php echo esc_url(home_url('/shop/cat')); ?>" class="block hover:text-[#FEA91D] transition-colors py-1">CAT</a></li>
+                                    <li><a href="/product-category/dog/" class="block hover:text-[#FEA91D] transition-colors py-1">DOG</a></li>
+                                    <li><a href="/product-category/cat/" class="block hover:text-[#FEA91D] transition-colors py-1">CAT</a></li>
                                 </ul>
                             </div>
                         </div>
