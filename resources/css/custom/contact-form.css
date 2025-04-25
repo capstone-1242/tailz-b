@@ -1,153 +1,186 @@
-/* ----------------------------------------
-   CONTACT FORM / CONTACT-FORM
-   ---------------------------------------- */
-
-/* Form Container */
-.contact-form-container {
-  background-color: #F3F2EC;
-  border-radius: 30px;
-  padding: 1.5rem;
-  width: 100%;
+/* Contact Form 7 validation message styling */
+.wpcf7-not-valid-tip {
+  color: #dc2626;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 4px;
 }
 
-/* Form Header */
-.contact-form-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+.wpcf7-response-output {
+  margin: 2em 0 1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-family: 'Work Sans', sans-serif;
 }
 
-.contact-form-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
-  color: #2C2C2C;
-  text-transform: lowercase;
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+  border-color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.1);
 }
 
-.contact-form-clear-btn {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #666666;
+.wpcf7 form.sent .wpcf7-response-output {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Fix for Contact Form 7 added elements */
+.wpcf7 br {
+  display: none;
+}
+
+.wpcf7 .wpcf7-spinner {
+  margin: 0 0 0 8px;
+  background-color: #FEA91D;
+}
+
+/* Focus styles for inputs */
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus {
+  outline: none;
+  border-color: #FEA91D;
+  box-shadow: 0 0 0 2px rgba(254, 169, 29, 0.3);
+}
+
+/* Force submit button width/height to match design */
+@media (max-width: 767px) {
+  .wpcf7-submit {
+      width: 128px !important;
+      height: 46px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .wpcf7-submit {
+      width: 159.54px !important;
+      height: 60px !important;
+  }
+}
+
+/* Container & positioning (you already have a wrapper div around your CF7) */
+/* ... */
+
+/* Clear button */
+.cf7-clear {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
   background: none;
   border: none;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: opacity .2s;
 }
+.cf7-clear:hover { opacity: .8; }
 
-.contact-form-clear-btn:hover {
-  color: #444444;
-}
-
-/* Form Fields */
-.contact-form-field {
-  margin-bottom: 1rem;
-}
-
-.contact-form-label {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
+/* Title */
+.cf7-title {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
   color: #47423B;
-  display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .cf7-title { font-size: 42.65px; }
 }
 
-.contact-form-input,
-.contact-form-textarea {
-  width: 100%;
-  background-color: white;
-  border: 1px solid #D9D9D9;
-  border-radius: 10px;
-  padding: 0 1rem;
-  height: 60px;
+/* Responsive two-column for first + last name */
+.cf7-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem; /* gives breathing room below */
 }
 
-.contact-form-input:focus,
-.contact-form-textarea:focus {
-  outline: none;
-  ring: 2px;
-  ring-color: #FEA91D;
-  border-color: transparent;
+/* force flex on desktop */
+@media (min-width: 768px) {
+  .wpcf7-form .cf7-two-col {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .wpcf7-form .cf7-two-col .cf7-input {
+    flex: 1;
+    margin-bottom: 0 !important;
+    width: auto !important;
+  }
+  .wpcf7-form .cf7-two-col .wpcf7-form-control-wrap:nth-child(2) {
+    margin-left: 2.5rem !important;
+  }
 }
 
-.contact-form-textarea {
-  padding: 0.75rem 1rem;
-  resize: none;
+/* mobile stacking spacing */
+@media (max-width: 767px) {
+  .wpcf7-form .cf7-two-col .cf7-input {
+    margin-bottom: 1rem !important;
+  }
 }
 
-/* Form Separator */
-.contact-form-separator {
+/* Common row */
+.cf7-row { margin-bottom: 1.5rem; }
+
+/* Separator */
+.cf7-separator {
   height: 5px;
-  background-color: #AAAAAA;
-  width: 100%;
+  background: #AAAAAA;
   margin: 1.5rem 0;
 }
 
-/* Submit Button */
-.contact-form-submit {
-  background-color: #FEA91D;
-  color: white;
-  font-family: 'Poppins', sans-serif;
+/* Inputs */
+.cf7-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid #D9D9D9;
+  background: #FFF;
+  font-family: Work Sans, sans-serif;
+  font-size: 16px;
+  color: #2C2C2C;
+}
+
+/* Textarea */
+.cf7-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 282px;
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #D9D9D9;
+  background: #FFF;
+  resize: none;
+  font-family: Work Sans, sans-serif;
+  font-size: 16px;
+  color: #2C2C2C;
+}
+@media (min-width: 768px) {
+  .cf7-textarea { height: 326px; }
+}
+
+/* Submit button */
+.cf7-submit {
+  display: inline-block;
+  font-family: Poppins, sans-serif;
   font-weight: 700;
   font-size: 18px;
-  border-radius: 60px;
+  color: #FFF;
+  background: #FEA91D;
   border: none;
+  border-radius: 60px;
+  width: 128px;
+  height: 46px;
+  line-height: 46px;
   cursor: pointer;
+  transition: background .2s;
 }
-
-/* Mobile Specific */
-@media (max-width: 767px) {
-  .contact-form-submit {
-    width: 128px;
-    height: 46px;
-  }
-
-  .contact-form-textarea {
-    height: 282px;
-  }
-}
-
-/* Desktop Specific */
+.cf7-submit:hover { background: #e59417; }
 @media (min-width: 768px) {
-  .contact-form-submit {
+  .cf7-submit {
     width: 159.54px;
     height: 60px;
-  }
-
-  .contact-form-textarea {
-    width: 1063.2px;
-    height: 326px;
-  }
-
-  .contact-form-input {
-    width: 503px;
-  }
-
-  .contact-form-separator {
-    width: 1006px;
-  }
-
-  /* Name Fields Row */
-  .contact-form-name-row {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .contact-form-title {
-    font-size: 26px;
-  }
-  
-  .contact-form-label,
-  .contact-form-input,
-  .contact-form-textarea {
-    font-size: 18px;
-  }
-  
-  .contact-form-submit {
-    font-size: 18px;
-    padding: 0.75rem 2rem;
+    line-height: 60px;
   }
 } 
