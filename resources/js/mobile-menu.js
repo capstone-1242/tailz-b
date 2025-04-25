@@ -62,8 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const submenuToggles = document.querySelectorAll(".mobile-submenu-toggle");
   submenuToggles.forEach((toggle) => {
     toggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+      // Only prevent default if it's not the SERVICES link
+      if (!this.href || this.href.includes('/services')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
 
       const targetId = this.getAttribute("data-target");
       if (!targetId) return;
@@ -96,16 +99,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Opening submenu
         submenu.classList.remove("hidden");
         this.setAttribute("aria-expanded", "true");
-        //this.style.backgroundColor = '#1E2B79';
         const icon = this.querySelector(".toggle-icon");
         if (icon) {
-          icon.style.transform = "rotate(180deg)";
+          icon.style.transform = "rotate(90deg)";
         }
       } else {
         // Closing submenu
         submenu.classList.add("hidden");
         this.setAttribute("aria-expanded", "false");
-        this.style.backgroundColor = "";
         const icon = this.querySelector(".toggle-icon");
         if (icon) {
           icon.style.transform = "rotate(0deg)";
