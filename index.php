@@ -172,7 +172,7 @@ get_template_part('template-parts/banner');
                 <h2 class="mx-6 lg:mx-[89px] text-[#2B3FB8] text-[clamp(37px,5vw,75.8px)] uppercase leading-none">Register your pet</h2>
                 <div class="flex flex-col py-6 lg:py-[60px] px-6 lg:px-[89px] bg-[#2B3FB8] gap-[30px] lg:gap-[40px]">
                     <div class="text-[#FFFFFF] flex flex-col gap-[20px] lg:gap-[30px]">
-                        <h3 class="text-[clamp(31px,3.5vw,56.8px)] lowercase">We welcome all new furry friends!</h3>
+                        <h3 class="text-[#2B3FB8] text-[clamp(31px,3.5vw,56.8px)] lowercase">We welcome all new furry friends!</h3>
                         <p class="text-[clamp(18px,1.8vw,32px)]">Register your cat or dog today for our <a href="<?php echo esc_url(get_permalink(get_page_by_path('daycare'))); ?>" class="underline">Daycare</a> & <a href="<?php echo esc_url(get_permalink(get_page_by_path('puppy-programs'))); ?>" class="underline">Puppy Programs</a> and enjoy quicker bookings for all of ours services - their profile will be ready whenever you need us!</p>
                     </div>
                     <div class="flex flex-col gap-[20px] lg:gap-[30px]">
@@ -182,7 +182,7 @@ get_template_part('template-parts/banner');
                                 <div class="flex flex-col gap-[10px] 2xl:gap-[20px] 2xl:w-1/2">
                                     <h4 class="text-[clamp(26px,3vw,56.8px)]">head-to-TAILZ loyalty program</h4>
                                     <p class="font-bold text-[clamp(22px,2vw,24px)]">Pamper your pet and save!</p>
-                                    <p class="text-[clamp(22px,2vw,24px)]">Sign up for our <a href="" class="underline">pet spa</a> loyalty program next time you visit!</p>
+                                    <p class="text-[clamp(22px,2vw,24px)]">Sign up for our <a href="<?php echo esc_url(get_permalink(get_page_by_path('grooming'))); ?>" class="underline">pet spa</a> loyalty program next time you visit!</p>
                                 </div>
                                 <div class="flex flex-col 2xl:flex-row gap-[10px] 2xl:gap-[30px] 2xl:w-1/2">
                                     <div class="flex flex-col lowercase py-[15px] px-[30px] 2xl:py-[30px] border-4 border-[#FFFFFF] rounded-[30px]">
@@ -201,7 +201,6 @@ get_template_part('template-parts/banner');
                             </div>
                         </div>
                     </div>
-                    <button class="bg-[#FEA91D] text-[#FFFFFF] rounded-[60px] text-[clamp(18px,1.8vw,26px)] py-[15px] px-[50px] w-fit self-center lowercase font-bold hover:shadow-md">Register today</button>
                 </div>
             </div>
         </section>
@@ -278,7 +277,7 @@ get_template_part('template-parts/banner');
                     <?php endif; ?>
                 </div>
                 <div>
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="text-[#FFFFFF] text-[18px] lg:text-[24px] bg-orange py-[5px] px-[22px] lg:py-[16px] lg:px-[40px] rounded-[30px] w-fit hover:shadow-md transition-colors font-bold lowercase">Go to shop</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
                 </div>
 
             </div>
