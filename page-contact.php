@@ -162,7 +162,7 @@ $phone_number_formatted = str_replace(['-', ' ', '(', ')'], '', $contact_info['p
     </section>
 
     <!-- Mobile Form Section -->
-    <div class="md:hidden w-full mb-16">
+    <div class="md:hidden w-full mb-24">
         <?php get_template_part('template-parts/contact-form', null, ['form_id' => 'mobile']); ?>
     </div>
   </div>
@@ -277,7 +277,7 @@ $phone_number_formatted = str_replace(['-', ' ', '(', ')'], '', $contact_info['p
     </section>
 
     <!-- Desktop Form Section -->
-    <div class="col-span-2 mt-16">
+    <div class="col-span-2 mt-16 mb-24">
       <?php get_template_part('template-parts/contact-form', null, ['form_id' => 'desktop']); ?>
     </div>
   </div>
