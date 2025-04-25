@@ -345,9 +345,8 @@ get_template_part('template-parts/banner');
                 <section class="hero-banner newsletter">
                     <div class="hero-banner-content">
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
-                        <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
-                        <div class="w-full max-w-[600px] flex flex-col lg:flex-row items-stretch rounded-full border-4 border-[#FEA91D] overflow-hidden">
-                          <div class="rounded-[30px] w-fit">
+                        <p class="text-[#FFFFFF] text-[18px] lg:text-[24px] mb-8">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
+                        <div class="w-full max-w-[600px]">
                             <?php echo do_shortcode('[mc4wp_form id="697"]'); ?>
                         </div>
                     </div>
