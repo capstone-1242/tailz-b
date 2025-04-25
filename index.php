@@ -15,13 +15,13 @@ get_template_part('template-parts/banner');
 
 <!-- Breadcrumbs -->
 <nav class="border-b-2 border-cream mx-[24px] lg:mx-[90px] py-[20px] lg:py-[30px]" aria-label="Breadcrumb">
-  <ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
-    <li>
-      <a href="<?php echo home_url(); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
-        Home
-      </a>
-    </li>
-  </ol>
+    <ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
+        <li>
+            <a href="<?php echo home_url(); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
+                Home
+            </a>
+        </li>
+    </ol>
 </nav>
 
 <div>
@@ -232,22 +232,22 @@ get_template_part('template-parts/banner');
                 $gallery_query = new WP_Query($gallery_args);
                 ?>
 
-                    <?php if ($gallery_query->have_posts()) : ?>
-                        <div class="flex flex-col gap-[33px] lg:flex-row lg:max-h-[327.6px]">
-                            <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
-                                <div class="">
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        <?php the_post_thumbnail('full', array(
-                                            'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
-                                            'alt'   => get_the_title()
-                                        )); ?>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endwhile; ?>
-                        </div>
-                    <?php else : ?>
-                        <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
-                    <?php endif; ?>
+                <?php if ($gallery_query->have_posts()) : ?>
+                    <div class="flex flex-col gap-[33px] lg:flex-row lg:max-h-[327.6px]">
+                        <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
+                            <div class="">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <?php the_post_thumbnail('full', array(
+                                        'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
+                                        'alt'   => get_the_title()
+                                    )); ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php else : ?>
+                    <p class="font-bold text-[clamp(22px,2vw,24px)]">No gallery images yet. Ask us about them!</p>
+                <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
                 <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
             </div>
