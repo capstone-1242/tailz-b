@@ -62,12 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const submenuToggles = document.querySelectorAll(".mobile-submenu-toggle");
   submenuToggles.forEach((toggle) => {
     toggle.addEventListener("click", function (e) {
-      // Only prevent default if it's not the SERVICES link
-      if (!this.href || this.href.includes('/services')) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-
       const targetId = this.getAttribute("data-target");
       if (!targetId) return;
 
@@ -75,6 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!submenu) return;
 
       const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+      // If it's the SERVICES link and the submenu is already open, navigate to services page
+      if (targetId === "services-submenu" && isExpanded) {
+        window.location.href = "/services";
+        return;
+      }
 
       // Close all other submenus first
       submenuToggles.forEach((otherToggle) => {
