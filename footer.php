@@ -1,4 +1,4 @@
-<footer id="colophon" class="site-footer m-0 p-0" role="contentinfo">
+<footer id="colophon" class="site-footer m-0 p-0 mt-[60px] lg:mt-[130px]" role="contentinfo">
     <?php do_action('my_tailpress_theme_footer'); ?>
 
     <!-- Top Call-to-Action Section -->

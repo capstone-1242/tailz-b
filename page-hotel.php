@@ -87,7 +87,7 @@ get_template_part('template-parts/banner');
             <div class="flex flex-col gap-[30px] md:gap-[40px]">
                 <!-- Header -->
                 <div class="flex flex-col gap-5 mx-6 md:mx-[89px] md:w-2/3">
-                    <h2 id="packages-heading" class="text-[44.8px] md:text-[75.8px] text-[#FEA91D] lowercase">Hotel packages</h2>
+                    <h2 id="packages-heading" class="text-[44.8px] md:text-[75.8px] text-yellow lowercase">Hotel packages</h2>
                 </div>
                 <!-- Packages -->
                 <div class="px-6 md:px-[89px] bg-[#F3F2EC] py-8">
@@ -217,50 +217,6 @@ get_template_part('template-parts/banner');
                     <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Checkout time is 12:00PM during regular business hours. Late checkout fee of $17.99 applies after 12:00PM.</li>
                     <li class="flex items-baseline gap-2 before:content-['•'] before:text-[#2C2C2C] before:font-bold before:mr-2">Dogs not checked out by closing time must stay overnight and will be surcharged for additional night's stay and can be picked up the following business day.</li>
                 </ul>
-            </div>
-        </section>
-
-        <!-- Our rooms -->
-        <section aria-labelledby="rooms-heading">
-            <div class="flex flex-col gap-[20px] md:gap-[30px] mx-6 md:mx-[89px]">
-                <h2 id="rooms-heading" class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Our rooms</h2>
-                <!-- Gallery -->
-                <?php
-                $gallery_args = array(
-                    'post_type'      => 'gallery-image',
-                    'posts_per_page' => 5,
-                    'orderby'       => 'rand',
-                    'order'         => 'DESC',
-                    'tax_query'     => array(
-                        array(
-                            'taxonomy' => 'service',
-                            'field'    => 'slug',
-                            'terms'    => 'hotel',
-                        ),
-                    ),
-                );
-
-                $gallery_query = new WP_Query($gallery_args);
-                ?>
-
-                <?php if ($gallery_query->have_posts()) : ?>
-                    <div class="flex flex-col gap-[33px] lg:flex-row lg:max-h-[327.6px]">
-                        <?php while ($gallery_query->have_posts()) : $gallery_query->the_post(); ?>
-                            <div class="">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('full', array(
-                                        'class' => 'w-full h-full object-cover aspect-square rounded-[18px]',
-                                        'alt'   => get_the_title()
-                                    )); ?>
-                                <?php endif; ?>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                <?php else : ?>
-                    <p class="font-bold text-[clamp(22px,2vw,24px)]">No hotel gallery images yet. Check back soon!</p>
-                <?php endif; ?>
-                <?php wp_reset_postdata(); ?>
-                <a class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit" href="<?php echo esc_url(get_permalink(get_page_by_path('gallery'))); ?>">View more in gallery</a>
             </div>
         </section>
 
