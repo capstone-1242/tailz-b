@@ -19,6 +19,11 @@ jQuery(document).ready(function ($) {
       // Add the action
       formData.append("action", "filter_products");
 
+      formData.append(
+        "current_category",
+        $("#filter-form input[name='current_category']").val()
+      );
+
       // Convert FormData to a plain object
       const data = {};
       formData.forEach((value, key) => {
@@ -60,8 +65,11 @@ jQuery(document).ready(function ($) {
   // Clear all
   $("#clear-all-shop").on("click", function (e) {
     e.preventDefault();
-    filterForm.find("input[type=checkbox]").prop("checked", false);
-    filterForm.trigger("change"); // Trigger a change event to refresh the product listing
+    filterForm
+      .find("input[type=checkbox]")
+      .prop("checked", false)
+      .trigger("change");
+    updateFilterButtonStates(); // <-- Add this
   });
 
   // Update filter button states
@@ -69,11 +77,13 @@ jQuery(document).ready(function ($) {
     $("#filter-form input[type=checkbox]").each(function () {
       const label = $("label[for='" + $(this).attr("id") + "']");
       if ($(this).is(":checked")) {
-        label.removeClass("hover:bg-blue").addClass("bg-blue text-white");
+        label
+          .removeClass("hover:bg-blue bg-cream")
+          .addClass("bg-blue text-white");
       } else {
         label
           .removeClass("bg-blue text-white")
-          .addClass("hover:bg-blue hover:text-white");
+          .addClass("bg-cream hover:bg-blue hover:text-white");
       }
     });
   }
@@ -83,11 +93,6 @@ jQuery(document).ready(function ($) {
 
   // On change
   $("#filter-form").on("change", "input[type=checkbox]", function () {
-    updateFilterButtonStates();
-  });
-
-  // Optional: clear all button resets appearance too
-  $("#clear-all-shop").on("click", function () {
     updateFilterButtonStates();
   });
 });
