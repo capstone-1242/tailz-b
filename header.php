@@ -171,7 +171,7 @@
 			<!-- Mobile Menu -->
 			<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" role="presentation"></div>
 			<div id="mobile-menu" class="fixed inset-y-0 left-0 w-[412px] max-w-[85%] lg:hidden bg-[#2B3FB8] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
-				<button id="mobile-menu-close" type="button" class="mobile-menu-close absolute top-6 right-6 z-50 p-2 hover:text-yellow-400 transition-colors duration-200" aria-label="Close menu">
+				<button id="mobile-menu-close" type="button" class="mobile-menu-close absolute top-6 left-6 z-50 p-2 hover:text-yellow-400 transition-colors duration-200" aria-label="Close menu">
 					<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 						<rect x="0.396851" y="24.7485" width="35" height="4.0367" transform="rotate(-45 0.396851 24.7485)" fill="white" />
 						<rect x="3.25122" width="35" height="4.0367" transform="rotate(45 3.25122 0)" fill="white" />
@@ -213,17 +213,6 @@
 							<a href="<?php echo get_term_link('dog', 'product_cat'); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">DOG</a>
 							<a href="<?php echo get_term_link('cat', 'product_cat'); ?>" role="menuitem" class="block text-white text-lg font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200 py-1">CAT</a>
 						</div>
-					</div>
-
-					<!-- Login/Signup with icon before text -->
-					<div class="mt-6 border-t-2 border-white/10">
-						<a href="/login" class="menu-link login-link flex items-center gap-3 py-6 text-white text-xl font-bold hover:text-yellow-400 hover:pl-2 transition-all duration-200">
-							<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-								<path d="M14 14C15.7902 14 17.5071 13.2888 18.773 12.023C20.0388 10.7571 20.75 9.04021 20.75 7.25C20.75 5.45979 20.0388 3.7429 18.773 2.47703C17.5071 1.21116 15.7902 0.5 14 0.5C12.2098 0.5 10.4929 1.21116 9.22703 2.47703C7.96116 3.7429 7.25 5.45979 7.25 7.25C7.25 9.04021 7.96116 10.7571 9.22703 12.023C10.4929 13.2888 12.2098 14 14 14Z" fill="currentColor" />
-								<path d="M27.5 25.25C27.5 27.5 25.25 27.5 25.25 27.5H2.75C2.75 27.5 0.5 27.5 0.5 25.25C0.5 23 2.75 16.25 14 16.25C25.25 16.25 27.5 23 27.5 25.25Z" fill="currentColor" />
-							</svg>
-							<span>LOG IN / SIGN UP</span>
-						</a>
 					</div>
 				</nav>
 			</div>
