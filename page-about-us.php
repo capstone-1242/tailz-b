@@ -63,10 +63,10 @@ if (!empty($team_members_group['team_member_3']) && !empty($team_members_group['
 
   <div class="grid md:grid-cols-3 gap-8">
     <!-- To Care -->
-    <div class="relative">
+    <div class="relative h-full">
       <!-- Vertical Line (decorative) -->
-      <div class="absolute left-0 top-0 w-[4px] h-[179px] bg-[#2B3FB8]" aria-hidden="true"></div>
-      <div class="pl-3">
+      <div class="absolute left-0 top-0 w-[4px] h-full bg-[#2B3FB8]" aria-hidden="true"></div>
+      <div class="pl-3 flex flex-col h-full">
         <h3 class="font-worksans text-[28px] md:text-[42.65px] text-[#2B3FB8] mb-6">
           to care
         </h3>
@@ -77,10 +77,10 @@ if (!empty($team_members_group['team_member_3']) && !empty($team_members_group['
     </div>
 
     <!-- To Be Educated -->
-    <div class="relative">
+    <div class="relative h-full">
       <!-- Vertical Line (decorative) -->
-      <div class="absolute left-0 top-0 w-[4px] h-[179px] bg-[#FEA91D]" aria-hidden="true"></div>
-      <div class="pl-3">
+      <div class="absolute left-0 top-0 w-[4px] h-full bg-[#FEA91D]" aria-hidden="true"></div>
+      <div class="pl-3 flex flex-col h-full">
         <h3 class="font-worksans text-[28px] md:text-[42.65px] text-[#FEA91D] mb-6">
           to educate
         </h3>
@@ -91,10 +91,10 @@ if (!empty($team_members_group['team_member_3']) && !empty($team_members_group['
     </div>
 
     <!-- To Be Accessible -->
-    <div class="relative">
+    <div class="relative h-full">
       <!-- Vertical Line (decorative) -->
-      <div class="absolute left-0 top-0 w-[4px] h-[179px] bg-[#FCD41D]" aria-hidden="true"></div>
-      <div class="pl-3">
+      <div class="absolute left-0 top-0 w-[4px] h-full bg-[#FCD41D]" aria-hidden="true"></div>
+      <div class="pl-3 flex flex-col h-full">
         <h3 class="font-worksans text-[28px] md:text-[42.65px] text-[#FCD41D] mb-6">
           to be accessible
         </h3>
@@ -314,7 +314,7 @@ if (!empty($team_members_group['team_member_3']) && !empty($team_members_group['
                             class="w-[113px] h-[130px] rounded-[12px] mx-auto mb-4 object-cover"
                         >
                     <?php endif; ?>
-                    <h3 class="font-poppins font-bold text-[18px] md:text-[24px] text-[#2B3FB8] uppercase">
+                    <h3 class="font-poppins font-bold text-[18px] md:text-[24px] text-[#47423B] uppercase">
                         <?php echo esc_html($member['name']); ?>
                     </h3>
                     <p class="font-worksans text-[16px] md:text-[18px] text-[#2c2c2c]">

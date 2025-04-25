@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Daycare
  * Description: A custom template for the Daycare page with services and FAQs
@@ -207,8 +208,18 @@ get_template_part('template-parts/banner');
                         </div>
                     </div>
                     <p class="font-work-sans italic text-[16px] md:text-[18px] text-[#47423B] mt-6 text-center">
-                        * Passes and Flex Packages purchases are non-refundable, not transferable, and cannot be used for in-store credit.
+                        Monthly Automatic Passes and Flex Packages purchases are non-refundable, not transferable and not eligible for in-store credit.
                     </p>
+
+                    <!-- Note + CTA -->
+                    <div class="max-w-[600px] mx-auto text-center mt-12">
+                        <button class="self-start">
+                            <a class="rounded-[40px] bg-[#FEA91D] px-[20px] py-[11px] lowercase text-white border-2 border-transparent hover:bg-white hover:text-[#FEA91D] hover:border-[#FEA91D] transition-all duration-300 font-bold"
+                                href="https://tailz.propetware.com/">
+                                Book now
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -242,9 +253,9 @@ get_template_part('template-parts/banner');
                     Our Puppy Program is designed to give your little one the perfect start with early training, socialization, and plenty of fun to help them grow into a happy, well-adjusted dog!
                 </p>
                 <a 
-                   class="font-bold self-start rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white inline-block hover:bg-[#e77db7] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8ECC]" 
-                   href="<?php echo esc_url(home_url('/puppy-programs')); ?>"
-                   aria-label="Learn more about our puppy programs">
+                    class="font-bold self-start rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white inline-block border-2 border-transparent hover:bg-white hover:text-[#FF8ECC] hover:border-[#FF8ECC] transition-all duration-300"
+                    href="<?php echo esc_url(home_url('/puppy-programs')); ?>"
+                    aria-label="Learn more about our puppy programs">
                     Puppy programs
                 </a>
             </div>

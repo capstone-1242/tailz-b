@@ -162,7 +162,7 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 				<p class="text-[18px] text-[#2C2C2C]">Check out our Puppy Preschool, your all in one solution!</p>
 				<button class="self-start">
 					<a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold" 
-					   href="#" 
+					   href="<?php echo esc_url(home_url('/puppy-programs')); ?>" 
 					   aria-label="Book puppy preschool training now">
 						Book now
 					</a>
@@ -422,7 +422,7 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 				<div class="flex justify-center">
 					<button class="self-start">
 						<a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold" 
-						   href="#" 
+						   href="<?php echo esc_url(home_url('/gallery')); ?>" 
 						   aria-label="View more training videos in gallery">
 							View more in gallery
 						</a>

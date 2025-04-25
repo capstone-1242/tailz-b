@@ -161,7 +161,7 @@ get_template_part('template-parts/banner');
                                     <?php endforeach; ?>
                                 </ul>
 
-                                <p class="text-[22px] font-bold text-[#CB93FF]">
+                                <p class="text-[22px] font-bold text-[#47423B]">
                                     <?php echo esc_html($package['price']); ?> / hour
                                 </p>
                             </div>
@@ -172,9 +172,9 @@ get_template_part('template-parts/banner');
                 </div>
                 <div class="flex justify-center mt-8">
                     <a href="<?php echo esc_url(home_url('/book-portrait')); ?>"
-                        class="inline-block bg-[#CB93FF] text-white font-poppins font-bold text-[22px] px-8 py-3 rounded-[30px] hover:bg-[#b47ee5] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#CB93FF]"
-                        aria-label="Book a portrait session now">
-                        book now
+                        class="inline-block bg-[#CB93FF] text-white font-poppins font-bold text-[22px] px-8 py-3 rounded-[30px] border-2 border-transparent hover:bg-white hover:text-[#CB93FF] hover:border-[#CB93FF] transition-all duration-300"
+                        aria-label="Book a pet portrait photoshoot">
+                        book a photoshoot
                     </a>
                 </div>
             </div>

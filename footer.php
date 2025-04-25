@@ -221,7 +221,7 @@
                                 </div>
                                 <!-- Contact Page Button -->
                                 <a href="<?php echo esc_url(home_url('/contact')); ?>" 
-                                   class="inline-block bg-[#FEA91D] text-white font-worksans font-normal text-base py-3 px-6 rounded-[20px] hover:bg-[#e0881a] transition-colors">
+                                   class="inline-block bg-[#FEA91D] text-white font-worksans font-bold text-base py-3 px-6 rounded-[30px] hover:bg-[#e0881a] transition-colors">
                                     contact page
                                 </a>
                             </div>

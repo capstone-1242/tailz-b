@@ -135,10 +135,10 @@ if (!empty($exercise_options_group['exercise_option_3']) && !empty($exercise_opt
 
                     <!-- Book Button -->
                     <div class="flex justify-center mt-8">
-                        <a href="/book-a-session">
-                            <button class="bg-[#6FDBFC] hover:bg-[#6FDBFC]/90 transition-colors duration-200 rounded-[10px] px-8 py-4">
-                                <span class="font-poppins font-bold text-[18px] md:text-[26px] text-[#FFFFFF]">Book a session</span>
-                            </button>
+                        <a href="https://tailz.propetware.com/" 
+                           class="rounded-[40px] bg-[#6FDBFC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#6FDBFC] border-2 border-[#6FDBFC] transition-all duration-300 font-bold" 
+                           aria-label="Book a session">
+                            Book a session
                         </a>
                     </div>
                 </div>

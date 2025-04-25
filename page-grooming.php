@@ -276,7 +276,7 @@ error_log('Final processed services array: ' . print_r($services_array, true));
                                         Please review our booking policies prior to scheduling your next appointment
                                     </p>
                                     <button class="self-start">
-                                        <a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold"
+                                        <a class="rounded-[40px] bg-[#FF6A6A] px-[20px] py-[11px] lowercase text-white border-2 border-transparent hover:bg-white hover:text-[#FF6A6A] hover:border-[#FF6A6A] transition-all duration-300 font-bold"
                                             href="https://booking.moego.pet/ol/book?name=Tailz">
                                             Book now
                                         </a>
