@@ -277,7 +277,7 @@ $phone_number_formatted = str_replace(['-', ' ', '(', ')'], '', $contact_info['p
     </section>
 
     <!-- Desktop Form Section -->
-    <div class="col-span-2">
+    <div class="col-span-2 mt-16">
       <?php get_template_part('template-parts/contact-form', null, ['form_id' => 'desktop']); ?>
     </div>
   </div>
