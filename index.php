@@ -28,7 +28,7 @@ get_template_part('template-parts/banner');
     <div class="flex flex-col gap-[60px] lg:gap-[130px]">
         <!-- Our services -->
         <section>
-            <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px] py-[30px] lg:py-[50px]">
+            <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px] py-[60px] lg:py-[130px]">
                 <h2 class="text-[44.8px] lg:text-[75.8px] text-[#47423B] lowercase">Our services</h2>
                 <!-- Deck -->
                 <div class="2xl:hidden grid grid-cols-2 gap-4 lg:grid-cols-3 text-center">
@@ -287,8 +287,8 @@ get_template_part('template-parts/banner');
                         <p class="col-span-full text-brown">No featured products found.</p>
                     <?php endif; ?>
                 </div>
-                <div>
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
+                <div class="flex justify-center mt-[30px]">
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[30px] px-[16.5px] lg:py-[40px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
                 </div>
 
             </div>
@@ -347,8 +347,8 @@ get_template_part('template-parts/banner');
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
                         <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
                         <div class="flex items-center rounded-full border-4 border-[#FEA91D] overflow-hidden w-fit">
-                            <input type="email" name="email" placeholder="your email address" class="py-[20px] px-[20px] text-[16px] lg:text-[20px] bg-white text-black placeholder:text-gray-500 focus:outline-none">
-                            <button class="bg-[#FEA91D] text-white font-bold text-[16px] lg:text-[20px] px-[25px] lg:px-[50px] py-[20px] hover:bg-[#e79514] transition-all">join the pack</button>
+                            <input type="email" name="email" placeholder="your email address" class="py-[15px] px-[20px] text-[16px] lg:text-[20px] bg-white text-black placeholder:text-gray-500 focus:outline-none">
+                            <button class="bg-[#FEA91D] text-white font-bold text-[16px] lg:text-[20px] px-[25px] lg:px-[50px] py-[15px] hover:bg-[#e79514] transition-all">join the pack</button>
                         </div>
                     </div>
                 </section>
