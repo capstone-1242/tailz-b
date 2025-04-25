@@ -75,16 +75,25 @@ error_log('Final processed services array: ' . print_r($services_array, true));
 <!-- Banner -->
 <?php get_template_part('template-parts/banner'); ?>
 
-<!-- Breadcrumb -->
-<nav class="flex flex-col mx-6 md:mx-[89px] my-[16px] md:my-[60px]" aria-label="Breadcrumb">
-    <ol class="flex items-center space-x-2 text-[14px] md:text-[16px]">
-        <li><a href="<?php echo esc_url(home_url()); ?>" class="text-[#47423B]">Home</a></li>
-        <li><span class="text-[#47423B]">/</span></li>
-        <li><a href="<?php echo esc_url(home_url('/services')); ?>" class="text-[#47423B]">Services</a></li>
-        <li><span class="text-[#47423B]">/</span></li>
-        <li><span class="font-bold text-[#615849]" aria-current="page">Grooming</span></li>
+<!-- Breadcrumbs -->
+<nav class="border-b-2 border-cream py-[20px] lg:py-[30px] mx-[24px] lg:mx-[90px] mb-[60px] lg:mb-[130px]" aria-label="Breadcrumb">
+    <ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
+        <li>
+            <a href="<?php echo home_url(); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
+                Home
+            </a>
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li>
+            <a href="<?php echo esc_url(home_url('/services')); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
+                Services
+            </a>
+        </li>
+        <li class="mx-2" aria-hidden="true">/</li>
+        <li aria-current="page">
+            <span class="uppercase font-bold">Grooming</span>
+        </li>
     </ol>
-    <hr class="w-full border-t-2 border-[#F3F2EC]">
 </nav>
 
 <!-- Outer Wrapper (Matching Hotel's Structure) -->
