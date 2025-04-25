@@ -179,8 +179,9 @@ get_template_part('template-parts/banner');
 
                     <!-- Book Button -->
                     <div class="flex justify-center mt-8">
-                        <a href="<?php echo esc_url(home_url('/book-a-sleepover')); ?>" class="bg-[#FCD41D] hover:bg-[#FCD41D]/90 transition-colors duration-200 rounded-[10px] px-8 py-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FCD41D]">
-                            <span class="font-poppins font-bold text-[18px] md:text-[26px] text-[#FFFFFF]">Book a sleepover</span>
+                        <a href="https://tailz.propetware.com/" 
+                           class="font-bold rounded-[40px] bg-[#FCD41D] px-[20px] py-[11px] lowercase text-white inline-block border-2 border-transparent hover:bg-white hover:text-[#FCD41D] hover:border-[#FCD41D] transition-all duration-300">
+                            Book a sleepover
                         </a>
                     </div>
                 </div>
