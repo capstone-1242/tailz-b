@@ -330,53 +330,39 @@ function mytheme_enqueue_woocommerce_styles()
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_woocommerce_styles');
 
-add_action('woocommerce_single_product_summary', 'custom_stock_display', 25);
-function custom_stock_display()
+add_filter('woocommerce_get_stock_html', 'custom_woocommerce_stock_html', 10, 2);
+function custom_woocommerce_stock_html($html, $product)
 {
-	global $product;
-
-	$low_stock_threshold = 3; // You can adjust this number
-
 	if ($product->is_in_stock()) {
 		$qty = $product->get_stock_quantity();
+		$low_stock_threshold = (int)get_option('woocommerce_notify_low_stock_amount');
 
-		if ($product->managing_stock()) {
-			if ($qty <= $low_stock_threshold) {
-				echo '
-            <div class="stock-msg">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		if ($product->managing_stock() && $qty <= $low_stock_threshold) {
+			return '<div class="stock-msg">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" fill="#fcd41d"/>
                 </svg>
-                <p>Low stock: only ' . esc_html($qty) . ' left</p>
-            </div>';
-			} else {
-				echo '
-            <div class="stock-msg">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="#c0e333"/>
-                </svg>
-                <p>In stock: ' . esc_html($qty) . ' available</p>
-            </div>';
-			}
+				<p>Low stock: only ' . esc_html($qty) . ' left</p>
+			</div>';
+		} elseif ($product->managing_stock()) {
+			return '<div class="stock-msg">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#c0e333"/></svg>
+				<p>In stock: ' . esc_html($qty) . ' available</p>
+			</div>';
 		} else {
-			echo '
-        <div class="stock-msg">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="#c0e333"/>
-            </svg>
-            <p>In stock</p>
-        </div>';
+			return '<div class="stock-msg">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#c0e333"/></svg>
+				<p>In stock</p>
+			</div>';
 		}
 	} else {
-		echo '
-    <div class="stock-msg">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" fill="#ff6a6a"/>
-        </svg>
-        <p>Out of stock</p>
-    </div>';
+		return '<div class="stock-msg">
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#ff6a6a"/></svg>
+			<p>Out of stock</p>
+		</div>';
 	}
 }
+
 
 
 function tailz_enqueue_ajax_filter_script()
@@ -492,8 +478,9 @@ add_action('wp_ajax_nopriv_filter_products', 'tailz_ajax_product_filter');
 /**
  * Enqueue Contact Form styles for contact page
  */
-function tailz_enqueue_contact_styles() {
-	if ( is_page_template('page-contact.php') ) {
+function tailz_enqueue_contact_styles()
+{
+	if (is_page_template('page-contact.php')) {
 		wp_enqueue_style(
 			'tailz-contact-form',
 			get_stylesheet_directory_uri() . '/resources/css/custom/contact-form.css',
@@ -502,4 +489,4 @@ function tailz_enqueue_contact_styles() {
 		);
 	}
 }
-add_action( 'wp_enqueue_scripts', 'tailz_enqueue_contact_styles' );
+add_action('wp_enqueue_scripts', 'tailz_enqueue_contact_styles');
