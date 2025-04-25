@@ -149,7 +149,7 @@ $query = new WP_Query($args);
                     </svg>
                     <h3 class="text-brown text-3xl lg:text-[56px]">Dog</h3>
                 </div>
-                <img src="../resources/img/dog.png" alt="Dog" class="mx-auto md:mx-0">
+                <img src="../../img/dog.png" alt="Dog" class="mx-auto md:mx-0">
             </a>
             <!-- Cat -->
             <a href="<?php echo get_term_link('cat', 'product_cat'); ?>" class="bg-white text-brown lowercase font-poppins text-3xl font-bold px-4 pt-4 rounded-[12px] ml-[10px] w-full cursor-pointer md:flex md:justify-around">
@@ -168,7 +168,7 @@ $query = new WP_Query($args);
                     </svg>
                     <h3 class="text-brown text-3xl lg:text-[56px]">Cat</h3>
                 </div>
-                <img src="../resources/img/dog.png" alt="Cat" class="mx-auto md:mx-0">
+                <img src="../../img/dog.png" alt="Cat" class="mx-auto md:mx-0">
             </a>
         </div>
     </section>

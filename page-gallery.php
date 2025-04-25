@@ -136,12 +136,14 @@ $query = new WP_Query($args);
                         <div class="gallery-image break-inside-avoid overflow-hidden pb-[10px] md:pb-[20px]"
                             data-pet="<?php echo esc_attr($pet_slug); ?>"
                             data-service="<?php
-
                                             if (is_array($service) && !empty($service)) {
-                                                $service_slugs = array_map(function ($term) {
-                                                    return $term->slug;
-                                                }, $service);
-                                                echo implode(' ', $service_slugs);
+                                                $service_slugs = array();
+                                                foreach ($service as $term) {
+                                                    if (is_object($term) && isset($term->slug)) {
+                                                        $service_slugs[] = $term->slug;
+                                                    }
+                                                }
+                                                echo esc_attr(implode(' ', $service_slugs));
                                             }
                                             ?>">
                             <?php if ($image): ?>

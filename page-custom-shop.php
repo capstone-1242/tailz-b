@@ -9,8 +9,6 @@
 
 get_header();
 
-// Banner
-get_template_part('template-parts/banner');
 
 // Check for the filter parameter
 $pet_filter = isset($_GET['pet']) ? sanitize_text_field($_GET['pet']) : '';
