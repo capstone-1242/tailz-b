@@ -343,6 +343,13 @@
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   text-transform: lowercase;
+}
+
+.new-facility p:first-of-type{
+  color: #6FDBFC !important;
+}
+
+.new-facility button{
   font-size: 18px;
   display: inline-block;
   color: #fff;
@@ -351,14 +358,6 @@
   text-decoration: none;
   border-radius: 30px;
   margin-top: 20px;
-}
-
-.new-facility p:first-of-type{
-  color: #6FDBFC !important;
-}
-
-.new-facility button{
-  background-color: #6FDBFC !important;
 }
 
 /* Desktop */
