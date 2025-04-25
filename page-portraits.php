@@ -202,53 +202,6 @@ get_template_part('template-parts/banner');
                 </ul>
             </div>
         </section>
-
-        <!-- Example Portraits -->
-        <section aria-labelledby="examples-heading">
-            <div class="flex flex-col gap-8 w-full">
-                <h2 id="examples-heading" class="text-[44.8px] md:text-[53.8px] text-[#47423B] lowercase">
-                    example portraits
-                </h2>
-                <div class="grid grid-cols-2 gap-[var(--grid-gutter-mobile)] md:grid-cols-4 md:gap-[var(--grid-gutter-desktop)]">
-                    <?php
-                    $portraits = [
-                        ['name' => 'PEPSI', 'package' => 'Package 1'],
-                        ['name' => 'TIMMY', 'package' => 'Package 2'],
-                        ['name' => 'FISH & CHIPS', 'package' => 'Package 3'],
-                        ['name' => 'DUKE', 'package' => 'Package 4']
-                    ];
-                    $portrait_index = 1;
-                    foreach ($portraits as $portrait) : ?>
-                        <figure class="flex flex-col gap-2">
-                            <img src="https://placehold.co/172x210"
-                                alt="Portrait of <?php echo esc_attr($portrait['name']); ?>"
-                                class="rounded-[12px] w-full h-[210px] md:h-[467px] object-cover"
-                                width="413"
-                                height="467"
-                                id="portrait-example-<?php echo $portrait_index; ?>">
-                            <figcaption>
-                                <p class="text-[18px] text-[#47423B] uppercase">
-                                    <?php echo esc_html($portrait['name']); ?>
-                                </p>
-                                <p class="text-[18px] text-[#BBBBBB]">
-                                    <?php echo esc_html($portrait['package']); ?>
-                                </p>
-                            </figcaption>
-                        </figure>
-                    <?php
-                        $portrait_index++;
-                    endforeach; ?>
-                </div>
-                <div class="flex justify-center">
-                    <a href="<?php echo esc_url(home_url('/gallery')); ?>"
-                        class="inline-block bg-[#CB93FF] text-white font-poppins font-bold text-[22px] px-8 py-3 rounded-[30px] hover:bg-[#b47ee5] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#CB93FF]"
-                        aria-label="View more pet portraits in our gallery">
-                        view more in gallery
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQs -->
         <?php get_template_part('template-parts/faq-section'); ?>
 
