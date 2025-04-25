@@ -218,65 +218,6 @@ function tailpress_enqueue_page_assets()
 add_action('wp_enqueue_scripts', 'tailpress_enqueue_page_assets');
 
 /**
- * Handle contact form submission
- */
-
-function tailz_handle_contact_form()
-{
-	if (
-		! isset($_POST['tailz_contact_form_nonce']) ||
-		! wp_verify_nonce($_POST['tailz_contact_form_nonce'], 'tailz_contact_form_nonce')
-	) {
-		wp_send_json_error('Invalid nonce');
-		return;
-	}
-
-	$required_fields = array('name', 'email', 'subject', 'message');
-	$form_data = array();
-
-	foreach ($required_fields as $field) {
-		if (empty($_POST[$field])) {
-			wp_send_json_error('Please fill in all required fields');
-			return;
-		}
-		$form_data[$field] = sanitize_text_field($_POST[$field]);
-	}
-
-	$form_data['phone'] = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
-
-	$headers = array(
-		'Content-Type: text/html; charset=UTF-8',
-		'From: ' . $form_data['name'] . ' <' . $form_data['email'] . '>',
-		'Reply-To: ' . $form_data['email']
-	);
-
-	$email_subject = 'New Contact Form Submission: ' . $form_data['subject'];
-	$email_body = sprintf(
-		'<h2>New Contact Form Submission</h2>
-		<p><strong>Name:</strong> %s</p>
-		<p><strong>Email:</strong> %s</p>
-		<p><strong>Phone:</strong> %s</p>
-		<p><strong>Subject:</strong> %s</p>
-		<p><strong>Message:</strong></p>
-		<p>%s</p>',
-		$form_data['name'],
-		$form_data['email'],
-		$form_data['phone'],
-		$form_data['subject'],
-		nl2br($form_data['message'])
-	);
-
-	$sent = wp_mail(get_option('admin_email'), $email_subject, $email_body, $headers);
-	wp_send_json_success(
-		$sent ?
-			'Thank you for your message. We will get back to you soon!' :
-			'There was an error sending your message. Please try again later.'
-	);
-}
-add_action('admin_post_tailz_contact_form', 'tailz_handle_contact_form');
-add_action('admin_post_nopriv_tailz_contact_form', 'tailz_handle_contact_form');
-
-/**
  * Banner Alert Meta Box
  */
 function tailz_register_banner_meta_box()
@@ -488,27 +429,16 @@ add_action('wp_ajax_filter_products', 'tailz_ajax_product_filter');
 add_action('wp_ajax_nopriv_filter_products', 'tailz_ajax_product_filter');
 
 /**
- * Enqueue Tailz Contact Form 7 custom scripts and styles
+ * Enqueue Contact Form styles for contact page
  */
-function tailz_cf7_scripts() {
-	// Only load on pages with Contact Form 7
-	if (function_exists('wpcf7_enqueue_scripts')) {
-		// Enqueue custom CSS
+function tailz_enqueue_contact_styles() {
+	if ( is_page_template('page-contact.php') ) {
 		wp_enqueue_style(
-			'tailz-cf7-styles',
-			get_template_directory_uri() . '/resources/css/custom/tailz-cf7.css',
-			array(),
+			'tailz-contact-form',
+			get_stylesheet_directory_uri() . '/resources/css/custom/contact-form.css',
+			[],
 			'1.0'
-		);
-		
-		// Enqueue custom JavaScript
-		wp_enqueue_script(
-			'tailz-cf7-scripts',
-			get_template_directory_uri() . '/resources/js/tailz-cf7.js',
-			array('jquery', 'contact-form-7'),
-			'1.0',
-			true
 		);
 	}
 }
-add_action('wp_enqueue_scripts', 'tailz_cf7_scripts');
+add_action( 'wp_enqueue_scripts', 'tailz_enqueue_contact_styles' );
