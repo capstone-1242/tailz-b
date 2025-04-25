@@ -346,9 +346,8 @@ get_template_part('template-parts/banner');
                     <div class="hero-banner-content">
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
                         <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
-                        <div class="flex items-center rounded-full border-4 border-[#FEA91D] overflow-hidden w-fit">
-                            <input type="email" name="email" placeholder="your email address" class="py-[12px] px-[20px] text-[16px] lg:text-[20px] bg-white text-black placeholder:text-gray-500 focus:outline-none">
-                            <button class="bg-[#FEA91D] text-white font-bold text-[16px] lg:text-[20px] px-[25px] lg:px-[50px] py-[12px] hover:bg-[#e79514] transition-all">join the pack</button>
+                        <div class="rounded-[30px] border-4 border-[#FEA91D] w-fit">
+                            <?php echo do_shortcode('[mc4wp_form id="697"]'); ?>
                         </div>
                     </div>
                 </section>
