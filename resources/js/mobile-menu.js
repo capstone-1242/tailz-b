@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const isExpanded = this.getAttribute("aria-expanded") === "true";
 
-      // If it's the SERVICES link and the submenu is already open, navigate to services page
-      if (targetId === "services-submenu" && isExpanded) {
-        window.location.href = "/services";
+      // If it's the SERVICES or SHOP link and the submenu is already open, navigate to respective page
+      if ((targetId === "services-submenu" || targetId === "shop-submenu") && isExpanded) {
+        window.location.href = targetId === "services-submenu" ? "/services" : "/shop";
         return;
       }
 

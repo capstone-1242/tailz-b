@@ -171,13 +171,13 @@
 			<!-- Mobile Menu -->
 			<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" role="presentation"></div>
 			<div id="mobile-menu" class="fixed inset-y-0 left-0 w-[412px] max-w-[85%] lg:hidden bg-[#2B3FB8] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
-				<button id="mobile-menu-close" type="button" class="mobile-menu-close absolute top-6 left-6 z-50 p-2 hover:text-yellow-400 transition-colors duration-200" aria-label="Close menu">
+				<button id="mobile-menu-close" type="button" class="mobile-menu-close absolute top-6 left-6 z-50 p-2 hover:text-yellow-400 transition-colors duration-200 mb-8" aria-label="Close menu">
 					<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 						<rect x="0.396851" y="24.7485" width="35" height="4.0367" transform="rotate(-45 0.396851 24.7485)" fill="white" />
 						<rect x="3.25122" width="35" height="4.0367" transform="rotate(45 3.25122 0)" fill="white" />
 					</svg>
 				</button>
-				<nav class="mobile-menu-nav pt-20 px-8 pb-20" role="navigation">
+				<nav class="mobile-menu-nav pt-32 px-8 pb-20" role="navigation">
 					<!-- Services Section -->
 					<div class="menu-section pt-4 pb-6 border-b-2 border-white/10">
 						<button class="mobile-submenu-toggle w-full flex justify-between items-center text-white text-xl font-bold hover:text-yellow-400 transition-all duration-200" aria-expanded="false" aria-controls="services-submenu" data-target="services-submenu">
