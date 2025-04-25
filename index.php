@@ -288,7 +288,7 @@ get_template_part('template-parts/banner');
                     <?php endif; ?>
                 </div>
                 <div class="flex justify-center mt-[30px]">
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[30px] px-[16.5px] lg:py-[40px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[15px] px-[16.5px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
                 </div>
 
             </div>
@@ -339,21 +339,10 @@ get_template_part('template-parts/banner');
                 ?>
         </section>
 
-        <!-- Newsletter -->
-        <section>
-            <div class="flex flex-col">
-                <section class="hero-banner newsletter">
-                    <div class="hero-banner-content">
-                        <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
-                        <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
-                        <div class="flex items-center rounded-full border-4 border-[#FEA91D] overflow-hidden w-fit">
-                            <input type="email" name="email" placeholder="your email address" class="py-[15px] px-[20px] text-[16px] lg:text-[20px] bg-white text-black placeholder:text-gray-500 focus:outline-none">
-                            <button class="bg-[#FEA91D] text-white font-bold text-[16px] lg:text-[20px] px-[25px] lg:px-[50px] py-[15px] hover:bg-[#e79514] transition-all">join the pack</button>
-                        </div>
-                    </div>
-                </section>
+        <div class="w-full max-w-[600px] flex flex-col lg:flex-row items-stretch rounded-full border-4 border-[#FEA91D] overflow-hidden">
+            <input type="email" name="email" placeholder="your email address" class="w-full py-[15px] px-[20px] text-[16px] lg:text-[20px] bg-white text-black placeholder:text-gray-500 focus:outline-none">
+            <button class="w-full lg:w-auto bg-[#FEA91D] text-white font-bold text-[16px] lg:text-[20px] px-[25px] lg:px-[50px] py-[15px] hover:bg-[#e79514] transition-all">join the pack</button>
             </div>
-        </section>
     </div>
 </div>
 
