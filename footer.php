@@ -14,46 +14,46 @@
     <section aria-label="Footer Information" class="bg-[#FEA91D]">
         <div class="container mx-auto px-6 sm:px-4 py-8 md:py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-                <!-- Hours & Address -->
-                <div class="md:flex md:justify-between p-4 md:p-6">
+                <!-- Hours & Address Container -->
+                <div class="flex flex-col md:flex-row md:justify-between md:gap-x-16">
                     <!-- Hours -->
-                    <section aria-labelledby="hours-heading" class="mb-8 md:mb-0 md:flex-1 md:pr-16">
-                        <h3 id="hours-heading" class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase mb-4 md:mb-6">hours</h3>
+                    <div class="mb-8 md:mb-0">
+                        <h3 class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase mb-4 md:mb-6">hours</h3>
                         <div class="font-worksans text-[22px] sm:text-[26px] md:text-[28px] text-white">
                             <dl class="space-y-4">
                                 <div class="flex justify-between items-center">
-                                    <dt class="mr-10">Monday - Friday</dt>
+                                    <dt class="mr-4">Monday - Friday</dt>
                                     <dd class="text-right whitespace-nowrap">6:30 AM - 7 PM</dd>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <dt class="mr-10">Saturday</dt>
+                                    <dt class="mr-4">Saturday</dt>
                                     <dd class="text-right whitespace-nowrap">10 AM - 6 PM</dd>
                                 </div>
                                 <div class="flex justify-between items-center">
-                                    <dt class="mr-10">Sunday</dt>
+                                    <dt class="mr-4">Sunday</dt>
                                     <dd class="text-right whitespace-nowrap">CLOSED</dd>
                                 </div>
                             </dl>
                         </div>
-                    </section>
+                    </div>
 
                     <!-- Address -->
-                    <section aria-labelledby="address-heading" class="md:flex-1">
+                    <div>
                         <div class="flex items-center gap-2 mb-4 md:mb-6">
-                            <h3 id="address-heading" class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase">address</h3>
-                            <span class="hidden md:inline font-poppins font-bold text-[24px] md:text-[32px] text-white lowercase">(old)</span>
+                            <h3 class="font-poppins font-bold text-[32px] md:text-[42.65px] text-white lowercase">address</h3>
+                            <span class="font-poppins font-bold text-[24px] md:text-[32px] text-white lowercase">(old)</span>
                         </div>
                         <address class="font-worksans text-[22px] sm:text-[26px] md:text-[28px] not-italic text-white space-y-3">
                             12004 111 Ave NW<br>
                             Edmonton, AB T5G 0E6<br>
                             Canada
                         </address>
-                    </section>
+                    </div>
                 </div>
 
                 <!-- Google Map - Responsive -->
-                <div class="w-full px-0 md:px-6">
-                    <div class="w-full aspect-[4/3] md:aspect-[779/358] rounded-lg overflow-hidden">
+                <div class="w-full flex justify-center">
+                    <div class="w-full md:w-4/5 aspect-[4/3] md:aspect-[779/358] rounded-lg overflow-hidden">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1922.9597619688468!2d-113.52907477517583!3d53.561621584151794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a023c6693a924b%3A0x3d62cc652cdd68b4!2s11204%20119%20St%20NW%2C%20Edmonton%2C%20AB%20T5G%202X3!5e1!3m2!1sen!2sca!4v1741293696592!5m2!1sen!2sca"
                             width="100%"
