@@ -288,7 +288,7 @@ get_template_part('template-parts/banner');
                     <?php endif; ?>
                 </div>
                 <div class="flex justify-center mt-[30px]">
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[30px] px-[16.5px] lg:py-[40px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[15px] px-[16.5px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
                 </div>
 
             </div>
@@ -346,7 +346,8 @@ get_template_part('template-parts/banner');
                     <div class="hero-banner-content">
                         <h2 class="text-[#FFFFFF] text-[37px] lg:text-[75.8px]">Don't miss a tail-wagging update!</h2>
                         <p class="text-[#FFFFFF] text-[18px] lg:text-[24px]">Sign up for exclusive deals, pet-approved product drops, and secret coupon codes - delivered straight to your inbox</p>
-                        <div class="rounded-[30px] w-fit">
+                        <div class="w-full max-w-[600px] flex flex-col lg:flex-row items-stretch rounded-full border-4 border-[#FEA91D] overflow-hidden">
+                          <div class="rounded-[30px] w-fit">
                             <?php echo do_shortcode('[mc4wp_form id="697"]'); ?>
                         </div>
                     </div>
