@@ -374,6 +374,69 @@ function tailz_add_woocommerce_support()
 }
 add_action('after_setup_theme', 'tailz_add_woocommerce_support');
 
+function mytheme_enqueue_woocommerce_styles()
+{
+	// Only load on WooCommerce pages
+	if (is_product('WooCommerce') && is_woocommerce()) {
+		wp_enqueue_style(
+			'my-woocommerce-custom',
+			get_template_directory_uri() . '/resources/css/custom/shop.css',
+			array('woocommerce-general'), // Dependencies (if any)
+			'1.0',    // Version
+			'all'     // Media
+		);
+	}
+}
+add_action('wp_enqueue_scripts', 'mytheme_enqueue_woocommerce_styles');
+
+add_action('woocommerce_single_product_summary', 'custom_stock_display', 25);
+function custom_stock_display()
+{
+	global $product;
+
+	$low_stock_threshold = 3; // You can adjust this number
+
+	if ($product->is_in_stock()) {
+		$qty = $product->get_stock_quantity();
+
+		if ($product->managing_stock()) {
+			if ($qty <= $low_stock_threshold) {
+				echo '
+            <div class="stock-msg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#fcd41d"/>
+                </svg>
+                <p>Low stock: only ' . esc_html($qty) . ' left</p>
+            </div>';
+			} else {
+				echo '
+            <div class="stock-msg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#c0e333"/>
+                </svg>
+                <p>In stock: ' . esc_html($qty) . ' available</p>
+            </div>';
+			}
+		} else {
+			echo '
+        <div class="stock-msg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" fill="#c0e333"/>
+            </svg>
+            <p>In stock</p>
+        </div>';
+		}
+	} else {
+		echo '
+    <div class="stock-msg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" fill="#ff6a6a"/>
+        </svg>
+        <p>Out of stock</p>
+    </div>';
+	}
+}
+
 
 function tailz_enqueue_ajax_filter_script()
 {
@@ -484,18 +547,3 @@ function tailz_ajax_product_filter()
 }
 add_action('wp_ajax_filter_products', 'tailz_ajax_product_filter');
 add_action('wp_ajax_nopriv_filter_products', 'tailz_ajax_product_filter');
-
-function mytheme_enqueue_woocommerce_styles()
-{
-	// Only load on WooCommerce pages
-	if (is_product('WooCommerce') && is_woocommerce()) {
-		wp_enqueue_style(
-			'my-woocommerce-custom',
-			get_template_directory_uri() . '/resources/css/custom/shop.css',
-			array('woocommerce-general'), // Dependencies (if any)
-			'1.0',    // Version
-			'all'     // Media
-		);
-	}
-}
-add_action('wp_enqueue_scripts', 'mytheme_enqueue_woocommerce_styles');

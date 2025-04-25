@@ -158,20 +158,7 @@ $query = new WP_Query($args);
             <!-- End of Gallery -->
             <div class="flex items-center justify-center pt-[60px] pb-[100px]">
                 <div class="text-center items-center space-y-4">
-                    <svg class="inline-block" width="105" height="104" viewBox="0 0 105 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_2327_2377)">
-                            <path d="M44.9498 41.4749C44.9498 43.4273 44.1742 45.2998 42.7936 46.6803C41.413 48.0609 39.5406 48.8365 37.5882 48.8365C35.6357 48.8365 33.7633 48.0609 32.3827 46.6803C31.0022 45.2998 30.2266 43.4273 30.2266 41.4749C30.2266 39.5225 31.0022 37.65 32.3827 36.2694C33.7633 34.8889 35.6357 34.1133 37.5882 34.1133C39.5406 34.1133 41.413 34.8889 42.7936 36.2694C44.1742 37.65 44.9498 39.5225 44.9498 41.4749Z" fill="#F3F2EC" />
-                            <path d="M25.3194 19.3906C22.7162 19.3906 20.2196 20.4248 18.3788 22.2655C16.538 24.1063 15.5039 26.6029 15.5039 29.2061V78.2835C15.5039 80.8867 16.538 83.3833 18.3788 85.2241C20.2196 87.0648 22.7162 88.099 25.3194 88.099H84.2122C86.8155 88.099 89.3121 87.0648 91.1528 85.2241C92.9936 83.3833 94.0277 80.8867 94.0277 78.2835V29.2061C94.0277 26.6029 92.9936 24.1063 91.1528 22.2655C89.3121 20.4248 86.8155 19.3906 84.2122 19.3906H25.3194ZM84.2122 24.2984C85.5138 24.2984 86.7621 24.8154 87.6825 25.7358C88.6029 26.6562 89.12 27.9045 89.12 29.2061V61.1064L70.5835 51.551C70.1232 51.3205 69.6021 51.2405 69.0939 51.3224C68.5857 51.4043 68.1162 51.644 67.7517 52.0075L49.544 70.2152L36.4894 61.5186C36.0181 61.2048 35.4527 61.0637 34.8892 61.1192C34.3256 61.1746 33.7986 61.4233 33.3975 61.8229L20.4116 73.3757V29.2061C20.4116 27.9045 20.9287 26.6562 21.8491 25.7358C22.7695 24.8154 24.0178 24.2984 25.3194 24.2984H84.2122Z" fill="#F3F2EC" />
-                        </g>
-                        <line x1="2.73223" y1="102.232" x2="102.732" y2="2.23223" stroke="#F3F2EC" stroke-width="5" stroke-linejoin="round" />
-                        <defs>
-                            <clipPath id="clip0_2327_2377">
-                                <rect width="78.5238" height="78.5238" fill="white" transform="translate(15.4941 14.4824)" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    <p class="text-lg">You have reached the end of our gallery!</p>
-                    <button class="bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[6px] mb-8 lowercase hover:bg-darkblue"><a href="<?php echo home_url(); ?>">Go to Homepage</a></button>
+                    <button class="bg-blue text-white text-lg font-poppins rounded-full font-bold px-[40px] py-[8px] mb-8 lowercase hover:bg-darkblue"><a href="<?php echo home_url(); ?>">Go to Homepage</a></button>
                 </div>
             </div>
         </div>
