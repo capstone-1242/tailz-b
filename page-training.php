@@ -159,12 +159,12 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 		<section class="bg-[#F3F2EC]" role="region" aria-labelledby="puppy-preschool-heading">
 			<div class="flex flex-col px-6 pt-6 pb-[41px] md:pt-[89px] md:pb-[100px] md:px-[89px] gap-5 md:w-2/3">
 				<h2 id="puppy-preschool-heading" class="text-[44.8px] md:text-[75.8px] text-[#47423B] lowercase">Need training and socializing done for you?</h2>
-				<p class="text-[18px] text-[#2C2C2C]">Check out our Puppy Preschool, your all in one solution!</p>
+				<p class="text-[18px] text-[#2C2C2C]">Check out our Puppy Preschool, your all-in-one solution!</p>
 				<button class="self-start">
 					<a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold" 
 					   href="<?php echo esc_url(home_url('/puppy-programs')); ?>" 
 					   aria-label="Book puppy preschool training now">
-						Book now
+						puppy programs
 					</a>
 				</button>
 			</div>
