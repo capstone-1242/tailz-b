@@ -77,6 +77,10 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 }
 ?>
 
+<!-- Skip to main content link -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-[#2C2C2C]">
+	Skip to main content
+</a>
 
 <!-- Breadcrumbs -->
 <nav class="border-b-2 border-cream py-[20px] lg:py-[30px] mx-[24px] lg:mx-[90px] mb-[60px] lg:mb-[130px]" aria-label="Breadcrumb">
@@ -308,13 +312,6 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 						endif; ?>
 					</div>
 				</div>
-				<!-- Group Classes CTA -->
-				<div class="mx-6 md:mx-[89px] my-12 text-center">
-					<a href="https://tailz.propetware.com/"
-						class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold">
-						Book Classes
-					</a>
-				</div>
 			</div>
 		</section>
 
@@ -378,13 +375,6 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 						<?php endforeach;
 						endif; ?>
 					</div>
-				</div>
-				<!-- Private Training CTA -->
-				<div class="mx-6 md:mx-[89px] my-12 text-center">
-					<a href="https://tailz.propetware.com/"
-						class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold">
-						Book Private Training
-					</a>
 				</div>
 			</div>
 		</section>
