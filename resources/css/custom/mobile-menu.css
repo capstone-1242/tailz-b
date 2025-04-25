@@ -22,10 +22,8 @@
     transform: translateX(0);
   }
   
-  /* Close Button */
+  /* Close Button - Removing conflicting styles */
   #mobile-menu-close {
-    padding: 1.5rem;
-    margin-left: auto;
     color: white;
     transition: opacity 0.2s ease-in-out;
   }

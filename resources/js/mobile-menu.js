@@ -72,8 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // If it's the SERVICES or SHOP link and the submenu is already open, navigate to respective page
       if ((targetId === "services-submenu" || targetId === "shop-submenu") && isExpanded) {
-        window.location.href = targetId === "services-submenu" ? "/services" : "/shop";
-        return;
+        // Only navigate if the click is on the text, not the toggle icon
+        if (e.target === this.querySelector('span')) {
+          window.location.href = targetId === "services-submenu" ? "/services" : "/shop";
+          return;
+        }
       }
 
       // Close all other submenus first
