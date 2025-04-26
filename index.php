@@ -13,19 +13,8 @@ get_header();
 get_template_part('template-parts/banner');
 ?>
 
-<!-- Breadcrumbs -->
-<nav class="border-b-2 border-cream mx-[24px] lg:mx-[90px] py-[20px] lg:py-[30px]" aria-label="Breadcrumb">
-    <ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
-        <li>
-            <a href="<?php echo home_url(); ?>" class="uppercase font-normal hover:opacity-80 transition-opacity">
-                Home
-            </a>
-        </li>
-    </ol>
-</nav>
-
 <div>
-    <div class="flex flex-col gap-[60px] lg:gap-[130px]">
+    <div class="flex flex-col gap-[60px] lg:gap-[130px] mt-[30px] lg:mt-[60px]">
         <!-- Our services -->
         <section>
             <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px] py-[30px] lg:py-[50px]">
@@ -255,7 +244,7 @@ get_template_part('template-parts/banner');
 
         <!-- Our shop -->
         <section>
-            <div class="px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
+            <div class="flex flex-col gap-[20px] lg:gap-[30px] px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
                 <?php
                 $args = [
                     'post_type'      => 'product',
@@ -287,7 +276,7 @@ get_template_part('template-parts/banner');
                         <p class="col-span-full text-brown">No featured products found.</p>
                     <?php endif; ?>
                 </div>
-                <div class="flex justify-center mt-[30px]">
+                <div class="flex flex-col">
                     <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[10px] lg:py-[16px] px-[16.5px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
                 </div>
 
