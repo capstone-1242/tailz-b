@@ -14,7 +14,7 @@ get_template_part('template-parts/banner');
 ?>
 
 <div>
-    <div class="flex flex-col gap-[60px] lg:gap-[130px] mt-[30px] lg:mt-[60px]">
+    <div class="flex flex-col gap-[60px] lg:gap-[130px] mt-[60px] lg:mt-[130px]">
         <!-- Our services -->
         <section>
             <div class="flex flex-col gap-[20px] lg:gap-[30px] mx-6 lg:mx-[89px] py-[30px] lg:py-[50px]">
@@ -169,7 +169,7 @@ get_template_part('template-parts/banner');
         <!-- Pet Registration -->
         <section>
             <div class="flex flex-col">
-                <h2 class="mx-6 lg:mx-[89px] text-[#2B3FB8] text-[clamp(37px,5vw,75.8px)] uppercase leading-none">Register your pet</h2>
+                <h2 class="mx-6 lg:mx-[89px] text-[#2B3FB8] text-[clamp(37px,5vw,75.8px)] uppercase leading-6 md:leading-7 lg:leading-10">Register your pet</h2>
                 <div class="flex flex-col py-6 lg:py-[60px] px-6 lg:px-[89px] bg-[#2B3FB8] gap-[30px] lg:gap-[40px]">
                     <div class="text-[#FFFFFF] flex flex-col gap-[20px] lg:gap-[30px]">
                         <h3 class="text-[#FFFFFF] text-[clamp(31px,3.5vw,56.8px)] lowercase">We welcome all new furry friends!</h3>
