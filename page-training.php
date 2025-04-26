@@ -313,8 +313,7 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 		<!-- Group Classes CTA -->
 		<div class="mx-6 md:mx-[89px] my-12 text-center">
 			<a href="https://tailz.propetware.com/"
-				class="inline-block px-6 py-3 bg-[#FF8ECC] text-white font-bold rounded-full 
-						hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition">
+				class="rounded-[40px] bg-[#C0E333] px-[20px] py-[11px] lowercase text-white border-2 border-transparent hover:bg-white hover:text-[#C0E333] hover:border-[#C0E333] transition-all duration-300 font-bold">
 				Book Group Classes
 			</a>
 		</div>
@@ -386,8 +385,7 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 		<!-- Private Training CTA -->
 		<div class="mx-6 md:mx-[89px] my-12 text-center">
 			<a href="https://tailz.propetware.com/"
-				class="inline-block px-6 py-3 bg-[#FF8ECC] text-white font-bold rounded-full 
-						hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition">
+				class="rounded-[40px] bg-[#C0E333] px-[20px] py-[11px] lowercase text-white border-2 border-transparent hover:bg-white hover:text-[#C0E333] hover:border-[#C0E333] transition-all duration-300 font-bold">
 				Book Private Training
 			</a>
 		</div>
