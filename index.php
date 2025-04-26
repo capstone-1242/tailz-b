@@ -255,7 +255,7 @@ get_template_part('template-parts/banner');
 
         <!-- Our shop -->
         <section>
-            <div class="px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
+            <div class="flex flex-col px-[24px] py-[20px] mb-[60px] lg:px-[90px] lg:py-[60px] lg:mb-[130px]">
                 <?php
                 $args = [
                     'post_type'      => 'product',
