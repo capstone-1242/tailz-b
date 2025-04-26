@@ -277,7 +277,7 @@ get_template_part('template-parts/banner');
                     <?php endif; ?>
                 </div>
                 <div class="flex flex-col">
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[9.5px] px-[16.5px] lg:py-[16px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('shop'))); ?>" class="self-center lowercase font-bold text-[18px] lg:text-[26px] text-[#FFFFFF] py-[10px] lg:py-[16px] px-[16.5px] lg:px-[53px] rounded-[60px] bg-[#FEA91D] w-fit hover:shadow-md">Go to shop</a>
                 </div>
 
             </div>

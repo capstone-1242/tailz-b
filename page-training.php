@@ -77,11 +77,6 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 }
 ?>
 
-<!-- Skip to main content link -->
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-[#2C2C2C]">
-	Skip to main content
-</a>
-
 <!-- Breadcrumbs -->
 <nav class="border-b-2 border-cream py-[20px] lg:py-[30px] mx-[24px] lg:mx-[90px] mb-[60px] lg:mb-[130px]" aria-label="Breadcrumb">
 	<ol class="flex items-center font-worksans text-[14px] md:text-[16px] text-darkbrown">
@@ -315,6 +310,15 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 			</div>
 		</section>
 
+		<!-- Group Classes CTA -->
+		<div class="mx-6 md:mx-[89px] my-12 text-center">
+			<a href="https://tailz.propetware.com/"
+				class="inline-block px-6 py-3 bg-[#FF8ECC] text-white font-bold rounded-full 
+						hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition">
+				Book Group Classes
+			</a>
+		</div>
+
 		<!-- Private training -->
 		<section aria-labelledby="private-training-heading" role="region">
 			<div class="flex flex-col gap-[30px] md:gap-[40px]">
@@ -378,6 +382,15 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 				</div>
 			</div>
 		</section>
+
+		<!-- Private Training CTA -->
+		<div class="mx-6 md:mx-[89px] my-12 text-center">
+			<a href="https://tailz.propetware.com/"
+				class="inline-block px-6 py-3 bg-[#FF8ECC] text-white font-bold rounded-full 
+						hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition">
+				Book Private Training
+			</a>
+		</div>
 
 		<!-- Training Preview -->
 		<?php if (!empty($trainingPreviews)) : ?>
@@ -447,15 +460,6 @@ if (!empty($training_preview_group['video_3']) && !empty($training_preview_group
 						</div>
 						<h3 class="font-work-sans text-[24px] md:text-[31.99px] text-black mb-4 uppercase"><?php echo esc_html($video['title']); ?></h3>
 					<?php endif; ?>
-					<div class="flex justify-center">
-						<button class="self-start">
-							<a class="rounded-[40px] bg-[#FF8ECC] px-[20px] py-[11px] lowercase text-white hover:bg-white hover:text-[#FF8ECC] border-2 border-[#FF8ECC] transition-all duration-300 font-bold"
-								href="<?php echo esc_url(home_url('/gallery')); ?>"
-								aria-label="View more training videos in gallery">
-								View more in gallery
-							</a>
-						</button>
-					</div>
 				</div>
 			</section>
 		<?php endif; ?>
